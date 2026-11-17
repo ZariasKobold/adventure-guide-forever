@@ -106,7 +106,10 @@ local function run()
 			tostring(EJMicroButton:IsEnabled()))
 	end
 
-	AGProbeDB = { when = date("%Y-%m-%d %H:%M"), lines = CopyTable and CopyTable(report) or report }
+	-- Each scan saves into its own section, so running one never erases another's results.
+	AGProbeDB = AGProbeDB or {}
+	AGProbeDB.when = date("%Y-%m-%d %H:%M")
+	AGProbeDB.lines = CopyTable and CopyTable(report) or report
 	log("Done. /reload or log out to write the SavedVariables file.")
 end
 
