@@ -34,7 +34,7 @@ Tests load the real addon files in Lua 5.1. When you add a Lua file, add it to *
 
 - Client 1.60.1, **Interface 16001**, TOC suffix `_Forever.toc`. Runs the **modern Midnight (12.x) UI and API**, not Classic's.
 - `Blizzard_EncounterJournal` ships but refuses to load (`WRONG_GAME_TYPE`), and all EJ_* data is empty. So the addon supplies its own data.
-- Shift+J is still bound to `TOGGLEENCOUNTERJOURNAL` but opens Guild & Communities, so we claim it with `SetOverrideBindingClick`. `EJMicroButton` exists and is shown.
+- Shift+J is still bound to `TOGGLEENCOUNTERJOURNAL` but opens Guild & Communities, so we claim it with `SetOverrideBindingClick`. `EJMicroButton` exists but is not on the menu bar, so `UI/MicroButton.lua` adds our own after Collections: the Dragonflight `UI-HUD-MicroMenu-AdventureGuide-*` icon atlas exists, and the frame is copied from the neighbour's `Background`/`PushedBackground` (verified Nov 17, 2026).
 - `PlayerModel:SetDisplayInfo` works.
 - Install path: `World of Warcraft\_forever_\Interface\AddOns\`.
 
