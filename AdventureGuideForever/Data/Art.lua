@@ -44,11 +44,9 @@ local ART = {
 	barrowdeeps    = { loading = 131847 },
 	hyjalsummit    = { loading = 131847 },
 
-	-- Forever-new dungeons with only a Dungeon Finder icon from older content.
-	ruinslordaeron = { icon = 460869 },
-	dalaran        = { icon = 460862 },
-
-	-- Forever-new instances with bundled loading-screen art.
+	-- Forever-new instances with bundled loading-screen art (plus a finder icon where one exists).
+	ruinslordaeron = { image = bundled("ruinslordaeron"), icon = 460869 },
+	dalaran        = { image = bundled("dalaran"), icon = 460862 },
 	hallofthanes   = { image = bundled("hallofthanes") },
 	excavation     = { image = bundled("excavation") },
 	drownedcity    = { image = bundled("drownedcity") },

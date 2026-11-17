@@ -8,7 +8,7 @@ converted from the published screenshot: letterbox bars trimmed, then stretched 
 | File | Source |
 |---|---|
 | `hallofthanes.tga` | wowforeverguides.com (client art) |
-| `excavation.tga`, `drownedcity.tga`, `kroldok.tga`, `alcaz.tga`, `blackmaw.tga`, `shaperterrace.tga` | wowforevertalents.com (instance art) |
+| `excavation.tga`, `drownedcity.tga`, `kroldok.tga`, `alcaz.tga`, `blackmaw.tga`, `shaperterrace.tga`, `ruinslordaeron.tga`, `dalaran.tga` | wowforevertalents.com (instance art) |
 
 Fetched 2026-11-17. If Blizzard's own file IDs for these turn up (`/agprobe art`), prefer
 those in `Data/Art.lua` and delete the bundled copy.
