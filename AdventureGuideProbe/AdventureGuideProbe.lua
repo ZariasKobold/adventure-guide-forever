@@ -181,9 +181,127 @@ local function deep()
 	log("Deep scan done. /reload to save it.")
 end
 
+------------------------------------------------------------------------
+-- /agprobe art: which dungeon artwork files exist in this client?
+-- Tries Blizzard's naming patterns for journal buttons, journal lore art, LFG
+-- backgrounds/icons, and loading screens, for every instance name variant.
+------------------------------------------------------------------------
+
+-- Instance key -> name variants Blizzard has used in art file names.
+local ART_NAMES = {
+	hallofthanes = { "HallofThanes", "TheHallofThanes", "HallsofThanes" },
+	ragefire = { "RagefireChasm", "Ragefire" },
+	ruinslordaeron = { "RuinsofLordaeron", "Lordaeron" },
+	deadmines = { "Deadmines", "TheDeadmines" },
+	wailing = { "WailingCaverns" },
+	shadowfang = { "ShadowfangKeep", "Shadowfang" },
+	excavation = { "ExcavationSite", "ExcavationSiteWetlands", "Wetlands" },
+	blackfathom = { "BlackfathomDeeps", "Blackfathom" },
+	stockade = { "Stockade", "TheStockade", "StormwindStockade", "StormwindJail" },
+	dalaran = { "Dalaran", "CityofDalaran", "DalaranSewers" },
+	razorfenkraul = { "RazorfenKraul" },
+	gnomeregan = { "Gnomeregan" },
+	scarlet = { "ScarletMonastery", "Monastery", "ScarletHalls", "ScarletGraveyard",
+		"ScarletLibrary", "ScarletArmory", "ScarletCathedral" },
+	drownedcity = { "DrownedCity", "TheDrownedCity" },
+	razorfendowns = { "RazorfenDowns" },
+	kroldok = { "KroldokStronghold", "Kroldok" },
+	uldaman = { "Uldaman" },
+	zulfarrak = { "ZulFarrak", "Zulfarrak" },
+	alcaz = { "AlcazPrison", "Alcaz" },
+	maraudon = { "Maraudon" },
+	sunkentemple = { "SunkenTemple", "TempleofAtalHakkar", "TempleOfAtalHakkar" },
+	brd = { "BlackrockDepths" },
+	diremaul = { "DireMaul", "DireMaulEast", "DireMaulWest", "DireMaulNorth" },
+	blackmaw = { "BlackmawHold", "Blackmaw" },
+	lbrs = { "LowerBlackrockSpire", "BlackrockSpire" },
+	ubrs = { "UpperBlackrockSpire" },
+	scholomance = { "Scholomance" },
+	shaperterrace = { "ShapersTerrace", "TheShapersTerrace" },
+	stratholme = { "Stratholme" },
+	barrowdeeps = { "BarrowDeeps" },
+	hyjalsummit = { "HyjalSummit", "MountHyjal", "Hyjal" },
+	onyxia = { "OnyxiasLair", "Onyxia" },
+}
+
+local ART_PATTERNS = {
+	"Interface\\EncounterJournal\\UI-EJ-DUNGEONBUTTON-%s",
+	"Interface\\EncounterJournal\\UI-EJ-LOREBG-%s",
+	"Interface\\LFGFrame\\UI-LFG-BACKGROUND-%s",
+	"Interface\\LFGFrame\\LFGIcon-%s",
+	"Interface\\Glues\\LoadingScreens\\LoadScreen%s",
+	"Interface\\Glues\\LoadingScreens\\LoadingScreen_%s",
+}
+
+local function textureExists(tex, path)
+	tex:SetTexture(nil)
+	local ok, result = pcall(tex.SetTexture, tex, path)
+	local fileID = tex.GetTextureFileID and tex:GetTextureFileID()
+	return ok and (result == true or (fileID and fileID > 0)), fileID
+end
+
+local function art()
+	wipe(report)
+	local probeFrame = CreateFrame("Frame")
+	local tex = probeFrame:CreateTexture()
+	-- Sanity check: one file that must exist, one that must not.
+	local real = textureExists(tex, "Interface\\Icons\\INV_Misc_QuestionMark")
+	local fake = textureExists(tex, "Interface\\Icons\\AGProbe_DoesNotExist")
+	log("Detector check: real file %s, fake file %s (want true, false)", tostring(real), tostring(fake))
+
+	local found, total = {}, 0
+	for key, names in pairs(ART_NAMES) do
+		for _, name in ipairs(names) do
+			for _, pattern in ipairs(ART_PATTERNS) do
+				local path = pattern:format(name)
+				total = total + 1
+				local ok, fileID = textureExists(tex, path)
+				if ok then
+					table.insert(found, string.format("%s|%s|%s", key, path, tostring(fileID)))
+				end
+			end
+		end
+	end
+	table.sort(found)
+	log("Art: %d of %d candidate files exist", #found, total)
+	for _, line in ipairs(found) do log("  %s", line) end
+	AGProbeDB = AGProbeDB or {}
+	AGProbeDB.art = { when = date("%Y-%m-%d %H:%M"), found = found, total = total, detector = { real, fake } }
+	log("Art scan done. /reload to save it.")
+end
+
+------------------------------------------------------------------------
+-- /agprobe maps: which in-game maps exist for dungeons and raids?
+------------------------------------------------------------------------
+
+local function maps()
+	wipe(report)
+	local rows = {}
+	local dungeonType = Enum and Enum.UIMapType and Enum.UIMapType.Dungeon
+	for id = 1, 3000 do
+		local info = C_Map.GetMapInfo(id)
+		if info and (info.mapType == dungeonType) then
+			local layers = C_Map.GetMapArtLayers and C_Map.GetMapArtLayers(id)
+			local group = C_Map.GetMapGroupID and C_Map.GetMapGroupID(id)
+			table.insert(rows, string.format("%d|%s|parent=%s|group=%s|layers=%s",
+				id, info.name, tostring(info.parentMapID), tostring(group),
+				tostring(layers and #layers or 0)))
+		end
+	end
+	log("Dungeon-type maps: %d", #rows)
+	for i = 1, math.min(#rows, 15) do log("  %s", rows[i]) end
+	AGProbeDB = AGProbeDB or {}
+	AGProbeDB.maps = { when = date("%Y-%m-%d %H:%M"), rows = rows }
+	log("Map scan done. /reload to save it (the full list is in the saved file).")
+end
+
 SLASH_AGPROBE1 = "/agprobe"
 SlashCmdList.AGPROBE = function(msg)
-	if msg == "deep" then
+	if msg == "art" then
+		art()
+	elseif msg == "maps" then
+		maps()
+	elseif msg == "deep" then
 		deep()
 	elseif msg == "open" then
 		if ToggleEncounterJournal then
@@ -200,5 +318,5 @@ end
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", function()
-	print("|cff66ccffAGProbe|r loaded. Type /agprobe to scan, /agprobe deep for ID lookups, /agprobe open to try opening the guide.")
+	print("|cff66ccffAGProbe|r loaded. Type /agprobe art and /agprobe maps (then /reload), /agprobe to scan, /agprobe deep for ID lookups, /agprobe open to try opening the guide.")
 end)
