@@ -7,11 +7,18 @@
 --   loading  loading screen
 --   finder   Dungeon Finder background
 --   icon     small round Dungeon Finder icon
+--   image    a picture bundled with the addon (Art\<key>.tga), for Forever-new instances
 --
--- Forever-new instances have no art under Blizzard's names yet; the UI draws a fallback.
+-- Forever-new instances have no art under Blizzard's names, so the addon bundles their
+-- loading-screen art: 1024x512 TGA, stretched from the ~2.6:1 original with the letterbox
+-- bars trimmed (UI.SetArt undoes the stretch). Anything still missing gets a drawn card.
 -- Scarlet Monastery, Dire Maul, and Blackrock Spire wings share their dungeon's art.
 
-local _, AG = ...
+local addonName, AG = ...
+
+local function bundled(key)
+	return "Interface\\AddOns\\" .. addonName .. "\\Art\\" .. key
+end
 
 local ART = {
 	ragefire       = { button = 608211, lore = 608250, loading = 131862, finder = 340682, icon = 136350 },
@@ -40,6 +47,15 @@ local ART = {
 	-- Forever-new dungeons with only a Dungeon Finder icon from older content.
 	ruinslordaeron = { icon = 460869 },
 	dalaran        = { icon = 460862 },
+
+	-- Forever-new instances with bundled loading-screen art.
+	hallofthanes   = { image = bundled("hallofthanes") },
+	excavation     = { image = bundled("excavation") },
+	drownedcity    = { image = bundled("drownedcity") },
+	kroldok        = { image = bundled("kroldok") },
+	alcaz          = { image = bundled("alcaz") },
+	blackmaw       = { image = bundled("blackmaw") },
+	shaperterrace  = { image = bundled("shaperterrace") },
 }
 
 -- Wings that share their parent dungeon's art.
@@ -57,8 +73,8 @@ AG.Art = ART
 
 -- The best available picture for a use, falling back through related art.
 local PREFERENCE = {
-	card   = { "button", "finder", "loading", "lore" },
-	header = { "loading", "lore", "finder", "button" },
+	card   = { "button", "image", "finder", "loading", "lore" },
+	header = { "loading", "image", "lore", "finder", "button" },
 }
 
 function AG:GetArt(instKey, use)

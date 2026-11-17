@@ -12,6 +12,7 @@ A World of Warcraft: Forever addon that rebuilds the retail **Adventure Guide** 
 | `AdventureGuideForever/Data/Registry.lua` | Merges Content + Generated into `AG.Guides` at load. Its header documents both schemas and the merge rules. |
 | `AdventureGuideForever/Data/Instances.lua` | All 37 Forever instances (key, name, zone, levels). |
 | `AdventureGuideForever/Data/Art.lua` | Blizzard art file IDs per instance (journal button, lore, loading screen, finder), found with `/agprobe art`. |
+| `AdventureGuideForever/Art/` | Bundled 1024x512 TGA loading-screen art for the 7 Forever-new instances (sources in its README). |
 | `AdventureGuideForever/Learn.lua` | Learning mode: records loot, models, and boss spells from play. |
 | `AdventureGuideForever/UI/` | `MainFrame` (window, tabs), `InstanceList` (art card grid), `InstanceOverview` (instance page), `InstancePage` (overview + boss list), `BossPage` (bestiary layout), `Document` (shared scrolling layout), `Widgets`. |
 | `AdventureGuideProbe/` | Diagnostic addon (`/agprobe`, `/agprobe art`, `/agprobe maps`, `/agprobe deep`). Not shipped. |
@@ -56,7 +57,7 @@ Rules from `https://wowforeverguides.com/addons/developers` (beta-era; its claim
 
 - **v0.4.0**: art card grid, instance overview pages, bestiary-style boss pages, lore and strategy for all 37 instances (252 of 286 bosses have strategy), drop chances supported. Not yet tested in game. v0.3.0 was tested in game and worked.
 - Forever has **no dungeon maps** (`/agprobe maps`: only 60 world and zone maps), so the overview uses a written route instead of a map.
-- Forever-new dungeons have no Blizzard art yet; their cards are drawn. Dalaran, Krol'dok, Shaper's Terrace, and the Hyjal raids (open Dec 9) have no boss mechanics published; learning mode fills them in.
+- Forever-new dungeons have no Blizzard art file IDs, so their loading-screen art is bundled in `Art/` (Ruins of Lordaeron and Dalaran use their finder icons). Dalaran, Krol'dok, Shaper's Terrace, and the Hyjal raids (open Dec 9) have no boss mechanics published; learning mode fills them in.
 - Drop chances need one more run of `tools/wowhead/extract_npcs.js` (v2 adds drop counts), then `build_wowhead.py`.
 
 ## Git and versioning

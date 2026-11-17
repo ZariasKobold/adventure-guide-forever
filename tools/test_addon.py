@@ -114,7 +114,19 @@ class ContentTests(unittest.TestCase):
     def test_art_ids_are_numbers(self):
         for key, art in to_py(self.ag.Art).items():
             for kind, file_id in art.items():
-                self.assertIsInstance(file_id, int, f"{key}.{kind}")
+                if kind != "image":
+                    self.assertIsInstance(file_id, int, f"{key}.{kind}")
+
+    def test_bundled_art_files_exist(self):
+        addon = Path(__file__).resolve().parent.parent / "AdventureGuideForever"
+        prefix = "Interface\\AddOns\\AdventureGuideForever\\"
+        for key, art in to_py(self.ag.Art).items():
+            if "image" not in art:
+                continue
+            path = art["image"]
+            self.assertTrue(path.startswith(prefix), f"{key}: {path}")
+            rel = path[len(prefix):].replace("\\", "/") + ".tga"
+            self.assertTrue((addon / rel).is_file(), f"{key}: missing {rel}")
 
     def test_instance_text_fields(self):
         for key, g in self.guides.items():
