@@ -55,10 +55,10 @@ Rules from `https://wowforeverguides.com/addons/developers` (beta-era; its claim
 
 ## Status (Nov 17, 2026)
 
-- **v0.4.0**: art card grid, instance overview pages, bestiary-style boss pages, lore and strategy for all 37 instances (252 of 286 bosses have strategy), drop chances supported. Not yet tested in game. v0.3.0 was tested in game and worked.
+- **v0.4.1**: drop chances on 1047 items, bundled art for all 9 Forever-new instances. **v0.4.0**: art card grid, instance overview pages, bestiary-style boss pages, lore and strategy for all 37 instances (252 of 286 bosses have strategy), drop chances supported. Tested in game Nov 17, 2026: card grid, overview and boss pages all work.
 - Forever has **no dungeon maps** (`/agprobe maps`: only 60 world and zone maps), so the overview uses a written route instead of a map.
 - Forever-new dungeons have no Blizzard art file IDs, so their loading-screen art is bundled in `Art/`. Dalaran, Krol'dok, Shaper's Terrace, and the Hyjal raids (open Dec 9) have no boss mechanics published; learning mode fills them in.
-- Drop chances need one more run of `tools/wowhead/extract_npcs.js` (v2 adds drop counts), then `build_wowhead.py`.
+- Drop chances are filled from `npcs.json` (extract_npcs.js v2, Nov 17, 2026).
 
 ## Git and versioning
 

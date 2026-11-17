@@ -2,7 +2,7 @@
 ## Title: Adventure Guide |cff66ccffForever|r
 ## Notes: Brings the Adventure Guide back to WoW Forever. Open with Shift+J, the micro menu button, or /ag.
 ## Author: Draconic Designs
-## Version: 0.4.0
+## Version: 0.4.1
 ## SavedVariables: AdventureGuideForeverDB
 ## IconTexture: Interface\Icons\INV_Misc_Book_09
 ## Category: Dungeons & Raids
