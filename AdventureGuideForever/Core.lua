@@ -147,48 +147,12 @@ function AG:ApplyBindings()
 	end
 end
 
--- The Adventure Guide micro button (the book on the menu bar). Forever keeps it, but
--- Blizzard's own code greys it out because their guide can't load here, and a greyed
--- button ignores clicks. So we keep it enabled, give it our tooltip, and show it pressed
--- while the guide is open. Blizzard's update methods run often; we re-apply after each.
-local MICRO_UPDATES = { "UpdateMicroButton", "UpdateDisplay", "EvaluateAlertVisibility", "Disable" }
-
-local function microTooltip()
-	local title = ADVENTURE_JOURNAL or "Adventure Guide"
-	if MicroButtonTooltipText then return MicroButtonTooltipText(title, "TOGGLEENCOUNTERJOURNAL") end
-	return title
-end
-
-function AG:UpdateMicroButton()
-	local button = EJMicroButton
-	if not button then return end
-	if not button:IsEnabled() then button:Enable() end
-	button.tooltipText = microTooltip()
-	button.disabledTooltip = nil
-	local open = self.frame and self.frame:IsShown()
-	if open then
-		if button.SetPushed then button:SetPushed() else button:SetButtonState("PUSHED", true) end
-	else
-		if button.SetNormal then button:SetNormal() else button:SetButtonState("NORMAL") end
-	end
-end
-
+-- Blizzard's EJMicroButton is kept by Forever but left off the menu bar. If anything does
+-- show it, make it open our guide. Our own bar button lives in UI\MicroButton.lua.
 local function hookMicroButton()
-	local button = EJMicroButton
-	if not button or AG.microHooked then return end
+	if not EJMicroButton or AG.microHooked then return end
 	AG.microHooked = true
-	button:SetScript("OnClick", function() AG:Toggle() end)
-	for _, method in ipairs(MICRO_UPDATES) do
-		if type(button[method]) == "function" then
-			hooksecurefunc(button, method, function() AG:UpdateMicroButton() end)
-		end
-	end
-	-- If the menu bar left it out, put it back in.
-	if not button:IsShown() then
-		button:Show()
-		if MicroMenu and MicroMenu.Layout then MicroMenu:Layout() end
-	end
-	AG:UpdateMicroButton()
+	EJMicroButton:SetScript("OnClick", function() AG:Toggle() end)
 end
 
 local function installOpeners()
@@ -198,6 +162,7 @@ local function installOpeners()
 	end
 	AG:ApplyBindings()
 	hookMicroButton()
+	AG:CreateMicroButton()
 end
 
 -- Addon compartment (the addon list button by the minimap), declared in the TOC.
