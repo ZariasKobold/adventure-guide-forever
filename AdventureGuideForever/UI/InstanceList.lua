@@ -60,9 +60,15 @@ local function createCard(owner)
 	card.fallback = card:CreateTexture(nil, "BACKGROUND", nil, 1)
 	card.fallback:SetAllPoints()
 	card.fallback:SetTexture("Interface\\Buttons\\WHITE8x8")
-	card.emblem = card:CreateTexture(nil, "BORDER")
-	card.emblem:SetSize(46, 46)
-	card.emblem:SetPoint("CENTER", 0, -4)
+	-- Centered emblem in a thin gold frame, so every drawn card looks alike.
+	card.emblemFrame = card:CreateTexture(nil, "BORDER", nil, 0)
+	card.emblemFrame:SetSize(50, 50)
+	card.emblemFrame:SetPoint("CENTER", 0, -4)
+	card.emblemFrame:SetColorTexture(0.55, 0.45, 0.25, 1)
+	card.emblem = card:CreateTexture(nil, "BORDER", nil, 1)
+	card.emblem:SetSize(48, 48)
+	card.emblem:SetPoint("CENTER", card.emblemFrame)
+	card.emblem:SetTexCoord(0.07, 0.93, 0.07, 0.93)
 
 	-- Shading at top and bottom keeps text readable over any picture.
 	card.topShade = card:CreateTexture(nil, "ARTWORK")
@@ -111,20 +117,29 @@ end
 local function paintCard(card, inst)
 	local fileID, kind = AG:GetArt(inst.key, "card")
 	local hasArt = fileID ~= nil
-	card.art:SetShown(hasArt)
+	local art = AG.Art[inst.key]
+	local icon = not hasArt and art and art.icon
+	card.art:SetShown(hasArt or icon ~= nil)
 	card.fallback:SetShown(not hasArt)
 	if hasArt then
+		card.art:SetVertexColor(1, 1, 1)
 		UI.SetArt(card.art, fileID, kind, CARD_W, CARD_H)
+	elseif icon then
+		-- Only a small icon: stretch it, dimmed, behind a translucent wash as the background,
+		-- and show it sharp in the center.
+		card.art:SetVertexColor(0.6, 0.6, 0.6)
+		UI.SetArt(card.art, icon, "icon", CARD_W, CARD_H)
+		card.fallback:SetGradient("VERTICAL", CreateColor(0.12, 0.08, 0.02, 0.85), CreateColor(0.36, 0.26, 0.08, 0.45))
 	elseif inst.isNew then
 		-- New Forever content: warm gold, with the instance's finder icon if it has one.
 		card.fallback:SetGradient("VERTICAL", CreateColor(0.12, 0.08, 0.02, 1), CreateColor(0.36, 0.26, 0.08, 1))
 	else
 		card.fallback:SetGradient("VERTICAL", CreateColor(0.04, 0.05, 0.08, 1), CreateColor(0.14, 0.16, 0.22, 1))
 	end
-	local art = AG.Art[inst.key]
-	local emblem = not hasArt and (art and art.icon
+	local emblem = not hasArt and (icon
 		or (inst.isRaid and "Interface\\Icons\\INV_Misc_Head_Dragon_Black" or "Interface\\Icons\\INV_Misc_Map_01"))
-	card.emblem:SetShown(emblem ~= nil and emblem ~= false)
+	card.emblem:SetShown(emblem ~= false)
+	card.emblemFrame:SetShown(emblem ~= false)
 	if emblem then card.emblem:SetTexture(emblem) end
 end
 

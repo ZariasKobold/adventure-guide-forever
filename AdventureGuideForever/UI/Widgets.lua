@@ -106,6 +106,8 @@ local ART_SOURCES = {
 	loading = { w = 1024, h = 768, l = 0, r = 1, t = 0, b = 1 },
 	lore    = { w = 512,  h = 256, l = 0, r = 1, t = 0, b = 1 },
 	finder  = { w = 512,  h = 256, l = 0, r = 1, t = 0, b = 1 },
+	-- Small square icons: trim the edge so a stretched icon has no border lines.
+	icon    = { w = 64,   h = 64,  l = 0.08, r = 0.92, t = 0.08, b = 0.92 },
 }
 
 -- Shows an art file in a texture, center-cropped to fill the texture's shape (no stretching).
