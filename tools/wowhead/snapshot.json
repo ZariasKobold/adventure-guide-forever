@@ -1,0 +1,11654 @@
+{
+ "source": "https://www.wowhead.com/forever (zone pages, 'drops' listview)",
+ "fetched": "2026-11-16",
+ "format": {
+  "drop": [
+   "itemID",
+   "name",
+   "quality",
+   "inventoryType",
+   "itemClass",
+   "itemSubclass",
+   "requiredLevel",
+   "sourceNpcID"
+  ],
+  "npcNames": "npcID -> name, for drop sources"
+ },
+ "zones": {
+  "209": {
+   "title": "Shadowfang Keep",
+   "drops": [
+    [
+     1292,
+     "Butcher's Cleaver",
+     3,
+     13,
+     2,
+     0,
+     20,
+     3886
+    ],
+    [
+     3191,
+     "Arced War Axe",
+     3,
+     17,
+     2,
+     1,
+     21,
+     4278
+    ],
+    [
+     3230,
+     "Black Wolf Bracers",
+     3,
+     9,
+     4,
+     2,
+     22,
+     4274
+    ],
+    [
+     3748,
+     "Feline Mantle",
+     3,
+     3,
+     4,
+     1,
+     23,
+     3927
+    ],
+    [
+     5254,
+     "Rugged Spaulders",
+     3,
+     3,
+     4,
+     2,
+     17,
+     3914
+    ],
+    [
+     6220,
+     "Meteor Shard",
+     3,
+     13,
+     2,
+     15,
+     23,
+     4275
+    ],
+    [
+     6226,
+     "Bloody Apron",
+     3,
+     5,
+     4,
+     1,
+     19,
+     3886
+    ],
+    [
+     6314,
+     "Wolfmaster Cape",
+     3,
+     16,
+     4,
+     -6,
+     22,
+     3927
+    ],
+    [
+     6318,
+     "Odo's Ley Staff",
+     3,
+     17,
+     2,
+     10,
+     21,
+     4279
+    ],
+    [
+     6319,
+     "Girdle of the Blindwatcher",
+     3,
+     6,
+     4,
+     2,
+     21,
+     4279
+    ],
+    [
+     6320,
+     "Commander's Crest",
+     3,
+     14,
+     4,
+     6,
+     21,
+     4278
+    ],
+    [
+     6321,
+     "Silverlaine's Family Seal",
+     3,
+     11,
+     4,
+     -2,
+     21,
+     3887
+    ],
+    [
+     6323,
+     "Baron's Scepter",
+     3,
+     21,
+     2,
+     4,
+     21,
+     3887
+    ],
+    [
+     6324,
+     "Robes of Arugal",
+     3,
+     5,
+     4,
+     1,
+     23,
+     4275
+    ],
+    [
+     6340,
+     "Fenrus' Hide",
+     3,
+     16,
+     4,
+     -6,
+     22,
+     4274
+    ],
+    [
+     6392,
+     "Belt of Arugal",
+     3,
+     6,
+     4,
+     1,
+     23,
+     4275
+    ],
+    [
+     6633,
+     "Butcher's Slicer",
+     3,
+     13,
+     2,
+     7,
+     18,
+     3886
+    ],
+    [
+     273096,
+     "Blueprint: Tanning Rack",
+     2,
+     0,
+     9,
+     1,
+     0,
+     3886
+    ],
+    [
+     273105,
+     "Blueprint: Toxin Study",
+     2,
+     0,
+     9,
+     7,
+     0,
+     4278
+    ],
+    [
+     273456,
+     "Cell Keeper's Claws",
+     3,
+     21,
+     2,
+     13,
+     17,
+     3914
+    ],
+    [
+     273457,
+     "Sorcerer Collar",
+     3,
+     2,
+     4,
+     -3,
+     17,
+     3914
+    ],
+    [
+     273637,
+     "Blade of Silverlaine",
+     3,
+     21,
+     2,
+     7,
+     21,
+     3887
+    ],
+    [
+     273643,
+     "Worgenbane Talisman",
+     3,
+     12,
+     4,
+     -4,
+     21,
+     4278
+    ],
+    [
+     273645,
+     "Blindwatcher's Sight",
+     3,
+     1,
+     4,
+     1,
+     21,
+     4279
+    ],
+    [
+     273646,
+     "Half-Eaten Boots",
+     3,
+     8,
+     4,
+     3,
+     22,
+     4274
+    ],
+    [
+     273647,
+     "Worgpelt Leggings",
+     3,
+     7,
+     4,
+     2,
+     21,
+     3927
+    ]
+   ]
+  },
+  "491": {
+   "title": "Razorfen Kraul",
+   "drops": [
+    [
+     2816,
+     "Death Speaker Scepter",
+     3,
+     21,
+     2,
+     4,
+     28,
+     4428
+    ],
+    [
+     6681,
+     "Thornspike",
+     3,
+     13,
+     2,
+     15,
+     27,
+     4424
+    ],
+    [
+     6682,
+     "Death Speaker Robes",
+     3,
+     5,
+     4,
+     1,
+     26,
+     4428
+    ],
+    [
+     6685,
+     "Death Speaker Mantle",
+     3,
+     3,
+     4,
+     1,
+     27,
+     4428
+    ],
+    [
+     6686,
+     "Tusken Helm",
+     3,
+     1,
+     4,
+     3,
+     29,
+     4420
+    ],
+    [
+     6687,
+     "Corpsemaker",
+     3,
+     17,
+     2,
+     1,
+     29,
+     4420
+    ],
+    [
+     6688,
+     "Whisperwind Headdress",
+     3,
+     1,
+     4,
+     2,
+     29,
+     4842
+    ],
+    [
+     6689,
+     "Wind Spirit Staff",
+     3,
+     17,
+     2,
+     10,
+     29,
+     4842
+    ],
+    [
+     6690,
+     "Ferine Leggings",
+     3,
+     7,
+     4,
+     2,
+     29,
+     4422
+    ],
+    [
+     6691,
+     "Swinetusk Shank",
+     3,
+     21,
+     2,
+     15,
+     30,
+     4422
+    ],
+    [
+     6692,
+     "Pronged Reaver",
+     3,
+     13,
+     2,
+     0,
+     30,
+     4421
+    ],
+    [
+     6693,
+     "Agamaggan's Clutch",
+     3,
+     11,
+     4,
+     -2,
+     30,
+     4421
+    ],
+    [
+     6694,
+     "Heart of Agamaggan",
+     3,
+     14,
+     4,
+     6,
+     30,
+     4421
+    ],
+    [
+     6695,
+     "Stygian Bone Amulet",
+     3,
+     2,
+     4,
+     -3,
+     29,
+     4425
+    ],
+    [
+     6696,
+     "Nightstalker Bow",
+     3,
+     15,
+     2,
+     2,
+     29,
+     4425
+    ],
+    [
+     6697,
+     "Batwing Mantle",
+     3,
+     3,
+     4,
+     1,
+     29,
+     4425
+    ],
+    [
+     274149,
+     "Thornweaver Drape",
+     3,
+     16,
+     4,
+     -6,
+     25,
+     6168
+    ],
+    [
+     274152,
+     "Roogug's Severed Head",
+     3,
+     12,
+     4,
+     -4,
+     25,
+     6168
+    ],
+    [
+     274155,
+     "Geomancer Headdress",
+     3,
+     1,
+     4,
+     2,
+     25,
+     6168
+    ],
+    [
+     274158,
+     "Death Prophet Spine",
+     3,
+     17,
+     2,
+     10,
+     26,
+     4424
+    ],
+    [
+     274159,
+     "Thorncursed Grips",
+     3,
+     10,
+     4,
+     2,
+     27,
+     4424
+    ],
+    [
+     274160,
+     "Quilrager Throwing Axe",
+     3,
+     25,
+     2,
+     16,
+     31,
+     4422
+    ],
+    [
+     274161,
+     "Quillord Mail Leggings",
+     3,
+     7,
+     4,
+     3,
+     29,
+     4420
+    ]
+   ]
+  },
+  "616": {
+   "title": "Mount Hyjal",
+   "drops": []
+  },
+  "717": {
+   "title": "The Stockade",
+   "drops": [
+    [
+     2280,
+     "Kam's Walking Stick",
+     3,
+     17,
+     2,
+     10,
+     24,
+     1666
+    ],
+    [
+     2941,
+     "Prison Shank",
+     3,
+     13,
+     2,
+     15,
+     23,
+     1720
+    ],
+    [
+     2942,
+     "Iron Knuckles",
+     3,
+     13,
+     2,
+     13,
+     23,
+     1720
+    ],
+    [
+     3228,
+     "Jimmied Handcuffs",
+     3,
+     9,
+     4,
+     3,
+     23,
+     1720
+    ],
+    [
+     273804,
+     "Executioner Mantle",
+     3,
+     3,
+     4,
+     2,
+     21,
+     1696
+    ],
+    [
+     273805,
+     "Blackrock Harness",
+     3,
+     5,
+     4,
+     2,
+     21,
+     1696
+    ],
+    [
+     273806,
+     "Dark Horde Band",
+     3,
+     11,
+     4,
+     -2,
+     21,
+     1696
+    ],
+    [
+     273807,
+     "Demolition Girdle",
+     3,
+     6,
+     4,
+     2,
+     24,
+     1666
+    ],
+    [
+     273808,
+     "Bridgebreaker Bindings",
+     3,
+     9,
+     4,
+     1,
+     24,
+     1666
+    ],
+    [
+     273809,
+     "Hamhock's Cleaver",
+     3,
+     21,
+     2,
+     0,
+     25,
+     1717
+    ],
+    [
+     273810,
+     "Ogre Grips",
+     3,
+     10,
+     4,
+     3,
+     25,
+     1717
+    ],
+    [
+     273811,
+     "Repurposed Rack",
+     3,
+     14,
+     4,
+     6,
+     25,
+     1717
+    ],
+    [
+     273817,
+     "Graverobber's Shovel",
+     3,
+     17,
+     2,
+     5,
+     23,
+     1663
+    ],
+    [
+     273819,
+     "Boneslicer",
+     3,
+     17,
+     2,
+     6,
+     23,
+     1663
+    ],
+    [
+     273820,
+     "Nightskulker Ring",
+     3,
+     11,
+     4,
+     -2,
+     23,
+     1663
+    ],
+    [
+     273824,
+     "Defias Jailbreakers",
+     3,
+     10,
+     4,
+     2,
+     26,
+     1716
+    ],
+    [
+     273825,
+     "Red Wool Cloak",
+     3,
+     16,
+     4,
+     -6,
+     26,
+     1716
+    ],
+    [
+     273827,
+     "Debt Collector",
+     3,
+     21,
+     2,
+     7,
+     26,
+     1716
+    ],
+    [
+     273829,
+     "Concealed Hand Crossbow",
+     3,
+     15,
+     2,
+     18,
+     26,
+     1716
+    ]
+   ]
+  },
+  "718": {
+   "title": "Wailing Caverns",
+   "drops": [
+    [
+     5243,
+     "Firebelcher",
+     3,
+     15,
+     2,
+     19,
+     18,
+     5912
+    ],
+    [
+     5404,
+     "Serpent's Shoulders",
+     3,
+     3,
+     4,
+     2,
+     18,
+     3671
+    ],
+    [
+     5970,
+     "Serpent Gloves",
+     3,
+     10,
+     4,
+     1,
+     18,
+     3673
+    ],
+    [
+     6446,
+     "Snakeskin Bag",
+     2,
+     18,
+     1,
+     0,
+     0,
+     3671
+    ],
+    [
+     6447,
+     "Worn Turtle Shell Shield",
+     3,
+     14,
+     4,
+     6,
+     16,
+     3653
+    ],
+    [
+     6448,
+     "Tail Spike",
+     3,
+     13,
+     2,
+     15,
+     16,
+     3674
+    ],
+    [
+     6449,
+     "Glowing Lizardscale Cloak",
+     3,
+     16,
+     4,
+     -6,
+     18,
+     3674
+    ],
+    [
+     6459,
+     "Savage Trodders",
+     3,
+     8,
+     4,
+     3,
+     18,
+     3673
+    ],
+    [
+     6460,
+     "Cobrahn's Grasp",
+     3,
+     6,
+     4,
+     3,
+     17,
+     3669
+    ],
+    [
+     6461,
+     "Slime-encrusted Pads",
+     3,
+     3,
+     4,
+     1,
+     20,
+     3654
+    ],
+    [
+     6463,
+     "Deep Fathom Ring",
+     3,
+     11,
+     4,
+     -2,
+     19,
+     3654
+    ],
+    [
+     6465,
+     "Robe of the Moccasin",
+     3,
+     5,
+     4,
+     1,
+     17,
+     3669
+    ],
+    [
+     6469,
+     "Venomstrike",
+     3,
+     15,
+     2,
+     2,
+     19,
+     3673
+    ],
+    [
+     6472,
+     "Stinging Viper",
+     3,
+     13,
+     2,
+     4,
+     19,
+     3670
+    ],
+    [
+     6473,
+     "Armor of the Fang",
+     3,
+     5,
+     4,
+     2,
+     18,
+     3670
+    ],
+    [
+     6627,
+     "Mutant Scale Breastplate",
+     3,
+     5,
+     4,
+     3,
+     18,
+     3654
+    ],
+    [
+     6629,
+     "Sporid Cape",
+     3,
+     16,
+     4,
+     -6,
+     17,
+     5775
+    ],
+    [
+     6630,
+     "Seedcloud Buckler",
+     3,
+     14,
+     4,
+     6,
+     19,
+     5775
+    ],
+    [
+     6631,
+     "Living Root",
+     3,
+     17,
+     2,
+     10,
+     18,
+     5775
+    ],
+    [
+     6632,
+     "Feyscale Cloak",
+     3,
+     16,
+     4,
+     -6,
+     16,
+     5912
+    ],
+    [
+     10410,
+     "Leggings of the Fang",
+     3,
+     7,
+     4,
+     2,
+     17,
+     3669
+    ],
+    [
+     10411,
+     "Footpads of the Fang",
+     3,
+     8,
+     4,
+     2,
+     17,
+     3673
+    ],
+    [
+     10412,
+     "Belt of the Fang",
+     3,
+     6,
+     4,
+     2,
+     16,
+     3671
+    ],
+    [
+     13245,
+     "Kresh's Back",
+     3,
+     14,
+     4,
+     6,
+     18,
+     3653
+    ],
+    [
+     273084,
+     "Cloak of Hermitic Bliss",
+     3,
+     16,
+     4,
+     -6,
+     17,
+     3653
+    ],
+    [
+     273087,
+     "Blueprint: Journeyman Campfire",
+     2,
+     0,
+     9,
+     5,
+     0,
+     3673
+    ],
+    [
+     273088,
+     "Snake Eye Kaleidoscope",
+     3,
+     2,
+     4,
+     -3,
+     17,
+     3671
+    ],
+    [
+     273089,
+     "Slither Cord",
+     3,
+     6,
+     4,
+     1,
+     17,
+     3670
+    ],
+    [
+     273098,
+     "Blueprint: Field Guide",
+     2,
+     0,
+     9,
+     0,
+     0,
+     3671
+    ],
+    [
+     273137,
+     "Skum's Bucket",
+     3,
+     23,
+     4,
+     -5,
+     17,
+     3674
+    ]
+   ]
+  },
+  "719": {
+   "title": "Blackfathom Deeps",
+   "drops": [
+    [
+     888,
+     "Naga Battle Gloves",
+     3,
+     10,
+     4,
+     2,
+     22,
+     4831
+    ],
+    [
+     1155,
+     "Rod of the Sleepwalker",
+     3,
+     17,
+     2,
+     10,
+     24,
+     4832
+    ],
+    [
+     3078,
+     "Naga Heartpiercer",
+     3,
+     15,
+     2,
+     2,
+     22,
+     4831
+    ],
+    [
+     6901,
+     "Glowing Thresher Cape",
+     3,
+     16,
+     4,
+     -6,
+     24,
+     4830
+    ],
+    [
+     6902,
+     "Bands of Serra'kis",
+     3,
+     9,
+     4,
+     2,
+     22,
+     4830
+    ],
+    [
+     6903,
+     "Gaze Dreamer Pants",
+     3,
+     7,
+     4,
+     1,
+     23,
+     4832
+    ],
+    [
+     6904,
+     "Bite of Serra'kis",
+     3,
+     13,
+     2,
+     15,
+     23,
+     4830
+    ],
+    [
+     6905,
+     "Reef Axe",
+     3,
+     17,
+     2,
+     1,
+     22,
+     6243
+    ],
+    [
+     6906,
+     "Algae Fists",
+     3,
+     10,
+     4,
+     3,
+     23,
+     6243
+    ],
+    [
+     6907,
+     "Tortoise Armor",
+     3,
+     5,
+     4,
+     3,
+     22,
+     4887
+    ],
+    [
+     6908,
+     "Ghamoo-ra's Bind",
+     3,
+     6,
+     4,
+     1,
+     22,
+     4887
+    ],
+    [
+     6909,
+     "Strike of the Hydra",
+     3,
+     17,
+     2,
+     8,
+     26,
+     4829
+    ],
+    [
+     6910,
+     "Leech Pants",
+     3,
+     7,
+     4,
+     1,
+     24,
+     4829
+    ],
+    [
+     6911,
+     "Moss Cinch",
+     3,
+     6,
+     4,
+     2,
+     25,
+     4829
+    ],
+    [
+     11121,
+     "Darkwater Talwar",
+     3,
+     21,
+     2,
+     7,
+     22,
+     4831
+    ],
+    [
+     16782,
+     "Strange Water Globe",
+     2,
+     0,
+     12,
+     0,
+     21,
+     12876
+    ],
+    [
+     273141,
+     "Blueprint: Fishing Rack",
+     2,
+     0,
+     9,
+     9,
+     0,
+     6243
+    ],
+    [
+     273839,
+     "Spiked Shell Band",
+     3,
+     11,
+     4,
+     -2,
+     22,
+     4887
+    ],
+    [
+     273840,
+     "Cursed Murloc Eye",
+     3,
+     12,
+     4,
+     -4,
+     24,
+     6243
+    ],
+    [
+     273841,
+     "Twilight Maul",
+     3,
+     17,
+     2,
+     5,
+     23,
+     12902
+    ],
+    [
+     273842,
+     "Treacherous Treads",
+     3,
+     8,
+     4,
+     3,
+     23,
+     12902
+    ],
+    [
+     273843,
+     "Fallenroot Longbow",
+     3,
+     15,
+     2,
+     2,
+     23,
+     12902
+    ],
+    [
+     273846,
+     "Twilight Lord Girdle",
+     3,
+     6,
+     4,
+     3,
+     25,
+     4832
+    ]
+   ]
+  },
+  "721": {
+   "title": "Gnomeregan",
+   "drops": [
+    [
+     4411,
+     "Schematic: Flame Deflector",
+     2,
+     0,
+     9,
+     3,
+     0,
+     7800
+    ],
+    [
+     4413,
+     "Schematic: Discombobulator Ray",
+     2,
+     0,
+     9,
+     3,
+     5,
+     7800
+    ],
+    [
+     6672,
+     "Schematic: Flash Bomb",
+     2,
+     0,
+     9,
+     3,
+     5,
+     7800
+    ],
+    [
+     7192,
+     "Schematic: Goblin Rocket Boots",
+     2,
+     0,
+     9,
+     3,
+     0,
+     7800
+    ],
+    [
+     9445,
+     "Grubbis Paws",
+     3,
+     10,
+     4,
+     3,
+     29,
+     7361
+    ],
+    [
+     9446,
+     "Electrocutioner Leg",
+     3,
+     21,
+     2,
+     7,
+     29,
+     6235
+    ],
+    [
+     9447,
+     "Electrocutioner Lagnut",
+     3,
+     11,
+     4,
+     -2,
+     29,
+     6235
+    ],
+    [
+     9448,
+     "Spidertank Oilrag",
+     3,
+     9,
+     4,
+     1,
+     29,
+     6235
+    ],
+    [
+     9449,
+     "Manual Crowd Pummeler",
+     3,
+     17,
+     2,
+     5,
+     29,
+     6229
+    ],
+    [
+     9450,
+     "Gnomebot Operating Boots",
+     3,
+     8,
+     4,
+     2,
+     29,
+     6229
+    ],
+    [
+     9452,
+     "Hydrocane",
+     3,
+     17,
+     2,
+     10,
+     27,
+     7079
+    ],
+    [
+     9453,
+     "Toxic Revenger",
+     3,
+     13,
+     2,
+     15,
+     27,
+     7079
+    ],
+    [
+     9454,
+     "Acidic Walkers",
+     3,
+     8,
+     4,
+     1,
+     27,
+     7079
+    ],
+    [
+     9455,
+     "Emissary Cuffs",
+     3,
+     9,
+     4,
+     2,
+     30,
+     6228
+    ],
+    [
+     9456,
+     "Glass Shooter",
+     3,
+     15,
+     2,
+     3,
+     30,
+     6228
+    ],
+    [
+     9457,
+     "Royal Diplomatic Scepter",
+     3,
+     21,
+     2,
+     4,
+     30,
+     6228
+    ],
+    [
+     9458,
+     "Thermaplugg's Central Core",
+     3,
+     14,
+     4,
+     6,
+     31,
+     7800
+    ],
+    [
+     9459,
+     "Thermaplugg's Left Arm",
+     3,
+     17,
+     2,
+     1,
+     31,
+     7800
+    ],
+    [
+     9461,
+     "Charged Gear",
+     3,
+     11,
+     4,
+     -2,
+     31,
+     7800
+    ],
+    [
+     9492,
+     "Electromagnetic Gigaflux Reactivator",
+     3,
+     1,
+     4,
+     1,
+     31,
+     7800
+    ],
+    [
+     274042,
+     "Skullduggery Belt",
+     3,
+     6,
+     4,
+     2,
+     29,
+     7361
+    ],
+    [
+     274043,
+     "Irradiated Shield",
+     3,
+     14,
+     4,
+     6,
+     29,
+     7361
+    ],
+    [
+     274049,
+     "Schematic: 9-60 Battery Pack",
+     2,
+     0,
+     9,
+     3,
+     0,
+     6229
+    ],
+    [
+     274068,
+     "Thermaplugg Medal of Honor",
+     3,
+     2,
+     4,
+     -3,
+     29,
+     6229
+    ]
+   ]
+  },
+  "722": {
+   "title": "Razorfen Downs",
+   "drops": [
+    [
+     10758,
+     "X'caliboar",
+     3,
+     17,
+     2,
+     8,
+     37,
+     7354
+    ],
+    [
+     10760,
+     "Swine Fists",
+     3,
+     10,
+     4,
+     2,
+     37,
+     7356
+    ],
+    [
+     10761,
+     "Coldrage Dagger",
+     3,
+     13,
+     2,
+     15,
+     38,
+     7358
+    ],
+    [
+     10762,
+     "Robes of the Lich",
+     3,
+     5,
+     4,
+     1,
+     38,
+     7358
+    ],
+    [
+     10763,
+     "Icemetal Barbute",
+     3,
+     1,
+     4,
+     4,
+     40,
+     7358
+    ],
+    [
+     10764,
+     "Deathchill Armor",
+     3,
+     5,
+     4,
+     3,
+     39,
+     7358
+    ],
+    [
+     10765,
+     "Bonefingers",
+     3,
+     10,
+     4,
+     2,
+     38,
+     7358
+    ],
+    [
+     10766,
+     "Plaguerot Sprig",
+     3,
+     15,
+     2,
+     19,
+     37,
+     7356
+    ],
+    [
+     10767,
+     "Savage Boar's Guard",
+     3,
+     14,
+     4,
+     6,
+     37,
+     7354
+    ],
+    [
+     10768,
+     "Boar Champion's Belt",
+     3,
+     6,
+     4,
+     3,
+     37,
+     7354
+    ],
+    [
+     10769,
+     "Glowing Eye of Mordresh",
+     3,
+     2,
+     4,
+     -3,
+     36,
+     7357
+    ],
+    [
+     10770,
+     "Mordresh's Lifeless Skull",
+     3,
+     23,
+     4,
+     -5,
+     36,
+     7357
+    ],
+    [
+     10771,
+     "Deathmage Sash",
+     3,
+     6,
+     4,
+     1,
+     36,
+     7357
+    ],
+    [
+     10772,
+     "Glutton's Cleaver",
+     3,
+     13,
+     2,
+     0,
+     37,
+     8567
+    ],
+    [
+     10774,
+     "Fleshhide Shoulders",
+     3,
+     3,
+     4,
+     2,
+     37,
+     8567
+    ],
+    [
+     10775,
+     "Carapace of Tuten'kash",
+     3,
+     5,
+     4,
+     4,
+     40,
+     7355
+    ],
+    [
+     10776,
+     "Silky Spider Cape",
+     3,
+     16,
+     4,
+     -6,
+     37,
+     7355
+    ],
+    [
+     10777,
+     "Arachnid Gloves",
+     3,
+     10,
+     4,
+     2,
+     37,
+     7355
+    ],
+    [
+     274380,
+     "Decaying Flesh Bands",
+     3,
+     9,
+     4,
+     1,
+     37,
+     7356
+    ],
+    [
+     274381,
+     "Coldbringer Spine",
+     3,
+     17,
+     2,
+     10,
+     38,
+     7358
+    ],
+    [
+     274385,
+     "Abomination Chain",
+     3,
+     2,
+     4,
+     -3,
+     37,
+     8567
+    ]
+   ]
+  },
+  "796": {
+   "title": "Scarlet Monastery",
+   "drops": [
+    [
+     3456,
+     "Dog Whistle",
+     3,
+     12,
+     4,
+     -4,
+     25,
+     3974
+    ],
+    [
+     7682,
+     "Torturing Poker",
+     3,
+     13,
+     2,
+     15,
+     29,
+     3983
+    ],
+    [
+     7683,
+     "Bloody Brass Knuckles",
+     3,
+     13,
+     2,
+     13,
+     29,
+     3983
+    ],
+    [
+     7684,
+     "Bloodmage Mantle",
+     3,
+     3,
+     4,
+     1,
+     30,
+     4543
+    ],
+    [
+     7685,
+     "Orb of the Forgotten Seer",
+     3,
+     23,
+     4,
+     -5,
+     32,
+     4543
+    ],
+    [
+     7686,
+     "Ironspine's Eye",
+     3,
+     11,
+     4,
+     -2,
+     30,
+     6489
+    ],
+    [
+     7687,
+     "Ironspine's Fist",
+     3,
+     13,
+     2,
+     4,
+     30,
+     6489
+    ],
+    [
+     7688,
+     "Ironspine's Ribcage",
+     3,
+     5,
+     4,
+     3,
+     30,
+     6489
+    ],
+    [
+     7689,
+     "Morbid Dawn",
+     3,
+     17,
+     2,
+     8,
+     30,
+     6488
+    ],
+    [
+     7690,
+     "Ebon Vise",
+     3,
+     10,
+     4,
+     2,
+     30,
+     6488
+    ],
+    [
+     7691,
+     "Embalmed Shroud",
+     3,
+     1,
+     4,
+     1,
+     30,
+     6488
+    ],
+    [
+     7708,
+     "Necrotic Wand",
+     3,
+     15,
+     2,
+     19,
+     30,
+     6490
+    ],
+    [
+     7709,
+     "Blighted Leggings",
+     3,
+     7,
+     4,
+     1,
+     30,
+     6490
+    ],
+    [
+     7710,
+     "Loksey's Training Stick",
+     3,
+     17,
+     2,
+     10,
+     31,
+     3974
+    ],
+    [
+     7711,
+     "Robe of Doan",
+     2,
+     5,
+     4,
+     1,
+     34,
+     6487
+    ],
+    [
+     7712,
+     "Mantle of Doan",
+     2,
+     3,
+     4,
+     1,
+     34,
+     6487
+    ],
+    [
+     7713,
+     "Illusionary Rod",
+     3,
+     17,
+     2,
+     10,
+     34,
+     6487
+    ],
+    [
+     7714,
+     "Hypnotic Blade",
+     3,
+     21,
+     2,
+     15,
+     34,
+     6487
+    ],
+    [
+     7717,
+     "Ravager",
+     3,
+     17,
+     2,
+     1,
+     37,
+     3975
+    ],
+    [
+     7718,
+     "Herod's Shoulder",
+     3,
+     3,
+     4,
+     3,
+     37,
+     3975
+    ],
+    [
+     7719,
+     "Raging Berserker's Helm",
+     3,
+     1,
+     4,
+     3,
+     37,
+     3975
+    ],
+    [
+     7720,
+     "Whitemane's Chapeau",
+     3,
+     1,
+     4,
+     1,
+     39,
+     3977
+    ],
+    [
+     7721,
+     "Hand of Righteousness",
+     3,
+     21,
+     2,
+     4,
+     39,
+     3977
+    ],
+    [
+     7722,
+     "Triune Amulet",
+     3,
+     2,
+     4,
+     -3,
+     39,
+     3977
+    ],
+    [
+     7723,
+     "Mograine's Might",
+     3,
+     17,
+     2,
+     5,
+     39,
+     3976
+    ],
+    [
+     7724,
+     "Gauntlets of Divinity",
+     3,
+     10,
+     4,
+     3,
+     39,
+     3976
+    ],
+    [
+     7726,
+     "Aegis of the Scarlet Commander",
+     3,
+     14,
+     4,
+     6,
+     39,
+     3976
+    ],
+    [
+     7731,
+     "Ghostshard Talisman",
+     3,
+     2,
+     4,
+     -3,
+     30,
+     6490
+    ],
+    [
+     7756,
+     "Dog Training Gloves",
+     3,
+     10,
+     4,
+     2,
+     31,
+     3974
+    ],
+    [
+     7760,
+     "Warchief Kilt",
+     3,
+     7,
+     4,
+     2,
+     34,
+     4301
+    ],
+    [
+     10331,
+     "Scarlet Gauntlets",
+     3,
+     10,
+     4,
+     3,
+     33,
+     4301
+    ],
+    [
+     19507,
+     "Inquisitor's Shawl",
+     3,
+     3,
+     4,
+     1,
+     37,
+     4542
+    ],
+    [
+     19508,
+     "Branded Leather Bracers",
+     3,
+     9,
+     4,
+     2,
+     37,
+     4542
+    ],
+    [
+     19509,
+     "Dusty Mail Boots",
+     3,
+     8,
+     4,
+     3,
+     37,
+     4542
+    ],
+    [
+     274290,
+     "Painwalker Buckler",
+     3,
+     14,
+     4,
+     6,
+     29,
+     3983
+    ],
+    [
+     274291,
+     "Polished Skullcap",
+     3,
+     1,
+     4,
+     3,
+     31,
+     4543
+    ],
+    [
+     274292,
+     "Houndmaster Boomerang",
+     3,
+     25,
+     2,
+     16,
+     31,
+     3974
+    ],
+    [
+     274293,
+     "Spellsever Crossbow",
+     3,
+     15,
+     2,
+     18,
+     34,
+     6487
+    ],
+    [
+     274294,
+     "Library Walkers",
+     2,
+     8,
+     4,
+     1,
+     34,
+     6487
+    ],
+    [
+     274295,
+     "Band of Crimson Light",
+     3,
+     11,
+     4,
+     -2,
+     37,
+     3975
+    ]
+   ]
+  },
+  "1176": {
+   "title": "Zul'Farrak",
+   "drops": [
+    [
+     5616,
+     "Gutwrencher",
+     3,
+     13,
+     2,
+     15,
+     42,
+     7796
+    ],
+    [
+     9379,
+     "Sang'thraze the Deflector",
+     3,
+     13,
+     2,
+     7,
+     45,
+     8127
+    ],
+    [
+     9467,
+     "Gahz'rilla Fang",
+     3,
+     13,
+     2,
+     15,
+     43,
+     7273
+    ],
+    [
+     9469,
+     "Gahz'rilla Scale Armor",
+     3,
+     5,
+     4,
+     3,
+     43,
+     7273
+    ],
+    [
+     9470,
+     "Bad Mojo Mask",
+     3,
+     1,
+     4,
+     1,
+     44,
+     7275
+    ],
+    [
+     9473,
+     "Jinxed Hoodoo Skin",
+     3,
+     5,
+     4,
+     2,
+     44,
+     7275
+    ],
+    [
+     9474,
+     "Jinxed Hoodoo Kilt",
+     3,
+     7,
+     4,
+     2,
+     44,
+     7275
+    ],
+    [
+     9475,
+     "Diabolic Skiver",
+     3,
+     17,
+     2,
+     6,
+     44,
+     7275
+    ],
+    [
+     9476,
+     "Big Bad Pauldrons",
+     3,
+     3,
+     4,
+     4,
+     45,
+     7267
+    ],
+    [
+     9477,
+     "The Chief's Enforcer",
+     3,
+     17,
+     2,
+     10,
+     45,
+     7267
+    ],
+    [
+     9478,
+     "Ripsaw",
+     3,
+     21,
+     2,
+     0,
+     45,
+     7267
+    ],
+    [
+     9480,
+     "Eyegouger",
+     3,
+     17,
+     2,
+     6,
+     43,
+     7604
+    ],
+    [
+     9484,
+     "Spellshock Leggings",
+     3,
+     7,
+     4,
+     1,
+     45,
+     8127
+    ],
+    [
+     9511,
+     "Bloodletter Scalpel",
+     3,
+     13,
+     2,
+     7,
+     41,
+     7797
+    ],
+    [
+     9639,
+     "The Hand of Antu'sul",
+     3,
+     21,
+     2,
+     4,
+     45,
+     8127
+    ],
+    [
+     9640,
+     "Vice Grips",
+     3,
+     10,
+     4,
+     4,
+     45,
+     8127
+    ],
+    [
+     9641,
+     "Lifeblood Amulet",
+     3,
+     2,
+     4,
+     -3,
+     45,
+     8127
+    ],
+    [
+     11086,
+     "Jang'thraze the Protector",
+     3,
+     21,
+     2,
+     7,
+     45,
+     7267
+    ],
+    [
+     12469,
+     "Mutilator",
+     3,
+     17,
+     2,
+     8,
+     42,
+     10081
+    ],
+    [
+     12470,
+     "Sandstalker Ankleguards",
+     3,
+     8,
+     4,
+     2,
+     42,
+     10082
+    ],
+    [
+     12471,
+     "Desertwalker Cane",
+     3,
+     23,
+     4,
+     -5,
+     42,
+     10081
+    ],
+    [
+     274638,
+     "Sandfury Pauldrons",
+     3,
+     3,
+     4,
+     3,
+     42,
+     7272
+    ],
+    [
+     274639,
+     "Sacrificial Chain Vest",
+     3,
+     5,
+     4,
+     3,
+     42,
+     7272
+    ],
+    [
+     274641,
+     "Theka's Last Breath",
+     3,
+     12,
+     4,
+     -4,
+     42,
+     7272
+    ],
+    [
+     274642,
+     "Blood Ritual Ring",
+     3,
+     11,
+     4,
+     -2,
+     43,
+     7271
+    ],
+    [
+     274643,
+     "Gutcutter Hatchet",
+     3,
+     25,
+     2,
+     16,
+     43,
+     7796
+    ],
+    [
+     274644,
+     "Undying Headdress",
+     3,
+     1,
+     4,
+     3,
+     43,
+     7796
+    ],
+    [
+     274645,
+     "Desert Ziggurat Drape",
+     3,
+     16,
+     4,
+     -6,
+     43,
+     7796
+    ],
+    [
+     274646,
+     "Arch of the Covenant",
+     3,
+     15,
+     2,
+     2,
+     42,
+     7604
+    ],
+    [
+     274647,
+     "Farraki Kris",
+     3,
+     21,
+     2,
+     15,
+     42,
+     7604
+    ],
+    [
+     274648,
+     "The Desert Rose",
+     3,
+     12,
+     4,
+     -4,
+     42,
+     7604
+    ],
+    [
+     274651,
+     "Zealot Plate",
+     3,
+     5,
+     4,
+     4,
+     43,
+     7795
+    ],
+    [
+     274652,
+     "Wall of Water",
+     3,
+     14,
+     4,
+     6,
+     43,
+     7795
+    ],
+    [
+     274653,
+     "Deep Ritual Girdle",
+     3,
+     6,
+     4,
+     3,
+     43,
+     7795
+    ],
+    [
+     274654,
+     "Sandfury Guillotine",
+     3,
+     17,
+     2,
+     1,
+     43,
+     7797
+    ],
+    [
+     274655,
+     "Peacekeeper Wand",
+     3,
+     15,
+     2,
+     19,
+     43,
+     7797
+    ],
+    [
+     274657,
+     "Hydra Leather Legs",
+     3,
+     7,
+     4,
+     2,
+     43,
+     7273
+    ],
+    [
+     274658,
+     "Dune Hacker",
+     3,
+     21,
+     2,
+     0,
+     42,
+     10082
+    ],
+    [
+     274659,
+     "Bloodsand Belt",
+     3,
+     6,
+     4,
+     4,
+     42,
+     10080
+    ],
+    [
+     274660,
+     "Sandarr's Shoulders",
+     3,
+     3,
+     4,
+     3,
+     42,
+     10080
+    ]
+   ]
+  },
+  "1337": {
+   "title": "Uldaman",
+   "drops": [
+    [
+     9387,
+     "Revelosh's Boots",
+     3,
+     8,
+     4,
+     4,
+     40,
+     6910
+    ],
+    [
+     9388,
+     "Revelosh's Armguards",
+     3,
+     9,
+     4,
+     3,
+     37,
+     6910
+    ],
+    [
+     9389,
+     "Revelosh's Spaulders",
+     3,
+     3,
+     4,
+     2,
+     37,
+     6910
+    ],
+    [
+     9390,
+     "Revelosh's Gloves",
+     3,
+     10,
+     4,
+     1,
+     37,
+     6910
+    ],
+    [
+     9394,
+     "Horned Viking Helmet",
+     3,
+     1,
+     4,
+     4,
+     40,
+     6907
+    ],
+    [
+     9398,
+     "Worn Running Boots",
+     3,
+     8,
+     4,
+     2,
+     37,
+     6907
+    ],
+    [
+     9399,
+     "Precision Arrow",
+     2,
+     24,
+     6,
+     2,
+     35,
+     6906
+    ],
+    [
+     9400,
+     "Baelog's Shortbow",
+     3,
+     15,
+     2,
+     2,
+     38,
+     6906
+    ],
+    [
+     9401,
+     "Nordic Longshank",
+     3,
+     13,
+     2,
+     7,
+     38,
+     6906
+    ],
+    [
+     9403,
+     "Battered Viking Shield",
+     3,
+     14,
+     4,
+     6,
+     37,
+     6908
+    ],
+    [
+     9404,
+     "Olaf's All Purpose Shield",
+     3,
+     14,
+     4,
+     6,
+     37,
+     6908
+    ],
+    [
+     9407,
+     "Stoneweaver Leggings",
+     3,
+     7,
+     4,
+     1,
+     37,
+     7228
+    ],
+    [
+     9408,
+     "Ironshod Bludgeon",
+     3,
+     17,
+     2,
+     10,
+     37,
+     7228
+    ],
+    [
+     9409,
+     "Ironaya's Bracers",
+     3,
+     9,
+     4,
+     3,
+     37,
+     7228
+    ],
+    [
+     9410,
+     "Cragfists",
+     3,
+     10,
+     4,
+     4,
+     41,
+     7206
+    ],
+    [
+     9411,
+     "Rockshard Pauldrons",
+     3,
+     3,
+     4,
+     3,
+     41,
+     7206
+    ],
+    [
+     9412,
+     "Galgann's Fireblaster",
+     3,
+     15,
+     2,
+     3,
+     42,
+     7291
+    ],
+    [
+     9413,
+     "The Rockpounder",
+     3,
+     17,
+     2,
+     5,
+     44,
+     2748
+    ],
+    [
+     9414,
+     "Oilskin Leggings",
+     3,
+     7,
+     4,
+     2,
+     42,
+     4854
+    ],
+    [
+     9415,
+     "Grimlok's Tribal Vestments",
+     3,
+     5,
+     4,
+     1,
+     42,
+     4854
+    ],
+    [
+     9416,
+     "Grimlok's Charge",
+     3,
+     17,
+     2,
+     6,
+     42,
+     4854
+    ],
+    [
+     9418,
+     "Stoneslayer",
+     3,
+     17,
+     2,
+     8,
+     44,
+     2748
+    ],
+    [
+     9419,
+     "Galgann's Firehammer",
+     3,
+     21,
+     2,
+     4,
+     42,
+     7291
+    ],
+    [
+     11118,
+     "Archaedic Stone",
+     3,
+     11,
+     4,
+     -2,
+     42,
+     2748
+    ],
+    [
+     11310,
+     "Flameseer Mantle",
+     3,
+     3,
+     4,
+     1,
+     42,
+     7291
+    ],
+    [
+     11311,
+     "Emberscale Cape",
+     3,
+     16,
+     4,
+     -6,
+     42,
+     7291
+    ],
+    [
+     274425,
+     "White Obsidian Wand",
+     3,
+     15,
+     2,
+     19,
+     39,
+     7023
+    ],
+    [
+     274428,
+     "Dark Golem Breastplate",
+     3,
+     5,
+     4,
+     4,
+     39,
+     7023
+    ],
+    [
+     274430,
+     "Rock Sentinel Slicer",
+     3,
+     17,
+     2,
+     1,
+     39,
+     7023
+    ],
+    [
+     274431,
+     "Sandstorm Staff",
+     3,
+     17,
+     2,
+     10,
+     41,
+     7206
+    ],
+    [
+     274432,
+     "Stone Keeper Spire",
+     3,
+     17,
+     2,
+     10,
+     44,
+     2748
+    ],
+    [
+     274484,
+     "Axe of Inevitable Ruin",
+     3,
+     17,
+     2,
+     1,
+     37,
+     7228
+    ],
+    [
+     274485,
+     "Axe of Lingering Dread",
+     3,
+     17,
+     2,
+     1,
+     39,
+     7023
+    ]
+   ]
+  },
+  "1417": {
+   "title": "The Temple of Atal'Hakkar",
+   "drops": [
+    [
+     10454,
+     "Essence of Eranikus",
+     2,
+     0,
+     12,
+     0,
+     48,
+     5709
+    ],
+    [
+     10630,
+     "Soulcatcher Halo",
+     3,
+     1,
+     4,
+     1,
+     46,
+     5259
+    ],
+    [
+     10798,
+     "Atal'alarion's Tusk Ring",
+     3,
+     6,
+     4,
+     4,
+     46,
+     8580
+    ],
+    [
+     10799,
+     "Headspike",
+     3,
+     17,
+     2,
+     6,
+     46,
+     8580
+    ],
+    [
+     10800,
+     "Darkwater Bracers",
+     3,
+     9,
+     4,
+     2,
+     47,
+     8580
+    ],
+    [
+     10801,
+     "Slitherscale Boots",
+     3,
+     8,
+     4,
+     2,
+     47,
+     5708
+    ],
+    [
+     10802,
+     "Wingveil Cloak",
+     2,
+     16,
+     4,
+     -6,
+     47,
+     5708
+    ],
+    [
+     10803,
+     "Blade of the Wretched",
+     3,
+     21,
+     2,
+     7,
+     49,
+     5711
+    ],
+    [
+     10804,
+     "Fist of the Damned",
+     3,
+     13,
+     2,
+     4,
+     49,
+     5711
+    ],
+    [
+     10805,
+     "Eater of the Dead",
+     3,
+     21,
+     2,
+     0,
+     49,
+     5711
+    ],
+    [
+     10806,
+     "Vestments of the Atal'ai Prophet",
+     3,
+     5,
+     4,
+     1,
+     50,
+     5710
+    ],
+    [
+     10807,
+     "Kilt of the Atal'ai Prophet",
+     3,
+     7,
+     4,
+     1,
+     50,
+     5710
+    ],
+    [
+     10808,
+     "Gloves of the Atal'ai Prophet",
+     3,
+     10,
+     4,
+     1,
+     50,
+     5710
+    ],
+    [
+     10828,
+     "Dire Nail",
+     3,
+     21,
+     2,
+     15,
+     51,
+     5709
+    ],
+    [
+     10829,
+     "Dragon's Eye",
+     3,
+     2,
+     4,
+     -3,
+     51,
+     5709
+    ],
+    [
+     10833,
+     "Horns of Eranikus",
+     3,
+     1,
+     4,
+     3,
+     51,
+     5709
+    ],
+    [
+     10835,
+     "Crest of Supremacy",
+     3,
+     14,
+     4,
+     6,
+     51,
+     5709
+    ],
+    [
+     10836,
+     "Rod of Corrosion",
+     3,
+     15,
+     2,
+     19,
+     51,
+     5709
+    ],
+    [
+     10837,
+     "Tooth of Eranikus",
+     3,
+     21,
+     2,
+     0,
+     51,
+     5709
+    ],
+    [
+     10847,
+     "Dragon's Call",
+     4,
+     13,
+     2,
+     7,
+     52,
+     5709
+    ],
+    [
+     16216,
+     "Formula: Enchant Cloak - Greater Resistance",
+     2,
+     0,
+     9,
+     8,
+     0,
+     5259
+    ],
+    [
+     273119,
+     "Blueprint: Fishing Hut",
+     2,
+     0,
+     9,
+     9,
+     0,
+     5710
+    ]
+   ]
+  },
+  "1477": {
+   "title": "The Temple of Atal'Hakkar",
+   "drops": [
+    [
+     10454,
+     "Essence of Eranikus",
+     2,
+     0,
+     12,
+     0,
+     48,
+     5709
+    ],
+    [
+     10630,
+     "Soulcatcher Halo",
+     3,
+     1,
+     4,
+     1,
+     46,
+     5259
+    ],
+    [
+     10798,
+     "Atal'alarion's Tusk Ring",
+     3,
+     6,
+     4,
+     4,
+     46,
+     8580
+    ],
+    [
+     10799,
+     "Headspike",
+     3,
+     17,
+     2,
+     6,
+     46,
+     8580
+    ],
+    [
+     10800,
+     "Darkwater Bracers",
+     3,
+     9,
+     4,
+     2,
+     47,
+     8580
+    ],
+    [
+     10801,
+     "Slitherscale Boots",
+     3,
+     8,
+     4,
+     2,
+     47,
+     5708
+    ],
+    [
+     10802,
+     "Wingveil Cloak",
+     2,
+     16,
+     4,
+     -6,
+     47,
+     5708
+    ],
+    [
+     10803,
+     "Blade of the Wretched",
+     3,
+     21,
+     2,
+     7,
+     49,
+     5711
+    ],
+    [
+     10804,
+     "Fist of the Damned",
+     3,
+     13,
+     2,
+     4,
+     49,
+     5711
+    ],
+    [
+     10805,
+     "Eater of the Dead",
+     3,
+     21,
+     2,
+     0,
+     49,
+     5711
+    ],
+    [
+     10806,
+     "Vestments of the Atal'ai Prophet",
+     3,
+     5,
+     4,
+     1,
+     50,
+     5710
+    ],
+    [
+     10807,
+     "Kilt of the Atal'ai Prophet",
+     3,
+     7,
+     4,
+     1,
+     50,
+     5710
+    ],
+    [
+     10808,
+     "Gloves of the Atal'ai Prophet",
+     3,
+     10,
+     4,
+     1,
+     50,
+     5710
+    ],
+    [
+     10828,
+     "Dire Nail",
+     3,
+     21,
+     2,
+     15,
+     51,
+     5709
+    ],
+    [
+     10829,
+     "Dragon's Eye",
+     3,
+     2,
+     4,
+     -3,
+     51,
+     5709
+    ],
+    [
+     10833,
+     "Horns of Eranikus",
+     3,
+     1,
+     4,
+     3,
+     51,
+     5709
+    ],
+    [
+     10835,
+     "Crest of Supremacy",
+     3,
+     14,
+     4,
+     6,
+     51,
+     5709
+    ],
+    [
+     10836,
+     "Rod of Corrosion",
+     3,
+     15,
+     2,
+     19,
+     51,
+     5709
+    ],
+    [
+     10837,
+     "Tooth of Eranikus",
+     3,
+     21,
+     2,
+     0,
+     51,
+     5709
+    ],
+    [
+     10847,
+     "Dragon's Call",
+     4,
+     13,
+     2,
+     7,
+     52,
+     5709
+    ],
+    [
+     16216,
+     "Formula: Enchant Cloak - Greater Resistance",
+     2,
+     0,
+     9,
+     8,
+     0,
+     5259
+    ],
+    [
+     273119,
+     "Blueprint: Fishing Hut",
+     2,
+     0,
+     9,
+     9,
+     0,
+     5710
+    ]
+   ]
+  },
+  "1581": {
+   "title": "The Deadmines",
+   "drops": [
+    [
+     872,
+     "Rockslicer",
+     3,
+     17,
+     2,
+     1,
+     18,
+     644
+    ],
+    [
+     1156,
+     "Lavishly Jeweled Ring",
+     3,
+     11,
+     4,
+     -2,
+     17,
+     1763
+    ],
+    [
+     1937,
+     "Buzz Saw",
+     3,
+     13,
+     2,
+     7,
+     18,
+     642
+    ],
+    [
+     2169,
+     "Buzzer Blade",
+     3,
+     21,
+     2,
+     15,
+     16,
+     642
+    ],
+    [
+     5187,
+     "Rhahk'Zor's Hammer",
+     3,
+     17,
+     2,
+     5,
+     16,
+     644
+    ],
+    [
+     5191,
+     "Cruel Barb",
+     3,
+     13,
+     2,
+     7,
+     19,
+     639
+    ],
+    [
+     5192,
+     "Thief's Blade",
+     3,
+     13,
+     2,
+     7,
+     17,
+     646
+    ],
+    [
+     5193,
+     "Cape of the Brotherhood",
+     3,
+     16,
+     4,
+     -6,
+     19,
+     639
+    ],
+    [
+     5194,
+     "Taskmaster Axe",
+     3,
+     17,
+     2,
+     1,
+     18,
+     643
+    ],
+    [
+     5195,
+     "Gold-flecked Gloves",
+     3,
+     10,
+     4,
+     1,
+     17,
+     643
+    ],
+    [
+     5196,
+     "Smite's Reaver",
+     3,
+     13,
+     2,
+     0,
+     17,
+     646
+    ],
+    [
+     5197,
+     "Cookie's Tenderizer",
+     3,
+     13,
+     2,
+     4,
+     16,
+     645
+    ],
+    [
+     5198,
+     "Cookie's Stirring Rod",
+     3,
+     15,
+     2,
+     19,
+     17,
+     645
+    ],
+    [
+     5199,
+     "Smelting Pants",
+     3,
+     7,
+     4,
+     2,
+     16,
+     1763
+    ],
+    [
+     5200,
+     "Impaling Harpoon",
+     3,
+     17,
+     2,
+     6,
+     17,
+     647
+    ],
+    [
+     5201,
+     "Emberstone Staff",
+     3,
+     17,
+     2,
+     10,
+     17,
+     647
+    ],
+    [
+     5202,
+     "Corsair's Overshirt",
+     3,
+     5,
+     4,
+     1,
+     17,
+     639
+    ],
+    [
+     5443,
+     "Gold-plated Buckler",
+     3,
+     14,
+     4,
+     6,
+     17,
+     3586
+    ],
+    [
+     5444,
+     "Miner's Cape",
+     3,
+     16,
+     4,
+     -6,
+     17,
+     3586
+    ],
+    [
+     7230,
+     "Smite's Mighty Hammer",
+     3,
+     17,
+     2,
+     5,
+     18,
+     646
+    ],
+    [
+     10399,
+     "Blackened Defias Armor",
+     3,
+     5,
+     4,
+     2,
+     17,
+     639
+    ],
+    [
+     10403,
+     "Blackened Defias Belt",
+     3,
+     6,
+     4,
+     2,
+     17,
+     647
+    ],
+    [
+     273086,
+     "Blueprint: Anvil",
+     2,
+     0,
+     9,
+     4,
+     0,
+     1763
+    ],
+    [
+     273092,
+     "Blueprint: Repair Bot",
+     2,
+     0,
+     9,
+     3,
+     0,
+     643
+    ],
+    [
+     273102,
+     "Blueprint: Cookie's Feast",
+     2,
+     0,
+     9,
+     5,
+     0,
+     645
+    ],
+    [
+     273289,
+     "Ogre Loincloth",
+     3,
+     7,
+     4,
+     1,
+     17,
+     644
+    ],
+    [
+     273293,
+     "Bandsaw Wristbands",
+     3,
+     9,
+     4,
+     3,
+     16,
+     643
+    ],
+    [
+     273297,
+     "Goblin Hammer",
+     3,
+     21,
+     2,
+     4,
+     18,
+     1763
+    ],
+    [
+     273298,
+     "Lookie's Spyglass",
+     3,
+     12,
+     4,
+     -4,
+     18,
+     645
+    ],
+    [
+     284715,
+     "First Mate Band",
+     3,
+     11,
+     4,
+     -2,
+     17,
+     646
+    ],
+    [
+     285292,
+     "Dull Sawblade",
+     3,
+     25,
+     2,
+     16,
+     16,
+     642
+    ]
+   ]
+  },
+  "1583": {
+   "title": "Blackrock Spire",
+   "drops": [
+    [
+     10246,
+     "Master's Vest",
+     2,
+     5,
+     4,
+     1,
+     60,
+     10363
+    ],
+    [
+     10384,
+     "Hyperion Armor",
+     2,
+     5,
+     4,
+     4,
+     60,
+     10363
+    ],
+    [
+     12335,
+     "Gemstone of Smolderthorn",
+     2,
+     0,
+     12,
+     0,
+     0,
+     9237
+    ],
+    [
+     12336,
+     "Gemstone of Spirestone",
+     2,
+     0,
+     12,
+     0,
+     0,
+     9196
+    ],
+    [
+     12337,
+     "Gemstone of Bloodaxe",
+     2,
+     0,
+     12,
+     0,
+     0,
+     9568
+    ],
+    [
+     12582,
+     "Keris of Zul'Serak",
+     3,
+     13,
+     2,
+     15,
+     55,
+     9237
+    ],
+    [
+     12583,
+     "Blackhand Doomsaw",
+     3,
+     17,
+     2,
+     6,
+     58,
+     10429
+    ],
+    [
+     12587,
+     "Eye of Rend",
+     3,
+     1,
+     4,
+     2,
+     58,
+     10429
+    ],
+    [
+     12589,
+     "Dustfeather Sash",
+     3,
+     6,
+     4,
+     1,
+     56,
+     10264
+    ],
+    [
+     12590,
+     "Felstriker",
+     4,
+     13,
+     2,
+     15,
+     58,
+     10429
+    ],
+    [
+     12592,
+     "Blackblade of Shahram",
+     4,
+     17,
+     2,
+     8,
+     58,
+     10363
+    ],
+    [
+     12602,
+     "Draconian Deflector",
+     3,
+     14,
+     4,
+     6,
+     58,
+     10363
+    ],
+    [
+     12603,
+     "Nightbrace Tunic",
+     3,
+     5,
+     4,
+     2,
+     56,
+     10264
+    ],
+    [
+     12604,
+     "Starfire Tiara",
+     3,
+     1,
+     4,
+     1,
+     55,
+     10509
+    ],
+    [
+     12605,
+     "Serpentine Skuller",
+     3,
+     15,
+     2,
+     19,
+     51,
+     10509
+    ],
+    [
+     12606,
+     "Crystallized Girdle",
+     3,
+     6,
+     4,
+     2,
+     56,
+     10264
+    ],
+    [
+     12608,
+     "Butcher's Apron",
+     3,
+     16,
+     4,
+     -6,
+     53,
+     9219
+    ],
+    [
+     12609,
+     "Polychromatic Visionwrap",
+     3,
+     5,
+     4,
+     1,
+     56,
+     10264
+    ],
+    [
+     12621,
+     "Demonfork",
+     3,
+     21,
+     2,
+     0,
+     54,
+     9596
+    ],
+    [
+     12626,
+     "Funeral Cuffs",
+     3,
+     9,
+     4,
+     1,
+     54,
+     9236
+    ],
+    [
+     12634,
+     "Chiselbrand Girdle",
+     3,
+     6,
+     4,
+     3,
+     55,
+     9596
+    ],
+    [
+     12637,
+     "Backusarian Gauntlets",
+     3,
+     10,
+     4,
+     4,
+     55,
+     9596
+    ],
+    [
+     12651,
+     "Blackcrow",
+     3,
+     15,
+     2,
+     18,
+     54,
+     9236
+    ],
+    [
+     12653,
+     "Riphook",
+     3,
+     15,
+     2,
+     2,
+     54,
+     9236
+    ],
+    [
+     12654,
+     "Doomshot",
+     3,
+     24,
+     6,
+     2,
+     54,
+     9236
+    ],
+    [
+     12709,
+     "Pip's Skinner",
+     3,
+     21,
+     2,
+     15,
+     58,
+     10430
+    ],
+    [
+     12834,
+     "Plans: Arcanite Champion",
+     3,
+     0,
+     9,
+     4,
+     0,
+     10899
+    ],
+    [
+     12835,
+     "Plans: Annihilator",
+     3,
+     0,
+     9,
+     4,
+     0,
+     9736
+    ],
+    [
+     12837,
+     "Plans: Masterwork Stormhammer",
+     3,
+     0,
+     9,
+     4,
+     0,
+     10899
+    ],
+    [
+     12838,
+     "Plans: Arcanite Reaper",
+     3,
+     0,
+     9,
+     4,
+     0,
+     9596
+    ],
+    [
+     12871,
+     "Chromatic Carapace",
+     4,
+     0,
+     15,
+     4,
+     0,
+     10339
+    ],
+    [
+     12905,
+     "Wildfire Cape",
+     3,
+     16,
+     4,
+     -6,
+     56,
+     9816
+    ],
+    [
+     12926,
+     "Flaming Band",
+     3,
+     11,
+     4,
+     -2,
+     56,
+     9816
+    ],
+    [
+     12927,
+     "Truestrike Shoulders",
+     3,
+     3,
+     4,
+     2,
+     56,
+     9816
+    ],
+    [
+     12929,
+     "Emberfury Talisman",
+     3,
+     2,
+     4,
+     -3,
+     56,
+     9816
+    ],
+    [
+     12930,
+     "Briarwood Reed",
+     3,
+     12,
+     4,
+     -4,
+     55,
+     10509
+    ],
+    [
+     12935,
+     "Warmaster Legguards",
+     3,
+     7,
+     4,
+     4,
+     58,
+     10429
+    ],
+    [
+     12936,
+     "Battleborn Armbraces",
+     3,
+     9,
+     4,
+     4,
+     58,
+     10429
+    ],
+    [
+     12939,
+     "Dal'Rend's Tribal Guardian",
+     3,
+     22,
+     2,
+     7,
+     58,
+     10429
+    ],
+    [
+     12940,
+     "Dal'Rend's Sacred Charge",
+     3,
+     21,
+     2,
+     7,
+     58,
+     10429
+    ],
+    [
+     12952,
+     "Gyth's Skull",
+     3,
+     1,
+     4,
+     4,
+     55,
+     10339
+    ],
+    [
+     12953,
+     "Dragoneye Coif",
+     3,
+     1,
+     4,
+     3,
+     55,
+     10339
+    ],
+    [
+     12960,
+     "Tribal War Feathers",
+     3,
+     1,
+     4,
+     2,
+     55,
+     10339
+    ],
+    [
+     12963,
+     "Blademaster Leggings",
+     3,
+     7,
+     4,
+     2,
+     58,
+     10430
+    ],
+    [
+     12964,
+     "Tristam Legguards",
+     3,
+     7,
+     4,
+     3,
+     58,
+     10430
+    ],
+    [
+     12965,
+     "Spiritshroud Leggings",
+     3,
+     7,
+     4,
+     1,
+     58,
+     10430
+    ],
+    [
+     12966,
+     "Blackmist Armguards",
+     3,
+     9,
+     4,
+     2,
+     58,
+     10430
+    ],
+    [
+     12967,
+     "Bloodmoon Cloak",
+     3,
+     16,
+     4,
+     -6,
+     58,
+     10430
+    ],
+    [
+     12968,
+     "Frostweaver Cape",
+     3,
+     16,
+     4,
+     -6,
+     58,
+     10430
+    ],
+    [
+     12969,
+     "Seeping Willow",
+     3,
+     17,
+     2,
+     5,
+     58,
+     10430
+    ],
+    [
+     13098,
+     "Painweaver Band",
+     3,
+     11,
+     4,
+     -2,
+     58,
+     10363
+    ],
+    [
+     13141,
+     "Tooth of Gnarr",
+     3,
+     2,
+     4,
+     -3,
+     58,
+     10363
+    ],
+    [
+     13142,
+     "Brigam Girdle",
+     3,
+     6,
+     4,
+     4,
+     58,
+     10363
+    ],
+    [
+     13143,
+     "Mark of the Dragon Lord",
+     4,
+     11,
+     4,
+     -2,
+     56,
+     9568
+    ],
+    [
+     13161,
+     "Trindlehaven Staff",
+     3,
+     17,
+     2,
+     10,
+     56,
+     9568
+    ],
+    [
+     13162,
+     "Reiver Claws",
+     3,
+     10,
+     4,
+     4,
+     56,
+     9568
+    ],
+    [
+     13163,
+     "Relentless Scythe",
+     3,
+     17,
+     2,
+     8,
+     57,
+     9568
+    ],
+    [
+     13164,
+     "Heart of the Scale",
+     3,
+     12,
+     4,
+     -4,
+     56,
+     9568
+    ],
+    [
+     13166,
+     "Slamshot Shoulders",
+     3,
+     3,
+     4,
+     4,
+     55,
+     9196
+    ],
+    [
+     13167,
+     "Fist of Omokk",
+     3,
+     17,
+     2,
+     5,
+     55,
+     9196
+    ],
+    [
+     13168,
+     "Plate of the Shaman King",
+     3,
+     5,
+     4,
+     4,
+     55,
+     9196
+    ],
+    [
+     13169,
+     "Tressermane Leggings",
+     3,
+     7,
+     4,
+     2,
+     55,
+     9196
+    ],
+    [
+     13170,
+     "Skyshroud Leggings",
+     3,
+     7,
+     4,
+     1,
+     55,
+     9196
+    ],
+    [
+     13173,
+     "Flightblade Throwing Axe",
+     3,
+     25,
+     2,
+     16,
+     55,
+     9237
+    ],
+    [
+     13177,
+     "Talisman of Evasion",
+     3,
+     2,
+     4,
+     -3,
+     55,
+     9237
+    ],
+    [
+     13178,
+     "Rosewine Circle",
+     3,
+     11,
+     4,
+     -2,
+     55,
+     10584
+    ],
+    [
+     13179,
+     "Brazecore Armguards",
+     3,
+     9,
+     4,
+     3,
+     55,
+     9237
+    ],
+    [
+     13181,
+     "Demonskin Gloves",
+     3,
+     10,
+     4,
+     1,
+     52,
+     10263
+    ],
+    [
+     13182,
+     "Phase Blade",
+     3,
+     13,
+     2,
+     7,
+     52,
+     10263
+    ],
+    [
+     13183,
+     "Venomspitter",
+     3,
+     13,
+     2,
+     4,
+     55,
+     10596
+    ],
+    [
+     13184,
+     "Fallbrush Handgrips",
+     3,
+     10,
+     4,
+     2,
+     56,
+     10376
+    ],
+    [
+     13185,
+     "Sunderseer Mantle",
+     3,
+     3,
+     4,
+     1,
+     56,
+     10376
+    ],
+    [
+     13198,
+     "Hurd Smasher",
+     3,
+     13,
+     2,
+     13,
+     55,
+     9718
+    ],
+    [
+     13203,
+     "Armswake Cloak",
+     3,
+     16,
+     4,
+     -6,
+     55,
+     9718
+    ],
+    [
+     13204,
+     "Bashguuder",
+     3,
+     13,
+     2,
+     4,
+     55,
+     9718
+    ],
+    [
+     13205,
+     "Rhombeard Protector",
+     3,
+     14,
+     4,
+     6,
+     56,
+     10268
+    ],
+    [
+     13206,
+     "Wolfshear Leggings",
+     3,
+     7,
+     4,
+     1,
+     56,
+     10268
+    ],
+    [
+     13208,
+     "Bleak Howler Armguards",
+     3,
+     9,
+     4,
+     2,
+     56,
+     10268
+    ],
+    [
+     13210,
+     "Pads of the Dread Wolf",
+     3,
+     8,
+     4,
+     2,
+     55,
+     10220
+    ],
+    [
+     13211,
+     "Slashclaw Bracers",
+     3,
+     9,
+     4,
+     3,
+     55,
+     10220
+    ],
+    [
+     13212,
+     "Halycon's Spiked Collar",
+     3,
+     2,
+     4,
+     -3,
+     55,
+     10220
+    ],
+    [
+     13213,
+     "Smolderweb's Eye",
+     3,
+     12,
+     4,
+     -4,
+     55,
+     10596
+    ],
+    [
+     13218,
+     "Fang of the Crystal Spider",
+     3,
+     13,
+     2,
+     15,
+     56,
+     10376
+    ],
+    [
+     13244,
+     "Gilded Gauntlets",
+     3,
+     10,
+     4,
+     3,
+     55,
+     10596
+    ],
+    [
+     13252,
+     "Cloudrunner Girdle",
+     3,
+     6,
+     4,
+     2,
+     55,
+     9736
+    ],
+    [
+     13253,
+     "Hands of Power",
+     3,
+     10,
+     4,
+     1,
+     55,
+     9736
+    ],
+    [
+     13255,
+     "Trueaim Gauntlets",
+     3,
+     10,
+     4,
+     3,
+     54,
+     9236
+    ],
+    [
+     13257,
+     "Demonic Runed Spaulders",
+     3,
+     3,
+     4,
+     2,
+     54,
+     9236
+    ],
+    [
+     13258,
+     "Slaghide Gauntlets",
+     3,
+     10,
+     4,
+     2,
+     56,
+     10584
+    ],
+    [
+     13259,
+     "Ribsteel Footguards",
+     3,
+     8,
+     4,
+     4,
+     56,
+     10584
+    ],
+    [
+     13261,
+     "Globe of D'sak",
+     3,
+     23,
+     4,
+     -5,
+     54,
+     9217
+    ],
+    [
+     13282,
+     "Ogreseer Tower Boots",
+     3,
+     8,
+     4,
+     1,
+     54,
+     9217
+    ],
+    [
+     13283,
+     "Magus Ring",
+     3,
+     11,
+     4,
+     -2,
+     54,
+     9217
+    ],
+    [
+     13284,
+     "Swiftdart Battleboots",
+     3,
+     8,
+     4,
+     3,
+     53,
+     9218
+    ],
+    [
+     13285,
+     "The Blackrock Slicer",
+     3,
+     17,
+     2,
+     1,
+     53,
+     9218
+    ],
+    [
+     13286,
+     "Rivenspike",
+     3,
+     13,
+     2,
+     0,
+     53,
+     9219
+    ],
+    [
+     13498,
+     "Handcrafted Mastersmith Leggings",
+     3,
+     7,
+     4,
+     4,
+     55,
+     10899
+    ],
+    [
+     13502,
+     "Handcrafted Mastersmith Girdle",
+     3,
+     6,
+     4,
+     4,
+     58,
+     10899
+    ],
+    [
+     13519,
+     "Recipe: Flask of the Titans",
+     2,
+     0,
+     9,
+     6,
+     0,
+     10363
+    ],
+    [
+     13522,
+     "Recipe: Flask of Chromatic Resistance",
+     2,
+     0,
+     9,
+     6,
+     0,
+     10339
+    ],
+    [
+     15730,
+     "Pattern: Red Dragonscale Breastplate",
+     3,
+     0,
+     9,
+     1,
+     0,
+     10363
+    ],
+    [
+     16666,
+     "Vest of Elements",
+     3,
+     5,
+     4,
+     3,
+     58,
+     10363
+    ],
+    [
+     16669,
+     "Pauldrons of Elements",
+     3,
+     3,
+     4,
+     3,
+     55,
+     10339
+    ],
+    [
+     16670,
+     "Boots of Elements",
+     3,
+     8,
+     4,
+     3,
+     54,
+     9196
+    ],
+    [
+     16672,
+     "Gauntlets of Elements",
+     3,
+     10,
+     4,
+     3,
+     54,
+     9816
+    ],
+    [
+     16674,
+     "Beaststalker's Tunic",
+     3,
+     5,
+     4,
+     3,
+     58,
+     10363
+    ],
+    [
+     16676,
+     "Beaststalker's Gloves",
+     3,
+     10,
+     4,
+     3,
+     54,
+     9237
+    ],
+    [
+     16679,
+     "Beaststalker's Mantle",
+     3,
+     3,
+     4,
+     3,
+     55,
+     9568
+    ],
+    [
+     16688,
+     "Magister's Robes",
+     3,
+     5,
+     4,
+     1,
+     58,
+     10363
+    ],
+    [
+     16690,
+     "Devout Robe",
+     3,
+     5,
+     4,
+     1,
+     58,
+     10363
+    ],
+    [
+     16695,
+     "Devout Mantle",
+     3,
+     3,
+     4,
+     1,
+     55,
+     10264
+    ],
+    [
+     16700,
+     "Dreadmist Robe",
+     3,
+     5,
+     4,
+     1,
+     58,
+     10363
+    ],
+    [
+     16706,
+     "Wildheart Vest",
+     3,
+     5,
+     4,
+     2,
+     58,
+     10363
+    ],
+    [
+     16712,
+     "Shadowcraft Gloves",
+     3,
+     10,
+     4,
+     2,
+     54,
+     9236
+    ],
+    [
+     16715,
+     "Wildheart Boots",
+     3,
+     8,
+     4,
+     2,
+     54,
+     10596
+    ],
+    [
+     16718,
+     "Wildheart Spaulders",
+     3,
+     3,
+     4,
+     2,
+     55,
+     10268
+    ],
+    [
+     16721,
+     "Shadowcraft Tunic",
+     3,
+     5,
+     4,
+     2,
+     58,
+     10363
+    ],
+    [
+     16726,
+     "Lightforge Breastplate",
+     3,
+     5,
+     4,
+     4,
+     58,
+     10363
+    ],
+    [
+     16729,
+     "Lightforge Spaulders",
+     3,
+     3,
+     4,
+     4,
+     55,
+     10430
+    ],
+    [
+     16730,
+     "Breastplate of Valor",
+     3,
+     5,
+     4,
+     4,
+     58,
+     10363
+    ],
+    [
+     16733,
+     "Spaulders of Valor",
+     3,
+     3,
+     4,
+     4,
+     55,
+     10429
+    ],
+    [
+     18047,
+     "Flame Walkers",
+     3,
+     8,
+     4,
+     3,
+     57,
+     10899
+    ],
+    [
+     18048,
+     "Mastersmith's Hammer",
+     3,
+     21,
+     2,
+     4,
+     55,
+     10899
+    ],
+    [
+     18102,
+     "Dragonrider Boots",
+     3,
+     8,
+     4,
+     1,
+     58,
+     10429
+    ],
+    [
+     18103,
+     "Band of Rumination",
+     3,
+     11,
+     4,
+     -2,
+     58,
+     10429
+    ],
+    [
+     18104,
+     "Feralsurge Girdle",
+     3,
+     6,
+     4,
+     3,
+     58,
+     10429
+    ],
+    [
+     18657,
+     "Schematic: Hyper-Radiant Flame Reflector",
+     2,
+     0,
+     9,
+     3,
+     10,
+     10264
+    ],
+    [
+     18779,
+     "Bottom Half of Advanced Armorsmithing: Volume I",
+     3,
+     0,
+     12,
+     0,
+     50,
+     10899
+    ],
+    [
+     18784,
+     "Top Half of Advanced Armorsmithing: Volume III",
+     3,
+     0,
+     12,
+     0,
+     50,
+     10584
+    ],
+    [
+     19227,
+     "Ace of Beasts",
+     3,
+     0,
+     12,
+     0,
+     0,
+     10430
+    ],
+    [
+     22225,
+     "Dragonskin Cowl",
+     3,
+     1,
+     4,
+     1,
+     55,
+     10339
+    ],
+    [
+     22231,
+     "Kayser's Boots of Precision",
+     3,
+     8,
+     4,
+     1,
+     56,
+     9237
+    ],
+    [
+     22232,
+     "Marksman's Girdle",
+     3,
+     6,
+     4,
+     3,
+     56,
+     10584
+    ],
+    [
+     22247,
+     "Faith Healer's Boots",
+     3,
+     8,
+     4,
+     1,
+     58,
+     10429
+    ],
+    [
+     22253,
+     "Tome of the Lost",
+     3,
+     23,
+     4,
+     -5,
+     58,
+     10363
+    ],
+    [
+     22267,
+     "Spellweaver's Turban",
+     3,
+     1,
+     4,
+     1,
+     60,
+     10363
+    ],
+    [
+     22268,
+     "Draconic Infused Emblem",
+     3,
+     12,
+     4,
+     -4,
+     58,
+     10363
+    ],
+    [
+     22269,
+     "Shadow Prowler's Cloak",
+     3,
+     16,
+     4,
+     -6,
+     58,
+     10363
+    ],
+    [
+     22302,
+     "Ironweave Cowl",
+     3,
+     1,
+     4,
+     1,
+     58,
+     16042
+    ],
+    [
+     22306,
+     "Ironweave Belt",
+     3,
+     6,
+     4,
+     1,
+     56,
+     16080
+    ],
+    [
+     22311,
+     "Ironweave Boots",
+     3,
+     8,
+     4,
+     1,
+     56,
+     10430
+    ],
+    [
+     22313,
+     "Ironweave Bracers",
+     3,
+     9,
+     4,
+     1,
+     56,
+     10220
+    ],
+    [
+     22319,
+     "Tome of Divine Right",
+     3,
+     23,
+     4,
+     -5,
+     56,
+     16080
+    ],
+    [
+     22321,
+     "Heart of Wyrmthalak",
+     3,
+     12,
+     4,
+     -4,
+     56,
+     9568
+    ],
+    [
+     22322,
+     "The Jaw Breaker",
+     3,
+     13,
+     2,
+     4,
+     56,
+     16080
+    ],
+    [
+     22325,
+     "Belt of the Trickster",
+     3,
+     6,
+     4,
+     2,
+     56,
+     16080
+    ],
+    [
+     22335,
+     "Lord Valthalak's Staff of Command",
+     3,
+     17,
+     2,
+     10,
+     58,
+     16042
+    ],
+    [
+     22336,
+     "Draconian Aegis of the Legion",
+     3,
+     14,
+     4,
+     6,
+     58,
+     16042
+    ],
+    [
+     22337,
+     "Shroud of Domination",
+     3,
+     16,
+     4,
+     -6,
+     58,
+     16042
+    ],
+    [
+     22339,
+     "Rune Band of Wizardry",
+     3,
+     11,
+     4,
+     -2,
+     58,
+     16042
+    ],
+    [
+     22340,
+     "Pendant of Celerity",
+     3,
+     2,
+     4,
+     -3,
+     58,
+     16042
+    ],
+    [
+     22342,
+     "Leggings of Torment",
+     3,
+     7,
+     4,
+     1,
+     58,
+     16042
+    ],
+    [
+     22343,
+     "Handguards of Savagery",
+     3,
+     10,
+     4,
+     3,
+     58,
+     16042
+    ],
+    [
+     22398,
+     "Idol of Rejuvenation",
+     3,
+     28,
+     4,
+     8,
+     57,
+     16080
+    ],
+    [
+     23320,
+     "Tablet of Flame Shock VI",
+     3,
+     0,
+     9,
+     0,
+     60,
+     9816
+    ],
+    [
+     24101,
+     "Book of Ferocious Bite V",
+     3,
+     0,
+     9,
+     0,
+     60,
+     10430
+    ],
+    [
+     24102,
+     "Manual of Eviscerate IX",
+     3,
+     0,
+     9,
+     0,
+     60,
+     10318
+    ],
+    [
+     249520,
+     "Formula: Molten Heart of the Mountain",
+     3,
+     0,
+     9,
+     8,
+     0,
+     9816
+    ],
+    [
+     249521,
+     "Formula: Dormant Heart of the Mountain",
+     3,
+     0,
+     9,
+     8,
+     0,
+     10596
+    ],
+    [
+     252939,
+     "Pattern: Black Dragonscale Helm",
+     4,
+     0,
+     9,
+     1,
+     0,
+     10318
+    ],
+    [
+     272018,
+     "Overseer's License",
+     3,
+     0,
+     12,
+     0,
+     0,
+     9568
+    ],
+    [
+     273115,
+     "Blueprint: Iron Oven",
+     2,
+     0,
+     9,
+     5,
+     0,
+     9736
+    ]
+   ]
+  },
+  "1584": {
+   "title": "Blackrock Depths",
+   "drops": [
+    [
+     2662,
+     "Ribbly's Quiver",
+     2,
+     18,
+     11,
+     2,
+     50,
+     9543
+    ],
+    [
+     2663,
+     "Ribbly's Bandolier",
+     2,
+     18,
+     11,
+     3,
+     50,
+     9543
+    ],
+    [
+     11207,
+     "Formula: Enchant Weapon - Fiery Weapon",
+     2,
+     0,
+     9,
+     8,
+     0,
+     9024
+    ],
+    [
+     11610,
+     "Plans: Dark Iron Pulverizer",
+     3,
+     0,
+     9,
+     4,
+     0,
+     9028
+    ],
+    [
+     11612,
+     "Plans: Dark Iron Plate",
+     3,
+     0,
+     9,
+     4,
+     0,
+     9543
+    ],
+    [
+     11623,
+     "Spritecaster Cape",
+     3,
+     16,
+     4,
+     -6,
+     47,
+     9319
+    ],
+    [
+     11624,
+     "Kentic Amice",
+     3,
+     3,
+     4,
+     1,
+     47,
+     9018
+    ],
+    [
+     11625,
+     "Enthralled Sphere",
+     3,
+     23,
+     4,
+     -5,
+     48,
+     9018
+    ],
+    [
+     11626,
+     "Blackveil Cape",
+     3,
+     16,
+     4,
+     -6,
+     48,
+     9018
+    ],
+    [
+     11627,
+     "Fleetfoot Greaves",
+     3,
+     8,
+     4,
+     3,
+     48,
+     9319
+    ],
+    [
+     11628,
+     "Houndmaster's Bow",
+     3,
+     15,
+     2,
+     2,
+     48,
+     9319
+    ],
+    [
+     11629,
+     "Houndmaster's Rifle",
+     3,
+     15,
+     2,
+     3,
+     48,
+     9319
+    ],
+    [
+     11630,
+     "Rockshard Pellets",
+     3,
+     24,
+     6,
+     3,
+     47,
+     9025
+    ],
+    [
+     11631,
+     "Stoneshell Guard",
+     3,
+     14,
+     4,
+     6,
+     47,
+     9025
+    ],
+    [
+     11632,
+     "Earthslag Shoulders",
+     3,
+     3,
+     4,
+     4,
+     47,
+     9025
+    ],
+    [
+     11633,
+     "Spiderfang Carapace",
+     3,
+     5,
+     4,
+     4,
+     49,
+     9032
+    ],
+    [
+     11634,
+     "Silkweb Gloves",
+     3,
+     10,
+     4,
+     1,
+     49,
+     9032
+    ],
+    [
+     11635,
+     "Hookfang Shanker",
+     3,
+     13,
+     2,
+     15,
+     49,
+     9032
+    ],
+    [
+     11662,
+     "Ban'thok Sash",
+     3,
+     6,
+     4,
+     1,
+     49,
+     9030
+    ],
+    [
+     11665,
+     "Ogreseer Fists",
+     3,
+     10,
+     4,
+     2,
+     49,
+     9030
+    ],
+    [
+     11669,
+     "Naglering",
+     3,
+     11,
+     4,
+     -2,
+     54,
+     8983
+    ],
+    [
+     11675,
+     "Shadefiend Boots",
+     3,
+     8,
+     4,
+     2,
+     50,
+     9031
+    ],
+    [
+     11677,
+     "Graverot Cape",
+     3,
+     16,
+     4,
+     -6,
+     50,
+     9031
+    ],
+    [
+     11678,
+     "Carapace of Anub'shiah",
+     3,
+     5,
+     4,
+     4,
+     50,
+     9031
+    ],
+    [
+     11679,
+     "Rubicund Armguards",
+     3,
+     9,
+     4,
+     3,
+     50,
+     9029
+    ],
+    [
+     11684,
+     "Ironfoe",
+     4,
+     21,
+     2,
+     4,
+     55,
+     9019
+    ],
+    [
+     11685,
+     "Splinthide Shoulders",
+     3,
+     3,
+     4,
+     2,
+     50,
+     9029
+    ],
+    [
+     11686,
+     "Girdle of Beastial Fury",
+     3,
+     6,
+     4,
+     2,
+     50,
+     9029
+    ],
+    [
+     11702,
+     "Grizzle's Skinner",
+     3,
+     21,
+     2,
+     0,
+     50,
+     9028
+    ],
+    [
+     11703,
+     "Stonewall Girdle",
+     3,
+     6,
+     4,
+     4,
+     50,
+     9028
+    ],
+    [
+     11722,
+     "Dregmetal Spaulders",
+     3,
+     3,
+     4,
+     3,
+     50,
+     9028
+    ],
+    [
+     11726,
+     "Savage Gladiator Chain",
+     4,
+     5,
+     4,
+     3,
+     52,
+     9027
+    ],
+    [
+     11728,
+     "Savage Gladiator Leggings",
+     3,
+     7,
+     4,
+     3,
+     52,
+     9030
+    ],
+    [
+     11729,
+     "Savage Gladiator Helm",
+     3,
+     1,
+     4,
+     3,
+     52,
+     9032
+    ],
+    [
+     11730,
+     "Savage Gladiator Grips",
+     3,
+     10,
+     4,
+     3,
+     52,
+     9029
+    ],
+    [
+     11731,
+     "Savage Gladiator Greaves",
+     3,
+     8,
+     4,
+     3,
+     52,
+     9031
+    ],
+    [
+     11735,
+     "Ragefury Eyepatch",
+     3,
+     1,
+     4,
+     2,
+     52,
+     9537
+    ],
+    [
+     11742,
+     "Wayfarer's Knapsack",
+     2,
+     18,
+     1,
+     0,
+     0,
+     9543
+    ],
+    [
+     11744,
+     "Bloodfist",
+     3,
+     13,
+     2,
+     13,
+     51,
+     9502
+    ],
+    [
+     11745,
+     "Fists of Phalanx",
+     3,
+     10,
+     4,
+     4,
+     51,
+     9502
+    ],
+    [
+     11746,
+     "Golem Skull Helm",
+     3,
+     1,
+     4,
+     4,
+     51,
+     9938
+    ],
+    [
+     11747,
+     "Flamestrider Robes",
+     3,
+     5,
+     4,
+     2,
+     48,
+     9024
+    ],
+    [
+     11748,
+     "Pyric Caduceus",
+     3,
+     15,
+     2,
+     19,
+     48,
+     9024
+    ],
+    [
+     11749,
+     "Searingscale Leggings",
+     3,
+     7,
+     4,
+     3,
+     48,
+     9024
+    ],
+    [
+     11750,
+     "Kindling Stave",
+     3,
+     17,
+     2,
+     10,
+     48,
+     9024
+    ],
+    [
+     11755,
+     "Verek's Collar",
+     3,
+     2,
+     4,
+     -3,
+     51,
+     9042
+    ],
+    [
+     11764,
+     "Cinderhide Armsplints",
+     3,
+     9,
+     4,
+     2,
+     52,
+     9017
+    ],
+    [
+     11765,
+     "Pyremail Wristguards",
+     3,
+     9,
+     4,
+     3,
+     52,
+     9017
+    ],
+    [
+     11766,
+     "Flameweave Cuffs",
+     3,
+     9,
+     4,
+     1,
+     52,
+     9017
+    ],
+    [
+     11767,
+     "Emberplate Armguards",
+     3,
+     9,
+     4,
+     4,
+     52,
+     9017
+    ],
+    [
+     11782,
+     "Boreal Mantle",
+     3,
+     3,
+     4,
+     1,
+     52,
+     9041
+    ],
+    [
+     11783,
+     "Chillsteel Girdle",
+     3,
+     6,
+     4,
+     3,
+     52,
+     9041
+    ],
+    [
+     11784,
+     "Arbiter's Blade",
+     3,
+     21,
+     2,
+     7,
+     48,
+     9041
+    ],
+    [
+     11785,
+     "Rock Golem Bulwark",
+     3,
+     14,
+     4,
+     6,
+     53,
+     8923
+    ],
+    [
+     11786,
+     "Stone of the Earth",
+     3,
+     17,
+     2,
+     8,
+     51,
+     8923
+    ],
+    [
+     11787,
+     "Shalehusk Boots",
+     3,
+     8,
+     4,
+     4,
+     53,
+     8923
+    ],
+    [
+     11802,
+     "Lavacrest Leggings",
+     3,
+     7,
+     4,
+     4,
+     53,
+     9016
+    ],
+    [
+     11803,
+     "Force of Magma",
+     3,
+     17,
+     2,
+     5,
+     51,
+     9016
+    ],
+    [
+     11805,
+     "Rubidium Hammer",
+     3,
+     21,
+     2,
+     4,
+     51,
+     9016
+    ],
+    [
+     11807,
+     "Sash of the Burning Heart",
+     3,
+     6,
+     4,
+     1,
+     53,
+     9016
+    ],
+    [
+     11808,
+     "Circle of Flame",
+     4,
+     1,
+     4,
+     1,
+     54,
+     9156
+    ],
+    [
+     11809,
+     "Flame Wrath",
+     3,
+     17,
+     2,
+     6,
+     51,
+     9156
+    ],
+    [
+     11810,
+     "Force of Will",
+     3,
+     12,
+     4,
+     -4,
+     55,
+     9033
+    ],
+    [
+     11812,
+     "Cape of the Fire Salamander",
+     3,
+     16,
+     4,
+     -6,
+     53,
+     9156
+    ],
+    [
+     11813,
+     "Formula: Smoking Heart of the Mountain",
+     2,
+     0,
+     9,
+     8,
+     0,
+     9025
+    ],
+    [
+     11814,
+     "Molten Fists",
+     3,
+     10,
+     4,
+     3,
+     53,
+     9156
+    ],
+    [
+     11815,
+     "Hand of Justice",
+     3,
+     12,
+     4,
+     -4,
+     53,
+     9019
+    ],
+    [
+     11816,
+     "Angerforge's Battle Axe",
+     3,
+     17,
+     2,
+     1,
+     51,
+     9033
+    ],
+    [
+     11817,
+     "Lord General's Sword",
+     3,
+     21,
+     2,
+     7,
+     51,
+     9033
+    ],
+    [
+     11819,
+     "Second Wind",
+     3,
+     12,
+     4,
+     -4,
+     54,
+     8983
+    ],
+    [
+     11820,
+     "Royal Decorated Armor",
+     3,
+     5,
+     4,
+     3,
+     53,
+     9033
+    ],
+    [
+     11821,
+     "Warstrife Leggings",
+     3,
+     7,
+     4,
+     2,
+     53,
+     9033
+    ],
+    [
+     11822,
+     "Omnicast Boots",
+     3,
+     8,
+     4,
+     1,
+     54,
+     8983
+    ],
+    [
+     11823,
+     "Luminary Kilt",
+     3,
+     7,
+     4,
+     2,
+     54,
+     8983
+    ],
+    [
+     11824,
+     "Cyclopean Band",
+     3,
+     11,
+     4,
+     -2,
+     49,
+     9030
+    ],
+    [
+     11832,
+     "Burst of Knowledge",
+     3,
+     12,
+     4,
+     -4,
+     53,
+     9156
+    ],
+    [
+     11839,
+     "Chief Architect's Monocle",
+     3,
+     1,
+     4,
+     1,
+     50,
+     9056
+    ],
+    [
+     11841,
+     "Senior Designer's Pantaloons",
+     3,
+     7,
+     4,
+     1,
+     50,
+     9056
+    ],
+    [
+     11842,
+     "Lead Surveyor's Mantle",
+     3,
+     3,
+     4,
+     3,
+     50,
+     9056
+    ],
+    [
+     11924,
+     "Robes of the Royal Crown",
+     3,
+     5,
+     4,
+     1,
+     55,
+     9019
+    ],
+    [
+     11928,
+     "Thaurissan's Royal Scepter",
+     3,
+     23,
+     4,
+     -5,
+     55,
+     9019
+    ],
+    [
+     11930,
+     "The Emperor's New Cape",
+     3,
+     16,
+     4,
+     -6,
+     55,
+     9019
+    ],
+    [
+     11931,
+     "Dreadforge Retaliator",
+     3,
+     17,
+     2,
+     1,
+     54,
+     9019
+    ],
+    [
+     11932,
+     "Guiding Stave of Wisdom",
+     3,
+     17,
+     2,
+     10,
+     54,
+     9019
+    ],
+    [
+     11933,
+     "Imperial Jewel",
+     3,
+     2,
+     4,
+     -3,
+     55,
+     9019
+    ],
+    [
+     11934,
+     "Emperor's Seal",
+     3,
+     11,
+     4,
+     -2,
+     55,
+     9019
+    ],
+    [
+     11935,
+     "Magmus Stone",
+     3,
+     23,
+     4,
+     -5,
+     53,
+     9938
+    ],
+    [
+     12791,
+     "Barman Shanker",
+     3,
+     21,
+     2,
+     15,
+     50,
+     9499
+    ],
+    [
+     12793,
+     "Mixologist's Tunic",
+     3,
+     5,
+     4,
+     2,
+     50,
+     9499
+    ],
+    [
+     16049,
+     "Schematic: Dark Iron Bomb",
+     2,
+     0,
+     9,
+     3,
+     10,
+     8920
+    ],
+    [
+     18043,
+     "Coal Miner Boots",
+     3,
+     8,
+     4,
+     2,
+     52,
+     9537
+    ],
+    [
+     18044,
+     "Hurley's Tankard",
+     3,
+     21,
+     2,
+     4,
+     52,
+     9537
+    ],
+    [
+     18653,
+     "Schematic: Goblin Jumper Cables XL",
+     2,
+     0,
+     9,
+     3,
+     10,
+     9499
+    ],
+    [
+     18654,
+     "Schematic: Gnomish Alarm-O-Bot",
+     2,
+     0,
+     9,
+     3,
+     10,
+     8920
+    ],
+    [
+     18661,
+     "Schematic: World Enlarger",
+     2,
+     0,
+     9,
+     3,
+     10,
+     8920
+    ],
+    [
+     22204,
+     "Wristguards of Renown",
+     3,
+     9,
+     4,
+     2,
+     55,
+     9019
+    ],
+    [
+     22207,
+     "Sash of the Grand Hunt",
+     3,
+     6,
+     4,
+     3,
+     55,
+     9019
+    ],
+    [
+     22208,
+     "Lavastone Hammer",
+     3,
+     17,
+     2,
+     5,
+     53,
+     9938
+    ],
+    [
+     22212,
+     "Golem Fitted Pauldrons",
+     3,
+     3,
+     4,
+     3,
+     51,
+     9502
+    ],
+    [
+     22223,
+     "Foreman's Head Protector",
+     3,
+     1,
+     4,
+     4,
+     50,
+     9056
+    ],
+    [
+     22234,
+     "Mantle of Lost Hope",
+     3,
+     3,
+     4,
+     1,
+     48,
+     9025
+    ],
+    [
+     22240,
+     "Greaves of Withering Despair",
+     3,
+     8,
+     4,
+     3,
+     48,
+     9018
+    ],
+    [
+     22241,
+     "Dark Warder's Pauldrons",
+     3,
+     3,
+     4,
+     2,
+     52,
+     9041
+    ],
+    [
+     22242,
+     "Verek's Leash",
+     3,
+     6,
+     4,
+     3,
+     51,
+     9042
+    ],
+    [
+     22245,
+     "Soot Encrusted Footwear",
+     3,
+     8,
+     4,
+     1,
+     51,
+     8923
+    ],
+    [
+     22257,
+     "Bloodclot Band",
+     3,
+     11,
+     4,
+     -2,
+     52,
+     9027
+    ],
+    [
+     22266,
+     "Flarethorn",
+     3,
+     21,
+     2,
+     15,
+     52,
+     9027
+    ],
+    [
+     22270,
+     "Entrenching Boots",
+     3,
+     8,
+     4,
+     4,
+     50,
+     9028
+    ],
+    [
+     22271,
+     "Leggings of Frenzied Magic",
+     3,
+     7,
+     4,
+     2,
+     52,
+     9027
+    ],
+    [
+     22275,
+     "Firemoss Boots",
+     3,
+     8,
+     4,
+     2,
+     52,
+     9537
+    ],
+    [
+     22395,
+     "Totem of Rage",
+     3,
+     28,
+     4,
+     9,
+     52,
+     9938
+    ],
+    [
+     22397,
+     "Idol of Ferocity",
+     3,
+     28,
+     4,
+     8,
+     52,
+     9025
+    ],
+    [
+     22400,
+     "Libram of Truth",
+     3,
+     28,
+     4,
+     7,
+     52,
+     9938
+    ],
+    [
+     272019,
+     "Bronzebeard Wedding Contract",
+     3,
+     0,
+     12,
+     0,
+     0,
+     9019
+    ],
+    [
+     273113,
+     "Blueprint: Master Forge",
+     2,
+     0,
+     9,
+     4,
+     0,
+     8983
+    ],
+    [
+     273122,
+     "Blueprint: Molten Foundry",
+     2,
+     0,
+     9,
+     0,
+     0,
+     9156
+    ],
+    [
+     273127,
+     "Golem Heart",
+     2,
+     0,
+     15,
+     1,
+     0,
+     8983
+    ],
+    [
+     276877,
+     "Brewmancer Nightcap",
+     3,
+     1,
+     4,
+     1,
+     50,
+     9499
+    ],
+    [
+     276879,
+     "Backroom Bulwark",
+     3,
+     14,
+     4,
+     6,
+     51,
+     9502
+    ],
+    [
+     276884,
+     "Verek's Loyal Wraps",
+     3,
+     9,
+     4,
+     1,
+     51,
+     9042
+    ],
+    [
+     277117,
+     "Savage Gladiator Shoulders",
+     3,
+     3,
+     4,
+     3,
+     52,
+     9028
+    ]
+   ]
+  },
+  "2017": {
+   "title": "Stratholme",
+   "drops": [
+    [
+     10143,
+     "High Councillor's Robe",
+     2,
+     5,
+     4,
+     1,
+     59,
+     10439
+    ],
+    [
+     10218,
+     "Elegant Tunic",
+     2,
+     5,
+     4,
+     1,
+     57,
+     10422
+    ],
+    [
+     12048,
+     "Prismatic Pendant",
+     2,
+     2,
+     4,
+     -3,
+     60,
+     10440
+    ],
+    [
+     12382,
+     "Key to the City",
+     2,
+     0,
+     13,
+     0,
+     0,
+     10435
+    ],
+    [
+     12716,
+     "Pattern: Helm of the Great Chief",
+     3,
+     0,
+     9,
+     1,
+     0,
+     10391
+    ],
+    [
+     12833,
+     "Plans: Hammer of the Titans",
+     3,
+     0,
+     9,
+     4,
+     0,
+     10438
+    ],
+    [
+     12839,
+     "Plans: Heartseeker",
+     3,
+     0,
+     9,
+     4,
+     0,
+     10997
+    ],
+    [
+     13340,
+     "Cape of the Black Baron",
+     3,
+     16,
+     4,
+     -6,
+     58,
+     10440
+    ],
+    [
+     13344,
+     "Dracorian Gauntlets",
+     3,
+     10,
+     4,
+     3,
+     58,
+     10440
+    ],
+    [
+     13345,
+     "Seal of Rivendare",
+     3,
+     11,
+     4,
+     -2,
+     58,
+     10440
+    ],
+    [
+     13346,
+     "Robes of the Exalted",
+     3,
+     5,
+     4,
+     1,
+     58,
+     10440
+    ],
+    [
+     13349,
+     "Scepter of the Unholy",
+     3,
+     21,
+     2,
+     4,
+     58,
+     10440
+    ],
+    [
+     13353,
+     "Book of the Dead",
+     4,
+     23,
+     4,
+     -5,
+     58,
+     10812
+    ],
+    [
+     13361,
+     "Skullforge Reaver",
+     3,
+     13,
+     2,
+     7,
+     58,
+     10440
+    ],
+    [
+     13368,
+     "Bonescraper",
+     3,
+     13,
+     2,
+     15,
+     57,
+     10440
+    ],
+    [
+     13372,
+     "Slavedriver's Cane",
+     3,
+     17,
+     2,
+     10,
+     55,
+     10439
+    ],
+    [
+     13373,
+     "Band of Flesh",
+     3,
+     11,
+     4,
+     -2,
+     55,
+     10439
+    ],
+    [
+     13374,
+     "Soulstealer Mantle",
+     3,
+     3,
+     4,
+     1,
+     55,
+     10439
+    ],
+    [
+     13375,
+     "Crest of Retribution",
+     3,
+     14,
+     4,
+     6,
+     55,
+     10439
+    ],
+    [
+     13376,
+     "Royal Tribunal Cloak",
+     3,
+     16,
+     4,
+     -6,
+     54,
+     10435
+    ],
+    [
+     13377,
+     "Miniature Cannon Balls",
+     3,
+     24,
+     6,
+     3,
+     56,
+     10997
+    ],
+    [
+     13378,
+     "Songbird Blouse",
+     3,
+     5,
+     4,
+     2,
+     53,
+     10558
+    ],
+    [
+     13379,
+     "Piccolo of the Flaming Fire",
+     3,
+     0,
+     4,
+     0,
+     53,
+     10558
+    ],
+    [
+     13380,
+     "Willey's Portable Howitzer",
+     3,
+     15,
+     2,
+     3,
+     56,
+     10997
+    ],
+    [
+     13381,
+     "Master Cannoneer Boots",
+     3,
+     8,
+     4,
+     4,
+     56,
+     10997
+    ],
+    [
+     13382,
+     "Cannonball Runner",
+     3,
+     12,
+     4,
+     -4,
+     56,
+     10997
+    ],
+    [
+     13383,
+     "Woollies of the Prancing Minstrel",
+     3,
+     7,
+     4,
+     3,
+     53,
+     10558
+    ],
+    [
+     13384,
+     "Rainbow Girdle",
+     3,
+     6,
+     4,
+     4,
+     53,
+     10558
+    ],
+    [
+     13385,
+     "Tome of Knowledge",
+     3,
+     23,
+     4,
+     -5,
+     56,
+     10811
+    ],
+    [
+     13386,
+     "Archivist Cape",
+     3,
+     16,
+     4,
+     -6,
+     56,
+     10811
+    ],
+    [
+     13387,
+     "Foresight Girdle",
+     3,
+     6,
+     4,
+     3,
+     56,
+     10811
+    ],
+    [
+     13388,
+     "The Postmaster's Tunic",
+     3,
+     5,
+     4,
+     1,
+     56,
+     11143
+    ],
+    [
+     13389,
+     "The Postmaster's Trousers",
+     3,
+     7,
+     4,
+     1,
+     56,
+     11143
+    ],
+    [
+     13390,
+     "The Postmaster's Band",
+     3,
+     1,
+     4,
+     1,
+     56,
+     11143
+    ],
+    [
+     13391,
+     "The Postmaster's Treads",
+     3,
+     8,
+     4,
+     1,
+     56,
+     11143
+    ],
+    [
+     13392,
+     "The Postmaster's Seal",
+     3,
+     11,
+     4,
+     -2,
+     56,
+     11143
+    ],
+    [
+     13393,
+     "Malown's Slam",
+     3,
+     17,
+     2,
+     5,
+     56,
+     11143
+    ],
+    [
+     13394,
+     "Skul's Cold Embrace",
+     3,
+     5,
+     4,
+     4,
+     55,
+     10393
+    ],
+    [
+     13395,
+     "Skul's Fingerbone Claws",
+     3,
+     10,
+     4,
+     2,
+     55,
+     10393
+    ],
+    [
+     13396,
+     "Skul's Ghastly Touch",
+     3,
+     15,
+     2,
+     19,
+     55,
+     10393
+    ],
+    [
+     13397,
+     "Stoneskin Gargoyle Cape",
+     3,
+     16,
+     4,
+     -6,
+     57,
+     10809
+    ],
+    [
+     13399,
+     "Gargoyle Shredder Talons",
+     3,
+     22,
+     2,
+     13,
+     57,
+     10809
+    ],
+    [
+     13400,
+     "Vambraces of the Sadist",
+     3,
+     9,
+     4,
+     4,
+     55,
+     10808
+    ],
+    [
+     13401,
+     "The Cruel Hand of Timmy",
+     3,
+     13,
+     2,
+     4,
+     55,
+     10808
+    ],
+    [
+     13402,
+     "Timmy's Galoshes",
+     3,
+     8,
+     4,
+     3,
+     55,
+     10808
+    ],
+    [
+     13403,
+     "Grimgore Noose",
+     3,
+     6,
+     4,
+     1,
+     55,
+     10808
+    ],
+    [
+     13404,
+     "Mask of the Unforgiven",
+     3,
+     1,
+     4,
+     2,
+     52,
+     10516
+    ],
+    [
+     13405,
+     "Wailing Nightbane Pauldrons",
+     3,
+     3,
+     4,
+     4,
+     52,
+     10516
+    ],
+    [
+     13408,
+     "Soul Breaker",
+     3,
+     21,
+     2,
+     0,
+     52,
+     10516
+    ],
+    [
+     13409,
+     "Tearfall Bracers",
+     3,
+     9,
+     4,
+     1,
+     52,
+     10516
+    ],
+    [
+     13508,
+     "Eye of Arachnida",
+     2,
+     0,
+     0,
+     8,
+     55,
+     10437
+    ],
+    [
+     13509,
+     "Clutch of Foresight",
+     2,
+     0,
+     0,
+     8,
+     55,
+     10438
+    ],
+    [
+     13514,
+     "Wail of the Banshee",
+     2,
+     0,
+     0,
+     8,
+     55,
+     10436
+    ],
+    [
+     13515,
+     "Ramstein's Lightning Bolts",
+     3,
+     12,
+     4,
+     -4,
+     55,
+     10439
+    ],
+    [
+     13524,
+     "Skull of Burning Shadows",
+     3,
+     23,
+     4,
+     -5,
+     57,
+     10438
+    ],
+    [
+     13525,
+     "Darkbind Fingers",
+     3,
+     10,
+     4,
+     1,
+     57,
+     10438
+    ],
+    [
+     13526,
+     "Flamescarred Girdle",
+     3,
+     6,
+     4,
+     2,
+     57,
+     10438
+    ],
+    [
+     13527,
+     "Lavawalker Greaves",
+     3,
+     8,
+     4,
+     4,
+     57,
+     10438
+    ],
+    [
+     13528,
+     "Twilight Void Bracers",
+     3,
+     9,
+     4,
+     3,
+     57,
+     10438
+    ],
+    [
+     13529,
+     "Husk of Nerub'enkan",
+     3,
+     14,
+     4,
+     6,
+     56,
+     10437
+    ],
+    [
+     13530,
+     "Fangdrip Runners",
+     3,
+     8,
+     4,
+     1,
+     56,
+     10437
+    ],
+    [
+     13531,
+     "Crypt Stalker Leggings",
+     3,
+     7,
+     4,
+     2,
+     56,
+     10437
+    ],
+    [
+     13532,
+     "Darkspinner Claws",
+     3,
+     10,
+     4,
+     3,
+     56,
+     10437
+    ],
+    [
+     13533,
+     "Acid-etched Pauldrons",
+     3,
+     3,
+     4,
+     4,
+     56,
+     10437
+    ],
+    [
+     13534,
+     "Banshee Finger",
+     3,
+     15,
+     2,
+     19,
+     55,
+     10436
+    ],
+    [
+     13535,
+     "Coldtouch Phantom Wraps",
+     3,
+     5,
+     4,
+     1,
+     55,
+     10436
+    ],
+    [
+     13537,
+     "Chillhide Bracers",
+     3,
+     9,
+     4,
+     2,
+     55,
+     10436
+    ],
+    [
+     13538,
+     "Windshrieker Pauldrons",
+     3,
+     3,
+     4,
+     3,
+     55,
+     10436
+    ],
+    [
+     13539,
+     "Banshee's Touch",
+     3,
+     10,
+     4,
+     4,
+     55,
+     10436
+    ],
+    [
+     13954,
+     "Verdant Footpads",
+     3,
+     8,
+     4,
+     2,
+     57,
+     10809
+    ],
+    [
+     16052,
+     "Schematic: Voice Amplification Modulator",
+     2,
+     0,
+     9,
+     3,
+     10,
+     10426
+    ],
+    [
+     16249,
+     "Formula: Enchant 2H Weapon - Major Intellect",
+     2,
+     0,
+     9,
+     8,
+     0,
+     10422
+    ],
+    [
+     16668,
+     "Kilt of Elements",
+     3,
+     7,
+     4,
+     3,
+     56,
+     10440
+    ],
+    [
+     16675,
+     "Beaststalker's Boots",
+     3,
+     8,
+     4,
+     3,
+     54,
+     10437
+    ],
+    [
+     16678,
+     "Beaststalker's Pants",
+     3,
+     7,
+     4,
+     3,
+     56,
+     10440
+    ],
+    [
+     16682,
+     "Magister's Boots",
+     3,
+     8,
+     4,
+     1,
+     54,
+     10558
+    ],
+    [
+     16687,
+     "Magister's Leggings",
+     3,
+     7,
+     4,
+     1,
+     56,
+     10440
+    ],
+    [
+     16691,
+     "Devout Sandals",
+     3,
+     8,
+     4,
+     1,
+     54,
+     10438
+    ],
+    [
+     16692,
+     "Devout Gloves",
+     3,
+     10,
+     4,
+     1,
+     54,
+     10811
+    ],
+    [
+     16694,
+     "Devout Skirt",
+     3,
+     7,
+     4,
+     1,
+     56,
+     10440
+    ],
+    [
+     16699,
+     "Dreadmist Leggings",
+     3,
+     7,
+     4,
+     1,
+     56,
+     10440
+    ],
+    [
+     16704,
+     "Dreadmist Sandals",
+     3,
+     8,
+     4,
+     1,
+     54,
+     10436
+    ],
+    [
+     16708,
+     "Shadowcraft Spaulders",
+     3,
+     3,
+     4,
+     2,
+     55,
+     10997
+    ],
+    [
+     16709,
+     "Shadowcraft Pants",
+     3,
+     7,
+     4,
+     2,
+     56,
+     10440
+    ],
+    [
+     16717,
+     "Wildheart Gloves",
+     3,
+     10,
+     4,
+     2,
+     54,
+     10516
+    ],
+    [
+     16719,
+     "Wildheart Kilt",
+     3,
+     7,
+     4,
+     2,
+     56,
+     10440
+    ],
+    [
+     16724,
+     "Lightforge Gauntlets",
+     3,
+     10,
+     4,
+     4,
+     54,
+     10808
+    ],
+    [
+     16728,
+     "Lightforge Legplates",
+     3,
+     7,
+     4,
+     4,
+     56,
+     10440
+    ],
+    [
+     16732,
+     "Legplates of Valor",
+     3,
+     7,
+     4,
+     4,
+     56,
+     10440
+    ],
+    [
+     16737,
+     "Gauntlets of Valor",
+     3,
+     10,
+     4,
+     4,
+     54,
+     10439
+    ],
+    [
+     18658,
+     "Schematic: Ultra-Flash Shadow Reflector",
+     2,
+     0,
+     9,
+     3,
+     10,
+     10426
+    ],
+    [
+     18716,
+     "Ash Covered Boots",
+     3,
+     8,
+     4,
+     2,
+     56,
+     10811
+    ],
+    [
+     18721,
+     "Barrage Girdle",
+     3,
+     6,
+     4,
+     3,
+     56,
+     10997
+    ],
+    [
+     18722,
+     "Death Grips",
+     3,
+     10,
+     4,
+     4,
+     57,
+     10435
+    ],
+    [
+     18723,
+     "Animated Chain Necklace",
+     3,
+     2,
+     4,
+     -3,
+     57,
+     10439
+    ],
+    [
+     18725,
+     "Peacemaker",
+     3,
+     17,
+     2,
+     6,
+     54,
+     10435
+    ],
+    [
+     18726,
+     "Magistrate's Cuffs",
+     3,
+     9,
+     4,
+     2,
+     54,
+     10435
+    ],
+    [
+     18727,
+     "Crimson Felt Hat",
+     3,
+     1,
+     4,
+     1,
+     54,
+     10435
+    ],
+    [
+     18728,
+     "Anastari Heirloom",
+     3,
+     2,
+     4,
+     -3,
+     55,
+     10436
+    ],
+    [
+     18729,
+     "Screeching Bow",
+     3,
+     15,
+     2,
+     2,
+     55,
+     10436
+    ],
+    [
+     18730,
+     "Shadowy Laced Handwraps",
+     3,
+     10,
+     4,
+     1,
+     55,
+     10436
+    ],
+    [
+     18734,
+     "Pale Moon Cloak",
+     3,
+     16,
+     4,
+     -6,
+     57,
+     10438
+    ],
+    [
+     18735,
+     "Maleki's Footwraps",
+     3,
+     8,
+     4,
+     1,
+     57,
+     10438
+    ],
+    [
+     18737,
+     "Bone Slicing Hatchet",
+     3,
+     13,
+     2,
+     0,
+     57,
+     10438
+    ],
+    [
+     18738,
+     "Carapace Spine Crossbow",
+     3,
+     15,
+     2,
+     18,
+     56,
+     10437
+    ],
+    [
+     18739,
+     "Chitinous Plate Legguards",
+     3,
+     7,
+     4,
+     4,
+     56,
+     10437
+    ],
+    [
+     18740,
+     "Thuzadin Sash",
+     3,
+     6,
+     4,
+     1,
+     56,
+     10437
+    ],
+    [
+     18742,
+     "Stratholme Militia Shoulderguard",
+     3,
+     3,
+     4,
+     3,
+     55,
+     10426
+    ],
+    [
+     18745,
+     "Sacred Cloth Leggings",
+     3,
+     7,
+     4,
+     1,
+     52,
+     10391
+    ],
+    [
+     18781,
+     "Bottom Half of Advanced Armorsmithing: Volume II",
+     3,
+     0,
+     12,
+     0,
+     50,
+     11120
+    ],
+    [
+     18783,
+     "Bottom Half of Advanced Armorsmithing: Volume III",
+     3,
+     0,
+     12,
+     0,
+     50,
+     11121
+    ],
+    [
+     22403,
+     "Nacreous Shell Necklace",
+     3,
+     2,
+     4,
+     -3,
+     56,
+     10997
+    ],
+    [
+     22404,
+     "Willey's Back Scratcher",
+     3,
+     21,
+     2,
+     13,
+     56,
+     10997
+    ],
+    [
+     22405,
+     "Mantle of the Scarlet Crusade",
+     3,
+     3,
+     4,
+     1,
+     56,
+     10997
+    ],
+    [
+     22406,
+     "Redemption",
+     3,
+     17,
+     2,
+     10,
+     56,
+     10997
+    ],
+    [
+     22407,
+     "Helm of the New Moon",
+     3,
+     1,
+     4,
+     2,
+     56,
+     10997
+    ],
+    [
+     22408,
+     "Ritssyn's Wand of Bad Mojo",
+     3,
+     15,
+     2,
+     19,
+     58,
+     10440
+    ],
+    [
+     22409,
+     "Tunic of the Crescent Moon",
+     3,
+     5,
+     4,
+     2,
+     58,
+     10440
+    ],
+    [
+     22410,
+     "Gauntlets of Deftness",
+     3,
+     10,
+     4,
+     3,
+     58,
+     10440
+    ],
+    [
+     22411,
+     "Helm of the Executioner",
+     3,
+     1,
+     4,
+     4,
+     58,
+     10440
+    ],
+    [
+     22412,
+     "Thuzadin Mantle",
+     3,
+     3,
+     4,
+     1,
+     58,
+     10440
+    ],
+    [
+     22897,
+     "Tome of Conjure Food VII",
+     3,
+     0,
+     9,
+     0,
+     60,
+     10811
+    ],
+    [
+     23198,
+     "Idol of Brutality",
+     3,
+     28,
+     4,
+     8,
+     60,
+     10435
+    ],
+    [
+     273117,
+     "Blueprint: Anarchist's Workbench",
+     2,
+     0,
+     9,
+     3,
+     10,
+     11058
+    ],
+    [
+     273124,
+     "Blueprint: Loom",
+     2,
+     0,
+     9,
+     2,
+     0,
+     10436
+    ],
+    [
+     273129,
+     "Essence of Anarchy",
+     2,
+     0,
+     15,
+     1,
+     0,
+     11058
+    ],
+    [
+     273131,
+     "Bottled Screams",
+     2,
+     0,
+     15,
+     1,
+     0,
+     10436
+    ],
+    [
+     276394,
+     "Luxurious Smoking Jacket",
+     3,
+     5,
+     4,
+     1,
+     54,
+     11058
+    ],
+    [
+     276395,
+     "Grimm's Packing Gloves",
+     3,
+     10,
+     4,
+     1,
+     54,
+     11058
+    ],
+    [
+     276396,
+     "Ezra's Seal of Authenticity",
+     3,
+     11,
+     4,
+     -2,
+     54,
+     11058
+    ],
+    [
+     276397,
+     "Hand of the Zealous",
+     3,
+     17,
+     2,
+     5,
+     55,
+     11032
+    ],
+    [
+     276398,
+     "Scarlet Malice",
+     3,
+     13,
+     2,
+     4,
+     55,
+     11032
+    ],
+    [
+     276399,
+     "Plate of the Scarlet Bastion",
+     3,
+     5,
+     4,
+     4,
+     55,
+     11032
+    ],
+    [
+     276403,
+     "Scarlet Bonebreaker",
+     3,
+     17,
+     2,
+     5,
+     55,
+     11120
+    ],
+    [
+     276404,
+     "Masterwork Crimson Hammer",
+     3,
+     21,
+     2,
+     4,
+     55,
+     11120
+    ],
+    [
+     276419,
+     "Lightcrest Hammer",
+     3,
+     13,
+     2,
+     4,
+     55,
+     11120
+    ],
+    [
+     276434,
+     "Black Guard Skullcap",
+     3,
+     1,
+     4,
+     3,
+     55,
+     11121
+    ],
+    [
+     276455,
+     "Swordsmith Mitts",
+     3,
+     10,
+     4,
+     2,
+     55,
+     11121
+    ],
+    [
+     276456,
+     "Plague Defiled Buckler",
+     3,
+     14,
+     4,
+     6,
+     55,
+     11121
+    ],
+    [
+     284587,
+     "Ankle Slicers",
+     4,
+     25,
+     2,
+     16,
+     58,
+     10438
+    ]
+   ]
+  },
+  "2057": {
+   "title": "Scholomance",
+   "drops": [
+    [
+     10135,
+     "High Councillor's Tunic",
+     2,
+     5,
+     4,
+     1,
+     59,
+     10503
+    ],
+    [
+     13314,
+     "Alanna's Embrace",
+     4,
+     5,
+     4,
+     1,
+     57,
+     10508
+    ],
+    [
+     13398,
+     "Boots of the Shrieker",
+     3,
+     8,
+     4,
+     2,
+     57,
+     1853
+    ],
+    [
+     13501,
+     "Recipe: Major Mana Potion",
+     2,
+     0,
+     9,
+     6,
+     0,
+     1853
+    ],
+    [
+     13521,
+     "Recipe: Flask of Supreme Power",
+     2,
+     0,
+     9,
+     6,
+     0,
+     10508
+    ],
+    [
+     13937,
+     "Headmaster's Charge",
+     4,
+     17,
+     2,
+     10,
+     57,
+     1853
+    ],
+    [
+     13938,
+     "Bonecreeper Stylus",
+     3,
+     15,
+     2,
+     19,
+     57,
+     1853
+    ],
+    [
+     13944,
+     "Tombstone Breastplate",
+     3,
+     5,
+     4,
+     2,
+     57,
+     1853
+    ],
+    [
+     13951,
+     "Vigorsteel Vambraces",
+     3,
+     9,
+     4,
+     4,
+     57,
+     1853
+    ],
+    [
+     13952,
+     "Iceblade Hacker",
+     3,
+     21,
+     2,
+     0,
+     57,
+     10508
+    ],
+    [
+     13953,
+     "Silent Fang",
+     3,
+     21,
+     2,
+     7,
+     57,
+     1853
+    ],
+    [
+     13955,
+     "Stoneform Shoulders",
+     3,
+     3,
+     4,
+     4,
+     56,
+     10506
+    ],
+    [
+     13956,
+     "Clutch of Andros",
+     3,
+     6,
+     4,
+     1,
+     56,
+     10506
+    ],
+    [
+     13957,
+     "Gargoyle Slashers",
+     3,
+     10,
+     4,
+     2,
+     56,
+     10506
+    ],
+    [
+     13960,
+     "Heart of the Fiend",
+     3,
+     2,
+     4,
+     -3,
+     56,
+     10506
+    ],
+    [
+     13964,
+     "Witchblade",
+     3,
+     21,
+     2,
+     15,
+     57,
+     1853
+    ],
+    [
+     13967,
+     "Windreaver Greaves",
+     3,
+     8,
+     4,
+     3,
+     56,
+     10506
+    ],
+    [
+     13969,
+     "Loomguard Armbraces",
+     3,
+     9,
+     4,
+     3,
+     56,
+     10506
+    ],
+    [
+     13983,
+     "Gravestone War Axe",
+     3,
+     17,
+     2,
+     1,
+     57,
+     10506
+    ],
+    [
+     14024,
+     "Frightalon",
+     3,
+     13,
+     2,
+     15,
+     56,
+     10506
+    ],
+    [
+     14340,
+     "Freezing Lich Robes",
+     3,
+     5,
+     4,
+     1,
+     57,
+     10508
+    ],
+    [
+     14487,
+     "Bonechill Hammer",
+     3,
+     13,
+     2,
+     4,
+     57,
+     10508
+    ],
+    [
+     14502,
+     "Frostbite Girdle",
+     3,
+     6,
+     4,
+     2,
+     57,
+     10508
+    ],
+    [
+     14503,
+     "Death's Clutch",
+     3,
+     3,
+     4,
+     2,
+     57,
+     10508
+    ],
+    [
+     14514,
+     "Pattern: Robe of the Void",
+     4,
+     0,
+     9,
+     2,
+     0,
+     1853
+    ],
+    [
+     14522,
+     "Maelstrom Leggings",
+     3,
+     7,
+     4,
+     3,
+     57,
+     10508
+    ],
+    [
+     14525,
+     "Boneclenched Gauntlets",
+     3,
+     10,
+     4,
+     4,
+     57,
+     10508
+    ],
+    [
+     14528,
+     "Rattlecage Buckler",
+     3,
+     14,
+     4,
+     6,
+     57,
+     11622
+    ],
+    [
+     14531,
+     "Frightskull Shaft",
+     3,
+     17,
+     2,
+     5,
+     54,
+     11622
+    ],
+    [
+     14536,
+     "Bonebrace Hauberk",
+     3,
+     5,
+     4,
+     3,
+     56,
+     10469
+    ],
+    [
+     14537,
+     "Corpselight Greaves",
+     3,
+     8,
+     4,
+     4,
+     57,
+     11622
+    ],
+    [
+     14538,
+     "Deadwalker Mantle",
+     3,
+     3,
+     4,
+     1,
+     57,
+     11622
+    ],
+    [
+     14539,
+     "Bone Ring Helm",
+     3,
+     1,
+     4,
+     2,
+     57,
+     11622
+    ],
+    [
+     14541,
+     "Barovian Family Sword",
+     3,
+     17,
+     2,
+     8,
+     56,
+     10503
+    ],
+    [
+     14545,
+     "Ghostloom Leggings",
+     3,
+     7,
+     4,
+     2,
+     57,
+     10503
+    ],
+    [
+     14548,
+     "Royal Cap Spaulders",
+     3,
+     3,
+     4,
+     3,
+     57,
+     10503
+    ],
+    [
+     14576,
+     "Ebon Hilt of Marduk",
+     3,
+     21,
+     2,
+     7,
+     54,
+     10433
+    ],
+    [
+     14577,
+     "Skullsmoke Pants",
+     3,
+     7,
+     4,
+     1,
+     56,
+     10432
+    ],
+    [
+     15773,
+     "Pattern: Wicked Leather Armor",
+     2,
+     0,
+     9,
+     1,
+     0,
+     10499
+    ],
+    [
+     16254,
+     "Formula: Enchant Weapon - Lifestealing",
+     3,
+     0,
+     9,
+     8,
+     0,
+     10499
+    ],
+    [
+     16255,
+     "Formula: Enchant 2H Weapon - Major Spirit",
+     2,
+     0,
+     9,
+     8,
+     0,
+     10469
+    ],
+    [
+     16667,
+     "Coif of Elements",
+     3,
+     1,
+     4,
+     3,
+     57,
+     1853
+    ],
+    [
+     16677,
+     "Beaststalker's Cap",
+     3,
+     1,
+     4,
+     3,
+     57,
+     1853
+    ],
+    [
+     16686,
+     "Magister's Crown",
+     3,
+     1,
+     4,
+     1,
+     57,
+     1853
+    ],
+    [
+     16689,
+     "Magister's Mantle",
+     3,
+     3,
+     4,
+     1,
+     55,
+     10508
+    ],
+    [
+     16693,
+     "Devout Crown",
+     3,
+     1,
+     4,
+     1,
+     57,
+     1853
+    ],
+    [
+     16698,
+     "Dreadmist Mask",
+     3,
+     1,
+     4,
+     1,
+     57,
+     1853
+    ],
+    [
+     16701,
+     "Dreadmist Mantle",
+     3,
+     3,
+     4,
+     1,
+     55,
+     10503
+    ],
+    [
+     16707,
+     "Shadowcraft Cap",
+     3,
+     1,
+     4,
+     2,
+     57,
+     1853
+    ],
+    [
+     16711,
+     "Shadowcraft Boots",
+     3,
+     8,
+     4,
+     2,
+     54,
+     11622
+    ],
+    [
+     16720,
+     "Wildheart Cowl",
+     3,
+     1,
+     4,
+     2,
+     57,
+     1853
+    ],
+    [
+     16727,
+     "Lightforge Helm",
+     3,
+     1,
+     4,
+     4,
+     57,
+     1853
+    ],
+    [
+     16731,
+     "Helm of Valor",
+     3,
+     1,
+     4,
+     4,
+     57,
+     1853
+    ],
+    [
+     16734,
+     "Boots of Valor",
+     3,
+     8,
+     4,
+     4,
+     54,
+     10506
+    ],
+    [
+     18686,
+     "Bone Golem Shoulders",
+     3,
+     3,
+     4,
+     3,
+     57,
+     11622
+    ],
+    [
+     18689,
+     "Phantasmal Cloak",
+     3,
+     16,
+     4,
+     -6,
+     57,
+     10503
+    ],
+    [
+     18690,
+     "Wraithplate Leggings",
+     3,
+     7,
+     4,
+     4,
+     57,
+     10503
+    ],
+    [
+     18691,
+     "Dark Advisor's Pendant",
+     3,
+     2,
+     4,
+     -3,
+     56,
+     10432
+    ],
+    [
+     18692,
+     "Death Knight Sabatons",
+     3,
+     8,
+     4,
+     4,
+     54,
+     10433
+    ],
+    [
+     18693,
+     "Shivery Handwraps",
+     3,
+     10,
+     4,
+     1,
+     57,
+     10508
+    ],
+    [
+     18694,
+     "Shadowy Mail Greaves",
+     3,
+     8,
+     4,
+     3,
+     57,
+     10508
+    ],
+    [
+     18695,
+     "Spellbound Tome",
+     3,
+     23,
+     4,
+     -5,
+     57,
+     10508
+    ],
+    [
+     18696,
+     "Intricately Runed Shield",
+     3,
+     14,
+     4,
+     6,
+     57,
+     10508
+    ],
+    [
+     18701,
+     "Innervating Band",
+     3,
+     11,
+     4,
+     -2,
+     54,
+     1853
+    ],
+    [
+     18758,
+     "Specter's Blade",
+     3,
+     13,
+     2,
+     15,
+     57,
+     14516
+    ],
+    [
+     18759,
+     "Malicious Axe",
+     3,
+     17,
+     2,
+     1,
+     57,
+     14516
+    ],
+    [
+     18760,
+     "Necromantic Band",
+     3,
+     11,
+     4,
+     -2,
+     57,
+     14516
+    ],
+    [
+     18761,
+     "Oblivion's Touch",
+     3,
+     15,
+     2,
+     19,
+     57,
+     14516
+    ],
+    [
+     18782,
+     "Top Half of Advanced Armorsmithing: Volume II",
+     3,
+     0,
+     12,
+     0,
+     50,
+     11622
+    ],
+    [
+     19276,
+     "Ace of Portals",
+     3,
+     0,
+     12,
+     0,
+     0,
+     1853
+    ],
+    [
+     22303,
+     "Ironweave Pants",
+     3,
+     7,
+     4,
+     1,
+     57,
+     16118
+    ],
+    [
+     22326,
+     "Amalgam's Band",
+     3,
+     11,
+     4,
+     -2,
+     58,
+     16118
+    ],
+    [
+     22331,
+     "Band of the Steadfast Hero",
+     3,
+     11,
+     4,
+     -2,
+     57,
+     16118
+    ],
+    [
+     22332,
+     "Blade of Necromancy",
+     3,
+     21,
+     2,
+     7,
+     57,
+     16118
+    ],
+    [
+     22394,
+     "Staff of Metanoia",
+     3,
+     17,
+     2,
+     10,
+     57,
+     10503
+    ],
+    [
+     22433,
+     "Don Mauricio's Band of Domination",
+     3,
+     11,
+     4,
+     -2,
+     58,
+     1853
+    ],
+    [
+     252940,
+     "Pattern: Pristine Scorpid Leggings",
+     4,
+     0,
+     9,
+     1,
+     0,
+     10499
+    ],
+    [
+     273112,
+     "Blueprint: Alchemy Laboratory",
+     2,
+     0,
+     9,
+     6,
+     0,
+     10508
+    ],
+    [
+     273118,
+     "Blueprint: Plague Doctor's Laboratory",
+     2,
+     0,
+     9,
+     7,
+     0,
+     11261
+    ],
+    [
+     273121,
+     "Blueprint: Sewing Machine",
+     2,
+     0,
+     9,
+     1,
+     0,
+     10432
+    ],
+    [
+     273125,
+     "Lich's Index Finger",
+     2,
+     0,
+     15,
+     1,
+     0,
+     10508
+    ],
+    [
+     273130,
+     "Undeath Engine",
+     2,
+     0,
+     15,
+     1,
+     0,
+     10432
+    ],
+    [
+     276069,
+     "Gravetoll Gavel",
+     3,
+     17,
+     2,
+     5,
+     54,
+     10433
+    ],
+    [
+     276071,
+     "The Black Helm",
+     3,
+     1,
+     4,
+     4,
+     54,
+     10433
+    ],
+    [
+     276072,
+     "Soulwoven Drape",
+     3,
+     16,
+     4,
+     -6,
+     56,
+     10432
+    ],
+    [
+     276073,
+     "Band of the Damned",
+     3,
+     11,
+     4,
+     -2,
+     56,
+     10432
+    ]
+   ]
+  },
+  "2100": {
+   "title": "Maraudon",
+   "drops": [
+    [
+     17707,
+     "Gemshard Heart",
+     3,
+     2,
+     4,
+     -3,
+     49,
+     12201
+    ],
+    [
+     17710,
+     "Charstone Dirk",
+     3,
+     21,
+     2,
+     15,
+     49,
+     12201
+    ],
+    [
+     17711,
+     "Elemental Rockridge Leggings",
+     3,
+     7,
+     4,
+     4,
+     49,
+     12201
+    ],
+    [
+     17713,
+     "Blackstone Ring",
+     3,
+     11,
+     4,
+     -2,
+     49,
+     12201
+    ],
+    [
+     17714,
+     "Bracers of the Stone Princess",
+     3,
+     9,
+     4,
+     3,
+     49,
+     12201
+    ],
+    [
+     17715,
+     "Eye of Theradras",
+     3,
+     1,
+     4,
+     1,
+     49,
+     12201
+    ],
+    [
+     17717,
+     "Megashot Rifle",
+     3,
+     15,
+     2,
+     3,
+     48,
+     13601
+    ],
+    [
+     17718,
+     "Gizlock's Hypertech Buckler",
+     3,
+     14,
+     4,
+     6,
+     48,
+     13601
+    ],
+    [
+     17719,
+     "Inventor's Focal Sword",
+     3,
+     21,
+     2,
+     7,
+     48,
+     13601
+    ],
+    [
+     17728,
+     "Albino Crocscale Boots",
+     3,
+     8,
+     4,
+     2,
+     48,
+     13596
+    ],
+    [
+     17730,
+     "Gatorbite Axe",
+     3,
+     17,
+     2,
+     1,
+     48,
+     13596
+    ],
+    [
+     17732,
+     "Rotgrip Mantle",
+     3,
+     3,
+     4,
+     1,
+     48,
+     13596
+    ],
+    [
+     17734,
+     "Helm of the Mountain",
+     3,
+     1,
+     4,
+     4,
+     48,
+     12203
+    ],
+    [
+     17736,
+     "Rockgrip Gauntlets",
+     3,
+     10,
+     4,
+     3,
+     48,
+     12203
+    ],
+    [
+     17737,
+     "Cloud Stone",
+     3,
+     23,
+     4,
+     -5,
+     48,
+     12203
+    ],
+    [
+     17738,
+     "Claw of Celebras",
+     3,
+     22,
+     2,
+     13,
+     47,
+     12225
+    ],
+    [
+     17739,
+     "Grovekeeper's Drape",
+     3,
+     16,
+     4,
+     -6,
+     47,
+     12225
+    ],
+    [
+     17740,
+     "Soothsayer's Headdress",
+     3,
+     1,
+     4,
+     2,
+     47,
+     12225
+    ],
+    [
+     17741,
+     "Nature's Embrace",
+     3,
+     5,
+     4,
+     1,
+     46,
+     12237
+    ],
+    [
+     17742,
+     "Fungus Shroud Armor",
+     3,
+     5,
+     4,
+     2,
+     46,
+     12237
+    ],
+    [
+     17744,
+     "Heart of Noxxion",
+     3,
+     12,
+     4,
+     -4,
+     46,
+     13282
+    ],
+    [
+     17745,
+     "Noxious Shooter",
+     3,
+     15,
+     2,
+     19,
+     46,
+     13282
+    ],
+    [
+     17746,
+     "Noxxion's Shackles",
+     3,
+     9,
+     4,
+     4,
+     46,
+     13282
+    ],
+    [
+     17748,
+     "Vinerot Sandals",
+     3,
+     8,
+     4,
+     1,
+     46,
+     12258
+    ],
+    [
+     17749,
+     "Phytoskin Spaulders",
+     3,
+     3,
+     4,
+     2,
+     46,
+     12258
+    ],
+    [
+     17750,
+     "Chloromesh Girdle",
+     3,
+     6,
+     4,
+     1,
+     46,
+     12258
+    ],
+    [
+     17751,
+     "Brusslehide Leggings",
+     3,
+     7,
+     4,
+     2,
+     46,
+     12258
+    ],
+    [
+     17752,
+     "Satyr's Lash",
+     3,
+     13,
+     2,
+     15,
+     45,
+     12236
+    ],
+    [
+     17754,
+     "Infernal Trickster Leggings",
+     3,
+     7,
+     4,
+     3,
+     45,
+     12236
+    ],
+    [
+     17755,
+     "Satyrmane Sash",
+     3,
+     6,
+     4,
+     1,
+     45,
+     12236
+    ],
+    [
+     17766,
+     "Princess Theradras' Scepter",
+     3,
+     17,
+     2,
+     5,
+     49,
+     12201
+    ],
+    [
+     17767,
+     "Bloomsprout Headpiece",
+     3,
+     1,
+     4,
+     3,
+     46,
+     12237
+    ],
+    [
+     17780,
+     "Blade of Eternal Darkness",
+     4,
+     21,
+     2,
+     15,
+     49,
+     12201
+    ],
+    [
+     17943,
+     "Fist of Stone",
+     3,
+     21,
+     2,
+     4,
+     48,
+     12203
+    ],
+    [
+     275864,
+     "Putridus Wall",
+     3,
+     14,
+     4,
+     6,
+     45,
+     12236
+    ]
+   ]
+  },
+  "2159": {
+   "title": "Onyxia's Lair",
+   "drops": []
+  },
+  "2437": {
+   "title": "Ragefire Chasm",
+   "drops": [
+    [
+     14145,
+     "Cursed Felblade",
+     3,
+     21,
+     2,
+     7,
+     13,
+     11520
+    ],
+    [
+     14147,
+     "Cavedweller Bracers",
+     3,
+     9,
+     4,
+     3,
+     13,
+     11518
+    ],
+    [
+     14148,
+     "Crystalline Cuffs",
+     3,
+     9,
+     4,
+     1,
+     13,
+     11520
+    ],
+    [
+     14149,
+     "Subterranean Cape",
+     3,
+     16,
+     4,
+     -6,
+     13,
+     11520
+    ],
+    [
+     14150,
+     "Robe of Evocation",
+     3,
+     5,
+     4,
+     1,
+     13,
+     11518
+    ],
+    [
+     14151,
+     "Chanting Blade",
+     3,
+     13,
+     2,
+     15,
+     13,
+     11518
+    ],
+    [
+     272996,
+     "Trogg Scepter",
+     3,
+     21,
+     2,
+     4,
+     13,
+     11517
+    ],
+    [
+     272998,
+     "Bone Knuckles",
+     3,
+     21,
+     2,
+     13,
+     13,
+     11517
+    ],
+    [
+     272999,
+     "Barbaric Crossbow",
+     3,
+     15,
+     2,
+     18,
+     13,
+     11517
+    ],
+    [
+     273003,
+     "Searing Dagger",
+     3,
+     21,
+     2,
+     15,
+     13,
+     11519
+    ],
+    [
+     273005,
+     "Satyrskin Cloak",
+     3,
+     16,
+     4,
+     -6,
+     13,
+     11519
+    ],
+    [
+     273007,
+     "Chasm Walkers",
+     3,
+     8,
+     4,
+     2,
+     13,
+     11519
+    ]
+   ]
+  },
+  "2557": {
+   "title": "Dire Maul",
+   "drops": [
+    [
+     15440,
+     "Supreme Leggings",
+     2,
+     7,
+     4,
+     2,
+     58,
+     14308
+    ],
+    [
+     18267,
+     "Recipe: Runn Tum Tuber Surprise",
+     2,
+     0,
+     9,
+     5,
+     0,
+     14354
+    ],
+    [
+     18301,
+     "Lethtendris's Wand",
+     3,
+     15,
+     2,
+     19,
+     53,
+     14327
+    ],
+    [
+     18302,
+     "Band of Vigor",
+     3,
+     11,
+     4,
+     -2,
+     53,
+     14327
+    ],
+    [
+     18303,
+     "Nimble Buckler",
+     2,
+     14,
+     4,
+     6,
+     53,
+     14354
+    ],
+    [
+     18304,
+     "Greenroot Mail",
+     2,
+     5,
+     4,
+     3,
+     53,
+     14354
+    ],
+    [
+     18305,
+     "Breakwater Legguards",
+     3,
+     7,
+     4,
+     4,
+     53,
+     13280
+    ],
+    [
+     18306,
+     "Gloves of Shadowy Mist",
+     3,
+     10,
+     4,
+     1,
+     53,
+     11490
+    ],
+    [
+     18307,
+     "Riptide Shoes",
+     3,
+     8,
+     4,
+     1,
+     53,
+     13280
+    ],
+    [
+     18308,
+     "Clever Hat",
+     3,
+     1,
+     4,
+     2,
+     53,
+     11490
+    ],
+    [
+     18309,
+     "Gloves of Restoration",
+     3,
+     10,
+     4,
+     2,
+     54,
+     11492
+    ],
+    [
+     18310,
+     "Fiendish Machete",
+     3,
+     13,
+     2,
+     7,
+     54,
+     11492
+    ],
+    [
+     18311,
+     "Quel'dorai Channeling Rod",
+     3,
+     17,
+     2,
+     10,
+     53,
+     14327
+    ],
+    [
+     18312,
+     "Energized Chestplate",
+     3,
+     5,
+     4,
+     4,
+     54,
+     11492
+    ],
+    [
+     18313,
+     "Helm of Awareness",
+     3,
+     1,
+     4,
+     4,
+     53,
+     11490
+    ],
+    [
+     18314,
+     "Ring of Demonic Guile",
+     3,
+     11,
+     4,
+     -2,
+     54,
+     11492
+    ],
+    [
+     18315,
+     "Ring of Demonic Potency",
+     3,
+     11,
+     4,
+     -2,
+     54,
+     11492
+    ],
+    [
+     18316,
+     "Obsidian Bauble",
+     3,
+     23,
+     4,
+     -5,
+     53,
+     14354
+    ],
+    [
+     18317,
+     "Tempest Talisman",
+     3,
+     2,
+     4,
+     -3,
+     53,
+     13280
+    ],
+    [
+     18318,
+     "Merciful Greaves",
+     3,
+     8,
+     4,
+     3,
+     54,
+     11492
+    ],
+    [
+     18319,
+     "Fervent Helm",
+     3,
+     1,
+     4,
+     3,
+     53,
+     11490
+    ],
+    [
+     18320,
+     "Demondash Spaulders",
+     3,
+     3,
+     4,
+     3,
+     53,
+     14354
+    ],
+    [
+     18321,
+     "Energetic Rod",
+     3,
+     21,
+     2,
+     4,
+     54,
+     11492
+    ],
+    [
+     18322,
+     "Waterspout Boots",
+     3,
+     8,
+     4,
+     2,
+     53,
+     13280
+    ],
+    [
+     18323,
+     "Satyr's Bow",
+     3,
+     15,
+     2,
+     2,
+     53,
+     11490
+    ],
+    [
+     18324,
+     "Waveslicer",
+     3,
+     17,
+     2,
+     1,
+     53,
+     13280
+    ],
+    [
+     18325,
+     "Felhide Cap",
+     3,
+     1,
+     4,
+     2,
+     53,
+     14327
+    ],
+    [
+     18326,
+     "Razor Gauntlets",
+     3,
+     10,
+     4,
+     4,
+     54,
+     11492
+    ],
+    [
+     18327,
+     "Whipvine Cord",
+     3,
+     6,
+     4,
+     1,
+     54,
+     11492
+    ],
+    [
+     18328,
+     "Shadewood Cloak",
+     3,
+     16,
+     4,
+     -6,
+     54,
+     11492
+    ],
+    [
+     18343,
+     "Petrified Band",
+     2,
+     11,
+     4,
+     -2,
+     59,
+     11459
+    ],
+    [
+     18344,
+     "Stonebark Gauntlets",
+     3,
+     10,
+     4,
+     2,
+     54,
+     11459
+    ],
+    [
+     18345,
+     "Murmuring Ring",
+     3,
+     11,
+     4,
+     -2,
+     55,
+     11467
+    ],
+    [
+     18346,
+     "Threadbare Trousers",
+     3,
+     7,
+     4,
+     1,
+     55,
+     11467
+    ],
+    [
+     18347,
+     "Well Balanced Axe",
+     3,
+     13,
+     2,
+     0,
+     56,
+     11488
+    ],
+    [
+     18349,
+     "Gauntlets of Accuracy",
+     3,
+     10,
+     4,
+     3,
+     56,
+     11488
+    ],
+    [
+     18350,
+     "Amplifying Cloak",
+     3,
+     16,
+     4,
+     -6,
+     56,
+     11487
+    ],
+    [
+     18351,
+     "Magically Sealed Bracers",
+     3,
+     9,
+     4,
+     4,
+     56,
+     11487
+    ],
+    [
+     18352,
+     "Petrified Bark Shield",
+     3,
+     14,
+     4,
+     6,
+     56,
+     11489
+    ],
+    [
+     18353,
+     "Stoneflower Staff",
+     3,
+     17,
+     2,
+     10,
+     56,
+     11489
+    ],
+    [
+     18354,
+     "Pimgib's Collar",
+     3,
+     12,
+     4,
+     -4,
+     55,
+     14349
+    ],
+    [
+     18370,
+     "Vigilance Charm",
+     3,
+     12,
+     4,
+     -4,
+     57,
+     11496
+    ],
+    [
+     18371,
+     "Mindtap Talisman",
+     3,
+     12,
+     4,
+     -4,
+     56,
+     11487
+    ],
+    [
+     18372,
+     "Blade of the New Moon",
+     3,
+     21,
+     2,
+     15,
+     57,
+     11496
+    ],
+    [
+     18373,
+     "Chestplate of Tranquility",
+     3,
+     5,
+     4,
+     2,
+     57,
+     11486
+    ],
+    [
+     18374,
+     "Flamescarred Shoulders",
+     3,
+     3,
+     4,
+     2,
+     57,
+     11487
+    ],
+    [
+     18375,
+     "Bracers of the Eclipse",
+     3,
+     9,
+     4,
+     2,
+     57,
+     11486
+    ],
+    [
+     18376,
+     "Timeworn Mace",
+     3,
+     13,
+     2,
+     4,
+     57,
+     11486
+    ],
+    [
+     18377,
+     "Quickdraw Gloves",
+     3,
+     10,
+     4,
+     2,
+     57,
+     11496
+    ],
+    [
+     18378,
+     "Silvermoon Leggings",
+     3,
+     7,
+     4,
+     3,
+     57,
+     11486
+    ],
+    [
+     18379,
+     "Odious Greaves",
+     3,
+     8,
+     4,
+     3,
+     57,
+     11496
+    ],
+    [
+     18380,
+     "Eldritch Reinforced Legplates",
+     3,
+     7,
+     4,
+     4,
+     57,
+     11486
+    ],
+    [
+     18381,
+     "Evil Eye Pendant",
+     3,
+     2,
+     4,
+     -3,
+     57,
+     11496
+    ],
+    [
+     18382,
+     "Fluctuating Cloak",
+     3,
+     16,
+     4,
+     -6,
+     57,
+     11486
+    ],
+    [
+     18383,
+     "Force Imbued Gauntlets",
+     3,
+     10,
+     4,
+     4,
+     56,
+     11488
+    ],
+    [
+     18384,
+     "Bile-etched Spaulders",
+     3,
+     3,
+     4,
+     4,
+     57,
+     11496
+    ],
+    [
+     18385,
+     "Robe of Everlasting Night",
+     3,
+     5,
+     4,
+     1,
+     57,
+     11496
+    ],
+    [
+     18386,
+     "Padre's Trousers",
+     3,
+     7,
+     4,
+     1,
+     56,
+     11488
+    ],
+    [
+     18387,
+     "Brightspark Gloves",
+     3,
+     10,
+     4,
+     1,
+     55,
+     11467
+    ],
+    [
+     18388,
+     "Stoneshatter",
+     3,
+     15,
+     2,
+     18,
+     57,
+     11486
+    ],
+    [
+     18389,
+     "Cloak of the Cosmos",
+     3,
+     16,
+     4,
+     -6,
+     57,
+     11496
+    ],
+    [
+     18390,
+     "Tanglemoss Leggings",
+     3,
+     7,
+     4,
+     2,
+     57,
+     11489
+    ],
+    [
+     18391,
+     "Eyestalk Cord",
+     3,
+     6,
+     4,
+     2,
+     57,
+     11496
+    ],
+    [
+     18392,
+     "Distracting Dagger",
+     3,
+     22,
+     2,
+     15,
+     57,
+     11486
+    ],
+    [
+     18393,
+     "Warpwood Binding",
+     3,
+     6,
+     4,
+     3,
+     56,
+     11489
+    ],
+    [
+     18394,
+     "Demon Howl Wristguards",
+     3,
+     9,
+     4,
+     3,
+     57,
+     11496
+    ],
+    [
+     18395,
+     "Emerald Flame Ring",
+     3,
+     11,
+     4,
+     -2,
+     57,
+     11486
+    ],
+    [
+     18396,
+     "Mind Carver",
+     3,
+     21,
+     2,
+     7,
+     57,
+     11486
+    ],
+    [
+     18397,
+     "Elder Magus Pendant",
+     3,
+     2,
+     4,
+     -3,
+     56,
+     11487
+    ],
+    [
+     18425,
+     "Kreeg's Mug",
+     3,
+     23,
+     4,
+     -5,
+     55,
+     14322
+    ],
+    [
+     18483,
+     "Mana Channeling Wand",
+     3,
+     15,
+     2,
+     19,
+     56,
+     14324
+    ],
+    [
+     18484,
+     "Cho'Rush's Blade",
+     3,
+     13,
+     2,
+     7,
+     56,
+     14324
+    ],
+    [
+     18485,
+     "Observer's Shield",
+     3,
+     14,
+     4,
+     6,
+     56,
+     14324
+    ],
+    [
+     18490,
+     "Insightful Hood",
+     3,
+     1,
+     4,
+     2,
+     56,
+     14324
+    ],
+    [
+     18502,
+     "Monstrous Glaive",
+     3,
+     17,
+     2,
+     6,
+     57,
+     14325
+    ],
+    [
+     18503,
+     "Kromcrush's Chestplate",
+     3,
+     5,
+     4,
+     4,
+     57,
+     14325
+    ],
+    [
+     18505,
+     "Mugger's Belt",
+     3,
+     6,
+     4,
+     2,
+     57,
+     14325
+    ],
+    [
+     18507,
+     "Boots of the Full Moon",
+     3,
+     8,
+     4,
+     1,
+     57,
+     14325
+    ],
+    [
+     18520,
+     "Barbarous Blade",
+     3,
+     17,
+     2,
+     8,
+     58,
+     11501
+    ],
+    [
+     18521,
+     "Grimy Metal Boots",
+     3,
+     8,
+     4,
+     4,
+     58,
+     11501
+    ],
+    [
+     18522,
+     "Band of the Ogre King",
+     3,
+     11,
+     4,
+     -2,
+     58,
+     11501
+    ],
+    [
+     18523,
+     "Brightly Glowing Stone",
+     3,
+     23,
+     4,
+     -5,
+     58,
+     11501
+    ],
+    [
+     18524,
+     "Leggings of Destruction",
+     3,
+     7,
+     4,
+     3,
+     58,
+     11501
+    ],
+    [
+     18525,
+     "Bracers of Prosperity",
+     3,
+     9,
+     4,
+     2,
+     58,
+     11501
+    ],
+    [
+     18526,
+     "Crown of the Ogre King",
+     3,
+     1,
+     4,
+     1,
+     58,
+     11501
+    ],
+    [
+     18527,
+     "Harmonious Gauntlets",
+     3,
+     10,
+     4,
+     3,
+     58,
+     11501
+    ],
+    [
+     18754,
+     "Fel Hardened Bracers",
+     3,
+     9,
+     4,
+     4,
+     57,
+     14506
+    ],
+    [
+     18755,
+     "Xorothian Firestick",
+     3,
+     15,
+     2,
+     3,
+     57,
+     14506
+    ],
+    [
+     18756,
+     "Dreadguard's Protector",
+     3,
+     14,
+     4,
+     6,
+     57,
+     14506
+    ],
+    [
+     18757,
+     "Diabolic Mantle",
+     3,
+     3,
+     4,
+     1,
+     57,
+     14506
+    ],
+    [
+     18780,
+     "Top Half of Advanced Armorsmithing: Volume I",
+     3,
+     0,
+     12,
+     0,
+     50,
+     11501
+    ],
+    [
+     19258,
+     "Ace of Warlords",
+     3,
+     0,
+     12,
+     0,
+     0,
+     11501
+    ],
+    [
+     22304,
+     "Ironweave Gloves",
+     3,
+     10,
+     4,
+     1,
+     56,
+     16097
+    ],
+    [
+     22309,
+     "Pattern: Big Bag of Enchantment",
+     2,
+     0,
+     9,
+     2,
+     0,
+     11487
+    ],
+    [
+     22315,
+     "Hammer of Revitalization",
+     3,
+     21,
+     2,
+     4,
+     56,
+     16097
+    ],
+    [
+     22345,
+     "Totem of Tides",
+     3,
+     28,
+     4,
+     9,
+     57,
+     16097
+    ],
+    [
+     22401,
+     "Libram of Hope",
+     3,
+     28,
+     4,
+     7,
+     57,
+     16097
+    ],
+    [
+     22472,
+     "Boots of Ferocity",
+     3,
+     8,
+     4,
+     2,
+     56,
+     16097
+    ],
+    [
+     272020,
+     "Felvine Seed",
+     3,
+     0,
+     12,
+     0,
+     0,
+     11492
+    ],
+    [
+     272021,
+     "Ancient Memento",
+     3,
+     0,
+     12,
+     0,
+     0,
+     11486
+    ],
+    [
+     272022,
+     "Earthstone Diamond Pinky Ring",
+     3,
+     0,
+     12,
+     0,
+     0,
+     11501
+    ],
+    [
+     273120,
+     "Blueprint: Seed Hybridizer",
+     2,
+     0,
+     9,
+     0,
+     0,
+     11489
+    ]
+   ]
+  },
+  "16004": {
+   "title": "Mount Hyjal",
+   "drops": []
+  },
+  "16544": {
+   "title": "City of Dalaran",
+   "drops": []
+  },
+  "16550": {
+   "title": "The Drowned City",
+   "drops": [
+    [
+     274598,
+     "Bloodslash Axe",
+     3,
+     13,
+     2,
+     0,
+     34,
+     258905
+    ],
+    [
+     274599,
+     "Oathbound Bracers",
+     3,
+     9,
+     4,
+     2,
+     34,
+     258905
+    ],
+    [
+     274600,
+     "Berserker Shackles",
+     3,
+     9,
+     4,
+     3,
+     34,
+     258905
+    ],
+    [
+     274601,
+     "Harpoon of Command",
+     3,
+     17,
+     2,
+     6,
+     35,
+     258924
+    ],
+    [
+     274602,
+     "Brinebelly Leggings",
+     3,
+     7,
+     4,
+     2,
+     35,
+     258924
+    ],
+    [
+     274603,
+     "Dreadfrost Saber",
+     3,
+     21,
+     2,
+     7,
+     35,
+     260042
+    ],
+    [
+     274604,
+     "Frosty Blunderbuss",
+     3,
+     15,
+     2,
+     3,
+     35,
+     260042
+    ],
+    [
+     274605,
+     "Briny Sash",
+     3,
+     6,
+     4,
+     1,
+     35,
+     260042
+    ],
+    [
+     274606,
+     "Bloodspine Staff",
+     3,
+     17,
+     2,
+     10,
+     36,
+     260202
+    ],
+    [
+     274607,
+     "Viscera Spaulders",
+     3,
+     3,
+     4,
+     3,
+     36,
+     260202
+    ],
+    [
+     274608,
+     "Maw of Min'loth",
+     3,
+     14,
+     4,
+     6,
+     37,
+     260243
+    ],
+    [
+     274609,
+     "Serpentbane Crown",
+     3,
+     1,
+     4,
+     3,
+     37,
+     260243
+    ],
+    [
+     274610,
+     "Ritual-Binder's Gloves",
+     3,
+     10,
+     4,
+     2,
+     37,
+     260243
+    ],
+    [
+     274611,
+     "Robe of the Drowned",
+     3,
+     5,
+     4,
+     1,
+     35,
+     263886
+    ],
+    [
+     274612,
+     "Waterlogged Burial Shroud",
+     3,
+     16,
+     4,
+     -6,
+     35,
+     263886
+    ],
+    [
+     274613,
+     "Priestess Cloak",
+     3,
+     16,
+     4,
+     -6,
+     35,
+     258924
+    ],
+    [
+     274614,
+     "Knucklebone Ring",
+     3,
+     11,
+     4,
+     -2,
+     36,
+     260202
+    ],
+    [
+     274615,
+     "Heart of the Primeval",
+     3,
+     12,
+     4,
+     -4,
+     35,
+     263886
+    ],
+    [
+     286646,
+     "Gill's Gills",
+     3,
+     12,
+     4,
+     -4,
+     35,
+     264177
+    ],
+    [
+     286649,
+     "Tidebound Dagger",
+     3,
+     21,
+     2,
+     15,
+     35,
+     264177
+    ],
+    [
+     286650,
+     "Pyromancer's Baton",
+     3,
+     13,
+     2,
+     4,
+     35,
+     260468
+    ],
+    [
+     286651,
+     "Flamestarter's Signet",
+     3,
+     11,
+     4,
+     -2,
+     35,
+     260468
+    ],
+    [
+     286658,
+     "Umbral Scaled Belt",
+     3,
+     6,
+     4,
+     3,
+     35,
+     264172
+    ],
+    [
+     286662,
+     "Deep-Dweller's Grips",
+     3,
+     10,
+     4,
+     1,
+     35,
+     264172
+    ]
+   ]
+  },
+  "16554": {
+   "title": "Blackmaw Hold",
+   "drops": [
+    [
+     280056,
+     "Flameslash Crescent",
+     3,
+     17,
+     2,
+     1,
+     54,
+     247206
+    ],
+    [
+     280057,
+     "Robes of Dark Summons",
+     3,
+     5,
+     4,
+     1,
+     54,
+     247206
+    ],
+    [
+     280058,
+     "Impish Chain Hood",
+     3,
+     1,
+     4,
+     3,
+     54,
+     247206
+    ],
+    [
+     280059,
+     "Tuskblade Halberd",
+     3,
+     17,
+     2,
+     6,
+     55,
+     247198
+    ],
+    [
+     280060,
+     "Lucky Shovelnose Tuft",
+     3,
+     12,
+     4,
+     -4,
+     55,
+     247198
+    ],
+    [
+     280061,
+     "Spike Crested Bracers",
+     3,
+     9,
+     4,
+     4,
+     55,
+     247198
+    ],
+    [
+     280062,
+     "Cloak of the Fleshborer",
+     3,
+     16,
+     4,
+     -6,
+     55,
+     247195
+    ],
+    [
+     280063,
+     "Bloodfur Bulwark",
+     3,
+     14,
+     4,
+     6,
+     55,
+     247195
+    ],
+    [
+     280064,
+     "Withering Grips",
+     3,
+     10,
+     4,
+     2,
+     55,
+     247195
+    ],
+    [
+     280068,
+     "Bloody Claws of Attack",
+     3,
+     13,
+     2,
+     13,
+     56,
+     247209
+    ],
+    [
+     280069,
+     "Shamanic Wristguards",
+     3,
+     9,
+     4,
+     3,
+     56,
+     247209
+    ],
+    [
+     280070,
+     "Veilpiercer Girdle",
+     3,
+     6,
+     4,
+     2,
+     56,
+     247209
+    ],
+    [
+     280071,
+     "Flamebreak Talisman",
+     3,
+     12,
+     4,
+     -4,
+     56,
+     247231
+    ],
+    [
+     280072,
+     "Cowl of Dark Ambition",
+     3,
+     1,
+     4,
+     1,
+     56,
+     247231
+    ],
+    [
+     280073,
+     "Burnished Pridescales",
+     3,
+     5,
+     4,
+     4,
+     56,
+     247231
+    ],
+    [
+     280074,
+     "Scalding Flamehoof",
+     3,
+     12,
+     4,
+     -4,
+     57,
+     247234
+    ],
+    [
+     280075,
+     "Bleak Eye Shoulderplates",
+     3,
+     3,
+     4,
+     4,
+     57,
+     247234
+    ],
+    [
+     280076,
+     "Horns of Varrox",
+     3,
+     1,
+     4,
+     2,
+     57,
+     247234
+    ],
+    [
+     280077,
+     "Fist of Revelation",
+     3,
+     13,
+     2,
+     13,
+     52,
+     269111
+    ],
+    [
+     280078,
+     "Apprentice's Protective Treads",
+     3,
+     8,
+     4,
+     2,
+     52,
+     269111
+    ],
+    [
+     280079,
+     "Lunarlight Robe",
+     3,
+     5,
+     4,
+     2,
+     52,
+     269104
+    ],
+    [
+     280080,
+     "Claymore of Two Moons",
+     3,
+     17,
+     2,
+     8,
+     52,
+     269104
+    ],
+    [
+     280085,
+     "Tunnelweb Pincer",
+     3,
+     13,
+     2,
+     15,
+     52,
+     250034
+    ],
+    [
+     280086,
+     "Octofinger Gauntlets",
+     3,
+     10,
+     4,
+     4,
+     52,
+     250034
+    ],
+    [
+     286415,
+     "Reliquary of Tyr",
+     4,
+     0,
+     12,
+     0,
+     0,
+     247209
+    ]
+   ]
+  },
+  "16560": {
+   "title": "City of Dalaran",
+   "drops": []
+  },
+  "16611": {
+   "title": "Ruins of Lordaeron",
+   "drops": [
+    [
+     271201,
+     "Atrophic Girdle",
+     3,
+     6,
+     4,
+     3,
+     15,
+     250483
+    ],
+    [
+     271202,
+     "Witherbite Bracers",
+     3,
+     9,
+     4,
+     2,
+     15,
+     250483
+    ],
+    [
+     271203,
+     "Segmented Spider Leg",
+     3,
+     17,
+     2,
+     10,
+     15,
+     250483
+    ],
+    [
+     271204,
+     "Meathook Slicer",
+     3,
+     13,
+     2,
+     15,
+     15,
+     250660
+    ],
+    [
+     271205,
+     "Abomination Bones",
+     3,
+     5,
+     4,
+     3,
+     15,
+     250660
+    ],
+    [
+     271206,
+     "Leftover Abomination Skin",
+     3,
+     5,
+     4,
+     1,
+     15,
+     250660
+    ],
+    [
+     271207,
+     "Rotmender's Leggings",
+     3,
+     7,
+     4,
+     1,
+     17,
+     250631
+    ],
+    [
+     271208,
+     "Grip of Fear",
+     3,
+     10,
+     4,
+     3,
+     17,
+     250631
+    ],
+    [
+     271209,
+     "Bonerust Leggings",
+     3,
+     7,
+     4,
+     3,
+     16,
+     256097
+    ],
+    [
+     271210,
+     "Tuskwrap Belt",
+     3,
+     6,
+     4,
+     1,
+     16,
+     256097
+    ],
+    [
+     271211,
+     "Vilewalkers",
+     3,
+     8,
+     4,
+     3,
+     17,
+     256035
+    ],
+    [
+     271212,
+     "Bloodied Chestwraps",
+     3,
+     5,
+     4,
+     2,
+     17,
+     256035
+    ],
+    [
+     271213,
+     "Mirror of Rath'mael",
+     3,
+     14,
+     4,
+     6,
+     19,
+     250657
+    ],
+    [
+     271214,
+     "Rotmender's Treads",
+     3,
+     8,
+     4,
+     1,
+     19,
+     250657
+    ],
+    [
+     271215,
+     "Coldspire Staff",
+     3,
+     17,
+     2,
+     10,
+     19,
+     250657
+    ],
+    [
+     271216,
+     "Scepter of the Abandoned",
+     3,
+     21,
+     2,
+     4,
+     17,
+     250631
+    ],
+    [
+     271217,
+     "Corpse Chopper",
+     3,
+     17,
+     2,
+     1,
+     16,
+     256097
+    ],
+    [
+     271218,
+     "Vileblood Scimitar",
+     3,
+     13,
+     2,
+     7,
+     17,
+     256035
+    ],
+    [
+     273085,
+     "Blueprint: Fermenter",
+     2,
+     0,
+     9,
+     6,
+     0,
+     250657
+    ]
+   ]
+  },
+  "16620": {
+   "title": "Alcaz Prison",
+   "drops": [
+    [
+     276732,
+     "Alcaz Willcrusher",
+     3,
+     17,
+     2,
+     5,
+     47,
+     255391
+    ],
+    [
+     276733,
+     "Grips of Control",
+     3,
+     10,
+     4,
+     4,
+     47,
+     255391
+    ],
+    [
+     276734,
+     "Wrex's Pinky Ring",
+     3,
+     11,
+     4,
+     -2,
+     47,
+     255391
+    ],
+    [
+     276735,
+     "Tidesong Wand",
+     3,
+     15,
+     2,
+     19,
+     47,
+     255997
+    ],
+    [
+     276736,
+     "Seascale Bracers",
+     3,
+     9,
+     4,
+     3,
+     47,
+     255997
+    ],
+    [
+     276737,
+     "Cloak of the Tidemistress",
+     3,
+     16,
+     4,
+     -6,
+     47,
+     255997
+    ],
+    [
+     276738,
+     "Katerina's Shanker",
+     3,
+     13,
+     2,
+     15,
+     49,
+     257016
+    ],
+    [
+     276739,
+     "Cutthroat Chestguard",
+     3,
+     5,
+     4,
+     3,
+     49,
+     257016
+    ],
+    [
+     276740,
+     "Sentimental Locket",
+     3,
+     2,
+     4,
+     -3,
+     49,
+     257016
+    ],
+    [
+     276741,
+     "Defias Enforcer's Shoulderpads",
+     3,
+     3,
+     4,
+     2,
+     48,
+     256236
+    ],
+    [
+     276742,
+     "Girdle of Extracted Answers",
+     3,
+     6,
+     4,
+     4,
+     48,
+     256236
+    ],
+    [
+     276743,
+     "Fingerbreaker Stamp",
+     3,
+     12,
+     4,
+     -4,
+     48,
+     256236
+    ],
+    [
+     276744,
+     "Zarla's Snack Pouch",
+     3,
+     12,
+     4,
+     -4,
+     50,
+     255702
+    ],
+    [
+     276745,
+     "Beastbond Robe",
+     3,
+     5,
+     4,
+     1,
+     50,
+     255702
+    ],
+    [
+     276746,
+     "Defias Enforcer's Legguards",
+     3,
+     7,
+     4,
+     2,
+     50,
+     255702
+    ]
+   ]
+  },
+  "16667": {
+   "title": "The Shaper's Terrace",
+   "drops": []
+  },
+  "16732": {
+   "title": "Excavation Site: Wetlands",
+   "drops": [
+    [
+     273022,
+     "Supple Bellyskin Leggings",
+     3,
+     7,
+     4,
+     2,
+     26,
+     260322
+    ],
+    [
+     273023,
+     "Saltscale Girdle",
+     3,
+     6,
+     4,
+     3,
+     26,
+     260322
+    ],
+    [
+     273024,
+     "Glinteye Slippers",
+     3,
+     8,
+     4,
+     1,
+     26,
+     260322
+    ],
+    [
+     273025,
+     "Raptorclaw Greaves",
+     3,
+     8,
+     4,
+     3,
+     26,
+     260325
+    ],
+    [
+     273026,
+     "Garb of Florid Feathers",
+     3,
+     5,
+     4,
+     2,
+     26,
+     260325
+    ],
+    [
+     273027,
+     "Raptor's Gaze",
+     3,
+     23,
+     4,
+     -5,
+     26,
+     260325
+    ],
+    [
+     273028,
+     "Reliquary Mantle",
+     3,
+     3,
+     4,
+     3,
+     28,
+     260326
+    ],
+    [
+     273029,
+     "Golemsight Long Gun",
+     3,
+     15,
+     2,
+     3,
+     28,
+     260326
+    ],
+    [
+     273030,
+     "Ring of Power Regulation",
+     3,
+     11,
+     4,
+     -2,
+     28,
+     260326
+    ],
+    [
+     273097,
+     "Blueprint: Rock Garden",
+     2,
+     0,
+     9,
+     0,
+     0,
+     260326
+    ],
+    [
+     273106,
+     "Blueprint: Greenhouse",
+     2,
+     0,
+     9,
+     0,
+     0,
+     260325
+    ]
+   ]
+  },
+  "16842": {
+   "title": "Krol'dok Stronghold",
+   "drops": []
+  },
+  "16919": {
+   "title": "The Hall of Thanes",
+   "drops": [
+    [
+     270227,
+     "Ephemeral Choker",
+     3,
+     2,
+     4,
+     -3,
+     13,
+     261306
+    ],
+    [
+     270228,
+     "Golemheart Stave",
+     3,
+     17,
+     2,
+     10,
+     13,
+     261311
+    ],
+    [
+     270229,
+     "Treads of the Protector Golem",
+     3,
+     8,
+     4,
+     3,
+     13,
+     261311
+    ],
+    [
+     270230,
+     "Kindlegem Girdle",
+     3,
+     6,
+     4,
+     3,
+     13,
+     261316
+    ],
+    [
+     270231,
+     "Flamefist Grips",
+     3,
+     10,
+     4,
+     2,
+     13,
+     261316
+    ],
+    [
+     270256,
+     "Durgen's Crescent Axe",
+     3,
+     21,
+     2,
+     0,
+     13,
+     261319
+    ],
+    [
+     270260,
+     "Direhammer Leggings",
+     3,
+     7,
+     4,
+     2,
+     13,
+     261319
+    ],
+    [
+     270261,
+     "Robes of the Disgraced Thane",
+     3,
+     5,
+     4,
+     1,
+     13,
+     261319
+    ],
+    [
+     271095,
+     "Fang of Magmatus",
+     3,
+     21,
+     2,
+     15,
+     13,
+     261316
+    ],
+    [
+     271096,
+     "Aetherwisp Bracers",
+     3,
+     9,
+     4,
+     1,
+     13,
+     261306
+    ],
+    [
+     271097,
+     "Spiritwraith Drape",
+     3,
+     16,
+     4,
+     -6,
+     13,
+     261306
+    ],
+    [
+     271098,
+     "Golemguard Chest",
+     3,
+     5,
+     4,
+     3,
+     13,
+     261311
+    ]
+   ]
+  }
+ },
+ "npcNames": {
+  "639": "Edwin VanCleef",
+  "642": "Sneed's Shredder",
+  "643": "Sneed",
+  "644": "Rhahk'Zor",
+  "645": "Cookie",
+  "646": "Mr. Smite",
+  "647": "Captain Greenskin",
+  "1663": "Dextren Ward",
+  "1666": "Kam Deepfury",
+  "1696": "Targorr the Dread",
+  "1716": "Bazil Thredd",
+  "1717": "Hamhock",
+  "1720": "Bruegal Ironknuckle",
+  "1763": "Gilnid",
+  "1853": "Darkmaster Gandling",
+  "2748": "Archaedas",
+  "3586": "Miner Johnson",
+  "3653": "Kresh",
+  "3654": "Mutanus the Devourer",
+  "3669": "Lord Cobrahn",
+  "3670": "Lord Pythas",
+  "3671": "Lady Anacondra",
+  "3673": "Lord Serpentis",
+  "3674": "Skum",
+  "3886": "Razorclaw the Butcher",
+  "3887": "Baron Silverlaine",
+  "3914": "Rethilgore",
+  "3927": "Wolf Master Nandos",
+  "3974": "Houndmaster Loksey",
+  "3975": "Herod",
+  "3976": "Scarlet Commander Mograine",
+  "3977": "High Inquisitor Whitemane",
+  "3983": "Interrogator Vishas",
+  "4274": "Fenrus the Devourer",
+  "4275": "Archmage Arugal",
+  "4278": "Commander Springvale",
+  "4279": "Odo the Blindwatcher",
+  "4301": "Scarlet Centurion",
+  "4420": "Overlord Ramtusk",
+  "4421": "Charlga Razorflank",
+  "4422": "Agathelos the Raging",
+  "4424": "Aggem Thorncurse",
+  "4425": "Blind Hunter",
+  "4428": "Death Speaker Jargba",
+  "4542": "High Inquisitor Fairbanks",
+  "4543": "Bloodmage Thalnos",
+  "4829": "Aku'mai",
+  "4830": "Old Serra'kis",
+  "4831": "Lady Sarevess",
+  "4832": "Twilight Lord Kelris",
+  "4842": "Earthcaller Halmgar",
+  "4854": "Grimlok",
+  "4887": "Ghamoo-ra",
+  "5259": "Atal'ai Witch Doctor",
+  "5708": "Spawn of Hakkar",
+  "5709": "Shade of Eranikus",
+  "5710": "Jammal'an the Prophet",
+  "5711": "Ogom the Wretched",
+  "5719": "Morphaz",
+  "5720": "Weaver",
+  "5721": "Dreamscythe",
+  "5722": "Hazzas",
+  "5775": "Verdan the Everliving",
+  "5912": "Deviate Faerie Dragon",
+  "6168": "Roogug",
+  "6228": "Dark Iron Ambassador",
+  "6229": "Crowd Pummeler 9-60",
+  "6235": "Electrocutioner 6000",
+  "6243": "Gelihast",
+  "6487": "Arcanist Doan",
+  "6488": "Fallen Champion",
+  "6489": "Ironspine",
+  "6490": "Azshir the Sleepless",
+  "6906": "Baelog",
+  "6907": "Eric \"The Swift\"",
+  "6908": "Olaf",
+  "6910": "Revelosh",
+  "7023": "Obsidian Sentinel",
+  "7079": "Viscous Fallout",
+  "7206": "Ancient Stone Keeper",
+  "7228": "Ironaya",
+  "7267": "Chief Ukorz Sandscalp",
+  "7271": "Witch Doctor Zum'rah",
+  "7272": "Theka the Martyr",
+  "7273": "Gahz'rilla",
+  "7275": "Shadowpriest Sezz'ziz",
+  "7291": "Galgann Firehammer",
+  "7354": "Ragglesnout",
+  "7355": "Tuten'kash",
+  "7356": "Plaguemaw the Rotting",
+  "7357": "Mordresh Fire Eye",
+  "7358": "Amnennar the Coldbringer",
+  "7361": "Grubbis",
+  "7604": "Sergeant Bly",
+  "7795": "Hydromancer Velratha",
+  "7796": "Nekrum Gutchewer",
+  "7797": "Ruuzlu",
+  "7800": "Mekgineer Thermaplugg",
+  "8127": "Antu'sul",
+  "8443": "Avatar of Hakkar",
+  "8567": "Glutton",
+  "8580": "Atal'alarion",
+  "8920": "Weapon Technician",
+  "8923": "Panzor the Invincible",
+  "8983": "Golem Lord Argelmach",
+  "9016": "Bael'Gar",
+  "9017": "Lord Incendius",
+  "9018": "High Interrogator Gerstahn",
+  "9019": "Emperor Dagran Thaurissan",
+  "9024": "Pyromancer Loregrain",
+  "9025": "Lord Roccor",
+  "9027": "Gorosh the Dervish",
+  "9028": "Grizzle",
+  "9029": "Eviscerator",
+  "9030": "Ok'thor the Breaker",
+  "9031": "Anub'shiah",
+  "9032": "Hedrum the Creeper",
+  "9033": "General Angerforge",
+  "9041": "Warder Stilgiss",
+  "9042": "Verek",
+  "9056": "Fineous Darkvire",
+  "9156": "Ambassador Flamelash",
+  "9196": "Highlord Omokk",
+  "9217": "Spirestone Lord Magus",
+  "9218": "Spirestone Battle Lord",
+  "9219": "Spirestone Butcher",
+  "9236": "Shadow Hunter Vosh'gajin",
+  "9237": "War Master Voone",
+  "9319": "Houndmaster Grebmar",
+  "9499": "Plugger Spazzring",
+  "9502": "Phalanx",
+  "9537": "Hurley Blackbreath",
+  "9543": "Ribbly Screwspigot",
+  "9568": "Overlord Wyrmthalak",
+  "9596": "Bannok Grimaxe",
+  "9718": "Ghok Bashguud",
+  "9736": "Quartermaster Zigris",
+  "9816": "Pyroguard Emberseer",
+  "9938": "Magmus",
+  "10080": "Sandarr Dunereaver",
+  "10081": "Dustwraith",
+  "10082": "Zerillis",
+  "10220": "Halycon",
+  "10263": "Burning Felguard",
+  "10264": "Solakar Flamewreath",
+  "10268": "Gizrul the Slavener",
+  "10318": "Blackhand Assassin",
+  "10339": "Gyth",
+  "10363": "General Drakkisath",
+  "10376": "Crystal Fang",
+  "10391": "Skeletal Berserker",
+  "10393": "Skul",
+  "10422": "Crimson Sorcerer",
+  "10426": "Crimson Inquisitor",
+  "10429": "Warchief Rend Blackhand",
+  "10430": "The Beast",
+  "10432": "Vectus",
+  "10433": "Marduk Blackpool",
+  "10435": "Magistrate Barthilas",
+  "10436": "Baroness Anastari",
+  "10437": "Nerub'enkan",
+  "10438": "Maleki the Pallid",
+  "10439": "Ramstein the Gorger",
+  "10440": "Baron Rivendare",
+  "10469": "Scholomance Adept",
+  "10499": "Spectral Researcher",
+  "10502": "Lady Illucia Barov",
+  "10503": "Jandice Barov",
+  "10504": "Lord Alexei Barov",
+  "10505": "Instructor Malicia",
+  "10506": "Kirtonos the Herald",
+  "10507": "The Ravenian",
+  "10508": "Ras Frostwhisper",
+  "10509": "Jed Runewatcher",
+  "10516": "The Unforgiven",
+  "10558": "Hearthsinger Forresten",
+  "10584": "Urok Doomhowl",
+  "10596": "Mother Smolderweb",
+  "10808": "Timmy the Cruel",
+  "10809": "Stonespine",
+  "10811": "Archivist Galford",
+  "10812": "Grand Crusader Dathrohan",
+  "10813": "Balnazzar",
+  "10899": "Goraluk Anvilcrack",
+  "10901": "Lorekeeper Polkelt",
+  "10997": "Cannon Master Willey",
+  "11032": "Malor the Zealous",
+  "11058": "Ezra Grimm",
+  "11120": "Crimson Hammersmith",
+  "11121": "Black Guard Swordsmith",
+  "11143": "Postmaster Malown",
+  "11261": "Doctor Theolen Krastinov",
+  "11459": "Ironbark Protector",
+  "11467": "Tsu'zee",
+  "11486": "Prince Tortheldrin",
+  "11487": "Magister Kalendris",
+  "11488": "Illyanna Ravenoak",
+  "11489": "Tendris Warpwood",
+  "11490": "Zevrim Thornhoof",
+  "11492": "Alzzin the Wildshaper",
+  "11496": "Immol'thar",
+  "11501": "King Gordok",
+  "11517": "Oggleflint",
+  "11518": "Jergosh the Invoker",
+  "11519": "Bazzalan",
+  "11520": "Taragaman the Hungerer",
+  "11622": "Rattlegore",
+  "12201": "Princess Theradras",
+  "12203": "Landslide",
+  "12225": "Celebras the Cursed",
+  "12236": "Lord Vyletongue",
+  "12237": "Meshlok the Harvester",
+  "12258": "Razorlash",
+  "12876": "Baron Aquanis",
+  "12902": "Lorgus Jett",
+  "13280": "Hydrospawn",
+  "13282": "Noxxion",
+  "13596": "Rotgrip",
+  "13601": "Tinkerer Gizlock",
+  "14308": "Ferra",
+  "14321": "Guard Fengus",
+  "14322": "Stomper Kreeg",
+  "14323": "Guard Slip'kik",
+  "14324": "Cho'Rush the Observer",
+  "14325": "Captain Kromcrush",
+  "14326": "Guard Mol'dar",
+  "14327": "Lethtendris",
+  "14349": "Pimgib",
+  "14354": "Pusillin",
+  "14506": "Lord Hel'nurath",
+  "14516": "Death Knight Darkreaver",
+  "16042": "Lord Valthalak",
+  "16080": "Mor Grayhoof",
+  "16097": "Isalien",
+  "16118": "Kormok",
+  "201722": "Ghamoo-ra",
+  "202699": "Baron Aquanis",
+  "204068": "Lady Sarevess",
+  "204921": "Gelihast",
+  "207356": "Lorgus Jett",
+  "209678": "Twilight Lord Kelris",
+  "212159": "Old Serra'kis",
+  "213334": "Aku'mai",
+  "215728": "Crowd Pummeler 9-60",
+  "217280": "Grubbis",
+  "218537": "Mekgineer Thermaplugg",
+  "218571": "Shade of Eranikus",
+  "218624": "Atal'alarion",
+  "218718": "Ogom the Wretched",
+  "218721": "Jammal'an the Prophet",
+  "220007": "Viscous Fallout",
+  "220072": "Electrocutioner 6000",
+  "220076": "Witch Doctor Zum'rah",
+  "220833": "Dreamscythe",
+  "220864": "Weaver",
+  "221394": "Avatar of Hakkar",
+  "221942": "Morphaz",
+  "221943": "Hazzas",
+  "247195": "Withermaw",
+  "247198": "Bonesnout the Unbroken",
+  "247206": "Impaan the Imprisoner",
+  "247209": "Elder Shaman Bloodmane",
+  "247231": "Unbound Spirit",
+  "247234": "Varrox Bleakhoof",
+  "250034": "Tunnelweb Matriarch",
+  "250483": "Witherfang",
+  "250631": "The Abandoned",
+  "250657": "Rath'mael",
+  "250660": "The Baron",
+  "255391": "Overseer Wrex",
+  "255699": "Lordaeron Captain",
+  "255702": "Blazeroar",
+  "255997": "Tidemistress Ca'zass",
+  "256035": "Viktor the Vile",
+  "256097": "Bjork",
+  "256236": "The Questioner",
+  "257016": "Katerina the Cleaner",
+  "258905": "Zul'Alai",
+  "258924": "Var'Taka",
+  "260042": "Captain Dreadrise",
+  "260202": "Deathless Marrow",
+  "260243": "Min'loth the Serpent",
+  "260322": "Saltspine",
+  "260325": "Shadetooth",
+  "260326": "Relic Guardian",
+  "260468": "\"Pyromancer\" Braxton",
+  "261306": "Faldrim Anvilmar",
+  "261311": "Plunder",
+  "261316": "Magmatus",
+  "261319": "Durgen Dirgehammer",
+  "263886": "Primeval Elemental",
+  "264172": "Umbra",
+  "264177": "Gill",
+  "269104": "Moontouched Wanderer",
+  "269111": "Gortek the Apprentice"
+ }
+}

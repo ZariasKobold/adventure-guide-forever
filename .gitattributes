@@ -1,0 +1,8 @@
+# Keep one line-ending style (LF) in the repo and working copy on every machine.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.tga binary
+*.blp binary
+*.zip binary

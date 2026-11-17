@@ -1,0 +1,56 @@
+## Interface: 16001
+## Title: Adventure Guide |cff66ccffForever|r
+## Notes: Brings the Adventure Guide back to WoW Forever. Open with Shift+J, the micro menu button, or /ag.
+## Author: Draconic Designs
+## Version: 0.3.0
+## SavedVariables: AdventureGuideForeverDB
+## IconTexture: Interface\Icons\INV_Misc_Book_09
+## Category: Dungeons & Raids
+## AddonCompartmentFunc: AdventureGuideForever_OnCompartmentClick
+
+Core.lua
+Data\Instances.lua
+Data\Registry.lua
+Data\Content\hallofthanes.lua
+Data\Content\ragefire.lua
+Data\Content\ruinslordaeron.lua
+Data\Content\deadmines.lua
+Data\Content\wailing.lua
+Data\Content\shadowfang.lua
+Data\Content\excavation.lua
+Data\Content\blackfathom.lua
+Data\Content\stockade.lua
+Data\Content\dalaran.lua
+Data\Content\razorfenkraul.lua
+Data\Content\gnomeregan.lua
+Data\Content\smgraveyard.lua
+Data\Content\smlibrary.lua
+Data\Content\drownedcity.lua
+Data\Content\smarmory.lua
+Data\Content\razorfendowns.lua
+Data\Content\smcathedral.lua
+Data\Content\kroldok.lua
+Data\Content\uldaman.lua
+Data\Content\zulfarrak.lua
+Data\Content\alcaz.lua
+Data\Content\maraudon.lua
+Data\Content\sunkentemple.lua
+Data\Content\brd.lua
+Data\Content\dmeast.lua
+Data\Content\blackmaw.lua
+Data\Content\lbrs.lua
+Data\Content\ubrs.lua
+Data\Content\dmwest.lua
+Data\Content\scholomance.lua
+Data\Content\stratholme.lua
+Data\Content\dmnorth.lua
+Data\Content\barrowdeeps.lua
+Data\Content\hyjalsummit.lua
+Data\Content\onyxia.lua
+Data\Generated\Wowhead.lua
+Learn.lua
+UI\Widgets.lua
+UI\MainFrame.lua
+UI\InstanceList.lua
+UI\InstancePage.lua
+UI\BossPage.lua

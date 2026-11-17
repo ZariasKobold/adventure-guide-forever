@@ -1,0 +1,8 @@
+## Interface: 16001
+## Title: Adventure Guide Probe
+## Notes: Fallback TOC. The game prefers AdventureGuideProbe_Forever.toc when it exists.
+## Author: Draconic Designs
+## Version: 0.1.0
+## SavedVariables: AGProbeDB
+
+AdventureGuideProbe.lua

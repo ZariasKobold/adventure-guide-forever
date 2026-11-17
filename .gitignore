@@ -1,0 +1,14 @@
+# Python tooling
+.venv/
+__pycache__/
+*.pyc
+
+# Build artifacts: release zips belong on GitHub Releases, not in the repo
+*.zip
+
+# Editors and OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store

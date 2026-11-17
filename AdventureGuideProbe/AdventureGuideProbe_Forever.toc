@@ -1,0 +1,8 @@
+## Interface: 16001
+## Title: Adventure Guide Probe
+## Notes: Checks whether Blizzard's Adventure Guide (Encounter Journal) code and data exist in this client. Type /agprobe.
+## Author: Draconic Designs
+## Version: 0.1.0
+## SavedVariables: AGProbeDB
+
+AdventureGuideProbe.lua
