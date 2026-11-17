@@ -34,26 +34,118 @@ local function showTooltip(self)
 	GameTooltip:Show()
 end
 
+-- Forever's bar uses the older micro button art: each button is one picture with its frame
+-- baked in. Texture:SetTexture accepts missing files, so only a file ID proves a file exists.
+local probe = UIParent:CreateTexture()
+local function fileExists(path)
+	probe:SetTexture(nil)
+	probe:SetTexture(path)
+	local id = probe:GetTextureFileID()
+	return type(id) == "number" and id > 0
+end
+
+local LEGACY_EJ = "Interface\\Buttons\\UI-MicroButton-EJ-"
+
+-- A texture's look: its atlas, or its file and tex coords.
+local function look(tex)
+	if not tex then return nil end
+	local atlas = tex.GetAtlas and tex:GetAtlas()
+	if atlas and atlasExists(atlas) then return { atlas = atlas } end
+	local file = tex:GetTextureFileID() or tex:GetTexture()
+	if not file then return nil end
+	return { file = file, coords = { tex:GetTexCoord() }, blend = tex:GetBlendMode() }
+end
+
+local function apply(tex, l)
+	if l.atlas then
+		tex:SetAtlas(l.atlas)
+	else
+		tex:SetTexture(l.file)
+		if l.coords and #l.coords == 8 then tex:SetTexCoord(unpack(l.coords)) end
+	end
+end
+
+local function setState(button, state, l)
+	if not l then return end
+	local setter = button["Set" .. state .. "Texture"]
+	setter(button, l.atlas and "Interface\\Buttons\\WHITE8x8" or l.file)
+	apply(button["Get" .. state .. "Texture"](button), l)
+	if state == "Highlight" then button:GetHighlightTexture():SetBlendMode(l.blend or "ADD") end
+end
+
+local function copyButton(button, source)
+	setState(button, "Normal", look(source:GetNormalTexture()))
+	setState(button, "Pushed", look(source:GetPushedTexture()))
+	setState(button, "Disabled", look(source:GetDisabledTexture()))
+end
+
+-- Which picture to use, best first. AG.microStyle records the choice (/ag micro).
 local function paint(button)
+	local neighbour = CollectionsMicroButton or CharacterMicroButton
+	local highlight = neighbour and look(neighbour:GetHighlightTexture())
+
+	-- 1. Blizzard's Dragonflight-style Adventure Guide art.
 	if atlasExists(ATLAS.normal) then
 		button:SetNormalAtlas(ATLAS.normal)
 		button:SetPushedAtlas(atlasExists(ATLAS.pushed) and ATLAS.pushed or ATLAS.normal)
 		button:SetDisabledAtlas(atlasExists(ATLAS.disabled) and ATLAS.disabled or ATLAS.normal)
-		if atlasExists(ATLAS.highlight) then
-			button:SetHighlightAtlas(ATLAS.highlight, "ADD")
-		else
-			button:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
-		end
-	else
-		-- No micro menu art: a framed book icon, sized to the bar.
-		button:SetNormalTexture(FALLBACK_ICON)
-		button:SetPushedTexture(FALLBACK_ICON)
-		button:GetPushedTexture():SetVertexColor(0.7, 0.7, 0.7)
-		button:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
-		for _, tex in ipairs({ button:GetNormalTexture(), button:GetPushedTexture() }) do
-			tex:SetTexCoord(0.08, 0.92, 0.08, 0.92)
-		end
+		if atlasExists(ATLAS.highlight) then button:SetHighlightAtlas(ATLAS.highlight, "ADD") end
+		AG.microStyle = "atlas"
+		return
 	end
+
+	-- 2. Whatever Blizzard's own (hidden) Adventure Guide button wears, if it's real art.
+	local ej = EJMicroButton and look(EJMicroButton:GetNormalTexture())
+	if ej and (ej.atlas or (type(ej.file) == "number" and ej.file > 0)) then
+		copyButton(button, EJMicroButton)
+		setState(button, "Highlight", look(EJMicroButton:GetHighlightTexture()) or highlight)
+		AG.microStyle = "EJMicroButton"
+		return
+	end
+
+	-- 3. The older Adventure Guide micro button files, cut like their neighbours.
+	if fileExists(LEGACY_EJ .. "Up") then
+		local coords = neighbour and { neighbour:GetNormalTexture():GetTexCoord() }
+		for state, suffix in pairs({ Normal = "Up", Pushed = "Down", Disabled = "Disabled" }) do
+			local file = fileExists(LEGACY_EJ .. suffix) and LEGACY_EJ .. suffix or LEGACY_EJ .. "Up"
+			setState(button, state, { file = file, coords = coords })
+		end
+		setState(button, "Highlight", highlight)
+		AG.microStyle = "legacy EJ"
+		return
+	end
+
+	-- 4. The Character button's empty frame with a book where its portrait sits.
+	if CharacterMicroButton then
+		copyButton(button, CharacterMicroButton)
+		setState(button, "Highlight", highlight)
+		local icon = button:CreateTexture(nil, "OVERLAY")
+		icon:SetTexture(FALLBACK_ICON)
+		icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+		local portrait = MicroButtonPortrait
+		if portrait and portrait:GetNumPoints() > 0 then
+			icon:SetSize(portrait:GetSize())
+			for i = 1, portrait:GetNumPoints() do
+				local point, rel, relPoint, x, y = portrait:GetPoint(i)
+				icon:SetPoint(point, rel == CharacterMicroButton and button or rel, relPoint, x, y)
+			end
+		else
+			icon:SetPoint("CENTER")
+			icon:SetSize(button:GetWidth() * 0.62, button:GetWidth() * 0.62)
+		end
+		button.icon = icon
+		button:HookScript("OnMouseDown", function() icon:SetVertexColor(0.6, 0.6, 0.6) end)
+		button:HookScript("OnMouseUp", function() icon:SetVertexColor(1, 1, 1) end)
+		AG.microStyle = "character frame + book"
+		return
+	end
+
+	-- 5. Just the book.
+	button:SetNormalTexture(FALLBACK_ICON)
+	button:SetPushedTexture(FALLBACK_ICON)
+	button:GetPushedTexture():SetVertexColor(0.7, 0.7, 0.7)
+	button:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
+	AG.microStyle = "book icon"
 end
 
 -- The visible micro menu button furthest to the right (fallback anchor).

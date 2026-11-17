@@ -184,6 +184,9 @@ local commands = {
 		AG.db.learn = not AG.db.learn
 		AG:Print("Learning mode is now %s.", AG.db.learn and "|cff20ff20on|r" or "|cffff2020off|r")
 	end,
+	micro = function()
+		AG:Print("Menu bar button art: %s.", tostring(AG.microStyle or "not created (no menu bar found)"))
+	end,
 	["reset learned"] = function()
 		wipe(AG.db.learned)
 		AG:Print("Forgot everything learned so far.")
