@@ -79,18 +79,73 @@ local function copyButton(button, source)
 	setState(button, "Disabled", look(source:GetDisabledTexture()))
 end
 
+-- Dragonflight-style micro buttons draw their frame as two textures, Background and
+-- PushedBackground. Copy them from a neighbour (same layer, size, and anchors), or fall
+-- back to Blizzard's atlases by name.
+local BACKGROUNDS = {
+	Background = "UI-HUD-MicroMenu-ButtonBG-Up",
+	PushedBackground = "UI-HUD-MicroMenu-ButtonBG-Down",
+}
+
+local function copyRegion(button, source, region, layer)
+	local tex = button:CreateTexture(nil, layer or "BACKGROUND")
+	if region then
+		local l = look(region)
+		if l then apply(tex, l) end
+		tex:SetDrawLayer(region:GetDrawLayer())
+		tex:SetSize(region:GetSize())
+		for i = 1, region:GetNumPoints() do
+			local point, rel, relPoint, x, y = region:GetPoint(i)
+			tex:SetPoint(point, rel == source and button or rel, relPoint, x, y)
+		end
+		if tex:GetNumPoints() == 0 then tex:SetAllPoints() end
+	end
+	return tex
+end
+
+local function addBackgrounds(button, neighbour)
+	for key, atlas in pairs(BACKGROUNDS) do
+		local region = neighbour and neighbour[key]
+		local tex
+		if region and region.GetTexture then
+			tex = copyRegion(button, neighbour, region)
+		elseif atlasExists(atlas) then
+			tex = button:CreateTexture(nil, "BACKGROUND")
+			tex:SetAtlas(atlas)
+			tex:SetAllPoints()
+		end
+		button[key] = tex
+	end
+	if not button.Background then return end
+	if button.PushedBackground then button.PushedBackground:Hide() end
+	-- Swap backgrounds while pressed, as Blizzard's buttons do.
+	local function pressed(down)
+		button.Background:SetShown(not down)
+		if button.PushedBackground then button.PushedBackground:SetShown(down) end
+	end
+	button.SetPressedLook = function(_, down) pressed(down) end
+	button:HookScript("OnMouseDown", function() pressed(true) end)
+	button:HookScript("OnMouseUp", function() pressed(AG.frame and AG.frame:IsShown() or false) end)
+end
+
 -- Which picture to use, best first. AG.microStyle records the choice (/ag micro).
 local function paint(button)
 	local neighbour = CollectionsMicroButton or CharacterMicroButton
 	local highlight = neighbour and look(neighbour:GetHighlightTexture())
 
-	-- 1. Blizzard's Dragonflight-style Adventure Guide art.
+	-- 1. Blizzard's Dragonflight-style Adventure Guide art. Those icons sit on a separate
+	--    button background (the dark rounded frame), which we borrow from a neighbour.
 	if atlasExists(ATLAS.normal) then
 		button:SetNormalAtlas(ATLAS.normal)
 		button:SetPushedAtlas(atlasExists(ATLAS.pushed) and ATLAS.pushed or ATLAS.normal)
 		button:SetDisabledAtlas(atlasExists(ATLAS.disabled) and ATLAS.disabled or ATLAS.normal)
-		if atlasExists(ATLAS.highlight) then button:SetHighlightAtlas(ATLAS.highlight, "ADD") end
-		AG.microStyle = "atlas"
+		if highlight then
+			setState(button, "Highlight", highlight)
+		elseif atlasExists(ATLAS.highlight) then
+			button:SetHighlightAtlas(ATLAS.highlight, "ADD")
+		end
+		addBackgrounds(button, neighbour)
+		AG.microStyle = "atlas" .. (button.Background and " + frame" or "")
 		return
 	end
 
@@ -203,5 +258,7 @@ end
 function AG:UpdateMicroButton()
 	local open = self.frame and self.frame:IsShown()
 	local button = self.microButton
-	if button then button:SetButtonState(open and "PUSHED" or "NORMAL", open) end
+	if not button then return end
+	button:SetButtonState(open and "PUSHED" or "NORMAL", open)
+	if button.SetPressedLook then button:SetPressedLook(open or false) end
 end
