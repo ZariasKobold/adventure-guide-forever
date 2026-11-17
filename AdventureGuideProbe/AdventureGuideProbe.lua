@@ -277,24 +277,46 @@ end
 -- /agprobe maps: which in-game maps exist for dungeons and raids?
 ------------------------------------------------------------------------
 
+-- Words that appear in our instances' map names (matched case-insensitively).
+local MAP_WORDS = {
+	"thane", "ragefire", "lordaeron", "deadmines", "wailing", "shadowfang", "excavation",
+	"blackfathom", "stockade", "dalaran", "razorfen", "gnomeregan", "scarlet", "drowned",
+	"krol", "uldaman", "farrak", "alcaz", "maraudon", "hakkar", "sunken", "blackrock",
+	"dire maul", "warpwood", "gardens", "gordok", "blackmaw", "scholomance", "shaper",
+	"stratholme", "barrow", "hyjal", "onyxia",
+}
+
 local function maps()
 	wipe(report)
-	local rows = {}
-	local dungeonType = Enum and Enum.UIMapType and Enum.UIMapType.Dungeon
-	for id = 1, 3000 do
+	local rows, typeCounts, total = {}, {}, 0
+	for id = 1, 30000 do
 		local info = C_Map.GetMapInfo(id)
-		if info and (info.mapType == dungeonType) then
-			local layers = C_Map.GetMapArtLayers and C_Map.GetMapArtLayers(id)
-			local group = C_Map.GetMapGroupID and C_Map.GetMapGroupID(id)
-			table.insert(rows, string.format("%d|%s|parent=%s|group=%s|layers=%s",
-				id, info.name, tostring(info.parentMapID), tostring(group),
-				tostring(layers and #layers or 0)))
+		if info then
+			total = total + 1
+			typeCounts[info.mapType] = (typeCounts[info.mapType] or 0) + 1
+			local lname = (info.name or ""):lower()
+			for _, word in ipairs(MAP_WORDS) do
+				if lname:find(word, 1, true) then
+					local layers = C_Map.GetMapArtLayers and C_Map.GetMapArtLayers(id)
+					local group = C_Map.GetMapGroupID and C_Map.GetMapGroupID(id)
+					table.insert(rows, string.format("%d|%s|type=%s|parent=%s|group=%s|layers=%s",
+						id, info.name, tostring(info.mapType), tostring(info.parentMapID),
+						tostring(group), tostring(layers and #layers or 0)))
+					break
+				end
+			end
 		end
 	end
-	log("Dungeon-type maps: %d", #rows)
-	for i = 1, math.min(#rows, 15) do log("  %s", rows[i]) end
+	local types = {}
+	for t, n in pairs(typeCounts) do table.insert(types, t .. "=" .. n) end
+	log("Maps found: %d total; by type: %s", total, table.concat(types, ", "))
+	log("Maps matching our instances: %d", #rows)
+	for i = 1, math.min(#rows, 10) do log("  %s", rows[i]) end
+	-- Where am I right now? Useful when standing inside a dungeon.
+	local here = C_Map.GetBestMapForUnit and C_Map.GetBestMapForUnit("player")
+	log("Your current map: %s", tostring(here))
 	AGProbeDB = AGProbeDB or {}
-	AGProbeDB.maps = { when = date("%Y-%m-%d %H:%M"), rows = rows }
+	AGProbeDB.maps = { when = date("%Y-%m-%d %H:%M"), rows = rows, total = total, types = types, here = here }
 	log("Map scan done. /reload to save it (the full list is in the saved file).")
 end
 
