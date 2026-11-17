@@ -320,10 +320,115 @@ local function maps()
 	log("Map scan done. /reload to save it (the full list is in the saved file).")
 end
 
+------------------------------------------------------------------------
+-- /agprobe newart: find the client's own art for Forever-new instances, so the
+-- addon can use file IDs instead of bundling pictures. Two approaches:
+--   1. The Dungeon Finder: GetLFGDungeonInfo returns each dungeon's texture name
+--      (or file ID), which Blizzard's UI turns into the finder icon and background.
+--   2. Wider path guesses: more loading-screen folders and name spellings.
+------------------------------------------------------------------------
+
+local NEW_INSTANCE_NAMES = {
+	hallofthanes = { "HallofThanes", "HallOfThanes", "TheHallofThanes", "Thanes", "HallofThanesDungeon" },
+	ruinslordaeron = { "RuinsofLordaeron", "RuinsOfLordaeron", "LordaeronRuins", "Lordaeron", "Undercity" },
+	excavation = { "ExcavationSite", "ExcavationSiteWetlands", "WetlandsExcavation", "Excavation", "Wetlands" },
+	dalaran = { "Dalaran", "CityofDalaran", "CityOfDalaran", "DalaranCity", "DalaranCrater", "Dalaran_Crater" },
+	drownedcity = { "DrownedCity", "TheDrownedCity", "Drowned", "DrownedCityDungeon" },
+	kroldok = { "KroldokStronghold", "KrolDokStronghold", "Kroldok", "KrolDok" },
+	alcaz = { "AlcazPrison", "AlcazIsland", "Alcaz" },
+	blackmaw = { "BlackmawHold", "Blackmaw", "BlackmawFortress" },
+	shaperterrace = { "ShapersTerrace", "TheShapersTerrace", "ShaperTerrace", "Shapers" },
+}
+
+local NEW_ART_PATTERNS = {
+	"Interface\\Glues\\LoadingScreens\\LoadScreen%s",
+	"Interface\\Glues\\LoadingScreens\\LoadingScreen_%s",
+	"Interface\\Glues\\LoadingScreens\\LoadScreen_%s",
+	"Interface\\Glues\\LoadingScreens\\LoadingScreen%s",
+	"Interface\\Glues\\LoadingScreens\\LoadScreen%sDungeon",
+	"Interface\\Glues\\LoadingScreens\\LoadScreen%s_Wide",
+	"Interface\\Glues\\LoadingScreens\\LoadScreen%sWide",
+	"Interface\\Glues\\LoadingScreens\\Forever\\LoadScreen%s",
+	"Interface\\Glues\\LoadingScreens\\Forever\\%s",
+	"Interface\\Glues\\LoadingScreens\\Expansion10\\LoadScreen%s",
+	"Interface\\Forever\\LoadScreen%s",
+	"Interface\\Forever\\%s",
+	"Interface\\EncounterJournal\\UI-EJ-DUNGEONBUTTON-%s",
+	"Interface\\EncounterJournal\\UI-EJ-LOREBG-%s",
+	"Interface\\LFGFrame\\UI-LFG-BACKGROUND-%s",
+	"Interface\\LFGFrame\\LFGIcon-%s",
+}
+
+local function readable(v)
+	return not (issecretvalue and issecretvalue(v))
+end
+
+local function newart()
+	wipe(report)
+	local probeFrame = CreateFrame("Frame")
+	local tex = probeFrame:CreateTexture()
+	local found, lfg = {}, {}
+
+	-- 1. Dungeon Finder entries whose names match our instances.
+	if GetLFGDungeonInfo then
+		for id = 1, 5000 do
+			local ok, name, typeID, _, minLevel, maxLevel, _, _, _, _, _, texture = pcall(GetLFGDungeonInfo, id)
+			if ok and name and readable(name) and readable(texture) then
+				local lname = tostring(name):lower()
+				for _, word in ipairs(MAP_WORDS) do
+					if lname:find(word, 1, true) then
+						local row = string.format("%d|%s|type=%s|levels=%s-%s|texture=%s",
+							id, tostring(name), tostring(typeID), tostring(minLevel), tostring(maxLevel), tostring(texture))
+						-- Blizzard's UI builds the finder art from a texture name.
+						if type(texture) == "string" and texture ~= "" then
+							local finderArt = {
+								icon = "Interface\\LFGFrame\\LFGIcon-%s",
+								background = "Interface\\LFGFrame\\UI-LFG-BACKGROUND-%s",
+							}
+							for label, pattern in pairs(finderArt) do
+								local hit, fileID = textureExists(tex, pattern:format(texture))
+								if hit then row = row .. string.format("|%s=%s", label, tostring(fileID)) end
+							end
+						end
+						table.insert(lfg, row)
+						break
+					end
+				end
+			end
+		end
+	else
+		log("GetLFGDungeonInfo does not exist in this client.")
+	end
+	log("Dungeon Finder entries matching our instances: %d", #lfg)
+	for _, row in ipairs(lfg) do log("  %s", row) end
+
+	-- 2. Wider path guesses for the Forever-new instances.
+	local total = 0
+	for key, names in pairs(NEW_INSTANCE_NAMES) do
+		for _, name in ipairs(names) do
+			for _, pattern in ipairs(NEW_ART_PATTERNS) do
+				local path = pattern:format(name)
+				total = total + 1
+				local ok, fileID = textureExists(tex, path)
+				if ok then table.insert(found, string.format("%s|%s|%s", key, path, tostring(fileID))) end
+			end
+		end
+	end
+	table.sort(found)
+	log("New-instance art: %d of %d candidate files exist", #found, total)
+	for _, line in ipairs(found) do log("  %s", line) end
+
+	AGProbeDB = AGProbeDB or {}
+	AGProbeDB.newart = { when = date("%Y-%m-%d %H:%M"), lfg = lfg, found = found, total = total }
+	log("New-art scan done. /reload to save it.")
+end
+
 SLASH_AGPROBE1 = "/agprobe"
 SlashCmdList.AGPROBE = function(msg)
 	if msg == "art" then
 		art()
+	elseif msg == "newart" then
+		newart()
 	elseif msg == "maps" then
 		maps()
 	elseif msg == "deep" then
@@ -343,5 +448,5 @@ end
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", function()
-	print("|cff66ccffAGProbe|r loaded. Type /agprobe art and /agprobe maps (then /reload), /agprobe to scan, /agprobe deep for ID lookups, /agprobe open to try opening the guide.")
+	print("|cff66ccffAGProbe|r loaded. Type /agprobe art, /agprobe newart, or /agprobe maps (then /reload), /agprobe to scan, /agprobe deep for ID lookups, /agprobe open to try opening the guide.")
 end)

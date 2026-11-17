@@ -3,6 +3,7 @@
 ## Notes: Fallback TOC. The game prefers AdventureGuideForever_Forever.toc.
 ## Author: Draconic Designs
 ## Version: 0.4.1
+## X-License: MIT
 ## SavedVariables: AdventureGuideForeverDB
 ## IconTexture: Interface\Icons\INV_Misc_Book_09
 ## Category: Dungeons & Raids
