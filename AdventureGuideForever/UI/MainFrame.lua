@@ -87,12 +87,14 @@ function AG:CreateMainFrame()
 
 	frame:SetScript("OnShow", function()
 		PlaySound(SOUNDKIT.IG_CHARACTER_INFO_OPEN)
+		AG:UpdateMicroButton()
 		AG:Refresh()
 		-- Redraw once layout has settled, so wrapped text measures at its real width.
 		C_Timer.After(0, function() AG:Refresh() end)
 	end)
 	frame:SetScript("OnHide", function()
 		PlaySound(SOUNDKIT.IG_CHARACTER_INFO_CLOSE)
+		AG:UpdateMicroButton()
 		AG:ResetBossModel() -- models clear while hidden; reload next time
 	end)
 
