@@ -56,4 +56,12 @@ Rules from `https://wowforeverguides.com/addons/developers` (beta-era; its claim
 - **v0.3.0**, built but **not yet tested in game**. All 24 tests pass.
 - 31 of 37 instances have Wowhead data (234 bosses, 1,049 items, 234 models, 868 spells). There's no data for Dalaran, Shaper's Terrace, Onyxia, or the Hyjal raids (which open Dec 9). Krol'dok uses its wiki loot list.
 - Next: in-game test, then add luacheck and do a UI code review pass.
-- Not under version control yet.
+
+## Git and versioning
+
+- Private repo: https://github.com/ZariasKobold/adventure-guide-forever (branch `main`).
+- Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`). Run the tests before committing.
+- The version lives only in the TOCs' `## Version:` line (both TOCs). For a release, bump it there, commit, then tag `vX.Y.Z` and push the tag. `AG.version` reads it at runtime.
+- Release zips go on GitHub Releases, not in the repo (`*.zip` is ignored). Build one with
+  `git archive --format=zip --prefix=AdventureGuideForever/ -o AdventureGuideForever-vX.Y.Z.zip vX.Y.Z:AdventureGuideForever`.
+- `.gitattributes` keeps LF line endings everywhere.
