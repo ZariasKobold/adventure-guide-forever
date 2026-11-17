@@ -7,13 +7,14 @@ A World of Warcraft: Forever addon that rebuilds the retail **Adventure Guide** 
 | Path | What it is |
 |---|---|
 | `AdventureGuideForever/` | **The addon** (the folder players install). Version lives in its TOC. |
-| `AdventureGuideForever/Data/Content/<instance>.lua` | Hand-written guide text: intros, boss overviews, abilities with role alerts. **Edit these.** |
+| `AdventureGuideForever/Data/Content/<instance>.lua` | Hand-written guide text: instance intro, lore, route, tips; per boss: overview, lore, strategy (summary/tank/healer/dps), abilities with role alerts. **Edit these** (or merge drafts with `tools/apply_writing.py`). |
 | `AdventureGuideForever/Data/Generated/Wowhead.lua` | Generated from Wowhead. **Never edit by hand**; run `tools/build_wowhead.py`. |
-| `AdventureGuideForever/Data/Registry.lua` | Merges Content + Generated into `AG.Guides` at load. Its header documents the merge rules. |
+| `AdventureGuideForever/Data/Registry.lua` | Merges Content + Generated into `AG.Guides` at load. Its header documents both schemas and the merge rules. |
 | `AdventureGuideForever/Data/Instances.lua` | All 37 Forever instances (key, name, zone, levels). |
+| `AdventureGuideForever/Data/Art.lua` | Blizzard art file IDs per instance (journal button, lore, loading screen, finder), found with `/agprobe art`. |
 | `AdventureGuideForever/Learn.lua` | Learning mode: records loot, models, and boss spells from play. |
-| `AdventureGuideForever/UI/` | Window, instance list, instance page, boss page, shared widgets. |
-| `AdventureGuideProbe/` | Throwaway diagnostic addon (`/agprobe`). Not shipped. |
+| `AdventureGuideForever/UI/` | `MainFrame` (window, tabs), `InstanceList` (art card grid), `InstanceOverview` (instance page), `InstancePage` (overview + boss list), `BossPage` (bestiary layout), `Document` (shared scrolling layout), `Widgets`. |
+| `AdventureGuideProbe/` | Diagnostic addon (`/agprobe`, `/agprobe art`, `/agprobe maps`, `/agprobe deep`). Not shipped. |
 | `tools/` | Python dev tooling: build, tests, Wowhead extractors. See `tools/README.md`. |
 
 ## Commands
@@ -53,9 +54,10 @@ Rules from `https://wowforeverguides.com/addons/developers` (beta-era; its claim
 
 ## Status (Nov 17, 2026)
 
-- **v0.3.0**, built but **not yet tested in game**. All 24 tests pass.
-- 31 of 37 instances have Wowhead data (234 bosses, 1,049 items, 234 models, 868 spells). There's no data for Dalaran, Shaper's Terrace, Onyxia, or the Hyjal raids (which open Dec 9). Krol'dok uses its wiki loot list.
-- Next: in-game test, then add luacheck and do a UI code review pass.
+- **v0.4.0**: art card grid, instance overview pages, bestiary-style boss pages, lore and strategy for all 37 instances (252 of 286 bosses have strategy), drop chances supported. Not yet tested in game. v0.3.0 was tested in game and worked.
+- Forever has **no dungeon maps** (`/agprobe maps`: only 60 world and zone maps), so the overview uses a written route instead of a map.
+- Forever-new dungeons have no Blizzard art yet; their cards are drawn. Dalaran, Krol'dok, Shaper's Terrace, and the Hyjal raids (open Dec 9) have no boss mechanics published; learning mode fills them in.
+- Drop chances need one more run of `tools/wowhead/extract_npcs.js` (v2 adds drop counts), then `build_wowhead.py`.
 
 ## Git and versioning
 

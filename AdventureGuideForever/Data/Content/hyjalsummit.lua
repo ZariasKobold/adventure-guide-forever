@@ -5,6 +5,8 @@ local _, AG = ...
 
 AG:RegisterContent("hyjalsummit", {
 	intro = "Hyjal Summit sits atop Mount Hyjal. Opens December 9.",
+	lore = "Hyjal Summit is the sacred mountain where the night elves planted their World Tree. Now a nightmare has taken root on the summit, and Nythus the Dreambound waits at its top.",
+	tips = { "This raid opens on December 9, 2026.", "Bosses, loot and abilities will be added as players learn the raid." },
 	bosses = {
 		{ name = "Bandalar" },
 		{ name = "Time-Lost Battalion" },

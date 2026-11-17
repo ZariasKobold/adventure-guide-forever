@@ -22,6 +22,7 @@ Data/Content/*.lua (hand-written text)  ----------------------------------------
 | `wowhead/extract.js` | Run in your browser's console on wowhead.com/forever. Reads each instance's zone page and outputs `snapshot.json`. It pauses between pages and stops if Wowhead asks for human verification. |
 | `wowhead/snapshot.json` | Raw data: every boss drop (item ID, name, quality, slot, source NPC) per zone, plus NPC names. Fetched 2026-11-16. |
 | `build_wowhead.py` | Turns the snapshot into `Data/Generated/Wowhead.lua`. The tables at the top decide which zone is which instance, which wing each boss belongs to, which NPCs are trash, and which NPCs form one encounter. |
+| `apply_writing.py` | Merges drafted guide writing (a JSON file of instance and boss text) into `Data/Content/*.lua`, keeping the standard format. Drafts are input only; don't commit them. |
 | `migrate_content.py` | One-time conversion of the old `Data/Guides` files into `Data/Content`. Kept for the record. |
 | `test_addon.py` | Test suite: TOC integrity, data shape, and the registry's merge rules. |
 | `addon_env.py`, `lua_writer.py` | Shared helpers: load the addon in Lua, and write tidy Lua tables. |

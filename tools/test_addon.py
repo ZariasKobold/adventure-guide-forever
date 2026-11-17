@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from addon_env import ADDON_DIR, TOC, load_addon, to_py, toc_files  # noqa: E402
 
 # Instances with no published data anywhere yet; learning mode builds these from play.
-KNOWN_EMPTY = {"shaperterrace"}
+KNOWN_EMPTY: set[str] = set()
 
 VALID_ALERTS = {"tank", "healer", "dps", "deadly", "important", "interrupt", "magic",
                 "curse", "poison", "disease", "enrage"}

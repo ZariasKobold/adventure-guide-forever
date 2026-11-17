@@ -9,7 +9,7 @@ from __future__ import annotations
 import re
 
 _IDENT = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
-INLINE_LIMIT = 130  # longest line a table may take before it is split across lines
+RECORD_LIMIT = 150  # longest line a record of plain values may take before it is split
 
 
 def lua_string(s: str) -> str:
@@ -71,10 +71,9 @@ def _table(items, indent: int, key_order) -> str:
         return "{}"
     parts = [_entry(k, v, indent + 1, key_order) for k, v in items]
     one_line = "{ " + ", ".join(parts) + " }"
-    # Records of plain values stay on one line; anything holding records is split, so
-    # every list of records reads one record per line regardless of length.
-    has_keys = any(k is not None for k, _ in items)
-    if _is_flat(items) and (has_keys or len(one_line) <= INLINE_LIMIT):
+    # Short records of plain values stay on one line; anything holding records, or too long
+    # to read at a glance, is split one field per line.
+    if _is_flat(items) and len(one_line) + indent * 4 <= RECORD_LIMIT:
         return one_line
     pad = "\t" * (indent + 1)
     return "{\n" + "".join(f"{pad}{p},\n" for p in parts) + "\t" * indent + "}"
