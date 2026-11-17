@@ -240,7 +240,8 @@ local function textureExists(tex, path)
 	tex:SetTexture(nil)
 	local ok, result = pcall(tex.SetTexture, tex, path)
 	local fileID = tex.GetTextureFileID and tex:GetTextureFileID()
-	return ok and (result == true or (fileID and fileID > 0)), fileID
+	-- SetTexture returns true even for missing files here, so only a file ID counts.
+	return ok and type(fileID) == "number" and fileID > 0, fileID
 end
 
 local function art()
@@ -423,12 +424,58 @@ local function newart()
 	log("New-art scan done. /reload to save it.")
 end
 
+------------------------------------------------------------------------
+-- /agprobe lfg: every value GetLFGDungeonInfo returns for a classic dungeon and the
+-- Forever-new ones (IDs 3267-3275, found by /agprobe newart). The texture isn't in the
+-- slot retail uses, so this shows where it is, then checks each string as finder art.
+------------------------------------------------------------------------
+
+local LFG_IDS = { 5, 3267, 3268, 3269, 3270, 3271, 3272, 3273, 3274, 3275 }
+
+local function describe(v)
+	if not readable(v) then return "secret" end
+	if type(v) == "string" then return string.format("%q", v) end
+	return tostring(v)
+end
+
+local function lfg()
+	wipe(report)
+	local probeFrame = CreateFrame("Frame")
+	local tex = probeFrame:CreateTexture()
+	local rows = {}
+	for _, id in ipairs(LFG_IDS) do
+		local values = { pcall(GetLFGDungeonInfo, id) }
+		local parts = {}
+		for i = 2, #values do
+			local v = values[i]
+			local part = (i - 1) .. "=" .. describe(v)
+			if type(v) == "string" and readable(v) and v ~= "" then
+				for label, pattern in pairs({ icon = "Interface\\LFGFrame\\LFGIcon-%s",
+					background = "Interface\\LFGFrame\\UI-LFG-BACKGROUND-%s",
+					loading = "Interface\\Glues\\LoadingScreens\\LoadScreen%s" }) do
+					local hit, fileID = textureExists(tex, pattern:format(v))
+					if hit then part = part .. string.format("[%s=%d]", label, fileID) end
+				end
+			end
+			table.insert(parts, part)
+		end
+		local row = id .. " | " .. table.concat(parts, " ")
+		table.insert(rows, row)
+		log("%s", row)
+	end
+	AGProbeDB = AGProbeDB or {}
+	AGProbeDB.lfg = { when = date("%Y-%m-%d %H:%M"), rows = rows }
+	log("LFG scan done. /reload to save it.")
+end
+
 SLASH_AGPROBE1 = "/agprobe"
 SlashCmdList.AGPROBE = function(msg)
 	if msg == "art" then
 		art()
 	elseif msg == "newart" then
 		newart()
+	elseif msg == "lfg" then
+		lfg()
 	elseif msg == "maps" then
 		maps()
 	elseif msg == "deep" then
@@ -448,5 +495,5 @@ end
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", function()
-	print("|cff66ccffAGProbe|r loaded. Type /agprobe art, /agprobe newart, or /agprobe maps (then /reload), /agprobe to scan, /agprobe deep for ID lookups, /agprobe open to try opening the guide.")
+	print("|cff66ccffAGProbe|r loaded. Type /agprobe art, /agprobe newart, /agprobe lfg, or /agprobe maps (then /reload), /agprobe to scan, /agprobe deep for ID lookups, /agprobe open to try opening the guide.")
 end)
