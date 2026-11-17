@@ -41,7 +41,7 @@ local function createBossButton(owner)
 	b.selected:SetColorTexture(0.9, 0.7, 0.2, 0.25)
 	b:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
 	b:SetScript("OnClick", function(self)
-		PlaySound(SOUNDKIT and SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON or 856)
+		PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
 		AG.view.bossKey = self.bossKey
 		AG:Refresh()
 	end)
@@ -65,23 +65,15 @@ function AG:CreateInstancePage(parent)
 	page.subtitle = UI.Text(page, "GameFontHighlightSmall")
 	page.subtitle:SetPoint("LEFT", page.back, "RIGHT", 12, 0)
 
-	page.intro = UI.Text(page, "GameFontHighlight")
-	page.intro:SetPoint("TOPLEFT", page.back, "BOTTOMLEFT", 2, -10)
-	page.intro:SetPoint("RIGHT", -12, 0)
-	page.intro:SetTextColor(0.85, 0.8, 0.7)
-
-	-- Boss list on the left.
+	-- Overview and boss list on the left.
 	local listBox = CreateFrame("Frame", nil, page)
 	UI.Backdrop(listBox, 0.6)
-	listBox:SetPoint("TOPLEFT", page.intro, "BOTTOMLEFT", -2, -10)
+	listBox:SetPoint("TOPLEFT", page.back, "BOTTOMLEFT", 0, -8)
 	listBox:SetPoint("BOTTOMLEFT", 8, 8)
 	listBox:SetWidth(LIST_W)
 	page.listScroll, page.listChild = UI.CreateScroll(listBox)
 	page.listScroll:SetPoint("TOPLEFT", 4, -4)
 	page.listScroll:SetPoint("BOTTOMRIGHT", -4, 4)
-	page.listEmpty = UI.Text(listBox, "GameFontDisable", "CENTER")
-	page.listEmpty:SetPoint("TOPLEFT", 10, -16)
-	page.listEmpty:SetPoint("RIGHT", -10, 0)
 
 	-- Boss page on the right.
 	local bossBox = CreateFrame("Frame", nil, page)
@@ -92,12 +84,14 @@ function AG:CreateInstancePage(parent)
 
 	self.instancePage = page
 	self:CreateBossPage(bossBox)
+	self:CreateInstanceOverview(bossBox)
 end
+
+local OVERVIEW = "__overview" -- list entry key for the instance overview
 
 function AG:RenderInstancePage(instKey, bossKey)
 	local page = self.instancePage
 	local inst = self:GetInstance(instKey)
-	local guide = self.Guides[instKey]
 	self.frame.header:SetText(inst.name .. (inst.isNew and "  |cffffd100NEW|r" or ""))
 
 	if inst.isRaid then
@@ -105,28 +99,38 @@ function AG:RenderInstancePage(instKey, bossKey)
 	else
 		page.subtitle:SetText(string.format("%s  |  Levels %d-%d  |  5 players", inst.zone, inst.minLevel, inst.maxLevel))
 	end
-	page.intro:SetText(guide and guide.intro or "No write-up for this instance yet.")
 
+	-- The list: "Overview" first (selected by default), then the bosses.
 	local bosses = self:GetBossList(instKey)
-	local selected
+	local entries = { { key = OVERVIEW, label = "|cffffd100Overview|r" } }
 	for i, entry in ipairs(bosses) do
-		local b = UI.Acquire(page.listChild, "bossButtons", i, createBossButton)
-		b:ClearAllPoints()
-		b:SetPoint("TOPLEFT", 0, -(i - 1) * 36)
-		b.bossKey = entry.key
 		local label = string.format("|cffffd100%d.|r %s", i, entry.name)
 		if entry.guide and entry.guide.optional then label = label .. " |cff888888(optional)|r" end
 		if entry.isLearnedOnly then label = label .. " |cff66ccff(learned)|r" end
-		b.label:SetText(label)
-		local isSel = (bossKey == entry.key) or (not bossKey and i == 1)
+		table.insert(entries, { key = entry.key, label = label, boss = entry })
+	end
+
+	local selectedKey = bossKey or OVERVIEW
+	local selected
+	for i, entry in ipairs(entries) do
+		local b = UI.Acquire(page.listChild, "bossButtons", i, createBossButton)
+		b:ClearAllPoints()
+		b:SetPoint("TOPLEFT", 0, -(i - 1) * 36)
+		b.bossKey = entry.key ~= OVERVIEW and entry.key or nil
+		b.label:SetText(entry.label)
+		local isSel = entry.key == selectedKey
 		b.selected:SetShown(isSel)
 		if isSel then selected = entry end
 	end
-	UI.HideFrom(page.listChild, "bossButtons", #bosses + 1)
-	page.listChild:SetHeight(math.max(1, #bosses * 36))
-	page.listEmpty:SetText(#bosses == 0
-		and "No bosses known yet.\n\nRun this instance with learning mode on and bosses will appear here as you kill them."
-		or "")
+	UI.HideFrom(page.listChild, "bossButtons", #entries + 1)
+	page.listChild:SetHeight(#entries * 36)
 
-	self:RenderBossPage(instKey, selected)
+	local showOverview = not selected or selected.key == OVERVIEW
+	self.instanceOverview:SetShown(showOverview)
+	self.bossPage:SetShown(not showOverview)
+	if showOverview then
+		self:RenderInstanceOverview(instKey)
+	else
+		self:RenderBossPage(instKey, selected.boss)
+	end
 end

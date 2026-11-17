@@ -96,6 +96,47 @@ class DataTests(unittest.TestCase):
                 self.assertEqual(len(ids), len(set(ids)), f"{inst}/{boss['name']}: duplicate items")
 
 
+class ContentTests(unittest.TestCase):
+    """Shape of the hand-written guide text and the art table."""
+
+    STRATEGY_KEYS = {"summary", "tank", "healer", "dps"}
+
+    @classmethod
+    def setUpClass(cls):
+        cls.lua, cls.ag = load_built()
+        cls.guides = to_py(cls.ag.Guides)
+        cls.keys = {i["key"] for i in to_py(cls.ag.Instances)}
+
+    def test_art_keys_are_instances(self):
+        art_keys = set(to_py(self.ag.Art).keys())
+        self.assertEqual(art_keys - self.keys, set())
+
+    def test_art_ids_are_numbers(self):
+        for key, art in to_py(self.ag.Art).items():
+            for kind, file_id in art.items():
+                self.assertIsInstance(file_id, int, f"{key}.{kind}")
+
+    def test_instance_text_fields(self):
+        for key, g in self.guides.items():
+            for field in ("intro", "lore", "route"):
+                if field in g:
+                    self.assertIsInstance(g[field], str, f"{key}.{field}")
+            for tip in g.get("tips") or []:
+                self.assertIsInstance(tip, str, f"{key}.tips")
+
+    def test_boss_strategy_shape(self):
+        for key, g in self.guides.items():
+            for b in g["bosses"]:
+                s = b.get("strategy")
+                if s is None:
+                    continue
+                where = f"{key}/{b['name']}"
+                self.assertIsInstance(s, dict, where)
+                self.assertFalse(set(s) - self.STRATEGY_KEYS, f"{where}: unknown strategy keys")
+                for v in s.values():
+                    self.assertIsInstance(v, str, where)
+
+
 class RegistryTests(unittest.TestCase):
     """The merge rules documented in Data/Registry.lua, on small fixtures."""
 
@@ -241,6 +282,15 @@ class BuildToolTests(unittest.TestCase):
         self.bw.apply_npc_data(data, {"1": {"displayID": 0, "abilities": []},
                                       "2": {"displayID": 77, "abilities": []}})
         self.assertEqual(data["x"]["bosses"][0]["displayID"], 77)
+
+    def test_drop_chances_use_best_member(self):
+        boss = {"loot": [{"itemID": 5, "name": "A"}, {"itemID": 6, "name": "B"}]}
+        self.bw.apply_drop_chances(boss, [
+            {"drops": [[5, 10, 100]]},
+            {"drops": [[5, 30, 120], [9, 1, 2]]},   # item 9 isn't in the loot table
+        ])
+        self.assertEqual(boss["loot"][0]["dropChance"], 25.0)
+        self.assertNotIn("dropChance", boss["loot"][1])
 
     def test_bosses_without_npc_data_are_untouched(self):
         data = {"x": {"bosses": [{"npcID": 1, "name": "A", "loot": [], "_members": [1]}]}}

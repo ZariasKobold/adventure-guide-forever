@@ -46,7 +46,7 @@ local function createTabs(frame)
 		end
 		if PanelTemplates_TabResize then pcall(PanelTemplates_TabResize, tab, 10) end
 		tab:SetScript("OnClick", function()
-			PlaySound(SOUNDKIT and SOUNDKIT.IG_CHARACTER_INFO_TAB or 841)
+			PlaySound(SOUNDKIT.IG_CHARACTER_INFO_TAB)
 			AG:SelectTab(i)
 		end)
 		frame.Tabs[i] = tab
@@ -86,14 +86,14 @@ function AG:CreateMainFrame()
 	frame.learnStatus:SetPoint("TOPRIGHT", -14, -38)
 
 	frame:SetScript("OnShow", function()
-		PlaySound(SOUNDKIT and SOUNDKIT.IG_CHARACTER_INFO_OPEN or 839)
+		PlaySound(SOUNDKIT.IG_CHARACTER_INFO_OPEN)
 		AG:Refresh()
 		-- Redraw once layout has settled, so wrapped text measures at its real width.
 		C_Timer.After(0, function() AG:Refresh() end)
 	end)
 	frame:SetScript("OnHide", function()
-		PlaySound(SOUNDKIT and SOUNDKIT.IG_CHARACTER_INFO_CLOSE or 840)
-		if AG.bossPage then AG.bossPage.model.shownKey = nil end -- reload the model next time
+		PlaySound(SOUNDKIT.IG_CHARACTER_INFO_CLOSE)
+		AG:ResetBossModel() -- models clear while hidden; reload next time
 	end)
 
 	createTabs(frame)

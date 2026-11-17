@@ -1,13 +1,14 @@
--- The instance list: a grid of dungeon or raid cards, like the Adventure Guide's
--- Dungeons and Raids tabs. Suggested Content shows instances that fit your level.
+-- The instance list: a grid of picture cards, like the retail Adventure Guide's Dungeons
+-- and Raids tabs. Cards use Blizzard's journal art (Data\Art.lua); instances without art
+-- get a drawn card. Suggested Content shows instances that fit your level.
 
 local _, AG = ...
 local UI = AG.UI
 
-local COLUMNS = 3
-local CARD_W, CARD_H, GAP = 268, 92, 10
+local COLUMNS = 4
+local CARD_W, CARD_H, GAP = 196, 108, 10
 
--- How much the guide knows about an instance, for the card's status line.
+-- How much the guide knows about an instance, for the card's tooltip.
 function AG:GuideStatus(instKey)
 	local guide = self.Guides[instKey]
 	if guide and guide.bosses and #guide.bosses > 0 then
@@ -23,7 +24,8 @@ function AG:GuideStatus(instKey)
 	return "|cff888888No guide yet|r"
 end
 
-local function levelColor(inst)
+-- Level range color relative to the player, like quest difficulty colors.
+function AG:LevelColor(inst)
 	local lvl = UnitLevel("player")
 	if lvl < inst.minLevel - 2 then return "ff4040" end   -- too hard
 	if lvl < inst.minLevel then return "ff9933" end
@@ -32,42 +34,98 @@ local function levelColor(inst)
 	return "909090"                                     -- trivial
 end
 
+local function showTooltip(card)
+	local inst = AG:GetInstance(card.instKey)
+	GameTooltip:SetOwner(card, "ANCHOR_RIGHT")
+	GameTooltip:AddLine(inst.name)
+	GameTooltip:AddLine(inst.zone, 1, 1, 1)
+	if inst.isRaid then
+		GameTooltip:AddLine(string.format("Raid, %d players", inst.players), 1, 1, 1)
+	else
+		GameTooltip:AddLine(string.format("|cff%sLevels %d-%d|r", AG:LevelColor(inst), inst.minLevel, inst.maxLevel))
+	end
+	GameTooltip:AddLine(AG:GuideStatus(inst.key))
+	local guide = AG.Guides[inst.key]
+	if guide and guide.intro then GameTooltip:AddLine(guide.intro, 0.85, 0.8, 0.7, true) end
+	GameTooltip:Show()
+end
+
 local function createCard(owner)
 	local card = CreateFrame("Button", nil, owner)
 	card:SetSize(CARD_W, CARD_H)
-	UI.Backdrop(card, 0.85)
 
-	card.glow = card:CreateTexture(nil, "BACKGROUND", nil, 1)
-	card.glow:SetPoint("TOPLEFT", 4, -4)
-	card.glow:SetPoint("BOTTOMRIGHT", -4, 4)
-	card.glow:SetTexture("Interface\\Buttons\\WHITE8x8")
+	-- Picture, or a drawn background for instances without art.
+	card.art = card:CreateTexture(nil, "BACKGROUND")
+	card.art:SetAllPoints()
+	card.fallback = card:CreateTexture(nil, "BACKGROUND", nil, 1)
+	card.fallback:SetAllPoints()
+	card.fallback:SetTexture("Interface\\Buttons\\WHITE8x8")
+	card.emblem = card:CreateTexture(nil, "BORDER")
+	card.emblem:SetSize(46, 46)
+	card.emblem:SetPoint("CENTER", 0, -4)
 
-	card.icon = card:CreateTexture(nil, "ARTWORK")
-	card.icon:SetSize(52, 52)
-	card.icon:SetPoint("LEFT", 12, 0)
-	card.icon:SetTexCoord(0.07, 0.93, 0.07, 0.93)
+	-- Shading at top and bottom keeps text readable over any picture.
+	card.topShade = card:CreateTexture(nil, "ARTWORK")
+	card.topShade:SetPoint("TOPLEFT")
+	card.topShade:SetPoint("TOPRIGHT")
+	card.topShade:SetHeight(34)
+	card.topShade:SetTexture("Interface\\Buttons\\WHITE8x8")
+	card.topShade:SetGradient("VERTICAL", CreateColor(0, 0, 0, 0), CreateColor(0, 0, 0, 0.75))
+	card.bottomShade = card:CreateTexture(nil, "ARTWORK")
+	card.bottomShade:SetPoint("BOTTOMLEFT")
+	card.bottomShade:SetPoint("BOTTOMRIGHT")
+	card.bottomShade:SetHeight(26)
+	card.bottomShade:SetTexture("Interface\\Buttons\\WHITE8x8")
+	card.bottomShade:SetGradient("VERTICAL", CreateColor(0, 0, 0, 0.8), CreateColor(0, 0, 0, 0))
 
-	card.name = UI.Text(card, "GameFontNormalLarge")
-	card.name:SetPoint("TOPLEFT", card.icon, "TOPRIGHT", 10, 0)
-	card.name:SetPoint("RIGHT", -10, 0)
-	card.name:SetWordWrap(false)
+	-- Thin gold frame.
+	card.frame = CreateFrame("Frame", nil, card, "BackdropTemplate")
+	card.frame:SetAllPoints()
+	card.frame:SetBackdrop({ edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 })
+	card.frame:SetBackdropBorderColor(0.55, 0.45, 0.25, 1)
 
-	card.info = UI.Text(card, "GameFontHighlightSmall")
-	card.info:SetPoint("TOPLEFT", card.name, "BOTTOMLEFT", 0, -4)
-	card.info:SetPoint("RIGHT", -10, 0)
+	card.name = card.frame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
+	card.name:SetPoint("TOPLEFT", 6, -6)
+	card.name:SetPoint("TOPRIGHT", -6, -6)
+	card.name:SetJustifyH("CENTER")
+	card.name:SetShadowOffset(1, -1)
+	card.name:SetWordWrap(true)
+	card.name:SetMaxLines(2)
 
-	card.status = UI.Text(card, "GameFontHighlightSmall")
-	card.status:SetPoint("TOPLEFT", card.info, "BOTTOMLEFT", 0, -4)
+	card.info = card.frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+	card.info:SetPoint("BOTTOMLEFT", 6, 5)
+	card.badge = card.frame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+	card.badge:SetPoint("BOTTOMRIGHT", -6, 5)
 
-	card.badge = UI.Text(card, "GameFontNormalSmall", "RIGHT")
-	card.badge:SetPoint("BOTTOMRIGHT", -10, 8)
-
-	card:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
+	card:SetHighlightTexture("Interface\\Buttons\\WHITE8x8", "ADD")
+	card:GetHighlightTexture():SetVertexColor(1, 0.85, 0.5, 0.12)
+	card:SetScript("OnEnter", showTooltip)
+	card:SetScript("OnLeave", GameTooltip_Hide)
 	card:SetScript("OnClick", function(self)
-		PlaySound(SOUNDKIT and SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON or 856)
+		PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
 		AG:ShowInstance(self.instKey)
 	end)
 	return card
+end
+
+local function paintCard(card, inst)
+	local fileID, kind = AG:GetArt(inst.key, "card")
+	local hasArt = fileID ~= nil
+	card.art:SetShown(hasArt)
+	card.fallback:SetShown(not hasArt)
+	if hasArt then
+		UI.SetArt(card.art, fileID, kind, CARD_W, CARD_H)
+	elseif inst.isNew then
+		-- New Forever content: warm gold, with the instance's finder icon if it has one.
+		card.fallback:SetGradient("VERTICAL", CreateColor(0.12, 0.08, 0.02, 1), CreateColor(0.36, 0.26, 0.08, 1))
+	else
+		card.fallback:SetGradient("VERTICAL", CreateColor(0.04, 0.05, 0.08, 1), CreateColor(0.14, 0.16, 0.22, 1))
+	end
+	local art = AG.Art[inst.key]
+	local emblem = not hasArt and (art and art.icon
+		or (inst.isRaid and "Interface\\Icons\\INV_Misc_Head_Dragon_Black" or "Interface\\Icons\\INV_Misc_Map_01"))
+	card.emblem:SetShown(emblem ~= nil and emblem ~= false)
+	if emblem then card.emblem:SetTexture(emblem) end
 end
 
 function AG:CreateInstanceList(parent)
@@ -113,29 +171,18 @@ function AG:RenderInstanceList(tabKey)
 		card:ClearAllPoints()
 		card:SetPoint("TOPLEFT", col * (CARD_W + GAP), -row * (CARD_H + GAP))
 		card.instKey = inst.key
-
-		card.icon:SetTexture(inst.isRaid and "Interface\\Icons\\INV_Misc_Head_Dragon_Black"
-			or "Interface\\Icons\\INV_Misc_Map_01")
+		paintCard(card, inst)
 		card.name:SetText(inst.name)
-		if inst.isRaid then
-			card.info:SetText(string.format("%s  |  %d players", inst.zone, inst.players))
-		else
-			card.info:SetText(string.format("%s  |  |cff%sLevels %d-%d|r",
-				inst.zone, levelColor(inst), inst.minLevel, inst.maxLevel))
-		end
-		card.status:SetText(self:GuideStatus(inst.key))
 
+		if inst.isRaid then
+			card.info:SetText(string.format("%d players", inst.players))
+		else
+			card.info:SetText(string.format("|cff%s%d-%d|r", self:LevelColor(inst), inst.minLevel, inst.maxLevel))
+		end
 		local badges = {}
 		if inst.key == here then table.insert(badges, "|cff20ff20You are here|r") end
 		if inst.isNew then table.insert(badges, "|cffffd100NEW|r") end
 		card.badge:SetText(table.concat(badges, "  "))
-
-		-- Tint: new content warm gold, classic content cool slate.
-		if inst.isNew then
-			card.glow:SetGradient("VERTICAL", CreateColor(0.10, 0.07, 0.02, 0.9), CreateColor(0.30, 0.22, 0.06, 0.9))
-		else
-			card.glow:SetGradient("VERTICAL", CreateColor(0.04, 0.05, 0.08, 0.9), CreateColor(0.12, 0.14, 0.20, 0.9))
-		end
 	end
 	UI.HideFrom(list.child, "cards", #items + 1)
 

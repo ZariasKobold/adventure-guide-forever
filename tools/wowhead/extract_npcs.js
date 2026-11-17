@@ -41,7 +41,7 @@ const NPC_IDS = [
 // END NPC_IDS
 
 const PAUSE_MS = 8000;              // one page every 8 seconds; faster trips Wowhead's rate limit
-const STORE_KEY = 'agfNpcProgress';  // progress survives page reloads
+const STORE_KEY = 'agfNpcProgress2'; // progress survives page reloads (v2 adds drop counts)
 
 function loadProgress() {
   try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (e) { return {}; }
@@ -86,12 +86,16 @@ async function readNpc(id) {
   const res = await fetch('/forever/npc=' + id);
   const html = await res.text();
   if (res.status !== 200 || /<title>Human Verification/.test(html)) return { blocked: true };
-  const record = { displayID: Number((html.match(/displayId = (\d+)/) || [])[1] || 0), abilities: [] };
+  const record = { displayID: Number((html.match(/displayId = (\d+)/) || [])[1] || 0), abilities: [], drops: [] };
   try {
     record.abilities = (extractListview(html, 'abilities') || []).map(a => [a.id, a.name]);
+    // Drop counts: how often each item dropped out of how many recorded kills.
+    record.drops = (extractListview(html, 'drops') || [])
+      .filter(d => d.outof > 0)
+      .map(d => [d.id, d.count, d.outof]);
   } catch (e) {
     record.error = String(e); // keep going; the build reports these
-    console.warn(`Adventure Guide: couldn't read abilities for NPC ${id}: ${e}`);
+    console.warn(`Adventure Guide: couldn't read NPC ${id}: ${e}`);
   }
   return record;
 }
@@ -119,7 +123,7 @@ function whNpcsResult() {
   return JSON.stringify({
     source: "https://www.wowhead.com/forever (NPC pages: 'abilities' listview and model display ID)",
     fetched: new Date().toISOString().slice(0, 10),
-    format: { npcs: 'npcID -> { displayID, abilities: [[spellID, name], ...] }' },
+    format: { npcs: 'npcID -> { displayID, abilities: [[spellID, name], ...], drops: [[itemID, count, outof], ...] }' },
     npcs: loadProgress(),
   }, null, 1);
 }

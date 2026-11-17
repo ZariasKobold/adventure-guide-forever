@@ -217,7 +217,24 @@ def apply_npc_data(data: dict, npcs: dict) -> int:
                     seen.add(spell_id)
                     abilities.append({"spellID": spell_id, "name": name})
             boss["abilities"] = abilities or None
+            apply_drop_chances(boss, records)
     return enriched
+
+
+def apply_drop_chances(boss: dict, records: list[dict]) -> None:
+    """Sets loot[i]["dropChance"] (percent) from Wowhead's drop counts, when present.
+
+    Each record's drops are [itemID, count, outof]. For multi-NPC encounters the highest
+    chance among the members is used, since any of them can be the one that drops it.
+    """
+    chances: dict[int, float] = {}
+    for record in records:
+        for item_id, count, outof in record.get("drops", []):
+            if outof:
+                chances[item_id] = max(chances.get(item_id, 0.0), 100.0 * count / outof)
+    for item in boss["loot"]:
+        if item["itemID"] in chances:
+            item["dropChance"] = round(chances[item["itemID"]], 1)
 
 
 def strip_internal(data: dict) -> None:
@@ -238,7 +255,7 @@ def write_npc_id_list(ids: list[int]) -> None:
 
 
 BOSS_KEYS = ["npcID", "name", "displayID", "optional", "abilities", "loot"]
-ITEM_KEYS = ["itemID", "name", "quality", "slot"]
+ITEM_KEYS = ["itemID", "name", "quality", "slot", "dropChance"]
 
 
 ABILITY_KEYS = ["spellID", "name"]

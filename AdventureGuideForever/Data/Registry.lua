@@ -16,10 +16,21 @@
 --   * Loot: generated loot is Forever's real loot table, so it replaces content loot.
 --     Content loot is only used for bosses Wowhead has no loot for yet.
 --
--- Runtime boss schema (AG.Guides[instKey].bosses[i]):
---   key, name, npcID, displayID, overview, optional, alsoNamed,
---   abilities = { { name, text, alerts, spellID } },
---   loot      = { { name, itemID, slot, quality } }
+-- Content schema (hand-written, Data\Content\<instance>.lua):
+--   intro    one-line summary shown on the instance page
+--   lore     the instance's story (a paragraph or two)
+--   route    how to get through it: boss order, key turns, what to skip
+--   tips     { "short practical tip", ... }
+--   bosses   { { name, overview, lore, strategy, abilities, optional, alsoNamed } }
+--     overview   one-line description of who the boss is
+--     lore       the boss's story
+--     strategy   { summary, tank, healer, dps } (each optional)
+--
+-- Runtime guide schema (AG.Guides[instKey]):
+--   intro, lore, route, tips, bosses = {
+--     { key, name, npcID, displayID, overview, lore, strategy, optional, alsoNamed,
+--       abilities = { { name, text, alerts, spellID } },
+--       loot      = { { name, itemID, slot, quality, dropChance } } } }
 
 local _, AG = ...
 
@@ -87,6 +98,8 @@ local function mergeBoss(content, generated)
 		npcID = generated.npcID or content.npcID,
 		displayID = generated.displayID or content.displayID,
 		overview = content.overview,
+		lore = content.lore,
+		strategy = content.strategy,
 		optional = content.optional or generated.optional,
 		alsoNamed = mergeNames(content, generated),
 		abilities = mergeAbilities(content.abilities, generated.abilities),
@@ -118,7 +131,10 @@ local function buildGuide(instKey)
 	end
 
 	if #bosses == 0 and not content.intro then return nil end
-	return { intro = content.intro, bosses = bosses }
+	return {
+		intro = content.intro, lore = content.lore, route = content.route,
+		tips = copyList(content.tips), bosses = bosses,
+	}
 end
 
 -- Rebuilds AG.Guides from everything registered. Runs once all data files are loaded.

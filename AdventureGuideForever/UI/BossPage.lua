@@ -1,86 +1,26 @@
--- A boss's page, with the Adventure Guide's four sections: Overview, Abilities, Loot,
--- and Model. Guide data and learned data are merged here.
+-- A boss's page, laid out like a bestiary entry. Four sections:
+--   Overview   the 3D model beside who the boss is, its lore, how to beat it (by role),
+--              key abilities, and notable loot
+--   Abilities  every ability, with role alerts and the spell's own tooltip text
+--   Loot       the loot table with drop chances, updated by learning mode
+--   Model      the model, full size
+-- Guide data and learned data are merged here.
 
 local _, AG = ...
 local UI = AG.UI
 
 local SECTIONS = { "Overview", "Abilities", "Loot", "Model" }
-local ICON = 30
+local MODEL_COLUMN = 220          -- width of the model panel beside the Overview text
+local KEY_ABILITIES = 4           -- abilities shown on the Overview
+local NOTABLE_LOOT = 3            -- items shown on the Overview
+local LIKELY_REMOVED_AFTER = 5    -- kills without a drop before an item is marked missing
 
-------------------------------------------------------------------------
--- Rows: icon, title, body text, and a note on the right. Height fits the text.
-------------------------------------------------------------------------
-
-local function createRow(owner)
-	local row = CreateFrame("Button", nil, owner)
-	row.icon = row:CreateTexture(nil, "ARTWORK")
-	row.icon:SetSize(ICON, ICON)
-	row.icon:SetPoint("TOPLEFT", 4, -4)
-	row.title = UI.Text(row, "GameFontNormal")
-	row.title:SetPoint("TOPLEFT", row.icon, "TOPRIGHT", 8, 0)
-	row.note = UI.Text(row, "GameFontHighlightSmall", "RIGHT")
-	row.note:SetPoint("TOPRIGHT", -6, -2)
-	row.title:SetPoint("RIGHT", row.note, "LEFT", -6, 0)
-	row.body = UI.Text(row, "GameFontHighlightSmall")
-	row.body:SetPoint("TOPLEFT", row.title, "BOTTOMLEFT", 0, -3)
-	row.body:SetPoint("RIGHT", -6, 0)
-	row.body:SetTextColor(0.85, 0.82, 0.75)
-	row:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
-
-	row:SetScript("OnEnter", function(self)
-		if not self.itemID and not self.spellID then return end
-		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-		if self.itemID then GameTooltip:SetItemByID(self.itemID) else GameTooltip:SetSpellByID(self.spellID) end
-		GameTooltip:Show()
-	end)
-	row:SetScript("OnLeave", GameTooltip_Hide)
-	-- Shift-click links the item in chat, Ctrl-click previews it, like Blizzard's loot lists.
-	row:SetScript("OnClick", function(self)
-		if self.link and HandleModifiedItemClick then HandleModifiedItemClick(self.link) end
-	end)
-	return row
-end
-
--- Fills a row and returns its height.
-local function setRow(row, width, icon, title, body, note)
-	row:SetWidth(width)
-	row.icon:SetTexture(icon)
-	row.icon:SetShown(icon ~= nil)
-	row.icon:SetWidth(icon and ICON or 1) -- no icon: text starts at the left edge
-	row.title:SetText(title or "")
-	row.body:SetText(body or "")
-	row.note:SetText(note or "")
-	local h = row.title:GetStringHeight() + 3 + (body and body ~= "" and row.body:GetStringHeight() or 0) + 10
-	if icon then h = math.max(h, ICON + 10) end
-	row:SetHeight(h)
-	return h
-end
-
-local function createHeading(owner)
-	return UI.Text(owner, "GameFontNormalLarge")
-end
-
-------------------------------------------------------------------------
--- Redraw when item data arrives from the server (debounced)
-------------------------------------------------------------------------
-
-local refreshQueued
-local function queueRefresh()
-	if refreshQueued then return end
-	refreshQueued = true
-	C_Timer.After(0.2, function()
-		refreshQueued = false
-		if AG.frame and AG.frame:IsShown() then AG:Refresh() end
-	end)
-end
+local QUALITY_COLOR = { [0] = "9d9d9d", "ffffff", "1eff00", "0070dd", "a335ee", "ff8000" }
+local IMPORTANT_ALERTS = { deadly = true, important = true }
 
 ------------------------------------------------------------------------
 -- Merging guide data with learned data
 ------------------------------------------------------------------------
-
--- After this many recorded kills, a documented item that never dropped is probably
--- not in Forever's loot table anymore.
-local LIKELY_REMOVED_AFTER = 5
 
 -- Merges the documented loot table (Wowhead's Forever data, or hand-written content where
 -- Wowhead has none) with what learning saw drop. Returns two lists:
@@ -91,8 +31,8 @@ local function buildLoot(entry)
 	local kills = entry.learned and entry.learned.kills or 0
 	local hasDocs = entry.guide and entry.guide.loot and #entry.guide.loot > 0
 	local learnedByName, used = {}, {}
-	for itemID, count in pairs(learned) do
-		local name = UI.ItemInfo(itemID, queueRefresh)
+	for itemID in pairs(learned) do
+		local name = UI.ItemInfo(itemID, UI.QueueRefresh)
 		if name then learnedByName[AG:Normalize(name)] = itemID end
 	end
 
@@ -100,20 +40,21 @@ local function buildLoot(entry)
 	for _, item in ipairs(entry.guide and entry.guide.loot or {}) do
 		local id = item.itemID
 		if id then
-			local realName = UI.ItemInfo(id, queueRefresh)
+			local realName = UI.ItemInfo(id, UI.QueueRefresh)
 			if realName and AG:Normalize(realName) ~= AG:Normalize(item.name) then id = nil end
 		end
-		-- Seen in Forever? Match by ID first, then by name.
+		-- Seen in play? Match by ID first, then by name.
 		local seenID = (id and learned[id] and id) or learnedByName[AG:Normalize(item.name)]
 		if seenID then
 			used[seenID] = true
 			table.insert(confirmed, {
-				itemID = seenID, slot = item.slot, quality = item.quality, count = learned[seenID],
+				itemID = seenID, slot = item.slot, quality = item.quality,
+				dropChance = item.dropChance, count = learned[seenID],
 			})
 		else
 			table.insert(documented, {
 				name = item.name, itemID = id, slot = item.slot, quality = item.quality,
-				likelyRemoved = kills >= LIKELY_REMOVED_AFTER,
+				dropChance = item.dropChance, likelyRemoved = kills >= LIKELY_REMOVED_AFTER,
 			})
 		end
 	end
@@ -134,7 +75,7 @@ local function buildAbilities(entry)
 	local learned = entry.learned and entry.learned.spells or {}
 	local byName, used = {}, {}
 	for spellID in pairs(learned) do
-		local name = UI.SpellInfo(spellID, queueRefresh)
+		local name = UI.SpellInfo(spellID, UI.QueueRefresh)
 		if name then byName[AG:Normalize(name)] = spellID end
 	end
 
@@ -150,6 +91,28 @@ local function buildAbilities(entry)
 	end
 	table.sort(seen, function(a, b) return a.count > b.count end)
 	return rows, seen
+end
+
+-- The abilities worth calling out first: written-up ones, deadly/important ones first.
+local function keyAbilities(rows)
+	local picked = {}
+	for _, ab in ipairs(rows) do
+		for _, alert in ipairs(ab.alerts or {}) do
+			if IMPORTANT_ALERTS[alert] then table.insert(picked, ab); break end
+		end
+	end
+	for _, ab in ipairs(rows) do
+		if #picked >= KEY_ABILITIES then break end
+		if ab.text and not tContains(picked, ab) then table.insert(picked, ab) end
+	end
+	while #picked > KEY_ABILITIES do table.remove(picked) end
+	return picked
+end
+
+local function dropText(chance)
+	if not chance then return nil end
+	-- Whole percents from 10% up; one decimal below that, where it matters.
+	return string.format(chance >= 10 and "|cffcccccc%.0f%% drop|r" or "|cffcccccc%.1f%% drop|r", chance)
 end
 
 ------------------------------------------------------------------------
@@ -173,21 +136,26 @@ function AG:CreateBossPage(parent)
 		else b:SetPoint("LEFT", bp.buttons[i - 1], "RIGHT", 4, 0) end
 		b:SetText(label)
 		b:SetScript("OnClick", function()
-			PlaySound(SOUNDKIT and SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON or 856)
+			PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
 			AG.view.section = i
 			AG:Refresh()
 		end)
 		bp.buttons[i] = b
 	end
 
-	bp.scroll, bp.child = UI.CreateScroll(bp)
-	bp.scroll:SetPoint("TOPLEFT", bp.buttons[1], "BOTTOMLEFT", 2, -10)
-	bp.scroll:SetPoint("BOTTOMRIGHT", -28, 10)
+	bp.doc = UI.CreateDocument(bp)
 
-	-- Model viewer. Drag to turn, scroll to zoom.
-	local model = CreateFrame("PlayerModel", nil, bp)
-	model:SetPoint("TOPLEFT", bp.buttons[1], "BOTTOMLEFT", 2, -10)
-	model:SetPoint("BOTTOMRIGHT", -10, 10)
+	-- Model panel: beside the text on the Overview, full size on the Model tab.
+	-- Drag to turn, scroll to zoom.
+	local box = CreateFrame("Frame", nil, bp, "BackdropTemplate")
+	box:SetBackdrop({
+		bgFile = "Interface\\Buttons\\WHITE8x8", edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1,
+	})
+	box:SetBackdropColor(0, 0, 0, 0.35)
+	box:SetBackdropBorderColor(0.55, 0.45, 0.25, 1)
+	local model = CreateFrame("PlayerModel", nil, box)
+	model:SetPoint("TOPLEFT", 1, -1)
+	model:SetPoint("BOTTOMRIGHT", -1, 1)
 	model.facing, model.zoom = 0, 1
 	model:EnableMouse(true)
 	model:EnableMouseWheel(true)
@@ -210,149 +178,162 @@ function AG:CreateBossPage(parent)
 		self.zoom = math.min(2, math.max(0.4, self.zoom - delta * 0.1))
 		pcall(self.SetCamDistanceScale, self, self.zoom)
 	end)
-	model.hint = UI.Text(bp, "GameFontDisable", "CENTER")
-	model.hint:SetPoint("CENTER", model, "CENTER")
-	model.hint:SetWidth(320)
-	bp.model = model
-
-	bp.empty = UI.Text(bp, "GameFontDisableLarge", "CENTER")
-	bp.empty:SetPoint("CENTER")
-	bp.empty:SetWidth(380)
+	model.hint = UI.Text(box, "GameFontDisable", "CENTER")
+	model.hint:SetPoint("LEFT", 10, 0)
+	model.hint:SetPoint("RIGHT", -10, 0)
+	bp.modelBox, bp.model = box, model
 
 	self.bossPage = bp
 end
 
+-- Arranges the text and model for a section.
+local function placeContent(bp, section)
+	local top = bp.buttons[1]
+	local doc, box = bp.doc, bp.modelBox
+	doc.scroll:ClearAllPoints()
+	box:ClearAllPoints()
+	if section == 1 then
+		-- Top edge level with the text: the title's bottom, plus the section buttons' row.
+		box:SetPoint("TOPRIGHT", bp.title, "BOTTOMRIGHT", 4, -(8 + top:GetHeight() + 10))
+		box:SetPoint("BOTTOMRIGHT", -10, 10)
+		box:SetWidth(MODEL_COLUMN)
+		doc.scroll:SetPoint("TOPLEFT", top, "BOTTOMLEFT", 2, -10)
+		doc.scroll:SetPoint("BOTTOMRIGHT", box, "BOTTOMLEFT", -26, 0)
+	elseif section == 4 then
+		box:SetPoint("TOPLEFT", top, "BOTTOMLEFT", 2, -10)
+		box:SetPoint("BOTTOMRIGHT", -10, 10)
+	else
+		doc.scroll:SetPoint("TOPLEFT", top, "BOTTOMLEFT", 2, -10)
+		doc.scroll:SetPoint("BOTTOMRIGHT", -28, 10)
+	end
+	doc:SetShown(section ~= 4)
+	box:SetShown(section == 1 or section == 4)
+end
+
 ------------------------------------------------------------------------
--- Rendering each section into the scroll child
+-- Sections
 ------------------------------------------------------------------------
 
-local function layout(bp)
-	return {
-		y = 0,
-		row = 0,
-		heading = 0,
-		width = math.max(200, bp.scroll:GetWidth() - 4),
-	}
-end
-
-local function addHeading(bp, L, text)
-	L.heading = L.heading + 1
-	local fs = UI.Acquire(bp.child, "headings", L.heading, createHeading)
-	fs:ClearAllPoints()
-	fs:SetPoint("TOPLEFT", 4, -L.y - (L.y > 0 and 10 or 0))
-	fs:SetWidth(L.width - 8)
-	fs:SetText(text)
-	L.y = L.y + (L.y > 0 and 10 or 0) + fs:GetStringHeight() + 6
-end
-
-local function addRow(bp, L, icon, title, body, note, opts)
-	L.row = L.row + 1
-	local row = UI.Acquire(bp.child, "rows", L.row, createRow)
-	row:ClearAllPoints()
-	row:SetPoint("TOPLEFT", 0, -L.y)
-	row.itemID = opts and opts.itemID
-	row.spellID = opts and opts.spellID
-	row.link = opts and opts.link
-	row:SetAlpha(opts and opts.alpha or 1)
-	L.y = L.y + setRow(row, L.width, icon, title, body, note) + 2
-end
-
-local function finish(bp, L)
-	UI.HideFrom(bp.child, "rows", L.row + 1)
-	UI.HideFrom(bp.child, "headings", L.heading + 1)
-	bp.child:SetHeight(math.max(1, L.y))
-	-- Jump to the top only when the page changed, not when item data trickles in.
-	if bp.shownKey ~= L.key then
-		bp.scroll:SetVerticalScroll(0)
-		bp.shownKey = L.key
-	end
-end
-
-local function renderOverview(bp, L, entry)
-	local g, rec = entry.guide or {}, entry.learned
-	addHeading(bp, L, "Overview")
-	addRow(bp, L, nil, nil, g.overview or "No write-up for this boss yet. Learning mode still records its loot, model, and spells.")
-	if rec then
-		addHeading(bp, L, "Your group's history")
-		local loot, spells = 0, 0
-		for _ in pairs(rec.loot or {}) do loot = loot + 1 end
-		for _ in pairs(rec.spells or {}) do spells = spells + 1 end
-		addRow(bp, L, "Interface\\Icons\\INV_Misc_Book_11", "Learned from play",
-			string.format("Kills recorded: %d\nDifferent drops seen: %d\nSpells seen: %d",
-				rec.kills or 0, loot, spells))
-	end
-end
-
-local function renderAbilities(bp, L, entry)
-	local rows, seen = buildAbilities(entry)
-	if #rows > 0 then addHeading(bp, L, "Abilities") end
-	for _, ab in ipairs(rows) do
-		local _, icon, desc = UI.SpellInfo(ab.spellID, queueRefresh)
-		-- Hand-written notes first; otherwise the spell's own description from the game.
-		local body = ab.text or desc
-		addRow(bp, L, icon or UI.UNKNOWN_ICON, ab.name, body, UI.FormatAlerts(ab.alerts), { spellID = ab.spellID })
-	end
-	if #seen > 0 then
-		addHeading(bp, L, "Seen in your fights")
-		for _, s in ipairs(seen) do
-			local name, icon, desc = UI.SpellInfo(s.spellID, queueRefresh)
-			addRow(bp, L, icon, name or ("Spell " .. s.spellID), desc,
-				string.format("|cff888888cast %dx|r", s.count), { spellID = s.spellID })
-		end
-	end
-	if #rows == 0 and #seen == 0 then
-		addRow(bp, L, nil, nil, "No abilities known yet. With learning mode on, target the boss during the fight and its spells will show up here.")
-	end
-end
-
-local QUALITY_COLOR = { [0] = "9d9d9d", "ffffff", "1eff00", "0070dd", "a335ee", "ff8000" }
-
-local function addLootRow(bp, L, item, note, dim)
-	local name, link, quality, icon = UI.ItemInfo(item.itemID, queueRefresh)
-	local title
+local function lootRow(doc, item, note, dim)
+	local name, link, quality, icon = UI.ItemInfo(item.itemID, UI.QueueRefresh)
 	-- Until the client caches the item, show the guide's name and quality.
 	name = name or item.name or ("Item " .. tostring(item.itemID))
 	quality = quality or item.quality or 1
-	if dim then
-		title = "|cff808080" .. name .. "|r"
-	else
-		title = string.format("|cff%s%s|r", QUALITY_COLOR[quality] or "ffffff", name)
-	end
-	addRow(bp, L, icon or UI.UNKNOWN_ICON, title, item.slot, note,
+	local title = dim and ("|cff808080" .. name .. "|r")
+		or string.format("|cff%s%s|r", QUALITY_COLOR[quality] or "ffffff", name)
+	doc:Row(icon or UI.UNKNOWN_ICON, title, item.slot, note,
 		{ itemID = item.itemID, link = link, alpha = dim and 0.6 or 1 })
 end
 
-local function renderLoot(bp, L, entry)
+local function renderOverview(doc, entry)
+	local g, rec = entry.guide or {}, entry.learned
+	doc:Paragraph(g.overview, { font = "GameFontNormal", color = { 1, 0.82, 0 } })
+
+	if g.lore then
+		doc:Heading("Lore")
+		doc:Paragraph(g.lore)
+	end
+
+	local s = g.strategy
+	if s then
+		doc:Heading("How to beat it")
+		doc:Paragraph(s.summary)
+		doc:RoleTip("tank", s.tank)
+		doc:RoleTip("healer", s.healer)
+		doc:RoleTip("dps", s.dps)
+	end
+
+	local rows = buildAbilities(entry)
+	local picks = keyAbilities(rows)
+	if #picks > 0 then
+		doc:Heading("Key abilities")
+		for _, ab in ipairs(picks) do
+			local _, icon, desc = UI.SpellInfo(ab.spellID, UI.QueueRefresh)
+			doc:Row(icon or UI.UNKNOWN_ICON, ab.name, ab.text or desc, UI.FormatAlerts(ab.alerts), { spellID = ab.spellID })
+		end
+	end
+
+	local loot = {}
+	for _, item in ipairs(g.loot or {}) do table.insert(loot, item) end
+	table.sort(loot, function(a, b)
+		if (a.quality or 0) ~= (b.quality or 0) then return (a.quality or 0) > (b.quality or 0) end
+		return (a.dropChance or 0) > (b.dropChance or 0)
+	end)
+	if #loot > 0 then
+		doc:Heading("Notable loot")
+		for i = 1, math.min(NOTABLE_LOOT, #loot) do lootRow(doc, loot[i], dropText(loot[i].dropChance)) end
+	end
+
+	if not (g.overview or g.lore or s) then
+		doc:Paragraph("No write-up for this boss yet. Its abilities and loot are on the other tabs, "
+			.. "and learning mode keeps recording what your group sees.", { color = { 0.6, 0.6, 0.6 } })
+	end
+
+	if rec then
+		doc:Heading("Your group's history")
+		local items, spells = 0, 0
+		for _ in pairs(rec.loot or {}) do items = items + 1 end
+		for _ in pairs(rec.spells or {}) do spells = spells + 1 end
+		doc:Paragraph(string.format("Kills recorded: %d    Different drops seen: %d    Spells seen: %d",
+			rec.kills or 0, items, spells), { font = "GameFontHighlightSmall" })
+	end
+end
+
+local function renderAbilities(doc, entry)
+	local rows, seen = buildAbilities(entry)
+	if #rows > 0 then doc:Heading("Abilities") end
+	for _, ab in ipairs(rows) do
+		local _, icon, desc = UI.SpellInfo(ab.spellID, UI.QueueRefresh)
+		-- Hand-written notes first; otherwise the spell's own description from the game.
+		doc:Row(icon or UI.UNKNOWN_ICON, ab.name, ab.text or desc, UI.FormatAlerts(ab.alerts), { spellID = ab.spellID })
+	end
+	if #seen > 0 then
+		doc:Heading("Seen in your fights")
+		for _, sp in ipairs(seen) do
+			local name, icon, desc = UI.SpellInfo(sp.spellID, UI.QueueRefresh)
+			doc:Row(icon, name or ("Spell " .. sp.spellID), desc,
+				string.format("|cff888888cast %dx|r", sp.count), { spellID = sp.spellID })
+		end
+	end
+	if #rows == 0 and #seen == 0 then
+		doc:Paragraph("No abilities known yet. With learning mode on, target the boss during the fight "
+			.. "and its spells will show up here.", { color = { 0.6, 0.6, 0.6 } })
+	end
+end
+
+local function renderLoot(doc, entry)
 	local confirmed, documented, kills = buildLoot(entry)
 
 	if #confirmed > 0 then
-		addHeading(bp, L, "Loot  |cff66ccff(seen in your runs)|r")
+		doc:Heading("Loot  |cff66ccff(seen in your runs)|r")
 		for _, item in ipairs(confirmed) do
-			local note = string.format("|cff66ccffdropped %dx|r", item.count or 1)
-			if item.isNew then note = note .. "  |cff20ff20not in the loot table|r" end
-			addLootRow(bp, L, item, note)
+			local notes = { string.format("|cff66ccffdropped %dx|r", item.count or 1) }
+			if item.isNew then table.insert(notes, "|cff20ff20not in the loot table|r") end
+			table.insert(notes, dropText(item.dropChance))
+			lootRow(doc, item, table.concat(notes, "  "))
 		end
 	end
 
 	if #documented > 0 then
-		addHeading(bp, L, #confirmed > 0 and "Also in the loot table  |cff888888(not seen yet)|r" or "Loot")
+		doc:Heading(#confirmed > 0 and "Also in the loot table  |cff888888(not seen yet)|r" or "Loot")
 		for _, item in ipairs(documented) do
-			local note = item.likelyRemoved
-				and string.format("|cffff8040not seen in %d kills|r", kills) or nil
-			addLootRow(bp, L, item, note, item.likelyRemoved)
+			local note = item.likelyRemoved and string.format("|cffff8040not seen in %d kills|r", kills)
+				or dropText(item.dropChance)
+			lootRow(doc, item, note, item.likelyRemoved)
 		end
 	end
 
 	if #confirmed == 0 and #documented == 0 then
-		addRow(bp, L, nil, nil, "No loot known yet. Loot your group finds on this boss will be recorded here.")
+		doc:Paragraph("No loot known yet. Loot your group finds on this boss will be recorded here.",
+			{ color = { 0.6, 0.6, 0.6 } })
 	elseif kills > 0 then
-		addRow(bp, L, nil, nil, string.format(
-			"|cff888888Updated from %d recorded kill%s. Items that drop move to the top; "
-			.. "listed items that never show up fade out.|r", kills, kills == 1 and "" or "s"))
+		doc:Paragraph(string.format("Updated from %d recorded kill%s. Items that drop move to the top; "
+			.. "listed items that never show up fade out.", kills, kills == 1 and "" or "s"),
+			{ font = "GameFontHighlightSmall", color = { 0.55, 0.55, 0.55 } })
 	end
 end
 
-local function renderModel(bp, entry)
+local function showModel(bp, entry)
 	local model = bp.model
 	local g, rec = entry.guide or {}, entry.learned or {}
 	local displayID = rec.displayID or g.displayID
@@ -385,36 +366,22 @@ local RENDER = { renderOverview, renderAbilities, renderLoot }
 function AG:RenderBossPage(instKey, entry)
 	local bp = self.bossPage
 	local section = self.view.section or 1
-	local hasBoss = entry ~= nil
-
-	bp.title:SetShown(hasBoss)
-	for _, b in ipairs(bp.buttons) do b:SetShown(hasBoss) end
-	bp.empty:SetText(hasBoss and "" or "Pick a boss on the left.")
-	if not hasBoss then
-		bp.scroll:Hide()
-		bp.model:Hide()
-		bp.model.hint:SetText("")
-		bp.model.shownKey = nil
-		return
-	end
 
 	bp.title:SetText(entry.name)
 	for i, b in ipairs(bp.buttons) do
 		if i == section then b:LockHighlight() else b:UnlockHighlight() end
 	end
+	placeContent(bp, section)
 
-	if section == 4 then
-		bp.scroll:Hide()
-		bp.model:Show()
-		renderModel(bp, entry)
-	else
-		bp.model:Hide()
-		bp.model.hint:SetText("")
-		bp.model.shownKey = nil
-		bp.scroll:Show()
-		local L = layout(bp)
-		L.key = instKey .. ":" .. entry.key .. ":" .. section
-		RENDER[section](bp, L, entry)
-		finish(bp, L)
+	if section == 1 or section == 4 then showModel(bp, entry) end
+	if section ~= 4 then
+		bp.doc:Begin(instKey .. ":" .. entry.key .. ":" .. section)
+		RENDER[section](bp.doc, entry)
+		bp.doc:Finish()
 	end
+end
+
+-- The model reloads after the window was hidden (models clear while hidden).
+function AG:ResetBossModel()
+	if self.bossPage then self.bossPage.model.shownKey = nil end
 end

@@ -95,6 +95,39 @@ function UI.FormatAlerts(alerts)
 end
 
 ------------------------------------------------------------------------
+-- Instance artwork
+------------------------------------------------------------------------
+
+-- Where the picture sits inside each kind of art file, and the file's pixel size.
+-- button: retail journal buttons are 256x128 files with a 175x95 picture in the corner.
+-- lore/finder: assumed to fill their files; adjust here if they look cropped in game.
+local ART_SOURCES = {
+	button  = { w = 256,  h = 128, l = 0, r = 175 / 256, t = 0, b = 95 / 128 },
+	loading = { w = 1024, h = 768, l = 0, r = 1, t = 0, b = 1 },
+	lore    = { w = 512,  h = 256, l = 0, r = 1, t = 0, b = 1 },
+	finder  = { w = 512,  h = 256, l = 0, r = 1, t = 0, b = 1 },
+}
+
+-- Shows an art file in a texture, center-cropped to fill the texture's shape (no stretching).
+function UI.SetArt(texture, fileID, kind, width, height)
+	local src = ART_SOURCES[kind] or ART_SOURCES.loading
+	local l, r, t, b = src.l, src.r, src.t, src.b
+	local srcAspect = ((r - l) * src.w) / ((b - t) * src.h)
+	local targetAspect = width / height
+	if srcAspect > targetAspect then
+		local keep = (r - l) * targetAspect / srcAspect
+		local trim = ((r - l) - keep) / 2
+		l, r = l + trim, r - trim
+	else
+		local keep = (b - t) * srcAspect / targetAspect
+		local trim = ((b - t) - keep) / 2
+		t, b = t + trim, b - trim
+	end
+	texture:SetTexture(fileID)
+	texture:SetTexCoord(l, r, t, b)
+end
+
+------------------------------------------------------------------------
 -- Items and spells
 ------------------------------------------------------------------------
 

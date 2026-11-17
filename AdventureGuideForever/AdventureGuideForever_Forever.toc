@@ -10,6 +10,7 @@
 
 Core.lua
 Data\Instances.lua
+Data\Art.lua
 Data\Registry.lua
 Data\Content\hallofthanes.lua
 Data\Content\ragefire.lua
@@ -50,7 +51,9 @@ Data\Content\onyxia.lua
 Data\Generated\Wowhead.lua
 Learn.lua
 UI\Widgets.lua
+UI\Document.lua
 UI\MainFrame.lua
 UI\InstanceList.lua
+UI\InstanceOverview.lua
 UI\InstancePage.lua
 UI\BossPage.lua
