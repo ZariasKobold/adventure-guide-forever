@@ -79,9 +79,16 @@ local function createRow(owner)
 	row:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
 
 	row:SetScript("OnEnter", function(self)
-		if not self.itemID and not self.spellID then return end
+		if not self.itemID and not self.spellID and not self.questID then return end
 		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-		if self.itemID then GameTooltip:SetItemByID(self.itemID) else GameTooltip:SetSpellByID(self.spellID) end
+		if self.itemID then
+			GameTooltip:SetItemByID(self.itemID)
+		elseif self.spellID then
+			GameTooltip:SetSpellByID(self.spellID)
+		elseif not pcall(GameTooltip.SetHyperlink, GameTooltip, "quest:" .. self.questID) then
+			GameTooltip:Hide()
+			return
+		end
 		GameTooltip:Show()
 	end)
 	row:SetScript("OnLeave", GameTooltip_Hide)
@@ -214,12 +221,14 @@ function Document:Image(fileID, kind, height, caption)
 end
 
 -- A row: icon, title, body, and a right-hand note.
--- opts: itemID, spellID, link, alpha, onClick, star (show the wishlist star for itemID).
+-- opts: itemID, spellID, questID (tooltip on hover), link, alpha, onClick, star (show the
+-- wishlist star for itemID).
 function Document:Row(icon, title, body, note, opts)
 	opts = opts or {}
 	local row = self:Take("rows", createRow)
 	row:SetPoint("TOPLEFT", 0, -self.y)
 	row.itemID, row.spellID, row.link, row.onClick = opts.itemID, opts.spellID, opts.link, opts.onClick
+	row.questID = opts.questID
 	row:SetAlpha(opts.alpha or 1)
 	row:SetWidth(self.width)
 	row.icon:SetTexture(icon)

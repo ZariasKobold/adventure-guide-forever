@@ -28,6 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from addon_env import ROOT, load_addon, to_py  # noqa: E402
+from lua_writer import lua_value  # noqa: E402
 from build_wowhead import NOISE_SPELLS  # noqa: E402
 
 # Passives that aren't worth a line in the guide, on top of the build's own list.
@@ -36,6 +37,9 @@ PASSIVES = NOISE_SPELLS | {"Dual Wield", "Parry", "Block", "Dodge"}
 GUIDES = ROOT / "tools" / "wowhead" / "guides.json"
 FACTS = ROOT / "tools" / "wowhead" / "guide_facts.json"
 REPORT = ROOT / "tools" / "wowhead" / "guide_report.md"
+QUESTS = ROOT / "AdventureGuideForever" / "Data" / "Generated" / "Quests.lua"
+QUEST_KEYS = ["questID", "name", "level", "side", "start", "x", "y", "chain", "chainName",
+              "shareable", "quests"]
 
 # Names Wowhead's guide titles use that differ from ours.
 TITLE_ALIASES = {
@@ -115,17 +119,38 @@ def parse_bosses(body: str) -> list[dict]:
     return bosses
 
 
-def parse_quests(body: str) -> list[dict]:
-    quests: dict[int, dict] = {}
-    for row in re.split(r"\[tr[^\]]*\]", body):
-        q = ids(row, "quest")
-        cells = [c.strip() for c in re.findall(r"\[td[^\]]*\](.*?)\[/td\]", row, re.S)]
-        level = next((int(c) for c in cells[1:] if re.fullmatch(r"\d{1,2}", c)), None)
-        if q and q[0] not in quests:
-            quests[q[0]] = {"questID": q[0], "level": level}
-    for qid in ids(body, "quest"):
-        quests.setdefault(qid, {"questID": qid, "level": None})
-    return list(quests.values())
+SIDES = {"horde": "Horde", "alliance": "Alliance"}
+
+
+def parse_quests(body: str, names: dict) -> list[dict]:
+    """The guide's quest table (Quest | Level | Side | Effort | Share? | Starts), one record
+    per quest: level, faction (None for both), where it starts and its /way coordinates,
+    the quest its chain starts with, and whether it can be shared."""
+    quests = []
+    for row in re.findall(r"\[tr[^\]]*\](.*?)\[/tr\]", body, re.S):
+        cells = re.findall(r"\[td[^\]]*\](.*?)\[/td\]", row, re.S)
+        if len(cells) < 6 or not re.match(r"\s*\[quest=\d+\]", cells[0]):
+            continue
+        qid = ids(cells[0], "quest")[0]
+        level = re.search(r"\d{1,2}", re.sub(r"\[[^\]]*\]", "", cells[1]))
+        side_cell = cells[2].lower()
+        sides = [v for k, v in SIDES.items() if k in side_cell]
+        starts = cells[5]
+        way = re.search(r"/way\s+(\d+(?:\.\d+)?)\s*,?\s+(\d+(?:\.\d+)?)", starts)
+        chain = next((q for q in ids(starts, "quest") if q != qid), None)
+        where = plain(re.split(r"\[i\]|Prerequisite", starts)[0], names)
+        where = re.sub(r"\s+,", ",", re.sub(r"/way.*$", "", where)).strip(" .,-")
+        quests.append({
+            "questID": qid,
+            "level": int(level.group(0)) if level else None,
+            "side": sides[0] if len(sides) == 1 else None,
+            "start": where[:100] or None,
+            "x": float(way.group(1)) if way else None,
+            "y": float(way.group(2)) if way else None,
+            "chain": chain,
+            "shareable": "fa-check" in cells[4],
+        })
+    return quests
 
 
 def parse_guide(guide: dict) -> dict:
@@ -139,12 +164,15 @@ def parse_guide(guide: dict) -> dict:
         if "boss" in low or "encounter" in low:
             facts["bosses"] += parse_bosses(body)
         elif "quest" in low:
-            facts["quests"] += [q for q in parse_quests(body) if q["questID"] not in {x["questID"] for x in facts["quests"]}]
+            seen = {x["questID"] for x in facts["quests"]}
+            facts["quests"] += [q for q in parse_quests(body, names) if q["questID"] not in seen]
         elif "trash" in low or "mobs" in low:
             facts["trash"]["npcIDs"] += ids(body, "npc")
             facts["trash"]["spells"] += ids(body, "spell")
     for q in facts["quests"]:
         q["name"] = names.get("quest", {}).get(str(q["questID"]), {}).get("name")
+        if q["chain"]:
+            q["chainName"] = names.get("quest", {}).get(str(q["chain"]), {}).get("name")
     for b in facts["bosses"]:
         b["abilityNames"] = [names.get("spell", {}).get(str(s), {}).get("name") for s in b["abilities"]]
     facts["trash"]["names"] = [names.get("npc", {}).get(str(n), {}).get("name") for n in facts["trash"]["npcIDs"]]
@@ -257,11 +285,9 @@ def compare(key: str, inst: dict, guide: dict, facts: dict, hub: dict) -> list[s
     extra = [b["name"] for b in our_bosses if b["name"] not in matched and not b.get("optional")]
     if extra and facts["bosses"]:
         out.append(f"- **Ours but not in Wowhead's guide:** {', '.join(extra)} (check they're real Forever bosses).")
-    if facts["quests"]:
-        listed = ", ".join(f"{q['name'] or q['questID']}" + (f" ({q['level']})" if q["level"] else "")
-                           for q in facts["quests"][:12])
-        more = f", and {len(facts['quests']) - 12} more" if len(facts["quests"]) > 12 else ""
-        out.append(f"- **Quests to add ({len(facts['quests'])}):** {listed}{more}.")
+    unnamed = [q["questID"] for q in facts["quests"] if not q.get("name")]
+    if unnamed:
+        out.append(f"- **Quests with no name in the guide's data:** {', '.join(map(str, unnamed))}.")
     if facts["trash"]["names"]:
         out.append(f"- **Notable trash:** {', '.join(n for n in facts['trash']['names'] if n)}.")
     if len(out) == 4:
@@ -270,7 +296,40 @@ def compare(key: str, inst: dict, guide: dict, facts: dict, hub: dict) -> list[s
     return out
 
 
+def render_quests(instances: dict[str, dict]) -> str:
+    """Data/Generated/Quests.lua from guide_facts.json's instances."""
+    lines = [
+        "-- GENERATED FILE. Do not edit by hand.",
+        "-- Built by tools/compare_guides.py from tools/wowhead/guide_facts.json: each dungeon's",
+        "-- quests from Wowhead's WoW Forever dungeon guides (wowhead.com/forever).",
+        "",
+        "local _, AG = ...",
+        "",
+    ]
+    for key in sorted(instances):
+        quests = []
+        for q in instances[key]["quests"]:
+            rec = {k: q.get(k) for k in QUEST_KEYS[:-1] if q.get(k) not in (None, False, "")}
+            for k in ("x", "y"):
+                if k in rec:
+                    rec[k] = round(rec[k], 1)
+            quests.append(rec)
+        if quests:
+            lines.append(f'AG:RegisterQuests("{key}", {lua_value({"quests": quests}, 0, QUEST_KEYS)})')
+            lines.append("")
+    return "\n".join(lines).rstrip("\n") + "\n"
+
+
+def build_quests() -> None:
+    facts = json.loads(FACTS.read_text(encoding="utf-8"))["instances"]
+    QUESTS.write_text(render_quests(facts), encoding="utf-8", newline="\n")
+
+
 def main() -> int:
+    if "--quests" in sys.argv:
+        build_quests()
+        print(f"Rebuilt {QUESTS.relative_to(ROOT)} from {FACTS.relative_to(ROOT)}")
+        return 0
     if not GUIDES.exists():
         print(f"No {GUIDES.relative_to(ROOT)} yet: run tools/wowhead/extract_guides.js first (see its header).")
         return 1
@@ -303,6 +362,7 @@ def main() -> int:
         "fetched": data.get("fetched"),
         "instances": {k: facts_by_inst[k] for k in sorted(facts_by_inst)},
     }, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
+    build_quests()
 
     report = ["# Our guide vs Wowhead's", "",
               f"Generated by `tools/compare_guides.py` from guides fetched {data.get('fetched')}.", ""]
@@ -321,7 +381,8 @@ def main() -> int:
     bosses = sum(len(f["bosses"]) for f in facts_by_inst.values())
     quests = sum(len(f["quests"]) for f in facts_by_inst.values())
     print(f"{len(facts_by_inst)} of {len(instances)} instances have a Wowhead guide: "
-          f"{bosses} bosses, {quests} quests. Wrote {FACTS.relative_to(ROOT)} and {REPORT.relative_to(ROOT)}.")
+          f"{bosses} bosses, {quests} quests. Wrote {FACTS.relative_to(ROOT)}, "
+          f"{QUESTS.relative_to(ROOT)}, and {REPORT.relative_to(ROOT)}.")
     return 0
 
 

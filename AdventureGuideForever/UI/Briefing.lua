@@ -171,7 +171,11 @@ local function show(kind, opts)
 	card.turnOff.text:SetText(opts.turnOffText)
 	card.turnOff.text:SetTextColor(0.5, 0.5, 0.5)
 	local lines = {}
-	for _, line in ipairs(opts.lines) do if line and line ~= "" then lines[#lines + 1] = line end end
+	-- Lines may be nil or false (nothing to say), so walk every index, not just up to the first gap.
+	for i = 1, table.maxn(opts.lines) do
+		local line = opts.lines[i]
+		if line and line ~= "" then lines[#lines + 1] = line end
+	end
 	card.body:SetText(table.concat(lines, "\n"))
 	card:SetHeight(60 + card.body:GetStringHeight() + 44)
 	card:Show()
@@ -204,6 +208,8 @@ function AG:ShowZoneCard(instKey, visits)
 	subtitle = subtitle .. (visits == 1 and "  |  First visit!" or string.format("  |  Visit #%d", visits))
 
 	local tip = guide.tips and #guide.tips > 0 and guide.tips[math.random(#guide.tips)]
+	local _, _, openQuests = self:QuestsFor(instKey)
+	local questLine = openQuests > 0 and string.format("|cffffd100Quests:|r %d here you haven't done. See the guide's overview.", openQuests)
 	show("zone", {
 		option = "zoneCard", instKey = instKey,
 		icon = art and art.icon, title = inst.name, subtitle = subtitle,
@@ -213,6 +219,7 @@ function AG:ShowZoneCard(instKey, visits)
 			guide.route and firstSentence(guide.route),
 			#bosses > 0 and string.format("|cffffd100Bosses:|r %d, starting with %s.", #bosses, bosses[1].name),
 			tip and ("|cffffd100Tip:|r " .. tip),
+			questLine or nil,
 			wishLine(self:WishesIn(instKey)),
 		},
 	})

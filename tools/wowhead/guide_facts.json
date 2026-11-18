@@ -110,72 +110,73 @@
     {
      "questID": 96772,
      "level": 46,
+     "side": "Alliance",
+     "start": "Alterac Mountains, Dalaran - Archmage Lan'dalock",
+     "x": 15.6,
+     "y": 73.6,
+     "chain": null,
+     "shareable": true,
      "name": "The Dragon's Journal"
     },
     {
      "questID": 96381,
      "level": 48,
-     "name": "A Bit of Wet Work"
+     "side": "Alliance",
+     "start": "Dustwallow Marsh, Theramore Graveyard - Sully McCleary",
+     "x": 63.4,
+     "y": 42.4,
+     "chain": 95194,
+     "shareable": false,
+     "name": "A Bit of Wet Work",
+     "chainName": "Our Man in Theramore"
     },
     {
      "questID": 95262,
      "level": 48,
-     "name": "The Secret Prison"
+     "side": "Alliance",
+     "start": "Dustwallow Marsh, Theramore Graveyard - Sully McCleary",
+     "x": 63.4,
+     "y": 42.4,
+     "chain": 95194,
+     "shareable": false,
+     "name": "The Secret Prison",
+     "chainName": "Our Man in Theramore"
     },
     {
      "questID": 95309,
      "level": 48,
-     "name": "No Orc Left Behind"
+     "side": "Horde",
+     "start": "Theramore, Alcaz Island - Sergeant Ulka",
+     "x": 33.4,
+     "y": 38.0,
+     "chain": 95283,
+     "shareable": false,
+     "name": "No Orc Left Behind",
+     "chainName": "The Missing Kor'kron"
     },
     {
      "questID": 96332,
      "level": 48,
-     "name": "A Little Payback"
+     "side": "Horde",
+     "start": "Theramore, Alcaz Island - Sergeant Ulka",
+     "x": 33.4,
+     "y": 38.0,
+     "chain": 95283,
+     "shareable": false,
+     "name": "A Little Payback",
+     "chainName": "The Missing Kor'kron"
     },
     {
      "questID": 96334,
      "level": 48,
-     "name": "Blood Red Bandanas"
-    },
-    {
-     "questID": 95264,
-     "level": null,
-     "name": "Shaw Needs To Know"
-    },
-    {
-     "questID": 95263,
-     "level": null,
-     "name": "Somber News"
-    },
-    {
-     "questID": 95194,
-     "level": null,
-     "name": "Our Man in Theramore"
-    },
-    {
-     "questID": 95454,
-     "level": null,
-     "name": "The Honor of the Kor'kron"
-    },
-    {
-     "questID": 95283,
-     "level": null,
-     "name": "The Missing Kor'kron"
-    },
-    {
-     "questID": 92422,
-     "level": null,
-     "name": "The Wrath of Rath'mael"
-    },
-    {
-     "questID": 92401,
-     "level": null,
-     "name": "A Frightened Request"
-    },
-    {
-     "questID": 95483,
-     "level": null,
-     "name": "Thrall Needs to Know"
+     "side": "Horde",
+     "start": "Theramore, Alcaz Island - Sergeant Ulka",
+     "x": 33.4,
+     "y": 38.0,
+     "chain": 95283,
+     "shareable": false,
+     "name": "Blood Red Bandanas",
+     "chainName": "The Missing Kor'kron"
     }
    ],
    "trash": {
@@ -331,72 +332,147 @@
     {
      "questID": 6563,
      "level": 17,
+     "side": "Horde",
+     "start": "Ashenvale, Zoram'gar Outpost - Je'neu Sancrea",
+     "x": 11.0,
+     "y": 34.0,
+     "chain": null,
+     "shareable": true,
      "name": "The Essence of Aku'Mai"
     },
     {
      "questID": 6561,
      "level": 18,
+     "side": "Horde",
+     "start": "Blackfathom Deeps, Alcove SW of Ghamoo-ra - Argent Guard Thaelrid",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Blackfathom Villainy"
     },
     {
      "questID": 6921,
      "level": 21,
+     "side": "Horde",
+     "start": "Ashenvale, Zoram'gar Outpost - Je'neu Sancrea",
+     "x": 11.0,
+     "y": 34.0,
+     "chain": null,
+     "shareable": true,
      "name": "Amongst the Ruins"
     },
     {
      "questID": 6922,
      "level": 21,
+     "side": "Horde",
+     "start": "Strange Water Globe, drops from Baron Aquanis",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Baron Aquanis"
     },
     {
      "questID": 1740,
      "level": 20,
+     "side": null,
+     "start": "Warlock Only The Barrens, Near Camp Taurajo - Doan Karhan /49 57",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "The Orb of Soran'ruk"
     },
     {
      "questID": 6565,
      "level": 17,
+     "side": "Horde",
+     "start": "Damp Note, low drop rate item from Blackfathom Tide Priestess outside instance",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Allegiance to the Old Gods"
     },
     {
      "questID": 971,
      "level": 10,
+     "side": "Alliance",
+     "start": "Ironforge, Forlorn Cave - Gerrig Bonegrip",
+     "x": 50.0,
+     "y": 5.0,
+     "chain": null,
+     "shareable": true,
      "name": "Knowledge in the Deeps"
     },
     {
      "questID": 1275,
      "level": 18,
+     "side": "Alliance",
+     "start": "Darkshore, Auberdine- Gershala Nightwhisper",
+     "x": 38.0,
+     "y": 43.0,
+     "chain": null,
+     "shareable": true,
      "name": "Researching the Corruption"
     },
     {
      "questID": 1199,
      "level": 20,
+     "side": "Alliance",
+     "start": "Darnassus, Craftsman's Terrace - Argent Guard Manados",
+     "x": 55.0,
+     "y": 24.0,
+     "chain": null,
+     "shareable": true,
      "name": "Twilight Falls"
     },
     {
      "questID": 1198,
      "level": 18,
-     "name": "In Search of Thaelrid"
+     "side": "Alliance",
+     "start": "Darnassus, Craftsman's Terrace - Dawnwatcher Shaedlass",
+     "x": 55.0,
+     "y": 24.0,
+     "chain": 1200,
+     "shareable": true,
+     "name": "In Search of Thaelrid",
+     "chainName": "Blackfathom Villainy"
     },
     {
      "questID": 1200,
      "level": 18,
-     "name": "Blackfathom Villainy"
+     "side": "Alliance",
+     "start": "Blackfathom Deeps, Alcove SW of Ghamoo-ra - Argent Guard Thaelrid",
+     "x": null,
+     "y": null,
+     "chain": 1198,
+     "shareable": false,
+     "name": "Blackfathom Villainy",
+     "chainName": "In Search of Thaelrid"
+    },
+    {
+     "questID": 1740,
+     "level": 20,
+     "side": null,
+     "start": "Warlock Only The Barrens, Near Camp Taurajo - Doan Karhan /49 57",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
+     "name": "The Orb of Soran'ruk"
     },
     {
      "questID": 1654,
      "level": 20,
+     "side": "Alliance",
+     "start": "Paladin Only - Ironforge, inside Gates - Jordan Stilwell",
+     "x": 52.0,
+     "y": 36.0,
+     "chain": null,
+     "shareable": false,
      "name": "The Test of Righteousness"
-    },
-    {
-     "questID": 3765,
-     "level": null,
-     "name": "The Corruption Abroad"
-    },
-    {
-     "questID": 6562,
-     "level": null,
-     "name": "Trouble in the Deeps"
     }
    ],
    "trash": {
@@ -789,267 +865,282 @@
     {
      "questID": 4136,
      "level": 50,
-     "name": "Ribbly Screwspigot"
+     "side": null,
+     "start": "Burning Steppes, Flame Crest - Yuka Screwspigot",
+     "x": 66.0,
+     "y": 21.0,
+     "chain": 4324,
+     "shareable": true,
+     "name": "Ribbly Screwspigot",
+     "chainName": "Yuka Screwspigot"
     },
     {
      "questID": 4123,
      "level": 50,
+     "side": null,
+     "start": "Burning Steppes, Flame Crest - Maxwort Uberglint",
+     "x": 65.0,
+     "y": 23.0,
+     "chain": null,
+     "shareable": true,
      "name": "The Heart of the Mountain"
     },
     {
      "questID": 7848,
      "level": 55,
+     "side": null,
+     "start": "Blackrock Mountain, Lothos Riftwaker",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Attunement to the Core"
     },
     {
      "questID": 3802,
      "level": 48,
-     "name": "Dark Iron Legacy"
+     "side": null,
+     "start": "Blackrock Mountain, Structure in middle - Franclorn Forgewright NPC is only visible if you are dead ",
+     "x": null,
+     "y": null,
+     "chain": 3801,
+     "shareable": false,
+     "name": "Dark Iron Legacy",
+     "chainName": "Dark Iron Legacy"
     },
     {
      "questID": 4201,
      "level": 50,
+     "side": null,
+     "start": "Blackrock Depths, Grim Guzzler - Mistress Nagmara",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "The Love Potion"
     },
     {
      "questID": 4024,
      "level": 52,
-     "name": "A Taste of Flame"
+     "side": null,
+     "start": "Burning Steppes, Cave in NE - Cyrus Therepentous",
+     "x": 95.0,
+     "y": 31.0,
+     "chain": 3441,
+     "shareable": true,
+     "name": "A Taste of Flame",
+     "chainName": "Divine Retribution"
     },
     {
      "questID": 4262,
      "level": 48,
+     "side": "Alliance",
+     "start": "Burning Steppes, Morgan's Vigil - Jalinda Sprig",
+     "x": 85.0,
+     "y": 70.0,
+     "chain": null,
+     "shareable": true,
      "name": "Overmaster Pyron"
     },
     {
      "questID": 4263,
      "level": 48,
-     "name": "Incendius!"
+     "side": "Alliance",
+     "start": "Burning Steppes, Morgan's Vigil - Jalinda Sprig",
+     "x": 85.0,
+     "y": 70.0,
+     "chain": 4262,
+     "shareable": true,
+     "name": "Incendius!",
+     "chainName": "Overmaster Pyron"
     },
     {
      "questID": 4286,
      "level": 50,
+     "side": "Alliance",
+     "start": "Burning Steppes, Morgan's Vigil - Oralius",
+     "x": 84.0,
+     "y": 68.0,
+     "chain": null,
+     "shareable": true,
      "name": "The Good Stuff"
     },
     {
      "questID": 4126,
      "level": 50,
+     "side": "Alliance",
+     "start": "Dun Morogh, Kharanos - Ragnar Thunderbrew",
+     "x": 46.0,
+     "y": 52.0,
+     "chain": null,
+     "shareable": true,
      "name": "Hurley Blackbreath"
     },
     {
      "questID": 4341,
      "level": 50,
-     "name": "Kharan Mighthammer"
+     "side": "Alliance",
+     "start": "Ironforge, Throne Room - King Magni Bronzebeard",
+     "x": 39.0,
+     "y": 56.0,
+     "chain": 3702,
+     "shareable": false,
+     "name": "Kharan Mighthammer",
+     "chainName": "The Smoldering Ruins of Thaurissan"
     },
     {
      "questID": 4362,
      "level": 50,
-     "name": "The Fate of the Kingdom"
+     "side": "Alliance",
+     "start": "Ironforge, Throne Room - King Magni Bronzebeard",
+     "x": 39.0,
+     "y": 56.0,
+     "chain": 4341,
+     "shareable": false,
+     "name": "The Fate of the Kingdom",
+     "chainName": "Kharan Mighthammer"
     },
     {
      "questID": 4241,
      "level": 48,
-     "name": "Marshal Windsor"
+     "side": "Alliance",
+     "start": "Burning Steppes, Morgan's Vigil- Marshal Maxwell",
+     "x": 84.0,
+     "y": 68.0,
+     "chain": 4182,
+     "shareable": false,
+     "name": "Marshal Windsor",
+     "chainName": "Dragonkin Menace"
     },
     {
      "questID": 4322,
      "level": 50,
-     "name": "Jail Break!"
+     "side": "Alliance",
+     "start": "Blackrock Depths, Prison Cell - Marshal Windsor",
+     "x": null,
+     "y": null,
+     "chain": 4182,
+     "shareable": false,
+     "name": "Jail Break!",
+     "chainName": "Dragonkin Menace"
     },
     {
      "questID": 4081,
      "level": 48,
+     "side": "Horde",
+     "start": "Badlands, Kargath - poster",
+     "x": 4.0,
+     "y": 47.0,
+     "chain": null,
+     "shareable": true,
      "name": "KILL ON SIGHT: Dark Iron Dwarves"
     },
     {
      "questID": 4134,
      "level": 50,
-     "name": "Lost Thunderbrew Recipe"
+     "side": "Horde",
+     "start": "Badlands, Kargath - Shadowmage Vivian Lagrave",
+     "x": 3.0,
+     "y": 48.0,
+     "chain": 4133,
+     "shareable": true,
+     "name": "Lost Thunderbrew Recipe",
+     "chainName": "Vivian Lagrave"
     },
     {
      "questID": 4082,
      "level": 50,
-     "name": "KILL ON SIGHT: High Ranking Dark Iron Officials"
+     "side": "Horde",
+     "start": "Badlands, Kargath - poster",
+     "x": 4.0,
+     "y": 47.0,
+     "chain": 4081,
+     "shareable": false,
+     "name": "KILL ON SIGHT: High Ranking Dark Iron Officials",
+     "chainName": "KILL ON SIGHT: Dark Iron Dwarves"
     },
     {
      "questID": 4063,
      "level": 52,
-     "name": "The Rise of the Machines"
+     "side": "Horde",
+     "start": "Badlands, Eastern - Lotwil Veriatus",
+     "x": 25.0,
+     "y": 44.0,
+     "chain": 4061,
+     "shareable": false,
+     "name": "The Rise of the Machines",
+     "chainName": "The Rise of the Machines"
     },
     {
      "questID": 3906,
      "level": 48,
+     "side": "Horde",
+     "start": "Badlands, Kargath - Thunderheart",
+     "x": 3.6,
+     "y": 48.0,
+     "chain": null,
+     "shareable": true,
      "name": "Disharmony of Flame"
     },
     {
      "questID": 3907,
      "level": 48,
-     "name": "Disharmony of Fire"
+     "side": "Horde",
+     "start": "Badlands, Kargath - Thunderheart",
+     "x": 3.6,
+     "y": 48.0,
+     "chain": 3906,
+     "shareable": false,
+     "name": "Disharmony of Fire",
+     "chainName": "Disharmony of Flame"
     },
     {
      "questID": 3981,
      "level": 48,
-     "name": "Commander Gor'shak"
+     "side": "Horde",
+     "start": "Badlands, Kargath - Galamav the Marksman",
+     "x": 6.0,
+     "y": 47.0,
+     "chain": 3906,
+     "shareable": false,
+     "name": "Commander Gor'shak",
+     "chainName": "Disharmony of Flame"
     },
     {
      "questID": 7201,
      "level": 48,
-     "name": "The Last Element"
+     "side": "Horde",
+     "start": "Badlands, Kargath - Shadowmage Vivian Lagrave",
+     "x": 3.0,
+     "y": 48.0,
+     "chain": 3906,
+     "shareable": false,
+     "name": "The Last Element",
+     "chainName": "Disharmony of Flame"
     },
     {
      "questID": 4132,
      "level": 52,
-     "name": "Operation: Death to Angerforge"
+     "side": "Horde",
+     "start": "Badlands, Kargath - Warlord Goretooth",
+     "x": 6.0,
+     "y": 47.0,
+     "chain": 4081,
+     "shareable": true,
+     "name": "Operation: Death to Angerforge",
+     "chainName": "KILL ON SIGHT: Dark Iron Dwarves"
     },
     {
      "questID": 4003,
      "level": 48,
-     "name": "The Royal Rescue"
-    },
-    {
-     "questID": 4324,
-     "level": null,
-     "name": "Yuka Screwspigot"
-    },
-    {
-     "questID": 3801,
-     "level": null,
-     "name": "Dark Iron Legacy"
-    },
-    {
-     "questID": 3441,
-     "level": null,
-     "name": "Divine Retribution"
-    },
-    {
-     "questID": 3702,
-     "level": null,
-     "name": "The Smoldering Ruins of Thaurissan"
-    },
-    {
-     "questID": 4182,
-     "level": null,
-     "name": "Dragonkin Menace"
-    },
-    {
-     "questID": 4282,
-     "level": null,
-     "name": "A Shred of Hope"
-    },
-    {
-     "questID": 4133,
-     "level": null,
-     "name": "Vivian Lagrave"
-    },
-    {
-     "questID": 4061,
-     "level": null,
-     "name": "The Rise of the Machines"
-    },
-    {
-     "questID": 4122,
-     "level": null,
-     "name": "Grark Lorkrub"
-    },
-    {
-     "questID": 3442,
-     "level": null,
-     "name": "The Flawless Flame"
-    },
-    {
-     "questID": 3443,
-     "level": null,
-     "name": "Forging the Shaft"
-    },
-    {
-     "questID": 3452,
-     "level": null,
-     "name": "The Flame's Casing"
-    },
-    {
-     "questID": 3453,
-     "level": null,
-     "name": "The Torch of Retribution"
-    },
-    {
-     "questID": 3454,
-     "level": null,
-     "name": "The Torch of Retribution"
-    },
-    {
-     "questID": 3462,
-     "level": null,
-     "name": "Squire Maltrake"
-    },
-    {
-     "questID": 3463,
-     "level": null,
-     "name": "Set Them Ablaze!"
-    },
-    {
-     "questID": 3481,
-     "level": null,
-     "name": "Trinkets..."
-    },
-    {
-     "questID": 4023,
-     "level": null,
-     "name": "A Taste of Flame"
-    },
-    {
-     "questID": 3701,
-     "level": null,
-     "name": "The Smoldering Ruins of Thaurissan"
-    },
-    {
-     "questID": 4342,
-     "level": null,
-     "name": "Kharan's Tale"
-    },
-    {
-     "questID": 4361,
-     "level": null,
-     "name": "The Bearer of Bad News"
-    },
-    {
-     "questID": 4128,
-     "level": null,
-     "name": "Ragnar Thunderbrew"
-    },
-    {
-     "questID": 4363,
-     "level": null,
-     "name": "The Princess's Surprise"
-    },
-    {
-     "questID": 3982,
-     "level": null,
-     "name": "What Is Going On?"
-    },
-    {
-     "questID": 4001,
-     "level": null,
-     "name": "What Is Going On?"
-    },
-    {
-     "questID": 4002,
-     "level": null,
-     "name": "The Eastern Kingdoms"
-    },
-    {
-     "questID": 4121,
-     "level": null,
-     "name": "Precarious Predicament"
-    },
-    {
-     "questID": 4062,
-     "level": null,
-     "name": "The Rise of the Machines"
-    },
-    {
-     "questID": 4004,
-     "level": null,
-     "name": "The Princess Saved?"
+     "side": "Horde",
+     "start": "Orgrimmar, Valley of Wisdom - Thrall",
+     "x": 32.0,
+     "y": 38.0,
+     "chain": 3981,
+     "shareable": true,
+     "name": "The Royal Rescue",
+     "chainName": "Commander Gor'shak"
     }
    ],
    "trash": {
@@ -1213,77 +1304,93 @@
     {
      "questID": 96986,
      "level": 24,
+     "side": "Horde",
+     "start": "Tarren Mill - Melisara",
+     "x": 62.0,
+     "y": 21.0,
+     "chain": null,
+     "shareable": true,
      "name": "The Grave Knight"
     },
     {
      "questID": 96988,
      "level": 24,
+     "side": "Horde",
+     "start": "Undercity, Apothecarium - Doctor Martin Felben",
+     "x": 46.0,
+     "y": 74.0,
+     "chain": null,
+     "shareable": true,
      "name": "Source of Power"
     },
     {
      "questID": 96987,
      "level": 24,
+     "side": "Horde",
+     "start": "Inside Dungeon - Rexxie Copperclutch on entry",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Opportunistic Education"
     },
     {
      "questID": 96984,
      "level": 24,
-     "name": "Heart of Disruption"
+     "side": "Horde",
+     "start": "Starts with Prison Break In from Magus Wordeen Voidglare in Hillsbrad Foothills",
+     "x": 62.0,
+     "y": 21.0,
+     "chain": 544,
+     "shareable": false,
+     "name": "Heart of Disruption",
+     "chainName": "Prison Break In"
     },
     {
      "questID": 92489,
      "level": 24,
+     "side": "Alliance",
+     "start": "Stormwind, Magic Quarter - High Sorcerer Andromath",
+     "x": 49.0,
+     "y": 88.0,
+     "chain": null,
+     "shareable": true,
      "name": "Power Overwhelming"
     },
     {
      "questID": 92458,
      "level": 30,
-     "name": "Heart of Disruption"
+     "side": "Alliance",
+     "start": "Starts with An Alarming Request from Emissary Jacques in Southshore",
+     "x": 48.0,
+     "y": 60.0,
+     "chain": 92432,
+     "shareable": false,
+     "name": "Heart of Disruption",
+     "chainName": "An Alarming Request"
     },
     {
      "questID": 92456,
      "level": 24,
+     "side": "Alliance",
+     "start": "Stormwind, The Park - Shylamiir",
+     "x": 32.0,
+     "y": 63.0,
+     "chain": null,
+     "shareable": true,
      "name": "A Green Sample"
     },
     {
      "questID": 92457,
      "level": 30,
-     "name": "Starving Arcane"
-    },
-    {
-     "questID": 1200,
-     "level": null,
-     "name": "Blackfathom Villainy"
-    },
-    {
-     "questID": 971,
-     "level": null,
-     "name": "Knowledge in the Deeps"
-    },
-    {
-     "questID": 6565,
-     "level": null,
-     "name": "Allegiance to the Old Gods"
-    },
-    {
-     "questID": 6922,
-     "level": null,
-     "name": "Baron Aquanis"
-    },
-    {
-     "questID": 544,
-     "level": null,
-     "name": "Prison Break In"
-    },
-    {
-     "questID": 92432,
-     "level": null,
-     "name": "An Alarming Request"
-    },
-    {
-     "questID": 6561,
-     "level": null,
-     "name": "Blackfathom Villainy"
+     "side": "Alliance",
+     "start": "Starts with An Alarming Request from Emissary Jacques in Southshore",
+     "x": 48.0,
+     "y": 60.0,
+     "chain": 92432,
+     "shareable": false,
+     "name": "Starving Arcane",
+     "chainName": "An Alarming Request"
     }
    ],
    "trash": {
@@ -1453,62 +1560,103 @@
     {
      "questID": 168,
      "level": 14,
+     "side": "Alliance",
+     "start": "Stormwind, Dwarven District - Wilder Thistlenettle",
+     "x": 65.0,
+     "y": 21.0,
+     "chain": null,
+     "shareable": true,
      "name": "Collecting Memories"
     },
     {
      "questID": 167,
      "level": 15,
+     "side": "Alliance",
+     "start": "Stormwind, Dwarven District - Wilder Thistlenettle",
+     "x": 65.0,
+     "y": 21.0,
+     "chain": null,
+     "shareable": true,
      "name": "Oh Brother..."
     },
     {
      "questID": 2040,
      "level": 15,
+     "side": "Alliance",
+     "start": "Stormwind, Dwarven District - Shoni the Shilent",
+     "x": 55.0,
+     "y": 13.0,
+     "chain": null,
+     "shareable": true,
      "name": "Underground Assault"
     },
     {
      "questID": 373,
      "level": 16,
-     "name": "The Unsent Letter"
+     "side": "Alliance",
+     "start": "The Deadmines, drop from Edwin VanCleef",
+     "x": null,
+     "y": null,
+     "chain": 391,
+     "shareable": false,
+     "name": "The Unsent Letter",
+     "chainName": "The Stockade Riots"
     },
     {
      "questID": 214,
      "level": 14,
+     "side": "Alliance",
+     "start": "Westfall, Sentinel Hill - Scout Riell",
+     "x": 56.0,
+     "y": 47.0,
+     "chain": null,
+     "shareable": false,
      "name": "Red Silk Bandanas"
     },
     {
      "questID": 166,
      "level": 14,
+     "side": "Alliance",
+     "start": "Westfall, Sentinel Hill - Gryan Stoutmantle",
+     "x": 56.0,
+     "y": 47.0,
+     "chain": null,
+     "shareable": false,
      "name": "The Defias Brotherhood"
     },
     {
      "questID": 92753,
      "level": 14,
-     "name": "Destruction in Deadmines"
+     "side": "Alliance",
+     "start": "End of a chain, starts with Testing the Wells from Alba Fairmoon",
+     "x": 52.6,
+     "y": 53.2,
+     "chain": 92742,
+     "shareable": false,
+     "name": "Destruction in Deadmines",
+     "chainName": "Testing the Wells"
     },
     {
      "questID": 1654,
      "level": 20,
+     "side": "Alliance",
+     "start": "Paladin Only - Ironforge, inside Gates - Jordan Stilwell",
+     "x": 52.0,
+     "y": 36.0,
+     "chain": null,
+     "shareable": false,
      "name": "The Test of Righteousness"
     },
     {
      "questID": 95036,
      "level": 20,
+     "side": "Horde",
+     "start": "Paladin Only - Silverpine Forest, inside the crypt - Lumina Windsinger",
+     "x": 43.0,
+     "y": 40.0,
+     "chain": null,
+     "shareable": false,
      "name": "A Moon-Kissed Blade"
-    },
-    {
-     "questID": 391,
-     "level": null,
-     "name": "The Stockade Riots"
-    },
-    {
-     "questID": 92742,
-     "level": null,
-     "name": "Testing the Wells"
-    },
-    {
-     "questID": 65,
-     "level": null,
-     "name": "The Defias Brotherhood"
     }
    ],
    "trash": {
@@ -1665,87 +1813,94 @@
     {
      "questID": 95788,
      "level": 30,
-     "name": "Magics of the Drowned City"
+     "side": "Alliance",
+     "start": "Hillsbrad Foothills, Southshore - Loremaster Dibbs",
+     "x": 50.6,
+     "y": 57.0,
+     "chain": 203,
+     "shareable": true,
+     "name": "Magics of the Drowned City",
+     "chainName": "The Second Rebellion"
     },
     {
      "questID": 95787,
      "level": 30,
-     "name": "Take Two With Water"
+     "side": "Alliance",
+     "start": "Hillsbrad Foothills, Southshore - Loremaster Dibbs",
+     "x": 50.6,
+     "y": 57.0,
+     "chain": 203,
+     "shareable": true,
+     "name": "Take Two With Water",
+     "chainName": "The Second Rebellion"
     },
     {
      "questID": 97130,
      "level": 34,
+     "side": "Alliance",
+     "start": "Alterac Mountains, Dalaran - Archmage Timear",
+     "x": 15.6,
+     "y": 73.6,
+     "chain": null,
+     "shareable": true,
      "name": "Ancient Gurubashi Secrets"
     },
     {
      "questID": 95775,
      "level": 30,
-     "name": "The Drowned City"
+     "side": "Horde",
+     "start": "Stranglethorn Vale, Grom'Gol - Kin'weelay",
+     "x": 32.2,
+     "y": 27.8,
+     "chain": 629,
+     "shareable": true,
+     "name": "The Drowned City",
+     "chainName": "The Vile Reef"
     },
     {
      "questID": 95776,
      "level": 30,
-     "name": "The Only Good Brinescale..."
+     "side": "Horde",
+     "start": "Stranglethorn Vale, Grom'Gol - Commander Aggro'gosh",
+     "x": 32.2,
+     "y": 28.8,
+     "chain": 629,
+     "shareable": true,
+     "name": "The Only Good Brinescale...",
+     "chainName": "The Vile Reef"
     },
     {
      "questID": 96774,
      "level": 30,
+     "side": "Horde",
+     "start": "Mulgore, Skywatcher Plateau - Mazu'kon",
+     "x": 32.2,
+     "y": 27.8,
+     "chain": null,
+     "shareable": true,
      "name": "Ancient Gurubashi Idol"
     },
     {
      "questID": 95789,
      "level": 34,
+     "side": null,
+     "start": "Stranglethorn Vale, Booty Bay - Krazek",
+     "x": 27.0,
+     "y": 77.2,
+     "chain": null,
+     "shareable": true,
      "name": "Shady Saltseers"
     },
     {
      "questID": 95791,
      "level": 34,
+     "side": null,
+     "start": "Stranglethorn Vale, Booty Bay - Krazek",
+     "x": 27.0,
+     "y": 77.2,
+     "chain": null,
+     "shareable": true,
      "name": "The Saltseer Captain"
-    },
-    {
-     "questID": 95799,
-     "level": null,
-     "name": "Findings for the Explorer's League"
-    },
-    {
-     "questID": 95798,
-     "level": null,
-     "name": "The Web of Magic"
-    },
-    {
-     "questID": 203,
-     "level": null,
-     "name": "The Second Rebellion"
-    },
-    {
-     "questID": 204,
-     "level": null,
-     "name": "Bad Medicine"
-    },
-    {
-     "questID": 205,
-     "level": null,
-     "name": "Troll Witchery"
-    },
-    {
-     "questID": 629,
-     "level": null,
-     "name": "The Vile Reef"
-    },
-    {
-     "questID": 95773,
-     "level": null,
-     "name": "Enemies in the Water"
-    },
-    {
-     "questID": 92422,
-     "level": null,
-     "name": "The Wrath of Rath'mael"
-    },
-    {
-     "questID": 92401,
-     "level": null,
-     "name": "A Frightened Request"
     }
    ],
    "trash": {
@@ -1818,102 +1973,129 @@
     {
      "questID": 98815,
      "level": 24,
-     "name": "Highland Hides"
+     "side": "Alliance",
+     "start": "Wetlands, Menethil Harbor - James Halloran",
+     "x": 8.0,
+     "y": 55.0,
+     "chain": 469,
+     "shareable": false,
+     "name": "Highland Hides",
+     "chainName": "Daily Delivery"
     },
     {
      "questID": 95772,
      "level": 24,
+     "side": "Alliance",
+     "start": "Redridge Mountains, Dorin Songblade",
+     "x": 25.6,
+     "y": 46.6,
+     "chain": null,
+     "shareable": true,
      "name": "Songblade Search"
     },
     {
      "questID": 95646,
      "level": 24,
+     "side": "Alliance",
+     "start": "Wetlands, Rethiel the Greenwarden",
+     "x": 56.2,
+     "y": 40.6,
+     "chain": null,
+     "shareable": true,
      "name": "Horrors in the Highland"
     },
     {
      "questID": 95647,
      "level": 24,
-     "name": "Lost in the Thicket Things"
+     "side": "Alliance",
+     "start": "Starts with Seeking Caitlin in Ashenvale from Llana",
+     "x": 35.0,
+     "y": 48.6,
+     "chain": 95737,
+     "shareable": false,
+     "name": "Lost in the Thicket Things",
+     "chainName": "Seeking Caitlin"
     },
     {
      "questID": 95809,
      "level": 24,
-     "name": "Heartwoven"
+     "side": "Alliance",
+     "start": "Follow-up From Lost in the Thicket Things",
+     "x": null,
+     "y": null,
+     "chain": 95647,
+     "shareable": false,
+     "name": "Heartwoven",
+     "chainName": "Lost in the Thicket Things"
     },
     {
      "questID": 95810,
      "level": 24,
+     "side": "Alliance",
+     "start": "Loot Titan Relic from within Dungeon",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Lost Relic Carry"
     },
     {
      "questID": 98824,
      "level": 24,
-     "name": "Prehistoric Prism"
+     "side": "Alliance",
+     "start": "Follow-up From Lost Relic Carry",
+     "x": null,
+     "y": null,
+     "chain": 95810,
+     "shareable": false,
+     "name": "Prehistoric Prism",
+     "chainName": "Lost Relic Carry"
     },
     {
      "questID": 95697,
      "level": 24,
+     "side": "Horde",
+     "start": "Orgimmar, Borstan",
+     "x": 57.0,
+     "y": 33.0,
+     "chain": null,
+     "shareable": true,
      "name": "Changing Tastes"
     },
     {
      "questID": 95664,
      "level": 24,
+     "side": "Horde",
+     "start": "Loot Titan Relic from within Dungeon",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Elder Knowledge"
     },
     {
      "questID": 98823,
      "level": 24,
-     "name": "Earthen Echo"
+     "side": "Horde",
+     "start": "Follow Up from Elder Knowledge",
+     "x": null,
+     "y": null,
+     "chain": 95664,
+     "shareable": false,
+     "name": "Earthen Echo",
+     "chainName": "Elder Knowledge"
     },
     {
      "questID": 95682,
      "level": 24,
-     "name": "Open the Maw"
-    },
-    {
-     "questID": 469,
-     "level": null,
-     "name": "Daily Delivery"
-    },
-    {
-     "questID": 95737,
-     "level": null,
-     "name": "Seeking Caitlin"
-    },
-    {
-     "questID": 95663,
-     "level": null,
-     "name": "Dragonmaw Rumors"
-    },
-    {
-     "questID": 484,
-     "level": null,
-     "name": "Young Crocolisk Skins"
-    },
-    {
-     "questID": 96393,
-     "level": null,
-     "name": "Old Ironforge Incursion"
-    },
-    {
-     "questID": 463,
-     "level": null,
-     "name": "The Greenwarden"
-    },
-    {
-     "questID": 276,
-     "level": null,
-     "name": "Tramping Paws"
-    },
-    {
-     "questID": 277,
-     "level": null,
-     "name": "Fire Taboo"
-    },
-    {
-     "questID": 275,
-     "level": null,
-     "name": "Blisters on the Land"
+     "side": "Horde",
+     "start": "Starts with Dragonmaw Rumors from Zaruk in Arathi Highlands",
+     "x": 74.0,
+     "y": 36.0,
+     "chain": 95663,
+     "shareable": false,
+     "name": "Open the Maw",
+     "chainName": "Dragonmaw Rumors"
     }
    ],
    "trash": {
@@ -2029,87 +2211,148 @@
     {
      "questID": 2841,
      "level": 25,
+     "side": "Horde",
+     "start": "Orgrimmar, Valley of Honor - Nogg",
+     "x": 76.0,
+     "y": 25.0,
+     "chain": null,
+     "shareable": true,
      "name": "Rig Wars"
     },
     {
      "questID": 2842,
      "level": 20,
-     "name": "Chief Engineer Scooty"
+     "side": "Horde",
+     "start": "Orgrimmar, Valley of Honor - Sovik",
+     "x": 76.0,
+     "y": 25.0,
+     "chain": 2841,
+     "shareable": false,
+     "name": "Chief Engineer Scooty",
+     "chainName": "Rig Wars"
     },
     {
      "questID": 2843,
      "level": 20,
+     "side": "Horde",
+     "start": "Strangethorn Vale, Booty Bay - Scooty",
+     "x": 27.0,
+     "y": 77.0,
+     "chain": null,
+     "shareable": false,
      "name": "Gnomer-gooooone!"
     },
     {
      "questID": 2922,
      "level": 20,
+     "side": "Alliance",
+     "start": "Ironforge, Tinkertown - Tinkmaster Overspark",
+     "x": 69.0,
+     "y": 50.0,
+     "chain": null,
+     "shareable": true,
      "name": "Save Techbot's Brain!"
     },
     {
      "questID": 2928,
      "level": 20,
+     "side": "Alliance",
+     "start": "Stormwind, Dwarven Quarter- Shoni the Shilent",
+     "x": 55.0,
+     "y": 12.0,
+     "chain": null,
+     "shareable": true,
      "name": "Gyrodrillmatic Excavationators"
     },
     {
      "questID": 2924,
      "level": 24,
+     "side": "Alliance",
+     "start": "Ironforge, Tinkertown - Klockmort Spannerspan",
+     "x": 47.0,
+     "y": 64.0,
+     "chain": null,
+     "shareable": true,
      "name": "Essential Artificials"
     },
     {
      "questID": 2930,
      "level": 25,
+     "side": "Alliance",
+     "start": "Ironforge, Tinkertown - Master Mechanic Castpipe",
+     "x": 69.0,
+     "y": 48.0,
+     "chain": null,
+     "shareable": true,
      "name": "Data Rescue"
     },
     {
      "questID": 2929,
      "level": 25,
+     "side": "Alliance",
+     "start": "Ironforge, Tinkertown - High Tinker Mekkatorque",
+     "x": 68.0,
+     "y": 49.0,
+     "chain": null,
+     "shareable": true,
      "name": "The Grand Betrayal"
     },
     {
      "questID": 2926,
      "level": 20,
+     "side": "Alliance",
+     "start": "Dun Morogh, Kharanos - Ozzie Togglevolt",
+     "x": 45.0,
+     "y": 49.0,
+     "chain": null,
+     "shareable": false,
      "name": "Gnogaine"
     },
     {
      "questID": 2962,
      "level": 20,
-     "name": "The Only Cure is More Green Glow"
+     "side": "Alliance",
+     "start": "Dun Morogh, Kharanos - Ozzie Togglevolt",
+     "x": 45.0,
+     "y": 49.0,
+     "chain": 2926,
+     "shareable": false,
+     "name": "The Only Cure is More Green Glow",
+     "chainName": "Gnogaine"
     },
     {
      "questID": 2951,
      "level": 25,
+     "side": null,
+     "start": "Gnomeregan,, needs Grime-Encrusted Object",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "The Sparklematic 5200!"
     },
     {
      "questID": 2904,
      "level": 20,
+     "side": null,
+     "start": "Gnomeregan Escort Kernobee from room to the right of Clean Room",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "A Fine Mess"
     },
     {
      "questID": 2945,
      "level": 28,
-     "name": "Grime-Encrusted Ring"
-    },
-    {
-     "questID": 2947,
-     "level": null,
-     "name": "Return of the Ring"
-    },
-    {
-     "questID": 2949,
-     "level": null,
-     "name": "Return of the Ring"
-    },
-    {
-     "questID": 2948,
-     "level": null,
-     "name": "Gnome Improvement"
-    },
-    {
-     "questID": 2950,
-     "level": null,
-     "name": "Nogg's Ring Redo"
+     "side": null,
+     "start": "Gnomeregan,Grime-Encrusted Ring drop. StartsReturn of the Ring /Return of the Ring",
+     "x": null,
+     "y": null,
+     "chain": 2947,
+     "shareable": true,
+     "name": "Grime-Encrusted Ring",
+     "chainName": "Return of the Ring"
     }
    ],
    "trash": {
@@ -2210,32 +2453,58 @@
     {
      "questID": 96403,
      "level": 10,
+     "side": null,
+     "start": "Ironforge, Old Ironforge - Thom Filch",
+     "x": 32.6,
+     "y": 44.6,
+     "chain": null,
+     "shareable": true,
      "name": "Important Heirlooms"
     },
     {
      "questID": 96394,
      "level": 10,
+     "side": "Alliance",
+     "start": "Ironforge, Old Ironforge - Afadra Dunwall",
+     "x": 64.8,
+     "y": 58.4,
+     "chain": null,
+     "shareable": true,
      "name": "The Restless Dead"
     },
     {
      "questID": 96393,
      "level": 9,
-     "name": "Old Ironforge Incursion"
+     "side": "Alliance",
+     "start": "Dun Morogh, Gol'Golar Quarry - Earthseer Farsen",
+     "x": 64.8,
+     "y": 58.4,
+     "chain": 96391,
+     "shareable": true,
+     "name": "Old Ironforge Incursion",
+     "chainName": "Underground Map"
     },
     {
      "questID": 98423,
      "level": 9,
+     "side": "Alliance",
+     "start": "The Hall of Thanes, Located in the Reliquary of Kings in a Vault",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "The Treaty of Understanding"
     },
     {
      "questID": 96395,
      "level": 10,
+     "side": null,
+     "start": "The Hall of Thanes, Anvilmar's Rest - Ghostly Attendant",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "An Ancient Grudge"
-    },
-    {
-     "questID": 96391,
-     "level": null,
-     "name": "Underground Map"
     }
    ],
    "trash": {
@@ -2391,92 +2660,107 @@
     {
      "questID": 96771,
      "level": 37,
+     "side": "Alliance",
+     "start": "Alterac Mountains, Dalaran - Ranath Nightstride",
+     "x": 17.8,
+     "y": 66.0,
+     "chain": null,
+     "shareable": true,
      "name": "Vengeance of the Highborne"
     },
     {
      "questID": 94983,
      "level": 38,
-     "name": "Twilight Mementos"
+     "side": "Alliance",
+     "start": "Riverglades, Twilights Shroud - Sergeant Riftan",
+     "x": 30.6,
+     "y": 49.0,
+     "chain": 94881,
+     "shareable": true,
+     "name": "Twilight Mementos",
+     "chainName": "Curious Trinkets"
     },
     {
      "questID": 94982,
      "level": 40,
-     "name": "Eye of Mugg"
+     "side": "Alliance",
+     "start": "Riverglades, Farholde Keep - Demar Brant",
+     "x": 66.6,
+     "y": 81.0,
+     "chain": 94881,
+     "shareable": true,
+     "name": "Eye of Mugg",
+     "chainName": "Curious Trinkets"
     },
     {
      "questID": 94984,
      "level": 39,
-     "name": "Tome of Twilight"
+     "side": "Alliance",
+     "start": "Riverglades, Farholde Keep - Ashe Amberhall",
+     "x": 66.6,
+     "y": 81.0,
+     "chain": 94881,
+     "shareable": true,
+     "name": "Tome of Twilight",
+     "chainName": "Curious Trinkets"
     },
     {
      "questID": 94980,
      "level": 38,
+     "side": null,
+     "start": "Krol'Dok Stronghold, Riverglades - Drops from Tunk inside the dungeon",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Krol'dok Moulding"
     },
     {
      "questID": 94975,
      "level": 38,
-     "name": "A Token of Vengeance"
+     "side": "Horde",
+     "start": "Riverglades, Krol'dok Stronghold Outskirts - Da'grosh",
+     "x": 33.4,
+     "y": 38.0,
+     "chain": 94744,
+     "shareable": false,
+     "name": "A Token of Vengeance",
+     "chainName": "The Wayward Warrior"
     },
     {
      "questID": 94972,
      "level": 38,
-     "name": "Tome of Twilight"
+     "side": "Horde",
+     "start": "Riverglades, Rom'gar - Tran'gul",
+     "x": 59.4,
+     "y": 44.0,
+     "chain": 94744,
+     "shareable": false,
+     "name": "Tome of Twilight",
+     "chainName": "The Wayward Warrior"
     },
     {
      "questID": 94968,
      "level": 38,
-     "name": "Eye of Mugg"
+     "side": "Horde",
+     "start": "Riverglades, Rom'gar - Krom'rosh",
+     "x": 59.4,
+     "y": 45.6,
+     "chain": 94744,
+     "shareable": false,
+     "name": "Eye of Mugg",
+     "chainName": "The Wayward Warrior"
     },
     {
      "questID": 94973,
      "level": 38,
+     "side": null,
+     "start": "Krol'Dok Stronghold, Riverglades - Drops from Tunk inside the dungeon",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Krol'dok Moulding"
-    },
-    {
-     "questID": 94998,
-     "level": null,
-     "name": "Curios of Curiosity"
-    },
-    {
-     "questID": 94881,
-     "level": null,
-     "name": "Curious Trinkets"
-    },
-    {
-     "questID": 94879,
-     "level": null,
-     "name": "Scraps of Knowledge"
-    },
-    {
-     "questID": 94877,
-     "level": null,
-     "name": "Saving Sunnyglade"
-    },
-    {
-     "questID": 94981,
-     "level": null,
-     "name": "Key Ingredients"
-    },
-    {
-     "questID": 94744,
-     "level": null,
-     "name": "The Wayward Warrior"
-    },
-    {
-     "questID": 94974,
-     "level": null,
-     "name": "Key Ingredients"
-    },
-    {
-     "questID": 92422,
-     "level": null,
-     "name": "The Wrath of Rath'mael"
-    },
-    {
-     "questID": 92401,
-     "level": null,
-     "name": "A Frightened Request"
     }
    ],
    "trash": {
@@ -2722,122 +3006,136 @@
     {
      "questID": 4724,
      "level": 55,
+     "side": "Horde",
+     "start": "Badlands, Kargath- Galamav the Marksman",
+     "x": 6.0,
+     "y": 47.0,
+     "chain": null,
+     "shareable": true,
      "name": "The Pack Mistress"
     },
     {
      "questID": 4981,
      "level": 55,
-     "name": "Operative Bijou"
+     "side": "Horde",
+     "start": "Badlands, Kargath - Lexlort",
+     "x": 5.0,
+     "y": 47.0,
+     "chain": 4982,
+     "shareable": true,
+     "name": "Operative Bijou",
+     "chainName": "Bijou's Belongings"
     },
     {
      "questID": 4903,
      "level": 55,
+     "side": "Horde",
+     "start": "Badlands, Kargath - Warlord Goretooth",
+     "x": 5.0,
+     "y": 47.0,
+     "chain": null,
+     "shareable": false,
      "name": "Warlord's Command"
     },
     {
      "questID": 4701,
      "level": 55,
+     "side": "Alliance",
+     "start": "Burning Steppes, Morgan's Vigil - Helendis Riverhorn",
+     "x": 65.0,
+     "y": 69.0,
+     "chain": null,
+     "shareable": true,
      "name": "Put Her Down"
     },
     {
      "questID": 5089,
      "level": 55,
+     "side": "Alliance",
+     "start": "Blackrock Spire, Lower, General Drakkisath's Command, dropped from Overlord Wyrmthalak",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "General Drakkisath's Command"
     },
     {
      "questID": 5001,
      "level": 55,
+     "side": "Alliance",
+     "start": "Blackrock Spire, Lower - Bijou",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Bijou's Belongings"
     },
     {
      "questID": 4862,
      "level": 55,
+     "side": null,
+     "start": "Burning Steppes, Flame Crest - Kibler",
+     "x": 65.0,
+     "y": 21.0,
+     "chain": null,
+     "shareable": true,
      "name": "En-Ay-Es-Tee-Why"
     },
     {
      "questID": 4729,
      "level": 55,
+     "side": null,
+     "start": "Burning Steppes, Flame Crest - Kibler",
+     "x": 65.0,
+     "y": 21.0,
+     "chain": null,
+     "shareable": false,
      "name": "Kibler's Exotic Pets"
     },
     {
      "questID": 4866,
      "level": 55,
+     "side": null,
+     "start": "Burning Steppes, Flame Crest - Ragged John",
+     "x": 65.0,
+     "y": 23.0,
+     "chain": null,
+     "shareable": true,
      "name": "Mother's Milk"
     },
     {
      "questID": 4742,
      "level": 57,
+     "side": null,
+     "start": "Blackrock Spire, Lower - Unadorned Seal of Ascension, Gemstone of Smolderthorn, Gemstone of Spiresto",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Seal of Ascension"
     },
     {
      "questID": 4867,
      "level": 55,
+     "side": null,
+     "start": "Blackrock Spire, Lower, Warosh, patrols near beginning of instance",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Urok Doomhowl"
     },
     {
      "questID": 4788,
      "level": 40,
-     "name": "The Final Tablets"
-    },
-    {
-     "questID": 4982,
-     "level": null,
-     "name": "Bijou's Belongings"
-    },
-    {
-     "questID": 3520,
-     "level": null,
-     "name": "Screecher Spirits"
-    },
-    {
-     "questID": 5065,
-     "level": null,
-     "name": "The Lost Tablets of Mosh'aru"
-    },
-    {
-     "questID": 3527,
-     "level": null,
-     "name": "The Prophecy of Mosh'aru"
-    },
-    {
-     "questID": 4787,
-     "level": null,
-     "name": "The Ancient Egg"
-    },
-    {
-     "questID": 3528,
-     "level": null,
-     "name": "The God Hakkar"
-    },
-    {
-     "questID": 5081,
-     "level": null,
-     "name": "Maxwell's Mission"
-    },
-    {
-     "questID": 5002,
-     "level": null,
-     "name": "Message to Maxwell"
-    },
-    {
-     "questID": 4983,
-     "level": null,
-     "name": "Bijou's Reconnaissance Report"
-    },
-    {
-     "questID": 4941,
-     "level": null,
-     "name": "Eitrigg's Wisdom"
-    },
-    {
-     "questID": 4974,
-     "level": null,
-     "name": "For The Horde!"
-    },
-    {
-     "questID": 4743,
-     "level": null,
-     "name": "Seal of Ascension"
+     "side": null,
+     "start": "Tanaris, Steamsheedle Port- Prospector Ironboot",
+     "x": 66.0,
+     "y": 24.0,
+     "chain": 3520,
+     "shareable": false,
+     "name": "The Final Tablets",
+     "chainName": "Screecher Spirits"
     }
    ],
    "trash": {
@@ -3045,63 +3343,125 @@
    "quests": [
     {
      "questID": 7068,
-     "level": 43,
+     "level": 39,
+     "side": "Horde",
+     "start": "Orgrimmar, Valley of Spirits - Uthel'nay",
+     "x": 39.0,
+     "y": 86.0,
+     "chain": null,
+     "shareable": true,
      "name": "Shadowshard Fragments"
     },
     {
      "questID": 7029,
      "level": 41,
+     "side": "Horde",
+     "start": "Desolace, Shadowprey Village - Vark Battlescar",
+     "x": 23.0,
+     "y": 70.0,
+     "chain": null,
+     "shareable": true,
      "name": "Vyletongue Corruption"
     },
     {
      "questID": 7064,
      "level": 45,
+     "side": "Horde",
+     "start": "Desolace, S. of Shadowprey Village - Selendra",
+     "x": 26.0,
+     "y": 77.0,
+     "chain": null,
+     "shareable": true,
      "name": "Corruption of Earth and Seed"
     },
     {
      "questID": 7070,
      "level": 39,
+     "side": "Alliance",
+     "start": "Dustwallow Marsh, Theramore - Archmage Tervosh",
+     "x": 66.0,
+     "y": 49.0,
+     "chain": null,
+     "shareable": true,
      "name": "Shadowshard Fragments"
     },
     {
      "questID": 7041,
      "level": 41,
+     "side": "Alliance",
+     "start": "Desolace, Nijel's Point - Talendria",
+     "x": 68.0,
+     "y": 8.0,
+     "chain": null,
+     "shareable": true,
      "name": "Vyletongue Corruption"
     },
     {
      "questID": 7065,
      "level": 45,
+     "side": "Alliance",
+     "start": "Desolace, Nijel's Point - Keeper Marandis",
+     "x": 63.0,
+     "y": 10.0,
+     "chain": null,
+     "shareable": true,
      "name": "Corruption of Earth and Seed"
     },
     {
      "questID": 7028,
-     "level": 35,
+     "level": 41,
+     "side": null,
+     "start": "Desolace, SE of Thunderaxe Fortress- Willow",
+     "x": 62.0,
+     "y": 39.0,
+     "chain": null,
+     "shareable": true,
      "name": "Twisted Evils"
     },
     {
      "questID": 7067,
      "level": 39,
+     "side": null,
+     "start": "Desolace, South of Mannoroc Coven - Centaur Pariah patrols around",
+     "x": 48.4,
+     "y": 87.0,
+     "chain": null,
+     "shareable": false,
      "name": "The Pariah's Instructions"
     },
     {
      "questID": 7044,
      "level": 41,
+     "side": null,
+     "start": "Maraudon, Orange side, outside instance - Cavindra",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Legends of Maraudon"
     },
     {
      "questID": 7046,
      "level": 41,
-     "name": "The Scepter of Celebras"
+     "side": null,
+     "start": "Maraudon, Purple side - Celebras the Redeemed",
+     "x": null,
+     "y": null,
+     "chain": 7044,
+     "shareable": false,
+     "name": "The Scepter of Celebras",
+     "chainName": "Legends of Maraudon"
     },
     {
      "questID": 7066,
      "level": 39,
+     "side": null,
+     "start": "Maraudon, Zaetar's Spirit in middle of ring after killing Princess Theradras",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Seed of Life"
-    },
-    {
-     "questID": 92914,
-     "level": null,
-     "name": "Strange Pylons"
     }
    ],
    "trash": {
@@ -3222,37 +3582,69 @@
     {
      "questID": 5761,
      "level": 9,
+     "side": "Horde",
+     "start": "Orgrimmar, The Drag - Neeru Fireblade",
+     "x": 49.0,
+     "y": 50.0,
+     "chain": null,
+     "shareable": true,
      "name": "Slaying the Beast"
     },
     {
      "questID": 5725,
      "level": 9,
+     "side": "Horde",
+     "start": "Undercity, Royal Quarter - Varimathras",
+     "x": 56.0,
+     "y": 92.0,
+     "chain": null,
+     "shareable": true,
      "name": "The Power to Destroy..."
     },
     {
      "questID": 5723,
      "level": 9,
+     "side": "Horde",
+     "start": "Thunder Bluff, Elder Rise - Rahauro",
+     "x": 70.0,
+     "y": 30.0,
+     "chain": null,
+     "shareable": true,
      "name": "Testing an Enemy's Strength"
     },
     {
      "questID": 5724,
      "level": 9,
+     "side": "Horde",
+     "start": "Inside RFC - Grimtotem Satchel drop from Maur Grimtotem",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Returning the Lost Satchel"
     },
     {
      "questID": 5722,
      "level": 9,
+     "side": "Horde",
+     "start": "Thunder Bluff, Elder Rise - Rahauro",
+     "x": 70.0,
+     "y": 30.0,
+     "chain": null,
+     "shareable": true,
      "name": "Searching for the Lost Satchel"
     },
     {
      "questID": 5728,
      "level": 9,
-     "name": "Hidden Enemies"
-    },
-    {
-     "questID": 5726,
-     "level": null,
-     "name": "Hidden Enemies"
+     "side": "Horde",
+     "start": "Orgrimmar, Valley of Wisdom - Thrall",
+     "x": 31.0,
+     "y": 37.0,
+     "chain": 5726,
+     "shareable": false,
+     "name": "Hidden Enemies",
+     "chainName": "Hidden Enemies"
     }
    ],
    "trash": {
@@ -3393,47 +3785,91 @@
     {
      "questID": 6521,
      "level": 28,
-     "name": "An Unholy Alliance"
+     "side": "Horde",
+     "start": "Undercity, the Apothecarium - Varimathras",
+     "x": 56.6,
+     "y": 92.6,
+     "chain": 6522,
+     "shareable": false,
+     "name": "An Unholy Alliance",
+     "chainName": "An Unholy Alliance"
     },
     {
      "questID": 3341,
      "level": 37,
+     "side": "Horde",
+     "start": "Undercity, the Magic Quarter - Andrew Brownell",
+     "x": 74.0,
+     "y": 32.8,
+     "chain": null,
+     "shareable": true,
      "name": "Bring the End"
     },
     {
      "questID": 97196,
      "level": 34,
+     "side": "Horde",
+     "start": "Mulgore, north of Thunder Bluff - Sutara Plainstalker",
+     "x": 34.6,
+     "y": 22.8,
+     "chain": null,
+     "shareable": true,
      "name": "The Coldbringer's Eye"
     },
     {
      "questID": 3636,
      "level": 39,
+     "side": "Alliance",
+     "start": "Stormwind City, Cathedral of Light - Archbishop Benedictus",
+     "x": 50.3,
+     "y": 45.6,
+     "chain": null,
+     "shareable": false,
      "name": "Bring the Light"
     },
     {
      "questID": 96773,
      "level": 34,
+     "side": "Alliance",
+     "start": "Alterac Mountains, Dalaran - Archmage Lan'dalock",
+     "x": 15.6,
+     "y": 73.6,
+     "chain": null,
+     "shareable": true,
      "name": "The Coldbringer's Eye"
     },
     {
      "questID": 6626,
      "level": 28,
+     "side": null,
+     "start": "The Barrens, outside RFD entrance - Myriam Moonsinger",
+     "x": 49.0,
+     "y": 94.8,
+     "chain": null,
+     "shareable": true,
      "name": "A Host of Evil"
     },
     {
      "questID": 3523,
      "level": 32,
+     "side": null,
+     "start": "Razorfen Downs, cells near Mordresh Fire Eye - Belnistrasz",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Scourge of the Downs"
     },
     {
      "questID": 3525,
      "level": 32,
+     "side": null,
+     "start": "Once everyone has completed Scourge of the Downs, talk to Belnistrasz again to begin this escort que",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Extinguishing the Idol"
-    },
-    {
-     "questID": 6522,
-     "level": null,
-     "name": "An Unholy Alliance"
     }
    ],
    "trash": {
@@ -3610,52 +4046,82 @@
     {
      "questID": 1102,
      "level": 29,
+     "side": "Horde",
+     "start": "Thunder Bluff, Near Main Lift - Auld Stonespire",
+     "x": 37.0,
+     "y": 29.0,
+     "chain": null,
+     "shareable": true,
      "name": "A Vengeful Fate"
     },
     {
      "questID": 1109,
      "level": 30,
-     "name": "Going, Going, Guano!"
+     "side": "Horde",
+     "start": "Undercity, The Apothecarium - Master Apothecary Faranell",
+     "x": 48.0,
+     "y": 69.0,
+     "chain": 1113,
+     "shareable": true,
+     "name": "Going, Going, Guano!",
+     "chainName": "Hearts of Zeal"
     },
     {
      "questID": 6522,
      "level": 28,
-     "name": "An Unholy Alliance"
+     "side": "Horde",
+     "start": "Razorfen Kraul, Small Scroll, drops from Charlga Razorflank",
+     "x": null,
+     "y": null,
+     "chain": 6521,
+     "shareable": false,
+     "name": "An Unholy Alliance",
+     "chainName": "An Unholy Alliance"
     },
     {
      "questID": 1101,
      "level": 29,
-     "name": "The Crone of the Kraul"
+     "side": "Alliance",
+     "start": "Feralas, The Lower Wilds - Falfindel Waywarder",
+     "x": 89.0,
+     "y": 46.0,
+     "chain": 1100,
+     "shareable": false,
+     "name": "The Crone of the Kraul",
+     "chainName": "Lonebrow's Journal"
     },
     {
      "questID": 1142,
      "level": 25,
+     "side": "Alliance",
+     "start": "Razorfen Kraul - Heralath Fallowbrook inside instance behind main boss",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Mortality Wanes"
     },
     {
      "questID": 1221,
      "level": 20,
+     "side": null,
+     "start": "The Barrens, Ratchet - Mebok Mizzyrix",
+     "x": 62.0,
+     "y": 37.0,
+     "chain": null,
+     "shareable": false,
      "name": "Blueleaf Tubers"
     },
     {
      "questID": 1144,
      "level": 22,
+     "side": null,
+     "start": "Razorfen Kraul, Tent near final boss - Willix the Importer",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Willix the Importer"
-    },
-    {
-     "questID": 1113,
-     "level": null,
-     "name": "Hearts of Zeal"
-    },
-    {
-     "questID": 6521,
-     "level": null,
-     "name": "An Unholy Alliance"
-    },
-    {
-     "questID": 1100,
-     "level": null,
-     "name": "Lonebrow's Journal"
     }
    ],
    "trash": {
@@ -3770,62 +4236,92 @@
     {
      "questID": 92422,
      "level": 15,
-     "name": "The Wrath of Rath'mael"
+     "side": "Horde",
+     "start": "Tirisfal Glades - Rear Guard Patrol Deathguard Linnea",
+     "x": 65.6,
+     "y": 60.2,
+     "chain": 99156,
+     "shareable": false,
+     "name": "The Wrath of Rath'mael",
+     "chainName": "Rear Guard Patrol"
     },
     {
      "questID": 92401,
      "level": 15,
+     "side": "Horde",
+     "start": "Silverpine Forest, The Sepulcher - Tabitha Heartweaver",
+     "x": 44.6,
+     "y": 42.8,
+     "chain": null,
+     "shareable": true,
      "name": "A Frightened Request"
     },
     {
      "questID": 92421,
      "level": 15,
+     "side": "Horde",
+     "start": "Undercity, The Apothecarium - Morbin Lightbane",
+     "x": 57.8,
+     "y": 89.8,
+     "chain": null,
+     "shareable": true,
      "name": "Light's Justice"
     },
     {
      "questID": 95216,
      "level": 15,
-     "name": "The New Plague"
+     "side": "Horde",
+     "start": "Silverpine Forest, A Recipe For Death - Apothecary Renferrel",
+     "x": 42.8,
+     "y": 40.8,
+     "chain": 451,
+     "shareable": false,
+     "name": "The New Plague",
+     "chainName": "A Recipe For Death"
     },
     {
      "questID": 97288,
      "level": 16,
+     "side": "Horde",
+     "start": "The Ruins of Lordaeron, King's Alley - The Baron",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Unending Torment"
-    },
-    {
-     "questID": 95204,
-     "level": 14,
-     "name": "Crest of Lordaeron"
     },
     {
      "questID": 95250,
      "level": 16,
+     "side": "Alliance",
+     "start": "The Ruins of Lordaeron, Dungeon Entrance - Captain Truman",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Abominable Creatures"
     },
     {
      "questID": 95195,
      "level": 16,
+     "side": "Alliance",
+     "start": "The Ruins of Lordaeron, Drops from Undead Mobs",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Bloodied Insignia"
     },
     {
      "questID": 92415,
      "level": 15,
+     "side": "Alliance",
+     "start": "The Ruins of Lordaeron, Located by Rath'mael",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Remember That I Love You"
-    },
-    {
-     "questID": 99156,
-     "level": null,
-     "name": "Rear Guard Patrol"
-    },
-    {
-     "questID": 451,
-     "level": null,
-     "name": "A Recipe For Death"
-    },
-    {
-     "questID": 95189,
-     "level": null,
-     "name": "Crest of Lordaeron"
     }
    ],
    "trash": {
@@ -4125,67 +4621,118 @@
     {
      "questID": 5341,
      "level": 52,
+     "side": "Horde",
+     "start": "Tirisfal Glades, The Bulwark - Alexi Barov",
+     "x": 83.0,
+     "y": 71.0,
+     "chain": null,
+     "shareable": true,
      "name": "Barov Family Fortune"
     },
     {
      "questID": 7668,
      "level": 58,
-     "name": "The Darkreaver Menace"
+     "side": "Horde",
+     "start": "Shaman Only - Orgrimmar, Valley of Wisdom - Sagorne Creststrider",
+     "x": 38.0,
+     "y": 35.0,
+     "chain": 7667,
+     "shareable": false,
+     "name": "The Darkreaver Menace",
+     "chainName": "Material Assistance"
     },
     {
      "questID": 5343,
      "level": 52,
+     "side": "Alliance",
+     "start": "Western Plaguelands, Chillwind Camp - Weldon Barov",
+     "x": 43.0,
+     "y": 83.0,
+     "chain": null,
+     "shareable": true,
      "name": "Barov Family Fortune"
     },
     {
      "questID": 5529,
      "level": 55,
+     "side": null,
+     "start": "Eastern Plaguelands, Light's Hope Chapel - Betina Bigglezink",
+     "x": 81.0,
+     "y": 59.0,
+     "chain": null,
+     "shareable": true,
      "name": "Plagued Hatchlings"
     },
     {
      "questID": 5582,
      "level": 55,
-     "name": "Healthy Dragon Scale"
+     "side": null,
+     "start": "Scholomance, Healthy Dragon Scale, drops from Plagued Hatchling s",
+     "x": null,
+     "y": null,
+     "chain": 5529,
+     "shareable": false,
+     "name": "Healthy Dragon Scale",
+     "chainName": "Plagued Hatchlings"
     },
     {
      "questID": 5382,
      "level": 55,
+     "side": null,
+     "start": "Western Plaguelands, Caer Darrow - Eva Sarkhoff",
+     "x": 70.0,
+     "y": 73.0,
+     "chain": null,
+     "shareable": true,
      "name": "Doctor Theolen Krastinov, the Butcher"
     },
     {
      "questID": 5515,
      "level": 55,
-     "name": "Krastinov's Bag of Horrors"
+     "side": null,
+     "start": "Western Plaguelands, Caer Darrow - Eva Sarkhoff",
+     "x": 70.0,
+     "y": 73.0,
+     "chain": 5382,
+     "shareable": false,
+     "name": "Krastinov's Bag of Horrors",
+     "chainName": "Doctor Theolen Krastinov, the Butcher"
     },
     {
      "questID": 5384,
      "level": 55,
-     "name": "Kirtonos the Herald"
+     "side": null,
+     "start": "Western Plaguelands, Caer Darrow - Eva Sarkhoff",
+     "x": 70.0,
+     "y": 73.0,
+     "chain": 5515,
+     "shareable": true,
+     "name": "Kirtonos the Herald",
+     "chainName": "Krastinov's Bag of Horrors"
     },
     {
      "questID": 4771,
      "level": 57,
-     "name": "Dawn's Gambit"
+     "side": null,
+     "start": "Eastern Plaguelands, Light's Hope Chapel - Betina Bigglezink",
+     "x": 81.0,
+     "y": 59.0,
+     "chain": 4726,
+     "shareable": false,
+     "name": "Dawn's Gambit",
+     "chainName": "Broodling Essence"
     },
     {
      "questID": 5466,
      "level": 57,
-     "name": "The Lich, Ras Frostwhisper"
-    },
-    {
-     "questID": 7667,
-     "level": null,
-     "name": "Material Assistance"
-    },
-    {
-     "questID": 4726,
-     "level": null,
-     "name": "Broodling Essence"
-    },
-    {
-     "questID": 8258,
-     "level": null,
-     "name": "The Darkreaver Menace"
+     "side": null,
+     "start": "Western Plaguelands, Caer Darrow - Magistrate Marduke",
+     "x": 70.0,
+     "y": 74.0,
+     "chain": 5382,
+     "shareable": false,
+     "name": "The Lich, Ras Frostwhisper",
+     "chainName": "Doctor Theolen Krastinov, the Butcher"
     }
    ],
    "trash": {
@@ -4369,37 +4916,69 @@
     {
      "questID": 1013,
      "level": 16,
+     "side": "Horde",
+     "start": "Undercity, Apothecarium - Keeper Bel'dugur",
+     "x": 53.0,
+     "y": 54.0,
+     "chain": null,
+     "shareable": true,
      "name": "The Book of Ur"
     },
     {
      "questID": 1098,
      "level": 18,
+     "side": "Horde",
+     "start": "Silverpine Forest, Sepulcher - High Executor Hadrec",
+     "x": 43.0,
+     "y": 41.0,
+     "chain": null,
+     "shareable": true,
      "name": "Deathstalkers in Shadowfang"
     },
     {
      "questID": 1014,
      "level": 18,
+     "side": "Horde",
+     "start": "Silverpine Forest, Sepulcher - Dalar Dawnweaver",
+     "x": 44.0,
+     "y": 39.0,
+     "chain": null,
+     "shareable": true,
      "name": "Arugal Must Die"
     },
     {
      "questID": 1740,
      "level": 20,
+     "side": null,
+     "start": "Warlock Only The Barrens, Near Camp Taurajo - Doan Karhan /49 57",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "The Orb of Soran'ruk"
     },
     {
      "questID": 1654,
      "level": 20,
+     "side": "Alliance",
+     "start": "Paladin Only - Ironforge, inside Gates - Jordan Stilwell",
+     "x": 52.0,
+     "y": 36.0,
+     "chain": null,
+     "shareable": false,
      "name": "The Test of Righteousness"
     },
     {
      "questID": 95036,
      "level": 20,
-     "name": "A Moon-Kissed Blade"
-    },
-    {
-     "questID": 91858,
-     "level": null,
-     "name": "Diplomatic Incident"
+     "side": "Horde",
+     "start": "Paladin Only - Silverpine Forest, The Sepulcher - Lumina Windsinger",
+     "x": 43.2,
+     "y": 41.0,
+     "chain": 91858,
+     "shareable": false,
+     "name": "A Moon-Kissed Blade",
+     "chainName": "Diplomatic Incident"
     }
    ],
    "trash": {
@@ -4453,37 +5032,37 @@
     {
      "questID": 1048,
      "level": 33,
+     "side": "Horde",
+     "start": "Undercity, Royal Quarter - Varimathras",
+     "x": 56.0,
+     "y": 92.0,
+     "chain": null,
+     "shareable": true,
      "name": "Into The Scarlet Monastery"
     },
     {
      "questID": 1113,
      "level": 30,
-     "name": "Hearts of Zeal"
+     "side": "Horde",
+     "start": "Undercity, The Apothecarium - Master Apothecary Faranell",
+     "x": 48.0,
+     "y": 69.0,
+     "chain": 1109,
+     "shareable": true,
+     "name": "Hearts of Zeal",
+     "chainName": "Going, Going, Guano!"
     },
     {
      "questID": 1053,
      "level": 34,
-     "name": "In the Name of the Light"
-    },
-    {
-     "questID": 1109,
-     "level": null,
-     "name": "Going, Going, Guano!"
-    },
-    {
-     "questID": 6141,
-     "level": null,
-     "name": "Brother Anton"
-    },
-    {
-     "questID": 261,
-     "level": null,
-     "name": "Down the Scarlet Path"
-    },
-    {
-     "questID": 1052,
-     "level": null,
-     "name": "Down the Scarlet Path"
+     "side": "Alliance",
+     "start": "Hillsbrad Foothills, Southshore - Raleigh the Devout",
+     "x": 51.0,
+     "y": 58.0,
+     "chain": 6141,
+     "shareable": true,
+     "name": "In the Name of the Light",
+     "chainName": "Brother Anton"
     }
    ],
    "trash": {
@@ -4599,27 +5178,25 @@
     {
      "questID": 1048,
      "level": 33,
+     "side": "Horde",
+     "start": "Undercity, Royal Quarter - Varimathras",
+     "x": 56.0,
+     "y": 92.0,
+     "chain": null,
+     "shareable": true,
      "name": "Into The Scarlet Monastery"
     },
     {
      "questID": 1053,
      "level": 34,
-     "name": "In the Name of the Light"
-    },
-    {
-     "questID": 6141,
-     "level": null,
-     "name": "Brother Anton"
-    },
-    {
-     "questID": 261,
-     "level": null,
-     "name": "Down the Scarlet Path"
-    },
-    {
-     "questID": 1052,
-     "level": null,
-     "name": "Down the Scarlet Path"
+     "side": "Alliance",
+     "start": "Hillsbrad Foothills, Southshore - Raleigh the Devout",
+     "x": 51.0,
+     "y": 58.0,
+     "chain": 6141,
+     "shareable": true,
+     "name": "In the Name of the Light",
+     "chainName": "Brother Anton"
     }
    ],
    "trash": {
@@ -4738,42 +5315,48 @@
     {
      "questID": 1048,
      "level": 33,
+     "side": "Horde",
+     "start": "Undercity, Royal Quarter - Varimathras",
+     "x": 56.0,
+     "y": 92.0,
+     "chain": null,
+     "shareable": true,
      "name": "Into The Scarlet Monastery"
     },
     {
      "questID": 1051,
      "level": 25,
+     "side": "Horde",
+     "start": "Scarlet Monastery, Graveyard - Vorrel Sengutz",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "Vorrel's Revenge"
     },
     {
      "questID": 1113,
      "level": 30,
-     "name": "Hearts of Zeal"
+     "side": "Horde",
+     "start": "Undercity, The Apothecarium - Master Apothecary Faranell",
+     "x": 48.0,
+     "y": 69.0,
+     "chain": 1109,
+     "shareable": true,
+     "name": "Hearts of Zeal",
+     "chainName": "Going, Going, Guano!"
     },
     {
      "questID": 1053,
      "level": 34,
-     "name": "In the Name of the Light"
-    },
-    {
-     "questID": 1109,
-     "level": null,
-     "name": "Going, Going, Guano!"
-    },
-    {
-     "questID": 6141,
-     "level": null,
-     "name": "Brother Anton"
-    },
-    {
-     "questID": 261,
-     "level": null,
-     "name": "Down the Scarlet Path"
-    },
-    {
-     "questID": 1052,
-     "level": null,
-     "name": "Down the Scarlet Path"
+     "side": "Alliance",
+     "start": "Hillsbrad Foothills, Southshore - Raleigh the Devout",
+     "x": 51.0,
+     "y": 58.0,
+     "chain": 6141,
+     "shareable": true,
+     "name": "In the Name of the Light",
+     "chainName": "Brother Anton"
     }
    ],
    "trash": {
@@ -4851,122 +5434,94 @@
     {
      "questID": 1053,
      "level": 34,
-     "name": "In the Name of the Light"
+     "side": "Alliance",
+     "start": "Hillsbrad Foothills, Southshore - Raleigh the Devout",
+     "x": 51.0,
+     "y": 58.0,
+     "chain": 6141,
+     "shareable": true,
+     "name": "In the Name of the Light",
+     "chainName": "Brother Anton"
     },
     {
      "questID": 1113,
      "level": 30,
-     "name": "Hearts of Zeal"
+     "side": "Horde",
+     "start": "Undercity, The Apothecarium - Master Apothecary Faranell",
+     "x": 48.0,
+     "y": 69.0,
+     "chain": 1109,
+     "shareable": true,
+     "name": "Hearts of Zeal",
+     "chainName": "Going, Going, Guano!"
     },
     {
      "questID": 1049,
      "level": 28,
+     "side": "Horde",
+     "start": "Thunder Bluff, First Rise - Sage Truthseeker",
+     "x": 36.0,
+     "y": 26.0,
+     "chain": null,
+     "shareable": true,
      "name": "Compendium of the Fallen"
     },
     {
      "questID": 1160,
      "level": 25,
-     "name": "Test of Lore"
+     "side": "Horde",
+     "start": "Undercity, The Apothecarium - Parqual Fintallas",
+     "x": 57.0,
+     "y": 65.0,
+     "chain": 1149,
+     "shareable": false,
+     "name": "Test of Lore",
+     "chainName": "Test of Faith"
     },
     {
      "questID": 1048,
      "level": 33,
+     "side": "Horde",
+     "start": "Undercity, Royal Quarter - Varimathras",
+     "x": 56.0,
+     "y": 92.0,
+     "chain": null,
+     "shareable": true,
      "name": "Into The Scarlet Monastery"
     },
     {
      "questID": 1050,
      "level": 28,
+     "side": "Alliance",
+     "start": "Ironforge, Hall of Explorers - Librarian Mae Paledust",
+     "x": 75.0,
+     "y": 12.0,
+     "chain": null,
+     "shareable": true,
      "name": "Mythology of the Titans"
     },
     {
      "questID": 96800,
      "level": 30,
+     "side": "Alliance",
+     "start": "Dalaran, Alterac Mountains - Magus Olvek",
+     "x": 10.0,
+     "y": 63.8,
+     "chain": null,
+     "shareable": true,
      "name": "Past Due"
     },
     {
      "questID": 1951,
      "level": 30,
-     "name": "Rituals of Power"
-    },
-    {
-     "questID": 6141,
-     "level": null,
-     "name": "Brother Anton"
-    },
-    {
-     "questID": 1109,
-     "level": null,
-     "name": "Going, Going, Guano!"
-    },
-    {
-     "questID": 1149,
-     "level": null,
-     "name": "Test of Faith"
-    },
-    {
-     "questID": 1947,
-     "level": null,
-     "name": "Journey to the Marsh"
-    },
-    {
-     "questID": 261,
-     "level": null,
-     "name": "Down the Scarlet Path"
-    },
-    {
-     "questID": 1052,
-     "level": null,
-     "name": "Down the Scarlet Path"
-    },
-    {
-     "questID": 1150,
-     "level": null,
-     "name": "Test of Endurance"
-    },
-    {
-     "questID": 1151,
-     "level": null,
-     "name": "Test of Strength"
-    },
-    {
-     "questID": 1152,
-     "level": null,
-     "name": "Test of Lore"
-    },
-    {
-     "questID": 1154,
-     "level": null,
-     "name": "Test of Lore"
-    },
-    {
-     "questID": 6627,
-     "level": null,
-     "name": "Test of Lore"
-    },
-    {
-     "questID": 1159,
-     "level": null,
-     "name": "Test of Lore"
-    },
-    {
-     "questID": 6628,
-     "level": null,
-     "name": "Test of Lore"
-    },
-    {
-     "questID": 1394,
-     "level": null,
-     "name": "Final Passage"
-    },
-    {
-     "questID": 1949,
-     "level": null,
-     "name": "Hidden Secrets"
-    },
-    {
-     "questID": 1950,
-     "level": null,
-     "name": "Get the Scoop"
+     "side": null,
+     "start": "Mage Only Thousand Needles, Shimmering Flats Raceway - Magus Tirth",
+     "x": 78.0,
+     "y": 75.0,
+     "chain": 1947,
+     "shareable": false,
+     "name": "Rituals of Power",
+     "chainName": "Journey to the Marsh"
     }
    ],
    "trash": {
@@ -5097,42 +5652,70 @@
     {
      "questID": 387,
      "level": 22,
+     "side": "Alliance",
+     "start": "Stormwind, Outside Stockades - Warden Thelwater",
+     "x": 41.0,
+     "y": 58.0,
+     "chain": null,
+     "shareable": true,
      "name": "Quell the Uprising"
     },
     {
      "questID": 388,
      "level": 22,
+     "side": "Alliance",
+     "start": "Stockades, Old Town - Nikova Raskol (patrols)",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": true,
      "name": "The Color of Blood"
     },
     {
      "questID": 377,
      "level": 22,
+     "side": "Alliance",
+     "start": "Duskwood, Darkshire - Councilman Millstipe",
+     "x": 72.0,
+     "y": 47.8,
+     "chain": null,
+     "shareable": true,
      "name": "Crime and Punishment"
     },
     {
      "questID": 386,
      "level": 22,
+     "side": "Alliance",
+     "start": "Redridge Mountains, Lakeshire - Guard Berton",
+     "x": 26.0,
+     "y": 46.0,
+     "chain": null,
+     "shareable": true,
      "name": "What Comes Around..."
     },
     {
      "questID": 378,
      "level": 25,
-     "name": "The Fury Runs Deep"
+     "side": "Alliance",
+     "start": "Wetlands, Dun Modr- Motley Garmason",
+     "x": 49.0,
+     "y": 18.0,
+     "chain": 303,
+     "shareable": false,
+     "name": "The Fury Runs Deep",
+     "chainName": "The Dark Iron War"
     },
     {
      "questID": 391,
      "level": 16,
-     "name": "The Stockade Riots"
-    },
-    {
-     "questID": 303,
-     "level": null,
-     "name": "The Dark Iron War"
-    },
-    {
-     "questID": 373,
-     "level": null,
-     "name": "The Unsent Letter"
+     "side": "Alliance",
+     "start": "Stormwind, Outside Stockades - Warden Thelwater",
+     "x": 41.0,
+     "y": 58.0,
+     "chain": 373,
+     "shareable": false,
+     "name": "The Stockade Riots",
+     "chainName": "The Unsent Letter"
     }
    ],
    "trash": {
@@ -5153,178 +5736,7 @@
    "updated": "2026/11/16",
    "levels": null,
    "bosses": [],
-   "quests": [
-    {
-     "questID": 9063,
-     "level": null,
-     "name": "Torwa Pathfinder"
-    },
-    {
-     "questID": 9052,
-     "level": null,
-     "name": "Bloodpetal Poison"
-    },
-    {
-     "questID": 9051,
-     "level": null,
-     "name": "Toxic Test"
-    },
-    {
-     "questID": 9053,
-     "level": null,
-     "name": "A Better Ingredient"
-    },
-    {
-     "questID": 8151,
-     "level": null,
-     "name": "The Hunter's Charm"
-    },
-    {
-     "questID": 8153,
-     "level": null,
-     "name": "Courser Antlers"
-    },
-    {
-     "questID": 8231,
-     "level": null,
-     "name": "Wavethrashing"
-    },
-    {
-     "questID": 8232,
-     "level": null,
-     "name": "The Green Drake"
-    },
-    {
-     "questID": 8250,
-     "level": null,
-     "name": "Magecraft"
-    },
-    {
-     "questID": 8251,
-     "level": null,
-     "name": "Magic Dust"
-    },
-    {
-     "questID": 8252,
-     "level": null,
-     "name": "The Siren's Coral"
-    },
-    {
-     "questID": 8253,
-     "level": null,
-     "name": "Destroy Morphaz"
-    },
-    {
-     "questID": 8415,
-     "level": null,
-     "name": "Chillwind Point"
-    },
-    {
-     "questID": 8414,
-     "level": null,
-     "name": "Dispelling Evil"
-    },
-    {
-     "questID": 8416,
-     "level": null,
-     "name": "Inert Scourgestones"
-    },
-    {
-     "questID": 8418,
-     "level": null,
-     "name": "Forging the Mightstone"
-    },
-    {
-     "questID": 8254,
-     "level": null,
-     "name": "Cenarion Aid"
-    },
-    {
-     "questID": 8255,
-     "level": null,
-     "name": "Of Coursers We Know"
-    },
-    {
-     "questID": 8256,
-     "level": null,
-     "name": "The Ichor of Undeath"
-    },
-    {
-     "questID": 8257,
-     "level": null,
-     "name": "Blood of Morphaz"
-    },
-    {
-     "questID": 8233,
-     "level": null,
-     "name": "A Simple Request"
-    },
-    {
-     "questID": 8234,
-     "level": null,
-     "name": "Sealed Azure Bag"
-    },
-    {
-     "questID": 8235,
-     "level": null,
-     "name": "Encoded Fragments"
-    },
-    {
-     "questID": 8236,
-     "level": null,
-     "name": "The Azure Key"
-    },
-    {
-     "questID": 8410,
-     "level": null,
-     "name": "Elemental Mastery"
-    },
-    {
-     "questID": 8412,
-     "level": null,
-     "name": "Spirit Totem"
-    },
-    {
-     "questID": 8413,
-     "level": null,
-     "name": "Da Voodoo"
-    },
-    {
-     "questID": 8419,
-     "level": null,
-     "name": "An Imp's Request"
-    },
-    {
-     "questID": 8421,
-     "level": null,
-     "name": "The Wrong Stuff"
-    },
-    {
-     "questID": 8422,
-     "level": null,
-     "name": "Trolls of a Feather"
-    },
-    {
-     "questID": 8417,
-     "level": null,
-     "name": "A Troubled Spirit"
-    },
-    {
-     "questID": 8423,
-     "level": null,
-     "name": "Warrior Kinship"
-    },
-    {
-     "questID": 8424,
-     "level": null,
-     "name": "War on the Shadowsworn"
-    },
-    {
-     "questID": 8425,
-     "level": null,
-     "name": "Voodoo Feathers"
-    }
-   ],
+   "quests": [],
    "trash": {
     "npcIDs": [],
     "spells": [],
@@ -5455,152 +5867,143 @@
     {
      "questID": 4768,
      "level": 57,
-     "name": "The Darkstone Tablet"
+     "side": "Horde",
+     "start": "Badlands, Kargath - Shadowmage Vivian Lagrave",
+     "x": 3.0,
+     "y": 48.0,
+     "chain": 4769,
+     "shareable": true,
+     "name": "The Darkstone Tablet",
+     "chainName": "Vivian Lagrave and the Darkstone Tablet"
     },
     {
      "questID": 4974,
      "level": 55,
-     "name": "For The Horde!"
+     "side": "Horde",
+     "start": "Orgrimmar, Valley of Wisdom - Thrall",
+     "x": 31.0,
+     "y": 37.0,
+     "chain": 4903,
+     "shareable": false,
+     "name": "For The Horde!",
+     "chainName": "Warlord's Command"
     },
     {
      "questID": 6602,
      "level": 55,
-     "name": "Blood of the Black Dragon Champion"
+     "side": "Horde",
+     "start": "Desolace, Rexxar, patrols (see database for path)",
+     "x": null,
+     "y": null,
+     "chain": 4903,
+     "shareable": false,
+     "name": "Blood of the Black Dragon Champion",
+     "chainName": "Warlord's Command"
     },
     {
      "questID": 4764,
      "level": 57,
-     "name": "Doomrigger's Clasp"
+     "side": "Alliance",
+     "start": "Burning Steppes, Morgan's Vigil - Mayara Brightwing",
+     "x": 84.0,
+     "y": 69.0,
+     "chain": 4766,
+     "shareable": true,
+     "name": "Doomrigger's Clasp",
+     "chainName": "Mayara Brightwing"
     },
     {
      "questID": 5102,
      "level": 55,
-     "name": "General Drakkisath's Demise"
+     "side": "Alliance",
+     "start": "Burning Steppes, Morgan's Vigil - Marshal Maxwell",
+     "x": 84.0,
+     "y": 68.0,
+     "chain": 5089,
+     "shareable": false,
+     "name": "General Drakkisath's Demise",
+     "chainName": "General Drakkisath's Command"
     },
     {
      "questID": 6502,
      "level": 50,
-     "name": "Drakefire Amulet"
+     "side": "Alliance",
+     "start": "Winterspring, Mazthoril- Haleh",
+     "x": 56.0,
+     "y": 49.0,
+     "chain": 4182,
+     "shareable": false,
+     "name": "Drakefire Amulet",
+     "chainName": "Dragonkin Menace"
     },
     {
      "questID": 7761,
      "level": 55,
+     "side": null,
+     "start": "Blackrock Mountain, Side hallway on way to BWL - Blackhand's Command dropped by Scarshield Quarterma",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Blackhand's Command"
     },
     {
      "questID": 5160,
      "level": 57,
+     "side": null,
+     "start": "Blackrock Spire, Upper, Awbee, on small ledge in room after killing Blackhand",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "The Matron Protectorate"
     },
     {
      "questID": 5047,
      "level": 57,
+     "side": null,
+     "start": "Blackrock Spire, Upper- Pip Quickwit, only spawns after Skinner (300) skins The Beast with Pip Quick",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Pip Quickwit, At Your Service!"
     },
     {
      "questID": 4735,
      "level": 57,
-     "name": "Egg Collection"
+     "side": null,
+     "start": "Burning Steppes, Flame Crest - Tinkee Steamboil",
+     "x": 65.0,
+     "y": 23.0,
+     "chain": 4734,
+     "shareable": false,
+     "name": "Egg Collection",
+     "chainName": "Egg Freezing"
     },
     {
      "questID": 6821,
      "level": 55,
-     "name": "Eye of the Emberseer"
+     "side": null,
+     "start": "Azshara - Duke Hydraxis",
+     "x": 79.0,
+     "y": 73.0,
+     "chain": 6805,
+     "shareable": false,
+     "name": "Eye of the Emberseer",
+     "chainName": "Stormers and Rumblers"
     },
     {
      "questID": 5127,
      "level": 55,
-     "name": "The Demon Forge"
-    },
-    {
-     "questID": 4769,
-     "level": null,
-     "name": "Vivian Lagrave and the Darkstone Tablet"
-    },
-    {
-     "questID": 4903,
-     "level": null,
-     "name": "Warlord's Command"
-    },
-    {
-     "questID": 4766,
-     "level": null,
-     "name": "Mayara Brightwing"
-    },
-    {
-     "questID": 5089,
-     "level": null,
-     "name": "General Drakkisath's Command"
-    },
-    {
-     "questID": 4182,
-     "level": null,
-     "name": "Dragonkin Menace"
-    },
-    {
-     "questID": 4734,
-     "level": null,
-     "name": "Egg Freezing"
-    },
-    {
-     "questID": 4726,
-     "level": null,
-     "name": "Broodling Essence"
-    },
-    {
-     "questID": 6805,
-     "level": null,
-     "name": "Stormers and Rumblers"
-    },
-    {
-     "questID": 6804,
-     "level": null,
-     "name": "Poisoned Water"
-    },
-    {
-     "questID": 5126,
-     "level": null,
-     "name": "Lorax's Tale"
-    },
-    {
-     "questID": 5161,
-     "level": null,
-     "name": "Wrath of the Blue Flight"
-    },
-    {
-     "questID": 5162,
-     "level": null,
-     "name": "Wrath of the Blue Flight"
-    },
-    {
-     "questID": 5164,
-     "level": null,
-     "name": "Catalogue of the Wayward"
-    },
-    {
-     "questID": 5166,
-     "level": null,
-     "name": "Breastplate of the Chromatic Flight"
-    },
-    {
-     "questID": 5167,
-     "level": null,
-     "name": "Legplates of the Chromatic Defier"
-    },
-    {
-     "questID": 4765,
-     "level": null,
-     "name": "Delivery to Ridgewell"
-    },
-    {
-     "questID": 4133,
-     "level": null,
-     "name": "Vivian Lagrave"
-    },
-    {
-     "questID": 4941,
-     "level": null,
-     "name": "Eitrigg's Wisdom"
+     "side": null,
+     "start": "Blacksmiths Only - Winterspring, Southeast - Lorax",
+     "x": 63.0,
+     "y": 73.0,
+     "chain": 5126,
+     "shareable": false,
+     "name": "The Demon Forge",
+     "chainName": "Lorax's Tale"
     }
    ],
    "trash": {
@@ -5813,212 +6216,162 @@
     {
      "questID": 2342,
      "level": 33,
+     "side": "Horde",
+     "start": "Undercity, Center - Patrick Garrett",
+     "x": 62.0,
+     "y": 48.0,
+     "chain": null,
+     "shareable": true,
      "name": "Reclaimed Treasures"
     },
     {
      "questID": 2202,
      "level": 36,
-     "name": "Uldaman Reagent Run"
+     "side": "Horde",
+     "start": "Badlands, Kargath - Jarkal Mossmeld",
+     "x": 3.0,
+     "y": 46.0,
+     "chain": 2258,
+     "shareable": false,
+     "name": "Uldaman Reagent Run",
+     "chainName": "Badlands Reagent Run"
     },
     {
      "questID": 2283,
      "level": 37,
+     "side": "Horde",
+     "start": "Badlands, Outside Uldaman instance - Shattered Necklace drop from Shadowforge or Shadowvault mobs",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "Necklace Recovery"
     },
     {
      "questID": 1360,
      "level": 33,
+     "side": "Alliance",
+     "start": "Ironforge, Hall of Explorers - Krom Stoutarm",
+     "x": 74.0,
+     "y": 9.0,
+     "chain": null,
+     "shareable": true,
      "name": "Reclaimed Treasures"
     },
     {
      "questID": 2398,
      "level": 35,
+     "side": "Alliance",
+     "start": "Ironforge, Hall of Explorers - Prospector Stormpike",
+     "x": 75.0,
+     "y": 12.0,
+     "chain": null,
+     "shareable": true,
      "name": "The Lost Dwarves"
     },
     {
      "questID": 2240,
      "level": 35,
-     "name": "The Hidden Chamber"
+     "side": "Alliance",
+     "start": "Uldaman, Lost Dwarves area",
+     "x": null,
+     "y": null,
+     "chain": 2398,
+     "shareable": false,
+     "name": "The Hidden Chamber",
+     "chainName": "The Lost Dwarves"
     },
     {
      "questID": 17,
      "level": 38,
-     "name": "Uldaman Reagent Run"
+     "side": "Alliance",
+     "start": "Loch Modan, Thelsamar - Ghak Healtouch",
+     "x": 37.0,
+     "y": 49.0,
+     "chain": 2500,
+     "shareable": false,
+     "name": "Uldaman Reagent Run",
+     "chainName": "Badlands Reagent Run"
     },
     {
      "questID": 704,
      "level": 33,
-     "name": "Agmond's Fate"
+     "side": "Alliance",
+     "start": "Loch Modan, Ironband's Excavation Site - Prospector Ironband",
+     "x": 65.0,
+     "y": 65.0,
+     "chain": 707,
+     "shareable": false,
+     "name": "Agmond's Fate",
+     "chainName": "Ironband Wants You!"
     },
     {
      "questID": 1139,
      "level": 30,
-     "name": "The Lost Tablets of Will"
+     "side": "Alliance",
+     "start": "Ironforge, Hall of Explorers - Advisor Belgrum",
+     "x": 77.0,
+     "y": 9.0,
+     "chain": 720,
+     "shareable": false,
+     "name": "The Lost Tablets of Will",
+     "chainName": "A Sign of Hope"
     },
     {
      "questID": 2198,
      "level": 37,
+     "side": "Alliance",
+     "start": "Badlands, Outside Uldaman instance - Shattered Necklace drop from Shadowforge or Shadowvault mobs",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "The Shattered Necklace"
     },
     {
      "questID": 2418,
      "level": 30,
+     "side": null,
+     "start": "Badlands, Central - Rigglefuzz",
+     "x": 42.0,
+     "y": 52.0,
+     "chain": null,
+     "shareable": true,
      "name": "Power Stones"
     },
     {
      "questID": 709,
      "level": 30,
+     "side": null,
+     "start": "Badlands, Southern - Theldurin the Lost",
+     "x": 51.0,
+     "y": 76.0,
+     "chain": null,
+     "shareable": true,
      "name": "Solution to Doom"
     },
     {
      "questID": 2278,
      "level": 40,
+     "side": null,
+     "start": "Uldaman, room after Archaedas",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "The Platinum Discs"
     },
     {
      "questID": 1956,
      "level": 35,
-     "name": "Power in Uldaman"
-    },
-    {
-     "questID": 722,
-     "level": null,
-     "name": "Amulet of Secrets"
-    },
-    {
-     "questID": 723,
-     "level": null,
-     "name": "Prospect of Faith"
-    },
-    {
-     "questID": 2439,
-     "level": null,
-     "name": "The Platinum Discs"
-    },
-    {
-     "questID": 2258,
-     "level": null,
-     "name": "Badlands Reagent Run"
-    },
-    {
-     "questID": 2500,
-     "level": null,
-     "name": "Badlands Reagent Run"
-    },
-    {
-     "questID": 707,
-     "level": null,
-     "name": "Ironband Wants You!"
-    },
-    {
-     "questID": 720,
-     "level": null,
-     "name": "A Sign of Hope"
-    },
-    {
-     "questID": 1953,
-     "level": null,
-     "name": "Return to the Marsh"
-    },
-    {
-     "questID": 2440,
-     "level": null,
-     "name": "The Platinum Discs"
-    },
-    {
-     "questID": 1954,
-     "level": null,
-     "name": "The Infernal Orb"
-    },
-    {
-     "questID": 1955,
-     "level": null,
-     "name": "The Exorcism"
-    },
-    {
-     "questID": 724,
-     "level": null,
-     "name": "Prospect of Faith"
-    },
-    {
-     "questID": 2501,
-     "level": null,
-     "name": "Badlands Reagent Run II"
-    },
-    {
-     "questID": 738,
-     "level": null,
-     "name": "Find Agmond"
-    },
-    {
-     "questID": 739,
-     "level": null,
-     "name": "Murdaloc"
-    },
-    {
-     "questID": 725,
-     "level": null,
-     "name": "Passing Word of a Threat"
-    },
-    {
-     "questID": 726,
-     "level": null,
-     "name": "Passing Word of a Threat"
-    },
-    {
-     "questID": 762,
-     "level": null,
-     "name": "An Ambassador of Evil"
-    },
-    {
-     "questID": 2204,
-     "level": null,
-     "name": "Restoring the Necklace"
-    },
-    {
-     "questID": 2199,
-     "level": null,
-     "name": "Lore for a Price"
-    },
-    {
-     "questID": 2200,
-     "level": null,
-     "name": "Back to Uldaman"
-    },
-    {
-     "questID": 2201,
-     "level": null,
-     "name": "Find the Gems"
-    },
-    {
-     "questID": 2203,
-     "level": null,
-     "name": "Badlands Reagent Run II"
-    },
-    {
-     "questID": 2341,
-     "level": null,
-     "name": "Necklace Recovery, Take 3"
-    },
-    {
-     "questID": 2284,
-     "level": null,
-     "name": "Necklace Recovery, Take 2"
-    },
-    {
-     "questID": 2339,
-     "level": null,
-     "name": "Find the Gems and Power Source"
-    },
-    {
-     "questID": 2340,
-     "level": null,
-     "name": "Deliver the Gems"
-    },
-    {
-     "questID": 2431,
-     "level": null,
-     "name": ""
+     "side": null,
+     "start": "Mage Only - Dustwallow Marsh, N. of Stonemaul Ruins - Tabetha",
+     "x": 46.0,
+     "y": 57.0,
+     "chain": 1953,
+     "shareable": false,
+     "name": "Power in Uldaman",
+     "chainName": "Return to the Marsh"
     }
    ],
    "trash": {
@@ -6203,52 +6556,81 @@
     {
      "questID": 962,
      "level": 14,
+     "side": "Horde",
+     "start": "Thunder Bluff, Pools of Vision - Apothecary Zamah",
+     "x": 34.0,
+     "y": 21.0,
+     "chain": null,
+     "shareable": true,
      "name": "Serpentbloom"
     },
     {
      "questID": 1491,
      "level": 13,
-     "name": "Smart Drinks"
+     "side": null,
+     "start": "The Barrens, Ratchet - Mebok Mizzyrix",
+     "x": 62.0,
+     "y": 37.0,
+     "chain": 865,
+     "shareable": false,
+     "name": "Smart Drinks",
+     "chainName": "Raptor Horns"
     },
     {
      "questID": 959,
      "level": 14,
+     "side": null,
+     "start": "The Barrens, Ratchet- Crane Operator Bigglefuzz",
+     "x": 63.0,
+     "y": 37.0,
+     "chain": null,
+     "shareable": true,
      "name": "Trouble at the Docks"
     },
     {
      "questID": 1486,
      "level": 13,
+     "side": null,
+     "start": "The Barrens, Above WC entrance - Nalpak",
+     "x": 46.0,
+     "y": 35.0,
+     "chain": null,
+     "shareable": true,
      "name": "Deviate Hides"
     },
     {
      "questID": 1487,
      "level": 15,
+     "side": null,
+     "start": "The Barrens, Above WC entrance - Ebru",
+     "x": 46.0,
+     "y": 35.0,
+     "chain": null,
+     "shareable": true,
      "name": "Deviate Eradication"
     },
     {
      "questID": 6981,
      "level": 10,
+     "side": null,
+     "start": "Wailing Caverns, Drops from Mutanus the Devourer",
+     "x": null,
+     "y": null,
+     "chain": null,
+     "shareable": false,
      "name": "The Glowing Shard"
     },
     {
      "questID": 914,
      "level": 15,
-     "name": "Leaders of the Fang"
-    },
-    {
-     "questID": 865,
-     "level": null,
-     "name": "Raptor Horns"
-    },
-    {
-     "questID": 870,
-     "level": null,
-     "name": "The Forgotten Pools"
-    },
-    {
-     "questID": 3369,
-     "level": null,
-     "name": "In Nightmares"
+     "side": "Horde",
+     "start": "Thunder Bluff, Elder Rise - Nara Wildmane",
+     "x": 45.0,
+     "y": 23.0,
+     "chain": 870,
+     "shareable": false,
+     "name": "Leaders of the Fang",
+     "chainName": "The Forgotten Pools"
     }
    ],
    "trash": {
@@ -6442,67 +6824,93 @@
     {
      "questID": 2936,
      "level": 40,
-     "name": "The Spider God"
-    },
-    {
-     "questID": 96775,
-     "level": 42,
-     "name": "Zum'rah's Head"
+     "side": "Horde",
+     "start": "Durotar, Sen'jin Village - Master Gadrin",
+     "x": 56.0,
+     "y": 74.0,
+     "chain": 2933,
+     "shareable": false,
+     "name": "The Spider God",
+     "chainName": "Venom Bottles"
     },
     {
      "questID": 2991,
      "level": 40,
-     "name": "Nekrum's Medallion"
+     "side": "Alliance",
+     "start": "Blasted Lands, Nethergarde Keep - Thadius Grimshade",
+     "x": 66.0,
+     "y": 19.0,
+     "chain": 2988,
+     "shareable": false,
+     "name": "Nekrum's Medallion",
+     "chainName": "Witherbark Cages"
     },
     {
      "questID": 2768,
      "level": 40,
+     "side": null,
+     "start": "Tanaris, Gadgetzan - Chief Engineer Bilgewhizzle",
+     "x": 52.0,
+     "y": 28.0,
+     "chain": null,
+     "shareable": true,
      "name": "Divino-matic Rod"
     },
     {
      "questID": 2865,
      "level": 40,
+     "side": null,
+     "start": "Tanaris, Gadgetzan - Tran'rek",
+     "x": 51.0,
+     "y": 26.0,
+     "chain": null,
+     "shareable": true,
      "name": "Scarab Shells"
     },
     {
      "questID": 3042,
      "level": 40,
+     "side": null,
+     "start": "Tanaris, Gadgetzan - Trenton Lighthammer",
+     "x": 51.0,
+     "y": 28.0,
+     "chain": null,
+     "shareable": true,
      "name": "Troll Temper"
     },
     {
      "questID": 2846,
      "level": 40,
+     "side": null,
+     "start": "Dustwallow Marsh, N. of Stonemaul Ruins - Tabetha",
+     "x": 46.0,
+     "y": 57.0,
+     "chain": null,
+     "shareable": true,
      "name": "Tiara of the Deep"
     },
     {
      "questID": 2770,
      "level": 40,
+     "side": null,
+     "start": "Thousand Needles, Shimmering Flats - Wizzle Brassbolts",
+     "x": 78.0,
+     "y": 77.0,
+     "chain": null,
+     "shareable": true,
      "name": "Gahz'rilla"
     },
     {
      "questID": 3527,
      "level": 40,
-     "name": "The Prophecy of Mosh'aru"
-    },
-    {
-     "questID": 2933,
-     "level": null,
-     "name": "Venom Bottles"
-    },
-    {
-     "questID": 2988,
-     "level": null,
-     "name": "Witherbark Cages"
-    },
-    {
-     "questID": 3520,
-     "level": null,
-     "name": "Screecher Spirits"
-    },
-    {
-     "questID": 2864,
-     "level": null,
-     "name": "Tran'rek"
+     "side": null,
+     "start": "Tanaris, Steamwheedle Port - Yeh'kinya",
+     "x": 67.0,
+     "y": 22.0,
+     "chain": 3520,
+     "shareable": false,
+     "name": "The Prophecy of Mosh'aru",
+     "chainName": "Screecher Spirits"
     }
    ],
    "trash": {

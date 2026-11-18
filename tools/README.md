@@ -23,7 +23,7 @@ Data/Content/*.lua (hand-written text)  ----------------------------------------
 | `wowhead/snapshot.json` | Raw data: every boss drop (item ID, name, quality, slot, source NPC) per zone, plus NPC names. Fetched 2026-11-16. |
 | `build_wowhead.py` | Turns the snapshot into `Data/Generated/Wowhead.lua`. The tables at the top decide which zone is which instance, which wing each boss belongs to, which NPCs are trash, and which NPCs form one encounter. |
 | `wowhead/extract_guides.js` | Run in your browser's console on wowhead.com/forever. Reads Wowhead's dungeon and raid overview guides into `wowhead/guides.json` (git-ignored: it holds Wowhead's own text). |
-| `compare_guides.py` | Reads `guides.json`, writes `wowhead/guide_facts.json` (IDs, names, levels, quests; committed) and `wowhead/guide_report.md` (where our guide disagrees; not committed). |
+| `compare_guides.py` | Reads `guides.json`, writes `wowhead/guide_facts.json` (IDs, names, levels, quests; committed), `Data/Generated/Quests.lua` (each dungeon's quests; `--quests` rebuilds just this from the facts), and `wowhead/guide_report.md` (where our guide disagrees; not committed). |
 | `apply_writing.py` | Merges drafted guide writing (a JSON file of instance and boss text) into `Data/Content/*.lua`, keeping the standard format. Drafts are input only; don't commit them. |
 | `migrate_content.py` | One-time conversion of the old `Data/Guides` files into `Data/Content`. Kept for the record. |
 | `learned_intake.py` | Reads players' `/ag share` exports, merges them into `learned/community.json`, and writes `Data/Generated/Community.lua`. See below. |

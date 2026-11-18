@@ -24,6 +24,56 @@ local function levelLine(inst)
 	return string.format("%s  |  |cff%sLevels %d-%d|r  |  5 players", inst.zone, AG:LevelColor(inst), inst.minLevel, inst.maxLevel)
 end
 
+local QUEST_ICON = {
+	done = "Interface\\RaidFrame\\ReadyCheck-Ready",
+	active = "Interface\\GossipFrame\\ActiveQuestIcon",
+	open = "Interface\\GossipFrame\\AvailableQuestIcon",
+}
+
+-- A quest's level in the game's difficulty color for you (grey, green, yellow, orange, red).
+local function questLevel(level)
+	if not level then return "" end
+	local color = GetQuestDifficultyColor and GetQuestDifficultyColor(level)
+	if type(color) == "table" and color.r then
+		return string.format("|cff%02x%02x%02x[%d]|r ", color.r * 255, color.g * 255, color.b * 255, level)
+	end
+	return string.format("[%d] ", level)
+end
+
+local function questBody(q)
+	local body = q.start and ("Starts: " .. q.start) or nil
+	if body and q.x and q.y then body = body .. string.format("  |cff888888(%.0f, %.0f)|r", q.x, q.y) end
+	if q.chain then
+		local chain = (q.chainName and q.chainName ~= q.name)
+			and string.format("Part of a chain that starts with |cffffd100%s|r.", q.chainName)
+			or "Part of a quest chain: earlier steps come first."
+		body = body and (body .. "\n" .. chain) or chain
+	end
+	return body
+end
+
+-- The instance page's Quests section: your faction's quests, easiest first, with what
+-- you've done checked off. Hover a quest for the game's own quest tooltip.
+function AG:RenderQuestList(doc, instKey)
+	local quests, other, open = self:QuestsFor(instKey)
+	if #quests == 0 and other == 0 then return end
+	doc:Heading(string.format("Quests  |cff888888(%d, %d not done)|r", #quests, open))
+	for _, q in ipairs(quests) do
+		local status = self:QuestStatus(q.questID)
+		local note = status == "done" and "|cff20ff20Done|r"
+			or status == "active" and "|cffffd100In your log|r"
+			or (q.side and ("|cff888888" .. q.side .. "|r") or nil)
+		doc:Row(QUEST_ICON[status or "open"], questLevel(q.level) .. (q.name or ("Quest " .. q.questID)),
+			questBody(q), note, { questID = q.questID, alpha = status == "done" and 0.6 or 1 })
+	end
+	if other > 0 then
+		local faction = self:PlayerFaction()
+		local them = faction == "Horde" and "the Alliance" or faction == "Alliance" and "the Horde" or "the other faction"
+		doc:Paragraph(string.format("%d more quest%s here for %s.", other, other == 1 and "" or "s", them),
+			{ font = "GameFontHighlightSmall", color = { 0.6, 0.6, 0.6 } })
+	end
+end
+
 -- Shown at the foot of every instance page.
 AG.CREDITS = "Sources: levels, bosses, abilities, quests, and loot from Wowhead's WoW Forever "
 	.. "database and dungeon guides (wowhead.com/forever), plus what players' learning mode "
@@ -73,6 +123,8 @@ function AG:RenderInstanceOverview(instKey)
 			})
 		end
 	end
+
+	self:RenderQuestList(doc, instKey)
 
 	if not (guide.lore or guide.route or guide.intro) then
 		doc:Paragraph("No write-up for this instance yet. Its bosses and loot are still listed on the left.",

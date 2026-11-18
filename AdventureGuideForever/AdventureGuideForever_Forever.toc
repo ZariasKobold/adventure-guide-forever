@@ -52,11 +52,13 @@ Data\Content\hyjalsummit.lua
 Data\Content\onyxia.lua
 Data\Generated\Wowhead.lua
 Data\Generated\Community.lua
+Data\Generated\Quests.lua
 Learn.lua
 Journey.lua
 Wishlist.lua
 Sync.lua
 Share.lua
+Quests.lua
 UI\Widgets.lua
 UI\MicroButton.lua
 UI\Document.lua

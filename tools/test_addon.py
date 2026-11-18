@@ -449,9 +449,13 @@ class GuideCompareTests(unittest.TestCase):
         '[h2 type=bar toc="Overview"]Ragefire Chasm Overview[/h2]\r\n'
         "The recommended level for Ragefire Chasm is 13-18. It's short.\r\n"
         '[h2 type=bar toc="Quests"]Every Quest[/h2]\r\n'
-        "[table][tr][td]Quest[/td][td]Level[/td][/tr]"
-        "[tr][td][quest=5728][/td][td]9[/td][/tr]"
-        "[tr][td][quest=5761][/td][td]9[/td][/tr][/table]\r\n"
+        "[table][tr background=black][td][b]Quest[/b][/td][td]Level[/td][td]Side[/td][td]Effort[/td]"
+        "[td]Share?[/td][td]Starts[/td][/tr]"
+        "[tr][td][quest=5728][/td][td align=center]9 [/td][td][span class=icon-horde][/span][/td][td][/td]"
+        "[td][b][color=q5]Pre[/color][/b][/td][td][b]Orgrimmar[/b], Valley of Wisdom - [npc=4949] /way 31 37\r\n"
+        "[i]Prerequisite: Complete 3 quests, starting with [quest=5726][/i][/td][/tr]"
+        "[tr][td][quest=5761][/td][td]9[/td][td]-[/td][td][/td][td][span class=\"fa fa-check\"][/span][/td]"
+        "[td]Inside RFC - [item=14381] drop[/td][/tr][/table]\r\n"
         '[h2 type=bar toc="Trash"]Noteworthy Trash Mobs[/h2]\r\n'
         "Ragefire Shamans ([npc=11319]) cast [spell=547].\r\n"
         '[h2 type=bar toc="Bosses"]Bosses[/h2]\r\n'
@@ -461,9 +465,12 @@ class GuideCompareTests(unittest.TestCase):
         "[/box-highlight]\r\n"
         '[h2 type=bar toc="Loot"]Loot[/h2]\r\n[item=14149]\r\n'
     )
-    NAMES = {"quest": {"5728": {"name": "Hidden Enemies"}, "5761": {"name": "Slaying the Beast"}},
+    NAMES = {"quest": {"5728": {"name": "Hidden Enemies"}, "5761": {"name": "Slaying the Beast"},
+                       "5726": {"name": "Hidden Enemies"}},
              "spell": {"11970": {"name": "Fire Nova"}, "18072": {"name": "Uppercut"}, "547": {"name": "Healing Wave"}},
-             "npc": {"11319": {"name": "Ragefire Shaman"}, "11520": {"name": "Taragaman the Hungerer"}}}
+             "npc": {"11319": {"name": "Ragefire Shaman"}, "11520": {"name": "Taragaman the Hungerer"},
+                     "4949": {"name": "Thrall"}},
+             "item": {"14381": {"name": "Grimtotem Satchel"}}}
 
     def setUp(self):
         import compare_guides
@@ -480,7 +487,61 @@ class GuideCompareTests(unittest.TestCase):
         self.assertEqual(boss["abilityNames"], ["Fire Nova", "Uppercut"])
         self.assertEqual([(q["questID"], q["level"], q["name"]) for q in facts["quests"]],
                          [(5728, 9, "Hidden Enemies"), (5761, 9, "Slaying the Beast")])
+        first, second = facts["quests"]
+        self.assertEqual((first["side"], first["start"], first["x"], first["y"], first["chain"], first["shareable"]),
+                         ("Horde", "Orgrimmar, Valley of Wisdom - Thrall", 31.0, 37.0, 5726, False))
+        self.assertEqual((second["side"], second["start"], second["x"], second["chain"], second["shareable"]),
+                         (None, "Inside RFC - Grimtotem Satchel drop", None, None, True))
         self.assertEqual(facts["trash"]["names"], ["Ragefire Shaman"])
+
+    def test_quests_file_is_up_to_date(self):
+        facts = json.loads(self.cg.FACTS.read_text(encoding="utf-8"))["instances"]
+        self.assertEqual(self.cg.QUESTS.read_text(encoding="utf-8"), self.cg.render_quests(facts),
+                         "Data/Generated/Quests.lua is stale: run tools/compare_guides.py --quests")
+
+    def test_quests_by_faction(self):
+        lua, ag = load_built()
+        ag.Quests = lua.table()
+        lua.eval("""function(ag) ag:RegisterQuests("ragefire", { quests = {
+            { questID = 1, name = "B", level = 9, side = "Horde" },
+            { questID = 2, name = "A", level = 9 },
+            { questID = 3, name = "C", level = 8, side = "Alliance" } } }) end""")(ag)
+        horde, other = ag.GetQuests(ag, "ragefire", "Horde")
+        self.assertEqual(([q["questID"] for q in to_py(horde)], other), ([2, 1], 1))
+        everyone, _ = ag.GetQuests(ag, "ragefire")
+        self.assertEqual([q["questID"] for q in to_py(everyone)], [3, 2, 1])
+
+    def test_quest_list_on_the_instance_page(self):
+        lua, ag = load_built()
+        lua.execute("""
+            UnitFactionGroup = function() return "Horde" end
+            C_QuestLog = {
+                IsQuestFlaggedCompleted = function(id) return id == 1 end,
+                GetLogIndexForQuestID = function(id) if id == 2 then return 4 end end,
+            }
+            agf_rows, agf_paras = {}, {}
+            agf_doc = {
+                Heading = function(self, t) agf_heading = t end,
+                Row = function(self, icon, title, body, note, opts) table.insert(agf_rows, { title = title, note = note, body = body, q = opts.questID }) end,
+                Paragraph = function(self, t) table.insert(agf_paras, t) end,
+            }""")
+        ag.Quests = lua.table()
+        lua.eval("""function(ag) ag:RegisterQuests("ragefire", { quests = {
+            { questID = 1, name = "Done one", level = 9, side = "Horde", start = "Orgrimmar", x = 49, y = 50 },
+            { questID = 2, name = "Taken", level = 10, chain = 1, chainName = "Done one" },
+            { questID = 3, name = "Open", level = 11 },
+            { questID = 4, name = "Theirs", level = 9, side = "Alliance" } } }) end""")(ag)
+        quests, other, open = ag.QuestsFor(ag, "ragefire")
+        self.assertEqual((len(to_py(quests)), other, open), (3, 1, 2))
+        ag.RenderQuestList(ag, lua.globals().agf_doc, "ragefire")
+        rows = to_py(lua.globals().agf_rows)
+        self.assertEqual([r["q"] for r in rows], [1, 2, 3])
+        self.assertIn("Done", rows[0]["note"])
+        self.assertIn("In your log", rows[1]["note"])
+        self.assertIn("Orgrimmar", rows[0]["body"])
+        self.assertIn("starts with", rows[1]["body"])
+        self.assertIn("(3, 2 not done)", lua.globals().agf_heading)
+        self.assertIn("for the Alliance", to_py(lua.globals().agf_paras)[0])
 
     def test_reads_h3_boss_boxes_and_between_levels(self):
         markup = ('[h2 toc="Overview"]O[/h2]The recommended level for Hall of Thanes is between 13 and 18.'

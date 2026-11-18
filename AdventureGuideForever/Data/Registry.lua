@@ -43,6 +43,7 @@ AG.Generated = AG.Generated or {}
 AG.Community = AG.Community or {}          -- [instKey] = { bosses = { {...} } }, as registered
 AG.CommunityLearned = {}                   -- [instKey] = { [bossKey] = learned-shaped record }
 AG.ItemIndex = {}                          -- [itemID] = { { instKey, bossKey, bossName, dropChance } }
+AG.Quests = AG.Quests or {}                -- [instKey] = { { questID, name, level, side, start, x, y, ... } }
 
 local MIN_KILLS_FOR_CHANCE = 5             -- kills needed before a learned drop chance shows
 
@@ -65,6 +66,34 @@ function AG:RegisterCommunity(instKey, data)
 	assert(type(instKey) == "string" and type(data) == "table", "RegisterCommunity(instKey, table)")
 	assert(not self.Community[instKey], "community data registered twice: " .. instKey)
 	self.Community[instKey] = data
+end
+
+-- Quest schema (generated, Data\Generated\Quests.lua, from Wowhead's dungeon guides):
+--   quests = { { questID, name, level, side ("Horde"/"Alliance", nil for both), start,
+--                x, y (map coordinates where it starts), chain, chainName (the quest its
+--                chain starts with), shareable } }
+function AG:RegisterQuests(instKey, data)
+	assert(type(instKey) == "string" and type(data) == "table", "RegisterQuests(instKey, table)")
+	assert(not self.Quests[instKey], "quests registered twice: " .. instKey)
+	self.Quests[instKey] = data.quests or {}
+end
+
+-- An instance's quests for a faction ("Horde"/"Alliance"; nil = all), by level then name.
+-- Also returns how many were left out for the other faction.
+function AG:GetQuests(instKey, faction)
+	local out, other = {}, 0
+	for _, q in ipairs(self.Quests[instKey] or {}) do
+		if not faction or not q.side or q.side == faction then
+			out[#out + 1] = q
+		else
+			other = other + 1
+		end
+	end
+	table.sort(out, function(a, b)
+		if (a.level or 0) ~= (b.level or 0) then return (a.level or 0) < (b.level or 0) end
+		return (a.name or "") < (b.name or "")
+	end)
+	return out, other
 end
 
 local function copyList(list)
@@ -226,6 +255,9 @@ function AG:BuildGuides()
 	end
 	for key in pairs(self.Community) do
 		assert(self:GetInstance(key), "community data for unknown instance: " .. key)
+	end
+	for key in pairs(self.Quests) do
+		assert(self:GetInstance(key), "quests for unknown instance: " .. key)
 	end
 	self.ItemIndex = buildItemIndex()
 end
