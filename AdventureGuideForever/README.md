@@ -21,9 +21,13 @@ Copy the `AdventureGuideForever` folder into `World of Warcraft\_forever_\Interf
   your wishlist items there. Targeting a boss shows its card: who it is, the tip for your
   role, and the abilities to watch for. Drag a card to move it. "Turn off" on the card (or
   `/ag cards`, `/ag bosscards`) switches them off.
+- **Search:** the box at the top of the guide (or `/ag find <name>`) finds dungeons,
+  bosses, gear (boss drops and quest rewards), quests, and abilities by name. Click a
+  result to jump to it.
 - **Quests:** each dungeon's overview lists its quests for your faction, easiest first,
-  with where each one starts (and map coordinates), which chain it belongs to, and a check
-  mark once you've done it. Hover one for its quest tooltip. The dungeon card tells you
+  with where each one starts (and map coordinates), which chain it belongs to, its
+  rewards, and a check mark once you've done it. Quest rewards show up in item tooltips
+  and the wishlist too. Hover one for its quest tooltip. The dungeon card tells you
   how many you haven't done yet.
 - **Wishlist:** click the star next to any loot. Dungeon cards show how many wishlist items
   are inside, the Wishlist tab lists them, and you get an alert when one drops.

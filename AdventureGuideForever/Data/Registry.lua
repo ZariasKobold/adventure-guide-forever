@@ -235,6 +235,14 @@ local function buildItemIndex()
 					bossName = rec.name or bossKey, dropChance = chanceFrom(count, rec.kills) })
 			end
 		end
+		-- Quest rewards: no boss, no drop chance; bossName reads "Quest: <name>" wherever
+		-- a source is shown.
+		for _, q in ipairs(AG.Quests[inst.key] or {}) do
+			for _, reward in ipairs(q.rewards or {}) do
+				addSource(index, reward.itemID, { instKey = inst.key, questID = q.questID,
+					questName = q.name, side = q.side, bossName = "Quest: " .. (q.name or q.questID) })
+			end
+		end
 	end
 	return index
 end
@@ -260,6 +268,7 @@ function AG:BuildGuides()
 		assert(self:GetInstance(key), "quests for unknown instance: " .. key)
 	end
 	self.ItemIndex = buildItemIndex()
+	if self.ResetSearch then self:ResetSearch() end
 end
 
 ------------------------------------------------------------------------
@@ -302,7 +311,7 @@ function AG:ItemSources(itemID)
 	local out, seen = {}, {}
 	for _, s in ipairs(self.ItemIndex[itemID] or {}) do
 		out[#out + 1] = s
-		seen[s.instKey .. ":" .. s.bossKey] = true
+		if s.bossKey then seen[s.instKey .. ":" .. s.bossKey] = true end
 	end
 	for instKey, inst in pairs(self.db and self.db.learned or {}) do
 		for bossKey, rec in pairs(inst.bosses or {}) do

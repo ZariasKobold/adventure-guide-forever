@@ -205,6 +205,13 @@ function UI.SetStar(texture, on)
 end
 
 -- A labelled checkbox. get() returns the current value; set(value) stores a new one.
+-- An item name in its quality color (grey, white, green, blue, purple, orange).
+local QUALITY_HEX = { [0] = "9d9d9d", "ffffff", "1eff00", "0070dd", "a335ee", "ff8000", "e6cc80" }
+function UI.QualityText(name, quality)
+	local hex = QUALITY_HEX[quality or 1] or "ffffff"
+	return string.format("|cff%s%s|r", hex, name or "?")
+end
+
 -- 12345 -> "12,345".
 function UI.Commas(n)
 	local s = tostring(math.floor(n or 0))

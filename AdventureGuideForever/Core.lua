@@ -7,7 +7,7 @@
 --   AdventureGuideForever_OnCompartmentClick      addon compartment entry (TOC)
 --   ToggleEncounterJournal                        only if Blizzard's is missing
 --   AdventureGuideForeverFrame, ...ToggleButton,  named frames (Escape-to-close, bindings)
---   ...ShareFrame
+--   ...ShareFrame, ...SearchBox
 
 local ADDON, AG = ...
 
@@ -218,7 +218,7 @@ end
 ------------------------------------------------------------------------
 
 local USAGE = "/ag opens the guide.  /ag options: settings.  /ag share: send what you learned "
-	.. "to the guide on GitHub.  /ag journey, /ag wishlist: open those tabs.  /ag steps: step counter on or off.  /ag sync: share "
+	.. "to the guide on GitHub.  /ag find <name>: search bosses, gear, and quests.  /ag journey, /ag wishlist: open those tabs.  /ag steps: step counter on or off.  /ag sync: share "
 	.. "with your group now.  /ag learn: learning mode on or off.  /ag reset learned: forget "
 	.. "what learning mode recorded."
 
@@ -256,6 +256,13 @@ SLASH_ADVENTUREGUIDEFOREVER1 = "/ag"
 SLASH_ADVENTUREGUIDEFOREVER2 = "/advguide"
 SlashCmdList.ADVENTUREGUIDEFOREVER = function(msg)
 	msg = (msg or ""):lower():match("^%s*(.-)%s*$")
+	local query = msg:match("^find%s+(.+)$") or msg:match("^search%s+(.+)$")
+	if query then
+		if not AG.frame then AG:CreateMainFrame() end
+		AG.frame:Show()
+		AG:SetSearch(query)
+		return
+	end
 	local command = commands[msg]
 	if command then
 		command()

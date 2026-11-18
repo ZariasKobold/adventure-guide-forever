@@ -362,6 +362,28 @@ class FeatureTests(unittest.TestCase):
         self.assertEqual(ui.Distance(1760 * 2.5), "2.50 miles")
         self.assertEqual(ui.Distance(1760 * 31), "31.0 miles")
 
+    def test_search_groups_and_ranks(self):
+        groups = {g["key"]: g for g in to_py(self.ag.Search(self.ag, "mugg"))}
+        self.assertEqual(groups["boss"]["results"][0]["name"], "Overlord Mugg")
+        self.assertIn("ability", groups)
+        self.assertFalse(to_py(self.ag.Search(self.ag, "m")))  # too short
+        self.assertFalse(to_py(self.ag.Search(self.ag, "zzzz nothing")))
+        # Punctuation and spaces don't matter, and abbreviations find dungeons.
+        self.assertEqual(to_py(self.ag.Search(self.ag, "zul farrak"))[0]["results"][0]["instKey"], "zulfarrak")
+        self.assertEqual(to_py(self.ag.Search(self.ag, "RFC"))[0]["results"][0]["instKey"], "ragefire")
+        # An exact name beats a longer one containing it.
+        names = [e["name"] for e in to_py(self.ag.Search(self.ag, "fire nova"))[0]["results"]]
+        self.assertEqual(names[0], "Fire Nova")
+
+    def test_quest_rewards_are_items_too(self):
+        quests = to_py(self.ag.Quests["ragefire"])
+        quest = next(q for q in quests if q.get("rewards"))
+        reward = quest["rewards"][0]
+        sources = to_py(self.ag.ItemSources(self.ag, reward["itemID"]))
+        self.assertIn(quest["questID"], [s.get("questID") for s in sources])
+        found = to_py(self.ag.Search(self.ag, reward["name"]))
+        self.assertIn(reward["itemID"], [e.get("itemID") for g in found for e in g["results"]])
+
     def test_item_sources_find_guide_loot(self):
         guides = to_py(self.ag.Guides)
         boss = next(b for b in guides["deadmines"]["bosses"] if b.get("loot"))

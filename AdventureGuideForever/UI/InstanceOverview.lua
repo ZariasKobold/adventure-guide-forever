@@ -49,6 +49,14 @@ local function questBody(q)
 			or "Part of a quest chain: earlier steps come first."
 		body = body and (body .. "\n" .. chain) or chain
 	end
+	if q.rewards and #q.rewards > 0 then
+		local names = {}
+		for i, r in ipairs(q.rewards) do
+			names[i] = UI.QualityText(r.name or ("item " .. r.itemID), r.quality)
+		end
+		local line = (q.choose and "Reward (choose one): " or "Reward: ") .. table.concat(names, ", ")
+		body = body and (body .. "\n" .. line) or line
+	end
 	return body
 end
 

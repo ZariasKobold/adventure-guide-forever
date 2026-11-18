@@ -15,11 +15,14 @@ local function addLines(tooltip, itemID)
 
 	tooltip:AddLine(" ")
 	if #sources > 0 then
-		tooltip:AddLine("Drops from:", 0.4, 0.8, 1)
+		local anyQuest = false
+		for _, s in ipairs(sources) do anyQuest = anyQuest or s.questID ~= nil end
+		tooltip:AddLine(anyQuest and "Where to get it:" or "Drops from:", 0.4, 0.8, 1)
 		for i = 1, math.min(MAX_SOURCES, #sources) do
 			local s = sources[i]
 			local inst = AG:GetInstance(s.instKey)
-			local chance = s.dropChance and string.format(s.dropChance >= 10 and "%.0f%%" or "%.1f%%", s.dropChance) or ""
+			local chance = s.questID and "quest reward"
+				or s.dropChance and string.format(s.dropChance >= 10 and "%.0f%%" or "%.1f%%", s.dropChance) or ""
 			tooltip:AddDoubleLine(string.format("%s, %s", s.bossName, inst and inst.name or s.instKey), chance,
 				1, 0.82, 0, 0.8, 0.8, 0.8)
 		end

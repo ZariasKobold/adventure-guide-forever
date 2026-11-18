@@ -338,7 +338,10 @@
      "y": 34.0,
      "chain": null,
      "shareable": true,
-     "name": "The Essence of Aku'Mai"
+     "name": "The Essence of Aku'Mai",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 6561,
@@ -349,7 +352,21 @@
      "y": null,
      "chain": null,
      "shareable": true,
-     "name": "Blackfathom Villainy"
+     "name": "Blackfathom Villainy",
+     "reqLevel": null,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 7002,
+       "name": "Arctic Buckler",
+       "quality": 3
+      },
+      {
+       "itemID": 7001,
+       "name": "Gravestone Scepter",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 6921,
@@ -360,7 +377,10 @@
      "y": 34.0,
      "chain": null,
      "shareable": true,
-     "name": "Amongst the Ruins"
+     "name": "Amongst the Ruins",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 6922,
@@ -371,7 +391,26 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Baron Aquanis"
+     "name": "Baron Aquanis",
+     "reqLevel": null,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 16886,
+       "name": "Outlaw Sabre",
+       "quality": 3
+      },
+      {
+       "itemID": 16887,
+       "name": "Witch's Finger",
+       "quality": 3
+      },
+      {
+       "itemID": 16782,
+       "name": "Strange Water Globe",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 1740,
@@ -393,7 +432,26 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Allegiance to the Old Gods"
+     "name": "Allegiance to the Old Gods",
+     "reqLevel": null,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 17694,
+       "name": "Band of the Fist",
+       "quality": 2
+      },
+      {
+       "itemID": 17695,
+       "name": "Chestnut Mantle",
+       "quality": 2
+      },
+      {
+       "itemID": 16790,
+       "name": "Damp Note",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 971,
@@ -404,7 +462,16 @@
      "y": 5.0,
      "chain": null,
      "shareable": true,
-     "name": "Knowledge in the Deeps"
+     "name": "Knowledge in the Deeps",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 6743,
+       "name": "Sustaining Ring",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 1275,
@@ -415,7 +482,21 @@
      "y": 43.0,
      "chain": null,
      "shareable": true,
-     "name": "Researching the Corruption"
+     "name": "Researching the Corruption",
+     "reqLevel": null,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 7003,
+       "name": "Beetle Clasps",
+       "quality": 2
+      },
+      {
+       "itemID": 7004,
+       "name": "Prelacy Cape",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 1199,
@@ -426,7 +507,10 @@
      "y": 24.0,
      "chain": null,
      "shareable": true,
-     "name": "Twilight Falls"
+     "name": "Twilight Falls",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 1198,
@@ -450,7 +534,21 @@
      "chain": 1198,
      "shareable": false,
      "name": "Blackfathom Villainy",
-     "chainName": "In Search of Thaelrid"
+     "chainName": "In Search of Thaelrid",
+     "reqLevel": null,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 7002,
+       "name": "Arctic Buckler",
+       "quality": 3
+      },
+      {
+       "itemID": 7001,
+       "name": "Gravestone Scepter",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 1740,
@@ -872,7 +970,26 @@
      "chain": 4324,
      "shareable": true,
      "name": "Ribbly Screwspigot",
-     "chainName": "Yuka Screwspigot"
+     "chainName": "Yuka Screwspigot",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 11865,
+       "name": "Rancor Boots",
+       "quality": 2
+      },
+      {
+       "itemID": 11963,
+       "name": "Penance Spaulders",
+       "quality": 2
+      },
+      {
+       "itemID": 12049,
+       "name": "Splintsteel Armor",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 4123,
@@ -883,7 +1000,10 @@
      "y": 23.0,
      "chain": null,
      "shareable": true,
-     "name": "The Heart of the Mountain"
+     "name": "The Heart of the Mountain",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 7848,
@@ -894,7 +1014,10 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Attunement to the Core"
+     "name": "Attunement to the Core",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 3802,
@@ -906,7 +1029,16 @@
      "chain": 3801,
      "shareable": false,
      "name": "Dark Iron Legacy",
-     "chainName": "Dark Iron Legacy"
+     "chainName": "Dark Iron Legacy",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 11000,
+       "name": "Shadowforge Key",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 4201,
@@ -917,7 +1049,21 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "The Love Potion"
+     "name": "The Love Potion",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 11962,
+       "name": "Manacle Cuffs",
+       "quality": 3
+      },
+      {
+       "itemID": 11866,
+       "name": "Nagmara's Whipping Belt",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 4024,
@@ -929,7 +1075,26 @@
      "chain": 3441,
      "shareable": true,
      "name": "A Taste of Flame",
-     "chainName": "Divine Retribution"
+     "chainName": "Divine Retribution",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12066,
+       "name": "Shaleskin Cape",
+       "quality": 2
+      },
+      {
+       "itemID": 12082,
+       "name": "Wyrmhide Spaulders",
+       "quality": 2
+      },
+      {
+       "itemID": 12083,
+       "name": "Valconian Sash",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 4262,
@@ -952,7 +1117,31 @@
      "chain": 4262,
      "shareable": true,
      "name": "Incendius!",
-     "chainName": "Overmaster Pyron"
+     "chainName": "Overmaster Pyron",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12113,
+       "name": "Sunborne Cape",
+       "quality": 2
+      },
+      {
+       "itemID": 12114,
+       "name": "Nightfall Gloves",
+       "quality": 2
+      },
+      {
+       "itemID": 12112,
+       "name": "Crypt Demon Bracers",
+       "quality": 2
+      },
+      {
+       "itemID": 12115,
+       "name": "Stalwart Clutch",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 4286,
@@ -963,7 +1152,21 @@
      "y": 68.0,
      "chain": null,
      "shareable": true,
-     "name": "The Good Stuff"
+     "name": "The Good Stuff",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 11883,
+       "name": "A Dingy Fanny Pack",
+       "quality": 1
+      },
+      {
+       "itemID": 11468,
+       "name": "Dark Iron Fanny Pack",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 4126,
@@ -974,7 +1177,26 @@
      "y": 52.0,
      "chain": null,
      "shareable": true,
-     "name": "Hurley Blackbreath"
+     "name": "Hurley Blackbreath",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 11964,
+       "name": "Swiftstrike Cudgel",
+       "quality": 2
+      },
+      {
+       "itemID": 12000,
+       "name": "Limb Cleaver",
+       "quality": 2
+      },
+      {
+       "itemID": 12003,
+       "name": "Dark Dwarven Lager",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 4341,
@@ -986,7 +1208,10 @@
      "chain": 3702,
      "shareable": false,
      "name": "Kharan Mighthammer",
-     "chainName": "The Smoldering Ruins of Thaurissan"
+     "chainName": "The Smoldering Ruins of Thaurissan",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 4362,
@@ -998,7 +1223,21 @@
      "chain": 4341,
      "shareable": false,
      "name": "The Fate of the Kingdom",
-     "chainName": "Kharan Mighthammer"
+     "chainName": "Kharan Mighthammer",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12548,
+       "name": "Magni's Will",
+       "quality": 3
+      },
+      {
+       "itemID": 12543,
+       "name": "Songstone of Ironforge",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 4241,
@@ -1033,7 +1272,10 @@
      "y": 47.0,
      "chain": null,
      "shareable": true,
-     "name": "KILL ON SIGHT: Dark Iron Dwarves"
+     "name": "KILL ON SIGHT: Dark Iron Dwarves",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 4134,
@@ -1045,7 +1287,31 @@
      "chain": 4133,
      "shareable": true,
      "name": "Lost Thunderbrew Recipe",
-     "chainName": "Vivian Lagrave"
+     "chainName": "Vivian Lagrave",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 11964,
+       "name": "Swiftstrike Cudgel",
+       "quality": 2
+      },
+      {
+       "itemID": 12000,
+       "name": "Limb Cleaver",
+       "quality": 2
+      },
+      {
+       "itemID": 3928,
+       "name": "Superior Healing Potion",
+       "quality": 1
+      },
+      {
+       "itemID": 6149,
+       "name": "Greater Mana Potion",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 4082,
@@ -1057,7 +1323,10 @@
      "chain": 4081,
      "shareable": false,
      "name": "KILL ON SIGHT: High Ranking Dark Iron Officials",
-     "chainName": "KILL ON SIGHT: Dark Iron Dwarves"
+     "chainName": "KILL ON SIGHT: Dark Iron Dwarves",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 4063,
@@ -1069,7 +1338,31 @@
      "chain": 4061,
      "shareable": false,
      "name": "The Rise of the Machines",
-     "chainName": "The Rise of the Machines"
+     "chainName": "The Rise of the Machines",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12109,
+       "name": "Azure Moon Amice",
+       "quality": 2
+      },
+      {
+       "itemID": 12110,
+       "name": "Raincaster Drape",
+       "quality": 2
+      },
+      {
+       "itemID": 12108,
+       "name": "Basaltscale Armor",
+       "quality": 2
+      },
+      {
+       "itemID": 12111,
+       "name": "Lavaplate Gauntlets",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 3906,
@@ -1104,7 +1397,10 @@
      "chain": 3906,
      "shareable": false,
      "name": "Commander Gor'shak",
-     "chainName": "Disharmony of Flame"
+     "chainName": "Disharmony of Flame",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 7201,
@@ -1116,7 +1412,21 @@
      "chain": 3906,
      "shareable": false,
      "name": "The Last Element",
-     "chainName": "Disharmony of Flame"
+     "chainName": "Disharmony of Flame",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12038,
+       "name": "Lagrave's Seal",
+       "quality": 2
+      },
+      {
+       "itemID": 11129,
+       "name": "Essence of the Elements",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 4132,
@@ -1128,7 +1438,16 @@
      "chain": 4081,
      "shareable": true,
      "name": "Operation: Death to Angerforge",
-     "chainName": "KILL ON SIGHT: Dark Iron Dwarves"
+     "chainName": "KILL ON SIGHT: Dark Iron Dwarves",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12059,
+       "name": "Conqueror's Medallion",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 4003,
@@ -1140,7 +1459,21 @@
      "chain": 3981,
      "shareable": true,
      "name": "The Royal Rescue",
-     "chainName": "Commander Gor'shak"
+     "chainName": "Commander Gor'shak",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12544,
+       "name": "Thrall's Resolve",
+       "quality": 3
+      },
+      {
+       "itemID": 12545,
+       "name": "Eye of Orgrimmar",
+       "quality": 3
+      }
+     ]
     }
    ],
    "trash": {
@@ -1566,7 +1899,10 @@
      "y": 21.0,
      "chain": null,
      "shareable": true,
-     "name": "Collecting Memories"
+     "name": "Collecting Memories",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 167,
@@ -1577,7 +1913,10 @@
      "y": 21.0,
      "chain": null,
      "shareable": true,
-     "name": "Oh Brother..."
+     "name": "Oh Brother...",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2040,
@@ -1588,7 +1927,10 @@
      "y": 13.0,
      "chain": null,
      "shareable": true,
-     "name": "Underground Assault"
+     "name": "Underground Assault",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 373,
@@ -1611,7 +1953,10 @@
      "y": 47.0,
      "chain": null,
      "shareable": false,
-     "name": "Red Silk Bandanas"
+     "name": "Red Silk Bandanas",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 166,
@@ -1622,7 +1967,10 @@
      "y": 47.0,
      "chain": null,
      "shareable": false,
-     "name": "The Defias Brotherhood"
+     "name": "The Defias Brotherhood",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 92753,
@@ -1645,7 +1993,10 @@
      "y": 36.0,
      "chain": null,
      "shareable": false,
-     "name": "The Test of Righteousness"
+     "name": "The Test of Righteousness",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 95036,
@@ -1980,7 +2331,10 @@
      "chain": 469,
      "shareable": false,
      "name": "Highland Hides",
-     "chainName": "Daily Delivery"
+     "chainName": "Daily Delivery",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 95772,
@@ -1991,7 +2345,10 @@
      "y": 46.6,
      "chain": null,
      "shareable": true,
-     "name": "Songblade Search"
+     "name": "Songblade Search",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 95646,
@@ -2002,7 +2359,10 @@
      "y": 40.6,
      "chain": null,
      "shareable": true,
-     "name": "Horrors in the Highland"
+     "name": "Horrors in the Highland",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 95647,
@@ -2014,7 +2374,10 @@
      "chain": 95737,
      "shareable": false,
      "name": "Lost in the Thicket Things",
-     "chainName": "Seeking Caitlin"
+     "chainName": "Seeking Caitlin",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 95809,
@@ -2037,7 +2400,10 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Lost Relic Carry"
+     "name": "Lost Relic Carry",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 98824,
@@ -2060,7 +2426,10 @@
      "y": 33.0,
      "chain": null,
      "shareable": true,
-     "name": "Changing Tastes"
+     "name": "Changing Tastes",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 95664,
@@ -2071,7 +2440,10 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Elder Knowledge"
+     "name": "Elder Knowledge",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 98823,
@@ -2095,7 +2467,10 @@
      "chain": 95663,
      "shareable": false,
      "name": "Open the Maw",
-     "chainName": "Dragonmaw Rumors"
+     "chainName": "Dragonmaw Rumors",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     }
    ],
    "trash": {
@@ -2217,7 +2592,10 @@
      "y": 25.0,
      "chain": null,
      "shareable": true,
-     "name": "Rig Wars"
+     "name": "Rig Wars",
+     "reqLevel": 25,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2842,
@@ -2251,7 +2629,10 @@
      "y": 50.0,
      "chain": null,
      "shareable": true,
-     "name": "Save Techbot's Brain!"
+     "name": "Save Techbot's Brain!",
+     "reqLevel": 20,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2928,
@@ -2262,7 +2643,10 @@
      "y": 12.0,
      "chain": null,
      "shareable": true,
-     "name": "Gyrodrillmatic Excavationators"
+     "name": "Gyrodrillmatic Excavationators",
+     "reqLevel": 20,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2924,
@@ -2273,7 +2657,10 @@
      "y": 64.0,
      "chain": null,
      "shareable": true,
-     "name": "Essential Artificials"
+     "name": "Essential Artificials",
+     "reqLevel": 24,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2930,
@@ -2284,7 +2671,10 @@
      "y": 48.0,
      "chain": null,
      "shareable": true,
-     "name": "Data Rescue"
+     "name": "Data Rescue",
+     "reqLevel": 25,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2929,
@@ -2295,7 +2685,10 @@
      "y": 49.0,
      "chain": null,
      "shareable": true,
-     "name": "The Grand Betrayal"
+     "name": "The Grand Betrayal",
+     "reqLevel": 25,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2926,
@@ -2306,7 +2699,10 @@
      "y": 49.0,
      "chain": null,
      "shareable": false,
-     "name": "Gnogaine"
+     "name": "Gnogaine",
+     "reqLevel": 20,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2962,
@@ -2318,7 +2714,10 @@
      "chain": 2926,
      "shareable": false,
      "name": "The Only Cure is More Green Glow",
-     "chainName": "Gnogaine"
+     "chainName": "Gnogaine",
+     "reqLevel": 20,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2951,
@@ -2329,7 +2728,10 @@
      "y": null,
      "chain": null,
      "shareable": true,
-     "name": "The Sparklematic 5200!"
+     "name": "The Sparklematic 5200!",
+     "reqLevel": 25,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2904,
@@ -2340,7 +2742,10 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "A Fine Mess"
+     "name": "A Fine Mess",
+     "reqLevel": 20,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2945,
@@ -2352,7 +2757,10 @@
      "chain": 2947,
      "shareable": true,
      "name": "Grime-Encrusted Ring",
-     "chainName": "Return of the Ring"
+     "chainName": "Return of the Ring",
+     "reqLevel": 28,
+     "choose": false,
+     "rewards": []
     }
    ],
    "trash": {
@@ -2459,7 +2867,10 @@
      "y": 44.6,
      "chain": null,
      "shareable": true,
-     "name": "Important Heirlooms"
+     "name": "Important Heirlooms",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 96394,
@@ -2470,7 +2881,10 @@
      "y": 58.4,
      "chain": null,
      "shareable": true,
-     "name": "The Restless Dead"
+     "name": "The Restless Dead",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 96393,
@@ -2482,7 +2896,10 @@
      "chain": 96391,
      "shareable": true,
      "name": "Old Ironforge Incursion",
-     "chainName": "Underground Map"
+     "chainName": "Underground Map",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 98423,
@@ -2493,7 +2910,10 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "The Treaty of Understanding"
+     "name": "The Treaty of Understanding",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 96395,
@@ -2504,7 +2924,10 @@
      "y": null,
      "chain": null,
      "shareable": true,
-     "name": "An Ancient Grudge"
+     "name": "An Ancient Grudge",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     }
    ],
    "trash": {
@@ -3079,7 +3502,21 @@
      "y": 21.0,
      "chain": null,
      "shareable": true,
-     "name": "En-Ay-Es-Tee-Why"
+     "name": "En-Ay-Es-Tee-Why",
+     "reqLevel": 55,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12529,
+       "name": "Smolderweb Carrier",
+       "quality": 1
+      },
+      {
+       "itemID": 12530,
+       "name": "Spire Spider Egg",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 4729,
@@ -3090,7 +3527,26 @@
      "y": 21.0,
      "chain": null,
      "shareable": false,
-     "name": "Kibler's Exotic Pets"
+     "name": "Kibler's Exotic Pets",
+     "reqLevel": 55,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12264,
+       "name": "Worg Carrier",
+       "quality": 1
+      },
+      {
+       "itemID": 12263,
+       "name": "Caged Worg Pup",
+       "quality": 1
+      },
+      {
+       "itemID": 12262,
+       "name": "Empty Worg Pup Cage",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 4866,
@@ -3112,7 +3568,10 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Seal of Ascension"
+     "name": "Seal of Ascension",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 4867,
@@ -3135,7 +3594,61 @@
      "chain": 3520,
      "shareable": false,
      "name": "The Final Tablets",
-     "chainName": "Screecher Spirits"
+     "chainName": "Screecher Spirits",
+     "reqLevel": 40,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 10699,
+       "name": "Yeh'kinya's Bramble",
+       "quality": 1
+      },
+      {
+       "itemID": 10660,
+       "name": "First Mosh'aru Tablet",
+       "quality": 1
+      },
+      {
+       "itemID": 10661,
+       "name": "Second Mosh'aru Tablet",
+       "quality": 1
+      },
+      {
+       "itemID": 12402,
+       "name": "Ancient Egg",
+       "quality": 1
+      },
+      {
+       "itemID": 10465,
+       "name": "Egg of Hakkar",
+       "quality": 1
+      },
+      {
+       "itemID": 10663,
+       "name": "Essence of Hakkar",
+       "quality": 1
+      },
+      {
+       "itemID": 12411,
+       "name": "Third Mosh'aru Tablet",
+       "quality": 1
+      },
+      {
+       "itemID": 12412,
+       "name": "Fourth Mosh'aru Tablet",
+       "quality": 1
+      },
+      {
+       "itemID": 12740,
+       "name": "Fifth Mosh'aru Tablet",
+       "quality": 1
+      },
+      {
+       "itemID": 12741,
+       "name": "Sixth Mosh'aru Tablet",
+       "quality": 1
+      }
+     ]
     }
    ],
    "trash": {
@@ -3416,7 +3929,36 @@
      "y": 39.0,
      "chain": null,
      "shareable": true,
-     "name": "Twisted Evils"
+     "name": "Twisted Evils",
+     "reqLevel": 41,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 17775,
+       "name": "Acumen Robes",
+       "quality": 2
+      },
+      {
+       "itemID": 17776,
+       "name": "Sprightring Helm",
+       "quality": 2
+      },
+      {
+       "itemID": 17777,
+       "name": "Relentless Chain",
+       "quality": 2
+      },
+      {
+       "itemID": 17779,
+       "name": "Hulkstone Pauldrons",
+       "quality": 2
+      },
+      {
+       "itemID": 17684,
+       "name": "Theradric Crystal Carving",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 7067,
@@ -3427,7 +3969,26 @@
      "y": 87.0,
      "chain": null,
      "shareable": false,
-     "name": "The Pariah's Instructions"
+     "name": "The Pariah's Instructions",
+     "reqLevel": 39,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 17774,
+       "name": "Mark of the Chosen",
+       "quality": 2
+      },
+      {
+       "itemID": 17781,
+       "name": "The Pariah's Instructions",
+       "quality": 1
+      },
+      {
+       "itemID": 17757,
+       "name": "Amulet of Spirits",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 7044,
@@ -3438,7 +3999,10 @@
      "y": null,
      "chain": null,
      "shareable": true,
-     "name": "Legends of Maraudon"
+     "name": "Legends of Maraudon",
+     "reqLevel": 41,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 7046,
@@ -3450,7 +4014,16 @@
      "chain": 7044,
      "shareable": false,
      "name": "The Scepter of Celebras",
-     "chainName": "Legends of Maraudon"
+     "chainName": "Legends of Maraudon",
+     "reqLevel": 41,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 17191,
+       "name": "Scepter of Celebras",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 7066,
@@ -3461,7 +4034,16 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Seed of Life"
+     "name": "Seed of Life",
+     "reqLevel": 39,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 17760,
+       "name": "Seed of Life",
+       "quality": 1
+      }
+     ]
     }
    ],
    "trash": {
@@ -3588,7 +4170,10 @@
      "y": 50.0,
      "chain": null,
      "shareable": true,
-     "name": "Slaying the Beast"
+     "name": "Slaying the Beast",
+     "reqLevel": 9,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 5725,
@@ -3599,7 +4184,26 @@
      "y": 92.0,
      "chain": null,
      "shareable": true,
-     "name": "The Power to Destroy..."
+     "name": "The Power to Destroy...",
+     "reqLevel": 9,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 15449,
+       "name": "Ghastly Trousers",
+       "quality": 2
+      },
+      {
+       "itemID": 15450,
+       "name": "Dredgemire Leggings",
+       "quality": 2
+      },
+      {
+       "itemID": 15451,
+       "name": "Gargoyle Leggings",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 5723,
@@ -3610,7 +4214,10 @@
      "y": 30.0,
      "chain": null,
      "shareable": true,
-     "name": "Testing an Enemy's Strength"
+     "name": "Testing an Enemy's Strength",
+     "reqLevel": 9,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 5724,
@@ -3632,7 +4239,26 @@
      "y": 30.0,
      "chain": null,
      "shareable": true,
-     "name": "Searching for the Lost Satchel"
+     "name": "Searching for the Lost Satchel",
+     "reqLevel": 9,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 15452,
+       "name": "Featherbead Bracers",
+       "quality": 2
+      },
+      {
+       "itemID": 15453,
+       "name": "Savannah Bracers",
+       "quality": 2
+      },
+      {
+       "itemID": 270003,
+       "name": "Garrison Cuffs",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 5728,
@@ -3644,7 +4270,31 @@
      "chain": 5726,
      "shareable": false,
      "name": "Hidden Enemies",
-     "chainName": "Hidden Enemies"
+     "chainName": "Hidden Enemies",
+     "reqLevel": 13,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 15443,
+       "name": "Kris of Orgrimmar",
+       "quality": 3
+      },
+      {
+       "itemID": 15445,
+       "name": "Hammer of Orgrimmar",
+       "quality": 3
+      },
+      {
+       "itemID": 15424,
+       "name": "Axe of Orgrimmar",
+       "quality": 3
+      },
+      {
+       "itemID": 15444,
+       "name": "Staff of Orgrimmar",
+       "quality": 3
+      }
+     ]
     }
    ],
    "trash": {
@@ -3792,7 +4442,26 @@
      "chain": 6522,
      "shareable": false,
      "name": "An Unholy Alliance",
-     "chainName": "An Unholy Alliance"
+     "chainName": "An Unholy Alliance",
+     "reqLevel": 28,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 17039,
+       "name": "Skullbreaker",
+       "quality": 2
+      },
+      {
+       "itemID": 17042,
+       "name": "Nail Spitter",
+       "quality": 2
+      },
+      {
+       "itemID": 17043,
+       "name": "Zealot's Robe",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 3341,
@@ -3803,7 +4472,21 @@
      "y": 32.8,
      "chain": null,
      "shareable": true,
-     "name": "Bring the End"
+     "name": "Bring the End",
+     "reqLevel": 37,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 10823,
+       "name": "Vanquisher's Sword",
+       "quality": 3
+      },
+      {
+       "itemID": 10824,
+       "name": "Amberglow Talisman",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 97196,
@@ -3814,7 +4497,10 @@
      "y": 22.8,
      "chain": null,
      "shareable": true,
-     "name": "The Coldbringer's Eye"
+     "name": "The Coldbringer's Eye",
+     "reqLevel": 34,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 3636,
@@ -3825,7 +4511,21 @@
      "y": 45.6,
      "chain": null,
      "shareable": false,
-     "name": "Bring the Light"
+     "name": "Bring the Light",
+     "reqLevel": 39,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 10823,
+       "name": "Vanquisher's Sword",
+       "quality": 3
+      },
+      {
+       "itemID": 10824,
+       "name": "Amberglow Talisman",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 96773,
@@ -3836,7 +4536,10 @@
      "y": 73.6,
      "chain": null,
      "shareable": true,
-     "name": "The Coldbringer's Eye"
+     "name": "The Coldbringer's Eye",
+     "reqLevel": 34,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 6626,
@@ -3847,7 +4550,10 @@
      "y": 94.8,
      "chain": null,
      "shareable": true,
-     "name": "A Host of Evil"
+     "name": "A Host of Evil",
+     "reqLevel": 31,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 3523,
@@ -3869,7 +4575,16 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Extinguishing the Idol"
+     "name": "Extinguishing the Idol",
+     "reqLevel": 32,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 10710,
+       "name": "Dragonclaw Ring",
+       "quality": 2
+      }
+     ]
     }
    ],
    "trash": {
@@ -4052,7 +4767,26 @@
      "y": 29.0,
      "chain": null,
      "shareable": true,
-     "name": "A Vengeful Fate"
+     "name": "A Vengeful Fate",
+     "reqLevel": 29,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 4197,
+       "name": "Berylline Pads",
+       "quality": 3
+      },
+      {
+       "itemID": 6742,
+       "name": "Stonefist Girdle",
+       "quality": 3
+      },
+      {
+       "itemID": 6725,
+       "name": "Marbled Buckler",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 1109,
@@ -4064,7 +4798,10 @@
      "chain": 1113,
      "shareable": true,
      "name": "Going, Going, Guano!",
-     "chainName": "Hearts of Zeal"
+     "chainName": "Hearts of Zeal",
+     "reqLevel": 30,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 6522,
@@ -4088,7 +4825,26 @@
      "chain": 1100,
      "shareable": false,
      "name": "The Crone of the Kraul",
-     "chainName": "Lonebrow's Journal"
+     "chainName": "Lonebrow's Journal",
+     "reqLevel": 29,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 4197,
+       "name": "Berylline Pads",
+       "quality": 3
+      },
+      {
+       "itemID": 6742,
+       "name": "Stonefist Girdle",
+       "quality": 3
+      },
+      {
+       "itemID": 6725,
+       "name": "Marbled Buckler",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 1142,
@@ -4099,7 +4855,21 @@
      "y": null,
      "chain": null,
      "shareable": true,
-     "name": "Mortality Wanes"
+     "name": "Mortality Wanes",
+     "reqLevel": 25,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 6751,
+       "name": "Mourning Shawl",
+       "quality": 2
+      },
+      {
+       "itemID": 6752,
+       "name": "Lancer Boots",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 1221,
@@ -4110,7 +4880,16 @@
      "y": 37.0,
      "chain": null,
      "shareable": false,
-     "name": "Blueleaf Tubers"
+     "name": "Blueleaf Tubers",
+     "reqLevel": 20,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 6755,
+       "name": "A Small Container of Gems",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 1144,
@@ -4121,7 +4900,26 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Willix the Importer"
+     "name": "Willix the Importer",
+     "reqLevel": 29,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 6748,
+       "name": "Monkey Ring",
+       "quality": 2
+      },
+      {
+       "itemID": 6750,
+       "name": "Snake Hoop",
+       "quality": 2
+      },
+      {
+       "itemID": 6749,
+       "name": "Tiger Band",
+       "quality": 2
+      }
+     ]
     }
    ],
    "trash": {
@@ -4243,7 +5041,10 @@
      "chain": 99156,
      "shareable": false,
      "name": "The Wrath of Rath'mael",
-     "chainName": "Rear Guard Patrol"
+     "chainName": "Rear Guard Patrol",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 92401,
@@ -4254,7 +5055,10 @@
      "y": 42.8,
      "chain": null,
      "shareable": true,
-     "name": "A Frightened Request"
+     "name": "A Frightened Request",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 92421,
@@ -4265,7 +5069,10 @@
      "y": 89.8,
      "chain": null,
      "shareable": true,
-     "name": "Light's Justice"
+     "name": "Light's Justice",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 95216,
@@ -4277,7 +5084,10 @@
      "chain": 451,
      "shareable": false,
      "name": "The New Plague",
-     "chainName": "A Recipe For Death"
+     "chainName": "A Recipe For Death",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 97288,
@@ -4299,7 +5109,10 @@
      "y": null,
      "chain": null,
      "shareable": true,
-     "name": "Abominable Creatures"
+     "name": "Abominable Creatures",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 95195,
@@ -4310,7 +5123,10 @@
      "y": null,
      "chain": null,
      "shareable": true,
-     "name": "Bloodied Insignia"
+     "name": "Bloodied Insignia",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 92415,
@@ -4321,7 +5137,10 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Remember That I Love You"
+     "name": "Remember That I Love You",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     }
    ],
    "trash": {
@@ -4627,7 +5446,31 @@
      "y": 71.0,
      "chain": null,
      "shareable": true,
-     "name": "Barov Family Fortune"
+     "name": "Barov Family Fortune",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 13471,
+       "name": "The Deed to Brill",
+       "quality": 1
+      },
+      {
+       "itemID": 13448,
+       "name": "The Deed to Caer Darrow",
+       "quality": 1
+      },
+      {
+       "itemID": 13450,
+       "name": "The Deed to Southshore",
+       "quality": 1
+      },
+      {
+       "itemID": 13451,
+       "name": "The Deed to Tarren Mill",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 7668,
@@ -4650,7 +5493,31 @@
      "y": 83.0,
      "chain": null,
      "shareable": true,
-     "name": "Barov Family Fortune"
+     "name": "Barov Family Fortune",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 13471,
+       "name": "The Deed to Brill",
+       "quality": 1
+      },
+      {
+       "itemID": 13448,
+       "name": "The Deed to Caer Darrow",
+       "quality": 1
+      },
+      {
+       "itemID": 13450,
+       "name": "The Deed to Southshore",
+       "quality": 1
+      },
+      {
+       "itemID": 13451,
+       "name": "The Deed to Tarren Mill",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 5529,
@@ -4661,7 +5528,10 @@
      "y": 59.0,
      "chain": null,
      "shareable": true,
-     "name": "Plagued Hatchlings"
+     "name": "Plagued Hatchlings",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 5582,
@@ -4673,7 +5543,16 @@
      "chain": 5529,
      "shareable": false,
      "name": "Healthy Dragon Scale",
-     "chainName": "Plagued Hatchlings"
+     "chainName": "Plagued Hatchlings",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 13920,
+       "name": "Healthy Dragon Scale",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 5382,
@@ -4684,7 +5563,10 @@
      "y": 73.0,
      "chain": null,
      "shareable": true,
-     "name": "Doctor Theolen Krastinov, the Butcher"
+     "name": "Doctor Theolen Krastinov, the Butcher",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 5515,
@@ -4696,7 +5578,16 @@
      "chain": 5382,
      "shareable": false,
      "name": "Krastinov's Bag of Horrors",
-     "chainName": "Doctor Theolen Krastinov, the Butcher"
+     "chainName": "Doctor Theolen Krastinov, the Butcher",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 13725,
+       "name": "Krastinov's Bag of Horrors",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 5384,
@@ -4708,7 +5599,36 @@
      "chain": 5515,
      "shareable": true,
      "name": "Kirtonos the Herald",
-     "chainName": "Krastinov's Bag of Horrors"
+     "chainName": "Krastinov's Bag of Horrors",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 15805,
+       "name": "Penelope's Rose",
+       "quality": 3
+      },
+      {
+       "itemID": 15806,
+       "name": "Mirah's Song",
+       "quality": 3
+      },
+      {
+       "itemID": 13544,
+       "name": "Spectral Essence",
+       "quality": 2
+      },
+      {
+       "itemID": 13523,
+       "name": "Blood of Innocents",
+       "quality": 1
+      },
+      {
+       "itemID": 13725,
+       "name": "Krastinov's Bag of Horrors",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 4771,
@@ -4732,7 +5652,41 @@
      "chain": 5382,
      "shareable": false,
      "name": "The Lich, Ras Frostwhisper",
-     "chainName": "Doctor Theolen Krastinov, the Butcher"
+     "chainName": "Doctor Theolen Krastinov, the Butcher",
+     "reqLevel": null,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 13982,
+       "name": "Warblade of Caer Darrow",
+       "quality": 3
+      },
+      {
+       "itemID": 13986,
+       "name": "Crown of Caer Darrow",
+       "quality": 3
+      },
+      {
+       "itemID": 13984,
+       "name": "Darrowspike",
+       "quality": 3
+      },
+      {
+       "itemID": 14002,
+       "name": "Darrowshire Strongguard",
+       "quality": 3
+      },
+      {
+       "itemID": 13752,
+       "name": "Soulbound Keepsake",
+       "quality": 1
+      },
+      {
+       "itemID": 13626,
+       "name": "Human Head of Ras Frostwhisper",
+       "quality": 1
+      }
+     ]
     }
    ],
    "trash": {
@@ -4922,7 +5876,21 @@
      "y": 54.0,
      "chain": null,
      "shareable": true,
-     "name": "The Book of Ur"
+     "name": "The Book of Ur",
+     "reqLevel": 16,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 6335,
+       "name": "Grizzled Boots",
+       "quality": 2
+      },
+      {
+       "itemID": 4534,
+       "name": "Steel-clasped Bracers",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 1098,
@@ -4933,7 +5901,16 @@
      "y": 41.0,
      "chain": null,
      "shareable": true,
-     "name": "Deathstalkers in Shadowfang"
+     "name": "Deathstalkers in Shadowfang",
+     "reqLevel": 18,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 3324,
+       "name": "Ghostly Mantle",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 1014,
@@ -4944,7 +5921,16 @@
      "y": 39.0,
      "chain": null,
      "shareable": true,
-     "name": "Arugal Must Die"
+     "name": "Arugal Must Die",
+     "reqLevel": 18,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 6414,
+       "name": "Seal of Sylvanas",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 1740,
@@ -5038,7 +6024,26 @@
      "y": 92.0,
      "chain": null,
      "shareable": true,
-     "name": "Into The Scarlet Monastery"
+     "name": "Into The Scarlet Monastery",
+     "reqLevel": 34,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 6802,
+       "name": "Sword of Omen",
+       "quality": 3
+      },
+      {
+       "itemID": 6803,
+       "name": "Prophetic Cane",
+       "quality": 3
+      },
+      {
+       "itemID": 10711,
+       "name": "Dragon's Blood Necklace",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 1113,
@@ -5050,7 +6055,10 @@
      "chain": 1109,
      "shareable": true,
      "name": "Hearts of Zeal",
-     "chainName": "Going, Going, Guano!"
+     "chainName": "Going, Going, Guano!",
+     "reqLevel": 30,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 1053,
@@ -5062,7 +6070,10 @@
      "chain": 6141,
      "shareable": true,
      "name": "In the Name of the Light",
-     "chainName": "Brother Anton"
+     "chainName": "Brother Anton",
+     "reqLevel": 34,
+     "choose": false,
+     "rewards": []
     }
    ],
    "trash": {
@@ -5184,7 +6195,26 @@
      "y": 92.0,
      "chain": null,
      "shareable": true,
-     "name": "Into The Scarlet Monastery"
+     "name": "Into The Scarlet Monastery",
+     "reqLevel": 34,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 6802,
+       "name": "Sword of Omen",
+       "quality": 3
+      },
+      {
+       "itemID": 6803,
+       "name": "Prophetic Cane",
+       "quality": 3
+      },
+      {
+       "itemID": 10711,
+       "name": "Dragon's Blood Necklace",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 1053,
@@ -5196,7 +6226,10 @@
      "chain": 6141,
      "shareable": true,
      "name": "In the Name of the Light",
-     "chainName": "Brother Anton"
+     "chainName": "Brother Anton",
+     "reqLevel": 34,
+     "choose": false,
+     "rewards": []
     }
    ],
    "trash": {
@@ -5321,7 +6354,26 @@
      "y": 92.0,
      "chain": null,
      "shareable": true,
-     "name": "Into The Scarlet Monastery"
+     "name": "Into The Scarlet Monastery",
+     "reqLevel": 34,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 6802,
+       "name": "Sword of Omen",
+       "quality": 3
+      },
+      {
+       "itemID": 6803,
+       "name": "Prophetic Cane",
+       "quality": 3
+      },
+      {
+       "itemID": 10711,
+       "name": "Dragon's Blood Necklace",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 1051,
@@ -5332,7 +6384,26 @@
      "y": null,
      "chain": null,
      "shareable": true,
-     "name": "Vorrel's Revenge"
+     "name": "Vorrel's Revenge",
+     "reqLevel": 25,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 7750,
+       "name": "Mantle of Woe",
+       "quality": 2
+      },
+      {
+       "itemID": 4643,
+       "name": "Grimsteel Cape",
+       "quality": 2
+      },
+      {
+       "itemID": 7751,
+       "name": "Vorrel's Boots",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 1113,
@@ -5344,7 +6415,10 @@
      "chain": 1109,
      "shareable": true,
      "name": "Hearts of Zeal",
-     "chainName": "Going, Going, Guano!"
+     "chainName": "Going, Going, Guano!",
+     "reqLevel": 30,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 1053,
@@ -5356,7 +6430,10 @@
      "chain": 6141,
      "shareable": true,
      "name": "In the Name of the Light",
-     "chainName": "Brother Anton"
+     "chainName": "Brother Anton",
+     "reqLevel": 34,
+     "choose": false,
+     "rewards": []
     }
    ],
    "trash": {
@@ -5441,7 +6518,10 @@
      "chain": 6141,
      "shareable": true,
      "name": "In the Name of the Light",
-     "chainName": "Brother Anton"
+     "chainName": "Brother Anton",
+     "reqLevel": 34,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 1113,
@@ -5453,7 +6533,10 @@
      "chain": 1109,
      "shareable": true,
      "name": "Hearts of Zeal",
-     "chainName": "Going, Going, Guano!"
+     "chainName": "Going, Going, Guano!",
+     "reqLevel": 30,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 1049,
@@ -5464,7 +6547,26 @@
      "y": 26.0,
      "chain": null,
      "shareable": true,
-     "name": "Compendium of the Fallen"
+     "name": "Compendium of the Fallen",
+     "reqLevel": 28,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 7747,
+       "name": "Vile Protector",
+       "quality": 3
+      },
+      {
+       "itemID": 17508,
+       "name": "Forcestone Buckler",
+       "quality": 3
+      },
+      {
+       "itemID": 7749,
+       "name": "Omega Orb",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 1160,
@@ -5476,7 +6578,21 @@
      "chain": 1149,
      "shareable": false,
      "name": "Test of Lore",
-     "chainName": "Test of Faith"
+     "chainName": "Test of Faith",
+     "reqLevel": 25,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 6804,
+       "name": "Windstorm Hammer",
+       "quality": 2
+      },
+      {
+       "itemID": 6806,
+       "name": "Dancing Flame",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 1048,
@@ -5487,7 +6603,26 @@
      "y": 92.0,
      "chain": null,
      "shareable": true,
-     "name": "Into The Scarlet Monastery"
+     "name": "Into The Scarlet Monastery",
+     "reqLevel": 34,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 6802,
+       "name": "Sword of Omen",
+       "quality": 3
+      },
+      {
+       "itemID": 6803,
+       "name": "Prophetic Cane",
+       "quality": 3
+      },
+      {
+       "itemID": 10711,
+       "name": "Dragon's Blood Necklace",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 1050,
@@ -5498,7 +6633,16 @@
      "y": 12.0,
      "chain": null,
      "shareable": true,
-     "name": "Mythology of the Titans"
+     "name": "Mythology of the Titans",
+     "reqLevel": 28,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 7746,
+       "name": "Explorers' League Commendation",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 96800,
@@ -5509,7 +6653,16 @@
      "y": 63.8,
      "chain": null,
      "shareable": true,
-     "name": "Past Due"
+     "name": "Past Due",
+     "reqLevel": 28,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 7746,
+       "name": "Explorers' League Commendation",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 1951,
@@ -5658,7 +6811,10 @@
      "y": 58.0,
      "chain": null,
      "shareable": true,
-     "name": "Quell the Uprising"
+     "name": "Quell the Uprising",
+     "reqLevel": 22,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 388,
@@ -5669,7 +6825,10 @@
      "y": null,
      "chain": null,
      "shareable": true,
-     "name": "The Color of Blood"
+     "name": "The Color of Blood",
+     "reqLevel": 22,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 377,
@@ -5680,7 +6839,21 @@
      "y": 47.8,
      "chain": null,
      "shareable": true,
-     "name": "Crime and Punishment"
+     "name": "Crime and Punishment",
+     "reqLevel": 22,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 2033,
+       "name": "Ambassador's Boots",
+       "quality": 2
+      },
+      {
+       "itemID": 2906,
+       "name": "Darkshire Mail Leggings",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 386,
@@ -5691,7 +6864,21 @@
      "y": 46.0,
      "chain": null,
      "shareable": true,
-     "name": "What Comes Around..."
+     "name": "What Comes Around...",
+     "reqLevel": 22,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 3400,
+       "name": "Lucine Longsword",
+       "quality": 2
+      },
+      {
+       "itemID": 1317,
+       "name": "Hardened Root Staff",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 378,
@@ -5703,7 +6890,21 @@
      "chain": 303,
      "shareable": false,
      "name": "The Fury Runs Deep",
-     "chainName": "The Dark Iron War"
+     "chainName": "The Dark Iron War",
+     "reqLevel": 25,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 3562,
+       "name": "Belt of Vindication",
+       "quality": 3
+      },
+      {
+       "itemID": 1264,
+       "name": "Headbasher",
+       "quality": 3
+      }
+     ]
     },
     {
      "questID": 391,
@@ -5715,7 +6916,10 @@
      "chain": 373,
      "shareable": false,
      "name": "The Stockade Riots",
-     "chainName": "The Unsent Letter"
+     "chainName": "The Unsent Letter",
+     "reqLevel": 16,
+     "choose": false,
+     "rewards": []
     }
    ],
    "trash": {
@@ -5874,7 +7078,26 @@
      "chain": 4769,
      "shareable": true,
      "name": "The Darkstone Tablet",
-     "chainName": "Vivian Lagrave and the Darkstone Tablet"
+     "chainName": "Vivian Lagrave and the Darkstone Tablet",
+     "reqLevel": 57,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 15861,
+       "name": "Swiftfoot Treads",
+       "quality": 2
+      },
+      {
+       "itemID": 15860,
+       "name": "Blinkstrike Armguards",
+       "quality": 2
+      },
+      {
+       "itemID": 12358,
+       "name": "Darkstone Tablet",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 4974,
@@ -5886,7 +7109,36 @@
      "chain": 4903,
      "shareable": false,
      "name": "For The Horde!",
-     "chainName": "Warlord's Command"
+     "chainName": "Warlord's Command",
+     "reqLevel": 55,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 13966,
+       "name": "Mark of Tyranny",
+       "quality": 3
+      },
+      {
+       "itemID": 13968,
+       "name": "Eye of the Beast",
+       "quality": 3
+      },
+      {
+       "itemID": 13965,
+       "name": "Blackhand's Breadth",
+       "quality": 3
+      },
+      {
+       "itemID": 12562,
+       "name": "Important Blackrock Documents",
+       "quality": 1
+      },
+      {
+       "itemID": 12630,
+       "name": "Head of Rend Blackhand",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 6602,
@@ -5910,7 +7162,26 @@
      "chain": 4766,
      "shareable": true,
      "name": "Doomrigger's Clasp",
-     "chainName": "Mayara Brightwing"
+     "chainName": "Mayara Brightwing",
+     "reqLevel": 57,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 15861,
+       "name": "Swiftfoot Treads",
+       "quality": 2
+      },
+      {
+       "itemID": 15860,
+       "name": "Blinkstrike Armguards",
+       "quality": 2
+      },
+      {
+       "itemID": 12352,
+       "name": "Doomrigger's Clasp",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 5102,
@@ -5922,7 +7193,10 @@
      "chain": 5089,
      "shareable": false,
      "name": "General Drakkisath's Demise",
-     "chainName": "General Drakkisath's Command"
+     "chainName": "General Drakkisath's Command",
+     "reqLevel": 55,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 6502,
@@ -5945,7 +7219,10 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Blackhand's Command"
+     "name": "Blackhand's Command",
+     "reqLevel": 55,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 5160,
@@ -5956,7 +7233,56 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "The Matron Protectorate"
+     "name": "The Matron Protectorate",
+     "reqLevel": 57,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12895,
+       "name": "Breastplate of the Chromatic Flight",
+       "quality": 4
+      },
+      {
+       "itemID": 12903,
+       "name": "Legguards of the Chromatic Defier",
+       "quality": 4
+      },
+      {
+       "itemID": 12945,
+       "name": "Legplates of the Chromatic Defier",
+       "quality": 4
+      },
+      {
+       "itemID": 12923,
+       "name": "Awbee's Scale",
+       "quality": 1
+      },
+      {
+       "itemID": 12871,
+       "name": "Chromatic Carapace",
+       "quality": 4
+      },
+      {
+       "itemID": 12607,
+       "name": "Brilliant Chromatic Scale",
+       "quality": 3
+      },
+      {
+       "itemID": 12938,
+       "name": "Blood of Heroes",
+       "quality": 1
+      },
+      {
+       "itemID": 12735,
+       "name": "Frayed Abomination Stitching",
+       "quality": 2
+      },
+      {
+       "itemID": 12753,
+       "name": "Skin of Shadow",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 5047,
@@ -5967,7 +7293,16 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "Pip Quickwit, At Your Service!"
+     "name": "Pip Quickwit, At Your Service!",
+     "reqLevel": 57,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12710,
+       "name": "Glowing Hunk of the Beast's Flesh",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 4735,
@@ -5991,7 +7326,16 @@
      "chain": 6805,
      "shareable": false,
      "name": "Eye of the Emberseer",
-     "chainName": "Stormers and Rumblers"
+     "chainName": "Stormers and Rumblers",
+     "reqLevel": 55,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 17322,
+       "name": "Eye of the Emberseer",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 5127,
@@ -6003,7 +7347,36 @@
      "chain": 5126,
      "shareable": false,
      "name": "The Demon Forge",
-     "chainName": "Lorax's Tale"
+     "chainName": "Lorax's Tale",
+     "reqLevel": 55,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 12696,
+       "name": "Plans: Demon Forged Breastplate",
+       "quality": 3
+      },
+      {
+       "itemID": 9224,
+       "name": "Potion of Demon Slaying",
+       "quality": 1
+      },
+      {
+       "itemID": 12848,
+       "name": "Blood Stained Pike",
+       "quality": 1
+      },
+      {
+       "itemID": 12806,
+       "name": "Unforged Rune Covered Breastplate",
+       "quality": 3
+      },
+      {
+       "itemID": 12847,
+       "name": "Soul Stained Pike",
+       "quality": 1
+      }
+     ]
     }
    ],
    "trash": {
@@ -6279,7 +7652,36 @@
      "chain": 2398,
      "shareable": false,
      "name": "The Hidden Chamber",
-     "chainName": "The Lost Dwarves"
+     "chainName": "The Lost Dwarves",
+     "reqLevel": 35,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 9626,
+       "name": "Dwarven Charge",
+       "quality": 2
+      },
+      {
+       "itemID": 9627,
+       "name": "Explorer's League Lodestar",
+       "quality": 2
+      },
+      {
+       "itemID": 7740,
+       "name": "Gni'kiv Medallion",
+       "quality": 1
+      },
+      {
+       "itemID": 7741,
+       "name": "The Shaft of Tsol",
+       "quality": 1
+      },
+      {
+       "itemID": 7733,
+       "name": "Staff of Prehistoria",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 17,
@@ -6303,7 +7705,26 @@
      "chain": 707,
      "shareable": false,
      "name": "Agmond's Fate",
-     "chainName": "Ironband Wants You!"
+     "chainName": "Ironband Wants You!",
+     "reqLevel": 30,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 4980,
+       "name": "Prospector Gloves",
+       "quality": 2
+      },
+      {
+       "itemID": 4983,
+       "name": "Rock Pulverizer",
+       "quality": 2
+      },
+      {
+       "itemID": 4610,
+       "name": "Carved Stone Urn",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 1139,
@@ -6315,7 +7736,36 @@
      "chain": 720,
      "shareable": false,
      "name": "The Lost Tablets of Will",
-     "chainName": "A Sign of Hope"
+     "chainName": "A Sign of Hope",
+     "reqLevel": 35,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 6723,
+       "name": "Medal of Courage",
+       "quality": 2
+      },
+      {
+       "itemID": 4622,
+       "name": "Sealed Note to Advisor Belgrum",
+       "quality": 1
+      },
+      {
+       "itemID": 4621,
+       "name": "Ambassador Infernus' Bracer",
+       "quality": 1
+      },
+      {
+       "itemID": 4987,
+       "name": "Dwarf Captain's Sword",
+       "quality": 2
+      },
+      {
+       "itemID": 5824,
+       "name": "Tablet of Will",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 2198,
@@ -6337,7 +7787,36 @@
      "y": 52.0,
      "chain": null,
      "shareable": true,
-     "name": "Power Stones"
+     "name": "Power Stones",
+     "reqLevel": 28,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 9522,
+       "name": "Energized Stone Circle",
+       "quality": 2
+      },
+      {
+       "itemID": 10358,
+       "name": "Duracin Bracers",
+       "quality": 2
+      },
+      {
+       "itemID": 10359,
+       "name": "Everlast Boots",
+       "quality": 2
+      },
+      {
+       "itemID": 8009,
+       "name": "Dentrium Power Stone",
+       "quality": 1
+      },
+      {
+       "itemID": 8052,
+       "name": "An'Alleum Power Stone",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 709,
@@ -6348,7 +7827,21 @@
      "y": 76.0,
      "chain": null,
      "shareable": true,
-     "name": "Solution to Doom"
+     "name": "Solution to Doom",
+     "reqLevel": 30,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 4746,
+       "name": "Doomsayer's Robe",
+       "quality": 2
+      },
+      {
+       "itemID": 4631,
+       "name": "Tablet of Ryun'eh",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 2278,
@@ -6359,7 +7852,26 @@
      "y": null,
      "chain": null,
      "shareable": false,
-     "name": "The Platinum Discs"
+     "name": "The Platinum Discs",
+     "reqLevel": 40,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 3928,
+       "name": "Superior Healing Potion",
+       "quality": 1
+      },
+      {
+       "itemID": 6149,
+       "name": "Greater Mana Potion",
+       "quality": 1
+      },
+      {
+       "itemID": 9587,
+       "name": "Thawpelt Sack",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 1956,
@@ -6562,7 +8074,16 @@
      "y": 21.0,
      "chain": null,
      "shareable": true,
-     "name": "Serpentbloom"
+     "name": "Serpentbloom",
+     "reqLevel": 14,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 10919,
+       "name": "Apothecary Gloves",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 1491,
@@ -6574,7 +8095,10 @@
      "chain": 865,
      "shareable": false,
      "name": "Smart Drinks",
-     "chainName": "Raptor Horns"
+     "chainName": "Raptor Horns",
+     "reqLevel": 13,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 959,
@@ -6585,7 +8109,10 @@
      "y": 37.0,
      "chain": null,
      "shareable": true,
-     "name": "Trouble at the Docks"
+     "name": "Trouble at the Docks",
+     "reqLevel": 14,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 1486,
@@ -6596,7 +8123,21 @@
      "y": 35.0,
      "chain": null,
      "shareable": true,
-     "name": "Deviate Hides"
+     "name": "Deviate Hides",
+     "reqLevel": 15,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 6480,
+       "name": "Slick Deviate Leggings",
+       "quality": 2
+      },
+      {
+       "itemID": 918,
+       "name": "Deviate Hide Pack",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 1487,
@@ -6607,7 +8148,26 @@
      "y": 35.0,
      "chain": null,
      "shareable": true,
-     "name": "Deviate Eradication"
+     "name": "Deviate Eradication",
+     "reqLevel": 15,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 6476,
+       "name": "Pattern: Deviate Scale Belt",
+       "quality": 2
+      },
+      {
+       "itemID": 8071,
+       "name": "Sizzle Stick",
+       "quality": 2
+      },
+      {
+       "itemID": 6481,
+       "name": "Dagmire Gauntlets",
+       "quality": 2
+      }
+     ]
     },
     {
      "questID": 6981,
@@ -6630,7 +8190,21 @@
      "chain": 870,
      "shareable": false,
      "name": "Leaders of the Fang",
-     "chainName": "The Forgotten Pools"
+     "chainName": "The Forgotten Pools",
+     "reqLevel": 14,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 6505,
+       "name": "Crescent Staff",
+       "quality": 3
+      },
+      {
+       "itemID": 6504,
+       "name": "Wingblade",
+       "quality": 3
+      }
+     ]
     }
    ],
    "trash": {
@@ -6831,7 +8405,10 @@
      "chain": 2933,
      "shareable": false,
      "name": "The Spider God",
-     "chainName": "Venom Bottles"
+     "chainName": "Venom Bottles",
+     "reqLevel": 40,
+     "choose": false,
+     "rewards": []
     },
     {
      "questID": 2991,
@@ -6843,7 +8420,16 @@
      "chain": 2988,
      "shareable": false,
      "name": "Nekrum's Medallion",
-     "chainName": "Witherbark Cages"
+     "chainName": "Witherbark Cages",
+     "reqLevel": 40,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 9471,
+       "name": "Nekrum's Medallion",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 2768,
@@ -6854,7 +8440,26 @@
      "y": 28.0,
      "chain": null,
      "shareable": true,
-     "name": "Divino-matic Rod"
+     "name": "Divino-matic Rod",
+     "reqLevel": 40,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 9533,
+       "name": "Masons Fraternity Ring",
+       "quality": 3
+      },
+      {
+       "itemID": 9534,
+       "name": "Engineer's Guild Headpiece",
+       "quality": 3
+      },
+      {
+       "itemID": 8548,
+       "name": "Divino-matic Rod",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 2865,
@@ -6865,7 +8470,16 @@
      "y": 26.0,
      "chain": null,
      "shareable": true,
-     "name": "Scarab Shells"
+     "name": "Scarab Shells",
+     "reqLevel": 40,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 9238,
+       "name": "Uncracked Scarab Shell",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 3042,
@@ -6876,7 +8490,16 @@
      "y": 28.0,
      "chain": null,
      "shareable": true,
-     "name": "Troll Temper"
+     "name": "Troll Temper",
+     "reqLevel": 40,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 9523,
+       "name": "Troll Temper",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 2846,
@@ -6887,7 +8510,26 @@
      "y": 57.0,
      "chain": null,
      "shareable": true,
-     "name": "Tiara of the Deep"
+     "name": "Tiara of the Deep",
+     "reqLevel": 40,
+     "choose": true,
+     "rewards": [
+      {
+       "itemID": 9527,
+       "name": "Spellshifter Rod",
+       "quality": 2
+      },
+      {
+       "itemID": 9531,
+       "name": "Gemshale Pauldrons",
+       "quality": 2
+      },
+      {
+       "itemID": 9234,
+       "name": "Tiara of the Deep",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 2770,
@@ -6898,7 +8540,31 @@
      "y": 77.0,
      "chain": null,
      "shareable": true,
-     "name": "Gahz'rilla"
+     "name": "Gahz'rilla",
+     "reqLevel": 40,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 11122,
+       "name": "Carrot on a Stick",
+       "quality": 2
+      },
+      {
+       "itemID": 8707,
+       "name": "Gahz'rilla's Electrified Scale",
+       "quality": 1
+      },
+      {
+       "itemID": 9240,
+       "name": "Mallet of Zul'Farrak",
+       "quality": 2
+      },
+      {
+       "itemID": 9241,
+       "name": "Sacred Mallet",
+       "quality": 1
+      }
+     ]
     },
     {
      "questID": 3527,
@@ -6910,7 +8576,21 @@
      "chain": 3520,
      "shareable": false,
      "name": "The Prophecy of Mosh'aru",
-     "chainName": "Screecher Spirits"
+     "chainName": "Screecher Spirits",
+     "reqLevel": 40,
+     "choose": false,
+     "rewards": [
+      {
+       "itemID": 10660,
+       "name": "First Mosh'aru Tablet",
+       "quality": 1
+      },
+      {
+       "itemID": 10661,
+       "name": "Second Mosh'aru Tablet",
+       "quality": 1
+      }
+     ]
     }
    ],
    "trash": {

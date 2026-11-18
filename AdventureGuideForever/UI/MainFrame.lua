@@ -89,12 +89,13 @@ function AG:CreateMainFrame()
 	frame.header = UI.Text(frame, "GameFontNormalLarge")
 	frame.header:SetPoint("TOPLEFT", 64, -34)
 	frame.learnStatus = UI.Text(frame, "GameFontDisableSmall", "RIGHT")
-	frame.learnStatus:SetPoint("TOPRIGHT", -100, -38)
+	frame.learnStatus:SetPoint("TOPRIGHT", -310, -38)
 	frame.optionsButton = UI.CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
 	frame.optionsButton:SetSize(80, 22)
 	frame.optionsButton:SetPoint("TOPRIGHT", -12, -33)
 	frame.optionsButton:SetText("Options")
 	frame.optionsButton:SetScript("OnClick", function() AG:ToggleOptions() end)
+	self:CreateSearchBox(frame)
 
 	frame:SetScript("OnShow", function()
 		PlaySound(SOUNDKIT.IG_CHARACTER_INFO_OPEN)
@@ -133,7 +134,20 @@ function AG:CreateMainFrame()
 	end
 end
 
+-- Leave search mode without redrawing (the caller redraws).
+local function clearSearch(frame, view)
+	view.search = nil
+	local box = frame.searchBox
+	if box and box:GetText() ~= "" then
+		box.settingText = true
+		box:SetText("")
+		box.settingText = nil
+		box:ClearFocus()
+	end
+end
+
 function AG:SelectTab(index)
+	clearSearch(self.frame, self.view)
 	self.view.tab = index
 	self.view.instKey = nil
 	self.view.bossKey = nil
@@ -143,6 +157,7 @@ end
 function AG:ShowInstance(instKey, bossKey)
 	local inst = self:GetInstance(instKey)
 	if not inst then return end
+	clearSearch(self.frame, self.view)
 	self.view.instKey = instKey
 	self.view.bossKey = bossKey
 	if self.view.tab == 1 then
@@ -160,11 +175,17 @@ function AG:Refresh()
 	frame.learnStatus:SetText(self.db.learn and "Learning mode: on" or "Learning mode: off")
 
 	local tabKey = AG.TABS[self.view.tab].key
-	local docRender = not self.view.instKey and DOC_TABS[tabKey]
-	self.instanceList:SetShown(not self.view.instKey and not docRender)
-	self.instancePage:SetShown(self.view.instKey ~= nil)
+	local search = self.view.search
+	local docRender = search and "RenderSearch" or (not self.view.instKey and DOC_TABS[tabKey])
+	self.instanceList:SetShown(not search and not self.view.instKey and not docRender)
+	self.instancePage:SetShown(not search and self.view.instKey ~= nil)
 	self.docPage:SetShown(docRender and true or false)
-	if self.view.instKey then
+	if search then
+		local doc = self.docPage.doc
+		doc:Begin("search:" .. search)
+		self:RenderSearch(doc, search)
+		doc:Finish()
+	elseif self.view.instKey then
 		self:RenderInstancePage(self.view.instKey, self.view.bossKey)
 	elseif docRender then
 		local doc = self.docPage.doc

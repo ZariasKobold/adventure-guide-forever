@@ -38,8 +38,8 @@ GUIDES = ROOT / "tools" / "wowhead" / "guides.json"
 FACTS = ROOT / "tools" / "wowhead" / "guide_facts.json"
 REPORT = ROOT / "tools" / "wowhead" / "guide_report.md"
 QUESTS = ROOT / "AdventureGuideForever" / "Data" / "Generated" / "Quests.lua"
-QUEST_KEYS = ["questID", "name", "level", "side", "start", "x", "y", "chain", "chainName",
-              "shareable", "quests"]
+QUEST_KEYS = ["questID", "name", "level", "reqLevel", "side", "start", "x", "y", "chain",
+              "chainName", "shareable", "choose", "rewards", "itemID", "quality", "quests"]
 
 # Names Wowhead's guide titles use that differ from ours.
 TITLE_ALIASES = {
@@ -153,12 +153,31 @@ def parse_quests(body: str, names: dict) -> list[dict]:
     return quests
 
 
+def parse_quest_details(body: str) -> dict[str, dict]:
+    """The guide's per-quest tabs: {normalized quest name: {reqLevel, rewards, choose}}.
+    Rewards are the [item=] tags between "Reward(s)...:" and the end of that box."""
+    out = {}
+    for m in re.finditer(r'\[tab name="([^"]*)"[^\]]*\](.*?)(?=\[tab name=|\[/tabs\]|\Z)', body, re.S):
+        name, tab = html.unescape(m.group(1)), m.group(2)
+        req = re.search(r"Level Required:\s*(?:\[b\])?\s*(\d{1,2})", tab)
+        reward = re.search(r"Rewards?\s*(\(choose one\))?\s*:(.*?)(?:\[/box\]|\[/center\]|\Z)", tab, re.S | re.I)
+        out[normalize(name)] = {
+            "reqLevel": int(req.group(1)) if req else None,
+            "rewards": ids(reward.group(2), "item") if reward else [],
+            "choose": bool(reward and reward.group(1)),
+        }
+    return out
+
+
 def parse_guide(guide: dict) -> dict:
     markup, names = guide["markup"], guide.get("names", {})
     facts = {"title": html.unescape(guide["title"]), "updated": guide.get("updated"),
              "levels": None, "bosses": [], "quests": [], "trash": {"npcIDs": [], "spells": []}}
+    details: dict[str, dict] = {}
     for label, body in sections(markup):
         low = label.lower()
+        if "quest" in low:
+            details.update(parse_quest_details(body))
         if facts["levels"] is None:
             facts["levels"] = level_range(plain(body, names))
         if "boss" in low or "encounter" in low:
@@ -173,6 +192,14 @@ def parse_guide(guide: dict) -> dict:
         q["name"] = names.get("quest", {}).get(str(q["questID"]), {}).get("name")
         if q["chain"]:
             q["chainName"] = names.get("quest", {}).get(str(q["chain"]), {}).get("name")
+        d = details.get(normalize(q["name"] or ""))
+        if d:
+            q["reqLevel"] = d["reqLevel"]
+            q["choose"] = d["choose"] and len(d["rewards"]) > 1
+            q["rewards"] = [{"itemID": i,
+                             "name": names.get("item", {}).get(str(i), {}).get("name"),
+                             "quality": names.get("item", {}).get(str(i), {}).get("quality")}
+                            for i in d["rewards"]]
     for b in facts["bosses"]:
         b["abilityNames"] = [names.get("spell", {}).get(str(s), {}).get("name") for s in b["abilities"]]
     facts["trash"]["names"] = [names.get("npc", {}).get(str(n), {}).get("name") for n in facts["trash"]["npcIDs"]]
@@ -309,7 +336,9 @@ def render_quests(instances: dict[str, dict]) -> str:
     for key in sorted(instances):
         quests = []
         for q in instances[key]["quests"]:
-            rec = {k: q.get(k) for k in QUEST_KEYS[:-1] if q.get(k) not in (None, False, "")}
+            rec = {k: q.get(k) for k in QUEST_KEYS[:-1] if q.get(k) not in (None, False, "", [])}
+            if "rewards" in rec:
+                rec["rewards"] = [{k: v for k, v in r.items() if v is not None} for r in rec["rewards"]]
             for k in ("x", "y"):
                 if k in rec:
                     rec[k] = round(rec[k], 1)
