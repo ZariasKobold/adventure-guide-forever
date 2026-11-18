@@ -248,6 +248,18 @@ class ForeverRulesTests(unittest.TestCase):
                 code = line.split("--", 1)[0]
                 self.assertIsNone(self.FORBIDDEN.search(code), f"{path.name}:{n}: {line.strip()}")
 
+    def test_no_unknown_string_escapes(self):
+        # Lua 5.1 silently drops an unknown escape: "Interface\Icons\X" loses its backslashes
+        # and the texture path breaks. Paths need doubled backslashes.
+        string = re.compile(r'"((?:[^"\\\n]|\\.)*)"')
+        for path in toc_files():
+            for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+                code = "" if line.lstrip().startswith("--") else line
+                for m in string.finditer(code):
+                    for e in re.finditer(r"\\(.)", m.group(1)):
+                        self.assertIn(e.group(1), 'abfnrtv\\"\'0123456789',
+                                      f"{path.name}:{n}: unknown escape in {m.group(0)}")
+
     def test_every_file_starts_with_namespace(self):
         for path in toc_files():
             self.assertRegex(path.read_text(encoding="utf-8"), r"(?m)^local \w+, AG = \.\.\.$",

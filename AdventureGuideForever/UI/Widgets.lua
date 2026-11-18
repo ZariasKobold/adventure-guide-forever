@@ -194,7 +194,7 @@ end
 ------------------------------------------------------------------------
 
 -- The raid marker star: in every client, and instantly recognisable.
-UI.STAR_TEXTURE = "Interface\TargetingFrame\UI-RaidTargetingIcon_1"
+UI.STAR_TEXTURE = "Interface\\TargetingFrame\\UI-RaidTargetingIcon_1"
 UI.STAR = "|T" .. UI.STAR_TEXTURE .. ":0|t"
 
 -- Shows a star texture lit (on the wishlist) or dimmed grey (not on it).
@@ -235,10 +235,10 @@ function UI.CheckBox(parent, label, get, set)
 	local box = UI.CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate", "OptionsBaseCheckButtonTemplate")
 	box:SetSize(24, 24)
 	if not box:GetNormalTexture() then
-		box:SetNormalTexture("Interface\Buttons\UI-CheckBox-Up")
-		box:SetPushedTexture("Interface\Buttons\UI-CheckBox-Down")
-		box:SetHighlightTexture("Interface\Buttons\UI-CheckBox-Highlight", "ADD")
-		box:SetCheckedTexture("Interface\Buttons\UI-CheckBox-Check")
+		box:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+		box:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+		box:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight", "ADD")
+		box:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
 	end
 	box.label = UI.Text(box, "GameFontHighlight")
 	box.label:SetPoint("LEFT", box, "RIGHT", 4, 0)
