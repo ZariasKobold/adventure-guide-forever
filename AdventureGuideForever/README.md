@@ -21,6 +21,10 @@ Copy the `AdventureGuideForever` folder into `World of Warcraft\_forever_\Interf
   your wishlist items there. Targeting a boss shows its card: who it is, the tip for your
   role, and the abilities to watch for. Drag a card to move it. "Turn off" on the card (or
   `/ag cards`, `/ag bosscards`) switches them off.
+- **Gear tab:** every boss drop and quest reward, filtered by slot, armor or weapon type,
+  stat (sorted by it), quality, and required level (your level and the ten below it, unless
+  you type a range). "Only what my class can use" hides armor and weapons you can't equip.
+  Each item shows its stats, item level, required level, and where it comes from.
 - **Search:** the box at the top of the guide (or `/ag find <name>`) finds dungeons,
   bosses, gear (boss drops and quest rewards), quests, and abilities by name. Click a
   result to jump to it.

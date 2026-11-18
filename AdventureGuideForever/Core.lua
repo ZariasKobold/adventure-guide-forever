@@ -98,6 +98,7 @@ local defaults = {
 	learned = {},        -- [instKey] = { bosses = { [bossKey] = {...} } }
 	unshared = 0,        -- things learned since the last /ag share
 	wishlist = {},       -- [itemID] = true
+	gear = { usable = true, minQuality = 2 }, -- Gear tab filters (nil = any; levels nil = follow yours)
 	journey = {},        -- [character] = distance traveled and places visited (never shared)
 	options = {
 		zoneCard = true,     -- briefing card when you enter a dungeon or raid

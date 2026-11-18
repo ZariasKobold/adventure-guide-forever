@@ -205,6 +205,83 @@ function UI.SetStar(texture, on)
 end
 
 -- A labelled checkbox. get() returns the current value; set(value) stores a new one.
+-- A small dropdown: a button showing "Title: choice" that opens a list of options.
+-- options() returns { { value, text }, ... }; value nil means "Any". Our own simple menu,
+-- since Blizzard's dropdown APIs have changed between clients.
+local menu
+local function menuFrame()
+	if menu then return menu end
+	menu = CreateFrame("Frame", nil, UIParent)
+	UI.Backdrop(menu, 0.97)
+	menu:SetFrameStrata("FULLSCREEN_DIALOG")
+	menu:SetClampedToScreen(true)
+	menu:EnableMouse(true)
+	menu.buttons = {}
+	menu:Hide()
+	return menu
+end
+
+function UI.CloseMenu()
+	if menu then menu:Hide() end
+end
+
+local function openMenu(owner, options, current, onPick)
+	local m = menuFrame()
+	if m:IsShown() and m.owner == owner then m:Hide(); return end
+	m.owner = owner
+	local width = owner:GetWidth()
+	for i, opt in ipairs(options) do
+		local b = m.buttons[i]
+		if not b then
+			b = CreateFrame("Button", nil, m)
+			b:SetHeight(18)
+			b:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
+			b.text = UI.Text(b, "GameFontHighlightSmall")
+			b.text:SetPoint("LEFT", 8, 0)
+			b.text:SetPoint("RIGHT", -6, 0)
+			m.buttons[i] = b
+		end
+		b:ClearAllPoints()
+		b:SetPoint("TOPLEFT", 4, -4 - (i - 1) * 18)
+		b:SetPoint("RIGHT", -4, 0)
+		b.text:SetText((opt.value == current and "|cffffd100> |r" or "   ") .. opt.text)
+		b:SetScript("OnClick", function()
+			PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
+			m:Hide()
+			onPick(opt.value)
+		end)
+		b:Show()
+		width = math.max(width, b.text:GetStringWidth() + 24)
+	end
+	for i = #options + 1, #m.buttons do m.buttons[i]:Hide() end
+	m:SetSize(width, 8 + #options * 18)
+	m:ClearAllPoints()
+	m:SetPoint("TOPLEFT", owner, "BOTTOMLEFT", 0, -2)
+	m:Show()
+end
+
+function UI.Dropdown(parent, width, title, options, get, set)
+	local b = UI.CreateFrame("Button", nil, parent, "UIPanelButtonTemplate")
+	b:SetSize(width, 22)
+	b.Sync = function(self)
+		local current, text = get(), "Any"
+		for _, opt in ipairs(options()) do
+			if opt.value == current then text = opt.text end
+		end
+		self:SetText(title .. ": " .. text)
+	end
+	b:SetScript("OnClick", function(self)
+		openMenu(self, options(), get(), function(value)
+			set(value)
+			self:Sync()
+		end)
+	end)
+	b:SetScript("OnHide", function(self)
+		if menu and menu.owner == self then menu:Hide() end
+	end)
+	return b
+end
+
 -- An item name in its quality color (grey, white, green, blue, purple, orange).
 local QUALITY_HEX = { [0] = "9d9d9d", "ffffff", "1eff00", "0070dd", "a335ee", "ff8000", "e6cc80" }
 function UI.QualityText(name, quality)

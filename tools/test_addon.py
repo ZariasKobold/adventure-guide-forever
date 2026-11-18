@@ -636,6 +636,57 @@ class ItemDataTests(unittest.TestCase):
                          self.bi.render(data["items"], self.bi.guide_item_ids()),
                          "Data/Generated/Items.lua is stale: run tools/build_items.py")
 
+    def test_class_can_use(self):
+        lua, ag = load_built()
+        can = lambda item, cls, lvl=60: ag.CanUse(ag, lua.table_from(item), cls, lvl)  # noqa: E731
+        plate = {"class": 4, "subclass": 4, "slot": 5}
+        mail = {"class": 4, "subclass": 3, "slot": 5}
+        self.assertTrue(can(plate, 1, 40))      # warriors wear plate from 40
+        self.assertFalse(can(plate, 1, 39))
+        self.assertFalse(can(plate, 8))         # mages never
+        self.assertFalse(can(mail, 3, 30))      # hunters wear mail from 40
+        self.assertTrue(can(mail, 7, 45))       # shamans too
+        self.assertTrue(can({"class": 2, "subclass": 19, "slot": 26}, 5))   # priests use wands
+        self.assertFalse(can({"class": 2, "subclass": 4, "slot": 17}, 5))   # but not two-hand maces
+        self.assertTrue(can({"class": 2, "subclass": 4, "slot": 13}, 5))    # one-hand maces are fine
+        # Class-restricted items: the bitmask lists who may use it (bit = classID).
+        paladin_only = {"class": 4, "subclass": 1, "slot": 5, "classes": 2}
+        self.assertTrue(can(paladin_only, 2))
+        self.assertFalse(can(paladin_only, 5))
+
+    def test_filter_gear(self):
+        lua, ag = load_built()
+        f = lambda **kw: to_py(ag.FilterGear(ag, lua.table_from(kw)))  # noqa: E731
+        everything = f()
+        self.assertGreater(len(everything), 1000)
+        wrists = f(slot="wrist", stat="str", maxLevel=20)
+        self.assertTrue(wrists)
+        values = [g["statValue"] for g in wrists]
+        self.assertEqual(values, sorted(values, reverse=True))
+        self.assertTrue(all(g["item"]["slot"] == 9 for g in wrists))
+        self.assertTrue(all(g["item"].get("reqLevel", 1) <= 20 for g in wrists))
+        cloth = f(type="cloth", usable=True, classID=1, level=60)
+        self.assertTrue(cloth)
+        self.assertFalse(f(type="plate", usable=True, classID=8, level=60))
+
+    def test_gear_page_renders(self):
+        lua, ag = load_built()
+        lua.execute("""
+            UnitClass = function() return "Warrior", "WARRIOR", 1 end
+            UnitLevel = function() return 20 end
+            agf_rows = {}
+            agf_doc = {
+                Row = function(self, icon, title, body, note, opts) table.insert(agf_rows, { body = body, note = note, id = opts.itemID }) end,
+                Paragraph = function() end,
+            }""")
+        ag.db = lua.eval("{ gear = { usable = true, minQuality = 2, slot = 'wrist' }, learned = {} }")
+        ag.frame = lua.eval("{ header = { SetText = function() end } }")
+        ag.RenderGear(ag, lua.globals().agf_doc)
+        rows = to_py(lua.globals().agf_rows)
+        self.assertTrue(rows)
+        self.assertTrue(all("Wrist" in r["body"] for r in rows))
+        self.assertTrue(all("Level" in r["note"] for r in rows))
+
     def test_registered_items_load(self):
         lua, ag = load_built()
         ag.RegisterItems(ag, lua.eval("{ items = { { itemID = 77, itemLevel = 20, stats = { sta = 4 } } } }"))

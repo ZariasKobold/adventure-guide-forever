@@ -18,10 +18,11 @@ A World of Warcraft: Forever addon that rebuilds the retail **Adventure Guide** 
 | `AdventureGuideForever/Data/Generated/Community.lua` | Players' shared learned data. **Never edit by hand**; built by `tools/learned_intake.py` from `tools/learned/community.json`. |
 | `AdventureGuideForever/Learn.lua` | Learning mode: records loot, models, and boss spells from play. |
 | `AdventureGuideForever/Sync.lua`, `Share.lua` | Party sync of learned data (addon messages), and the `/ag share` export for GitHub. |
+| `AdventureGuideForever/Gear.lua` | Gear filtering for the Gear tab: slot and type groups, what each class can wear and wield (mail/plate at 40), class-restricted items, stat sorting. |
 | `AdventureGuideForever/Search.lua` | Search index over dungeons, bosses, items (drops and quest rewards), quests, and abilities. `UI/SearchPage` shows results. |
 | `AdventureGuideForever/Quests.lua` | Quest status (done, in your log) and your faction's quests per instance, for the instance page and the dungeon card. |
 | `AdventureGuideForever/Journey.lua`, `Wishlist.lua` | Pedometer (all time and this session, with combat rules) and visit counts (local only), and the wishlist with drop alerts. |
-| `AdventureGuideForever/UI/` | `MainFrame` (window, tabs), `InstanceList` (art card grid), `InstanceOverview` (instance page), `InstancePage` (overview + boss list), `BossPage` (bestiary layout), `JourneyPage`, `StepCounter` (minimap badge), `WishlistPage`, `Options`, `ShareFrame`, `Briefing` (dungeon and boss cards), `Tooltips` ("Drops from"), `SearchPage` (search box and results), `Document` (shared scrolling layout), `Widgets`. |
+| `AdventureGuideForever/UI/` | `MainFrame` (window, tabs), `InstanceList` (art card grid), `InstanceOverview` (instance page), `InstancePage` (overview + boss list), `BossPage` (bestiary layout), `JourneyPage`, `GearPage` (Gear tab filters and results), `StepCounter` (minimap badge), `WishlistPage`, `Options`, `ShareFrame`, `Briefing` (dungeon and boss cards), `Tooltips` ("Drops from"), `SearchPage` (search box and results), `Document` (shared scrolling layout), `Widgets`. |
 | `.github/` | Issue form for shared learned data, and the Action that turns each share into a pull request. |
 | `AdventureGuideProbe/` | Diagnostic addon (`/agprobe`, `/agprobe art`, `/agprobe maps`, `/agprobe deep`). Not shipped. |
 | `tools/` | Python dev tooling: build, tests, Wowhead extractors. See `tools/README.md`. |

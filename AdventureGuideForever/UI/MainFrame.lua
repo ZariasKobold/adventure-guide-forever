@@ -1,6 +1,6 @@
 -- The main window: a Blizzard-style portrait frame with bottom tabs, like the retail
 -- Adventure Guide. Holds three views: the instance list, an instance's page, and a document
--- page for the Wishlist and Journey tabs.
+-- page for the Gear, Wishlist, and Journey tabs.
 
 local _, AG = ...
 local UI = AG.UI
@@ -11,12 +11,13 @@ AG.TABS = {
 	{ key = "suggested", label = "Suggested Content" },
 	{ key = "dungeons",  label = "Dungeons" },
 	{ key = "raids",     label = "Raids" },
+	{ key = "gear",      label = "Gear" },
 	{ key = "wishlist",  label = "Wishlist" },
 	{ key = "journey",   label = "Journey" },
 }
 
 -- Tabs drawn as a document instead of the card grid.
-local DOC_TABS = { wishlist = "RenderWishlist", journey = "RenderJourney" }
+local DOC_TABS = { gear = "RenderGear", wishlist = "RenderWishlist", journey = "RenderJourney" }
 
 local function setPortrait(frame)
 	local icon = "Interface\\Icons\\INV_Misc_Book_09"
@@ -180,6 +181,7 @@ function AG:Refresh()
 	self.instanceList:SetShown(not search and not self.view.instKey and not docRender)
 	self.instancePage:SetShown(not search and self.view.instKey ~= nil)
 	self.docPage:SetShown(docRender and true or false)
+	self:ShowGearBar(docRender == "RenderGear")
 	if search then
 		local doc = self.docPage.doc
 		doc:Begin("search:" .. search)

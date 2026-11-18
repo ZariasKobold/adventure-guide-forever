@@ -302,6 +302,7 @@ function AG:BuildGuides()
 	end
 	self.ItemIndex = buildItemIndex()
 	if self.ResetSearch then self:ResetSearch() end
+	if self.ResetGear then self:ResetGear() end
 end
 
 ------------------------------------------------------------------------
