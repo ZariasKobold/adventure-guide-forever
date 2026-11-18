@@ -12,3 +12,7 @@ __pycache__/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Wowhead's own guide text (tools/wowhead/extract_guides.js): a local reference, never committed
+tools/wowhead/guides.json
+tools/wowhead/guide_report.md

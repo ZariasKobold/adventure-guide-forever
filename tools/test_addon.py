@@ -441,6 +441,79 @@ class FeatureTests(unittest.TestCase):
         self.assertEqual(rec["spells"], {"9": 4})
 
 
+class GuideCompareTests(unittest.TestCase):
+    """Reading Wowhead's guide markup (tools/compare_guides.py)."""
+
+    MARKUP = (
+        "[toc]\r\n[zone=2437] is in Orgrimmar.\r\n"
+        '[h2 type=bar toc="Overview"]Ragefire Chasm Overview[/h2]\r\n'
+        "The recommended level for Ragefire Chasm is 13-18. It's short.\r\n"
+        '[h2 type=bar toc="Quests"]Every Quest[/h2]\r\n'
+        "[table][tr][td]Quest[/td][td]Level[/td][/tr]"
+        "[tr][td][quest=5728][/td][td]9[/td][/tr]"
+        "[tr][td][quest=5761][/td][td]9[/td][/tr][/table]\r\n"
+        '[h2 type=bar toc="Trash"]Noteworthy Trash Mobs[/h2]\r\n'
+        "Ragefire Shamans ([npc=11319]) cast [spell=547].\r\n"
+        '[h2 type=bar toc="Bosses"]Bosses[/h2]\r\n'
+        '[box-highlight name="Taragaman the Hungerer"]\r\n'
+        "[b]Strategy[/b] [npc=11520] uses [spell=18072] near the edge.[pad]\r\n"
+        "[table][tr][td][b]Abilities[/b][/td][/tr][tr][td] [spell=11970] [spell=18072] [/td][/tr][/table]\r\n"
+        "[/box-highlight]\r\n"
+        '[h2 type=bar toc="Loot"]Loot[/h2]\r\n[item=14149]\r\n'
+    )
+    NAMES = {"quest": {"5728": {"name": "Hidden Enemies"}, "5761": {"name": "Slaying the Beast"}},
+             "spell": {"11970": {"name": "Fire Nova"}, "18072": {"name": "Uppercut"}, "547": {"name": "Healing Wave"}},
+             "npc": {"11319": {"name": "Ragefire Shaman"}, "11520": {"name": "Taragaman the Hungerer"}}}
+
+    def setUp(self):
+        import compare_guides
+        self.cg = compare_guides
+
+    def test_reads_levels_bosses_quests_and_trash(self):
+        facts = self.cg.parse_guide({"title": "Ragefire Chasm Dungeon Overview Guide: Quests &amp; More",
+                                     "markup": self.MARKUP, "names": self.NAMES})
+        self.assertEqual(facts["title"], "Ragefire Chasm Dungeon Overview Guide: Quests & More")
+        self.assertEqual(tuple(facts["levels"]), (13, 18))
+        boss = facts["bosses"][0]
+        self.assertEqual((boss["name"], boss["npcIDs"], boss["abilities"]),
+                         ("Taragaman the Hungerer", [11520], [11970, 18072]))
+        self.assertEqual(boss["abilityNames"], ["Fire Nova", "Uppercut"])
+        self.assertEqual([(q["questID"], q["level"], q["name"]) for q in facts["quests"]],
+                         [(5728, 9, "Hidden Enemies"), (5761, 9, "Slaying the Beast")])
+        self.assertEqual(facts["trash"]["names"], ["Ragefire Shaman"])
+
+    def test_reads_h3_boss_boxes_and_between_levels(self):
+        markup = ('[h2 toc="Overview"]O[/h2]The recommended level for Hall of Thanes is between 13 and 18.'
+                  '[h2 toc="Bosses"]B[/h2][div][box][h3 type=bar] Faldrim Anvilmar [/h3]'
+                  "[npc=261306] patrols.[b]Abilities[/b] [spell=26048] [/box][/div]"
+                  "[div][box][h3 type=bar]Magmatus[/h3][npc=261316][b]Abilities[/b][spell=1293228][/box][/div]")
+        facts = self.cg.parse_guide({"title": "The Hall of Thanes", "markup": markup, "names": {}})
+        self.assertEqual(tuple(facts["levels"]), (13, 18))
+        self.assertEqual([(b["name"], b["npcIDs"], b["abilities"]) for b in facts["bosses"]],
+                         [("Faldrim Anvilmar", [261306], [26048]), ("Magmatus", [261316], [1293228])])
+
+    def test_hub_lookup_is_loose(self):
+        n = self.cg.normalize
+        hub = {n("Temple of Atal'Hakkar (Sunken Temple)"): (50, 60), n("Dire Maul"): (58, 60)}
+        self.assertEqual(self.cg.hub_lookup(hub, ["Temple of Atal'Hakkar"]), (50, 60))
+        self.assertEqual(self.cg.hub_lookup(hub, ["Warpwood Quarter", "Dire Maul East"]), (58, 60))
+
+    def test_matches_titles_to_instances(self):
+        _, ag = load_addon(re.compile(r"^Data/Instances\.lua$"))
+        instances = to_py(ag.Instances)
+        match = lambda t: self.cg.match_instance(t, instances)  # noqa: E731
+        self.assertEqual(match("Ragefire Chasm Dungeon Overview Guide"), "ragefire")
+        self.assertEqual(match("The Deadmines Dungeon Overview Guide"), "deadmines")
+        self.assertEqual(match("Scarlet Monastery: Library Dungeon Guide"), "smlibrary")
+        self.assertEqual(match("Dire Maul: East Dungeon Guide"), "dmeast")
+        self.assertIsNone(match("Some Unrelated Guide"))
+
+    def test_hub_level_table(self):
+        hub = self.cg.hub_levels("[tr][td][b]Dungeon[/b][/td][td]Lower[/td][td]Upper[/td][/tr]"
+                                 "[tr][td]The Hall of Thanes[/td][td]13[/td][td]18[/td][td]New[/td][/tr]")
+        self.assertEqual(hub, {self.cg.normalize("The Hall of Thanes"): (13, 18)})
+
+
 class IntakeTests(unittest.TestCase):
     """tools/learned_intake.py: validating shares and merging them into Community.lua."""
 

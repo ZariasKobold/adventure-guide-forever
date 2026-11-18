@@ -1,0 +1,6522 @@
+{
+ "source": "Wowhead Forever dungeon and raid guides (facts only: IDs, names, levels)",
+ "fetched": "2026-11-18",
+ "instances": {
+  "alcaz": {
+   "title": "Alcaz Prison Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/15",
+   "levels": [
+    49,
+    54
+   ],
+   "bosses": [
+    {
+     "name": "Tidemistress Ca'zass",
+     "npcIDs": [
+      255997
+     ],
+     "abilities": [
+      15532,
+      8398,
+      1271375
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Frost Nova",
+      "Frostbolt Volley",
+      "Blizzard"
+     ]
+    },
+    {
+     "name": "Overseer Wrex",
+     "npcIDs": [
+      255391
+     ],
+     "abilities": [
+      16856,
+      9128
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Mortal Strike",
+      "Battle Shout"
+     ]
+    },
+    {
+     "name": "The Questioner",
+     "npcIDs": [
+      256236
+     ],
+     "abilities": [
+      17620,
+      12054
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Drain Life",
+      "Rend"
+     ]
+    },
+    {
+     "name": "Katerina the Cleaner",
+     "npcIDs": [
+      257016
+     ],
+     "abilities": [
+      1271761,
+      3583
+     ],
+     "mentioned": [
+      12825,
+      2070,
+      6213
+     ],
+     "abilityNames": [
+      "Grievous Garrote",
+      "Deadly Poison"
+     ]
+    },
+    {
+     "name": "Zarla Ober/Blazeroar",
+     "npcIDs": [
+      255707,
+      255702
+     ],
+     "abilities": [
+      12466,
+      18399,
+      1275847,
+      9573,
+      1271593,
+      1271604,
+      3391
+     ],
+     "mentioned": [
+      1244436,
+      8143
+     ],
+     "abilityNames": [
+      "Fireball",
+      "Flamestrike",
+      "Reveal Form",
+      "Flame Breath",
+      "Fear",
+      "Searing Scales",
+      "Thrash"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 96772,
+     "level": 46,
+     "name": "The Dragon's Journal"
+    },
+    {
+     "questID": 96381,
+     "level": 48,
+     "name": "A Bit of Wet Work"
+    },
+    {
+     "questID": 95262,
+     "level": 48,
+     "name": "The Secret Prison"
+    },
+    {
+     "questID": 95309,
+     "level": 48,
+     "name": "No Orc Left Behind"
+    },
+    {
+     "questID": 96332,
+     "level": 48,
+     "name": "A Little Payback"
+    },
+    {
+     "questID": 96334,
+     "level": 48,
+     "name": "Blood Red Bandanas"
+    },
+    {
+     "questID": 95264,
+     "level": null,
+     "name": "Shaw Needs To Know"
+    },
+    {
+     "questID": 95263,
+     "level": null,
+     "name": "Somber News"
+    },
+    {
+     "questID": 95194,
+     "level": null,
+     "name": "Our Man in Theramore"
+    },
+    {
+     "questID": 95454,
+     "level": null,
+     "name": "The Honor of the Kor'kron"
+    },
+    {
+     "questID": 95283,
+     "level": null,
+     "name": "The Missing Kor'kron"
+    },
+    {
+     "questID": 92422,
+     "level": null,
+     "name": "The Wrath of Rath'mael"
+    },
+    {
+     "questID": 92401,
+     "level": null,
+     "name": "A Frightened Request"
+    },
+    {
+     "questID": 95483,
+     "level": null,
+     "name": "Thrall Needs to Know"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     255373,
+     255995,
+     255262,
+     271784,
+     255271,
+     255364,
+     255369
+    ],
+    "spells": [
+     13323,
+     12737,
+     1270802,
+     15586,
+     15496,
+     12825,
+     14032,
+     17165,
+     15736,
+     14034,
+     15497
+    ],
+    "names": [
+     "Strashaz Enchantress",
+     "Strashaz Soldier",
+     "Alcaz Chaplain",
+     "Alcaz Jailer",
+     "Defias Truthfinder",
+     "Renegade Conjurer",
+     "Arcane Servitor"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/alcaz-prison-dungeon-overview-location-rewards"
+  },
+  "blackfathom": {
+   "title": "Blackfathom Deeps Dungeon Overview Guide:  Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/13",
+   "levels": [
+    24,
+    32
+   ],
+   "bosses": [
+    {
+     "name": "Ghamoo-Ra",
+     "npcIDs": [
+      4887
+     ],
+     "abilities": [
+      5568
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Trample"
+     ]
+    },
+    {
+     "name": "Lady Sarevess",
+     "npcIDs": [
+      4831
+     ],
+     "abilities": [
+      8435,
+      865,
+      6660,
+      246
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Forked Lightning",
+      "Frost Nova",
+      "Shoot",
+      "Slow"
+     ]
+    },
+    {
+     "name": "Gelihast",
+     "npcIDs": [
+      6243
+     ],
+     "abilities": [
+      6533
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Net"
+     ]
+    },
+    {
+     "name": "Twilight Lord Kelris",
+     "npcIDs": [
+      4832
+     ],
+     "abilities": [
+      15587,
+      8399
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Mind Blast",
+      "Sleep"
+     ]
+    },
+    {
+     "name": "Fire of Aku’Mai Event",
+     "npcIDs": [
+      215108,
+      4978,
+      4823,
+      4977
+     ],
+     "abilities": [
+      5277
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Evasion"
+     ]
+    },
+    {
+     "name": "Old Serra’kis",
+     "npcIDs": [
+      4830
+     ],
+     "abilities": [],
+     "mentioned": [
+      5697
+     ],
+     "abilityNames": []
+    },
+    {
+     "name": "Aku’mai",
+     "npcIDs": [
+      4829
+     ],
+     "abilities": [
+      3815,
+      3490
+     ],
+     "mentioned": [
+      1715,
+      2974
+     ],
+     "abilityNames": [
+      "Poison Cloud",
+      "Frenzied Rage"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 6563,
+     "level": 17,
+     "name": "The Essence of Aku'Mai"
+    },
+    {
+     "questID": 6561,
+     "level": 18,
+     "name": "Blackfathom Villainy"
+    },
+    {
+     "questID": 6921,
+     "level": 21,
+     "name": "Amongst the Ruins"
+    },
+    {
+     "questID": 6922,
+     "level": 21,
+     "name": "Baron Aquanis"
+    },
+    {
+     "questID": 1740,
+     "level": 20,
+     "name": "The Orb of Soran'ruk"
+    },
+    {
+     "questID": 6565,
+     "level": 17,
+     "name": "Allegiance to the Old Gods"
+    },
+    {
+     "questID": 971,
+     "level": 10,
+     "name": "Knowledge in the Deeps"
+    },
+    {
+     "questID": 1275,
+     "level": 18,
+     "name": "Researching the Corruption"
+    },
+    {
+     "questID": 1199,
+     "level": 20,
+     "name": "Twilight Falls"
+    },
+    {
+     "questID": 1198,
+     "level": 18,
+     "name": "In Search of Thaelrid"
+    },
+    {
+     "questID": 1200,
+     "level": 18,
+     "name": "Blackfathom Villainy"
+    },
+    {
+     "questID": 1654,
+     "level": 20,
+     "name": "The Test of Righteousness"
+    },
+    {
+     "questID": 3765,
+     "level": null,
+     "name": "The Corruption Abroad"
+    },
+    {
+     "questID": 6562,
+     "level": null,
+     "name": "Trouble in the Deeps"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     4799
+    ],
+    "spells": [
+     20817
+    ],
+    "names": [
+     "Fallenroot Hellcaller"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/blackfathom-deeps-dungeon-overview-location-rewards"
+  },
+  "brd": {
+   "title": "Blackrock Depths Dungeon Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/04",
+   "levels": [
+    52,
+    60
+   ],
+   "bosses": [
+    {
+     "name": "High Interrogator Gerstahn",
+     "npcIDs": [
+      9018
+     ],
+     "abilities": [
+      13704,
+      18499,
+      14032,
+      14033,
+      12040
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Psychic Scream",
+      "Berserker Rage",
+      "Shadow Word: Pain",
+      "Mana Burn",
+      "Shadow Shield"
+     ]
+    },
+    {
+     "name": "Lord Roccor",
+     "npcIDs": [
+      9025
+     ],
+     "abilities": [
+      13728,
+      13729
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Earth Shock",
+      "Flame Shock"
+     ]
+    },
+    {
+     "name": "Houndmaster Grebmar",
+     "npcIDs": [
+      9319
+     ],
+     "abilities": [
+      21049,
+      13730,
+      15615
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Bloodlust",
+      "Demoralizing Shout",
+      "Pummel"
+     ]
+    },
+    {
+     "name": "Ring of the Law",
+     "npcIDs": [
+      9027,
+      9028,
+      9029,
+      9030,
+      9031,
+      9032,
+      16059
+     ],
+     "abilities": [
+      15589,
+      15708,
+      21049,
+      13728,
+      6524,
+      8269,
+      28599,
+      16874,
+      7121,
+      16095,
+      14621,
+      26192,
+      25055,
+      13747,
+      15470,
+      15471,
+      15472,
+      12493,
+      13787,
+      15475,
+      3609,
+      15474
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Whirlwind",
+      "Mortal Strike",
+      "Bloodlust",
+      "Earth Shock",
+      "Ground Tremor",
+      "Enrage",
+      "Shadow Bolt Volley",
+      "Shadow Protection",
+      "Anti-Magic Shield",
+      "Vicious Rend",
+      "Polymorph",
+      "Arcane Explosion",
+      "Arcane Bolt",
+      "Slow",
+      "Curse of Tongues",
+      "Enveloping Web",
+      "Shadow Bolt",
+      "Curse of Weakness",
+      "Demon Armor",
+      "Baneful Poison",
+      "Paralyzing Poison",
+      "Web Explosion"
+     ]
+    },
+    {
+     "name": "Fineous Darkvire",
+     "npcIDs": [
+      9056
+     ],
+     "abilities": [
+      8258,
+      15493,
+      13953,
+      11978,
+      15346
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Devotion Aura",
+      "Holy Light",
+      "Holy Strike",
+      "Kick",
+      "Seal of Reckoning"
+     ]
+    },
+    {
+     "name": "Pyromancer Loregrain",
+     "npcIDs": [
+      9024
+     ],
+     "abilities": [
+      15038,
+      15095,
+      15616,
+      15041
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Scorching Totem",
+      "Molten Blast",
+      "Flame Shock",
+      "Fire Ward"
+     ]
+    },
+    {
+     "name": "Bael'gar",
+     "npcIDs": [
+      9016
+     ],
+     "abilities": [
+      13880,
+      13895
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Magma Splash",
+      "Summon Spawn of Bael'Gar"
+     ]
+    },
+    {
+     "name": "Lord Incendius",
+     "npcIDs": [
+      9017
+     ],
+     "abilities": [
+      26977,
+      13900,
+      13899,
+      14099
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Curse of the Elemental Lord",
+      "Fiery Burst",
+      "Fire Storm",
+      "Mighty Blow"
+     ]
+    },
+    {
+     "name": "The Vault - Dark Iron Coffers",
+     "npcIDs": [
+      9476,
+      9041,
+      9042
+     ],
+     "abilities": [
+      12675,
+      15044,
+      12674,
+      12556
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Frostbolt",
+      "Frost Ward",
+      "Frost Nova",
+      "Frost Armor"
+     ]
+    },
+    {
+     "name": "General Angerforge",
+     "npcIDs": [
+      9033
+     ],
+     "abilities": [
+      15572
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Sunder Armor"
+     ]
+    },
+    {
+     "name": "Golem Lord Argelmach",
+     "npcIDs": [
+      8983
+     ],
+     "abilities": [
+      15305,
+      15507,
+      15605
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Chain Lightning",
+      "Lightning Shield",
+      "Shock"
+     ]
+    },
+    {
+     "name": "The Grim Guzzler",
+     "npcIDs": [
+      9502,
+      9499,
+      12944,
+      9503,
+      9537,
+      9543
+     ],
+     "abilities": [
+      14099,
+      15588,
+      15285,
+      12739
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Mighty Blow",
+      "Thunderclap",
+      "Fireball Volley",
+      "Shadow Bolt"
+     ]
+    },
+    {
+     "name": "Ambassador Flamelash",
+     "npcIDs": [
+      9156
+     ],
+     "abilities": [
+      13489,
+      14744
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Burning Spirit",
+      "Burning Spirit"
+     ]
+    },
+    {
+     "name": "Panzor the Invincible",
+     "npcIDs": [
+      8923
+     ],
+     "abilities": [
+      9941
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Spell Reflection"
+     ]
+    },
+    {
+     "name": "Chest of the Seven - Summoners' Tomb",
+     "npcIDs": [
+      9034,
+      9035,
+      9036,
+      9037,
+      9038,
+      9039,
+      9040
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "The Lyceum Gauntlet",
+     "npcIDs": [
+      9956
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "Magmus",
+     "npcIDs": [
+      9938
+     ],
+     "abilities": [
+      13900,
+      24375
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Fiery Burst",
+      "War Stomp"
+     ]
+    },
+    {
+     "name": "Emperor Dagran Thaurissan",
+     "npcIDs": [
+      8929,
+      9019
+     ],
+     "abilities": [
+      17492,
+      15636,
+      15642,
+      15586,
+      10929,
+      10901,
+      15587,
+      15654,
+      10934,
+      15537,
+      13912
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Hand of Thaurissan",
+      "Avatar of Flame",
+      "Ironfoe",
+      "Heal",
+      "Renew",
+      "Power Word: Shield",
+      "Mind Blast",
+      "Shadow Word: Pain",
+      "Smite",
+      "Shadow Bolt",
+      "Princess Summons Portal"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 4136,
+     "level": 50,
+     "name": "Ribbly Screwspigot"
+    },
+    {
+     "questID": 4123,
+     "level": 50,
+     "name": "The Heart of the Mountain"
+    },
+    {
+     "questID": 7848,
+     "level": 55,
+     "name": "Attunement to the Core"
+    },
+    {
+     "questID": 3802,
+     "level": 48,
+     "name": "Dark Iron Legacy"
+    },
+    {
+     "questID": 4201,
+     "level": 50,
+     "name": "The Love Potion"
+    },
+    {
+     "questID": 4024,
+     "level": 52,
+     "name": "A Taste of Flame"
+    },
+    {
+     "questID": 4262,
+     "level": 48,
+     "name": "Overmaster Pyron"
+    },
+    {
+     "questID": 4263,
+     "level": 48,
+     "name": "Incendius!"
+    },
+    {
+     "questID": 4286,
+     "level": 50,
+     "name": "The Good Stuff"
+    },
+    {
+     "questID": 4126,
+     "level": 50,
+     "name": "Hurley Blackbreath"
+    },
+    {
+     "questID": 4341,
+     "level": 50,
+     "name": "Kharan Mighthammer"
+    },
+    {
+     "questID": 4362,
+     "level": 50,
+     "name": "The Fate of the Kingdom"
+    },
+    {
+     "questID": 4241,
+     "level": 48,
+     "name": "Marshal Windsor"
+    },
+    {
+     "questID": 4322,
+     "level": 50,
+     "name": "Jail Break!"
+    },
+    {
+     "questID": 4081,
+     "level": 48,
+     "name": "KILL ON SIGHT: Dark Iron Dwarves"
+    },
+    {
+     "questID": 4134,
+     "level": 50,
+     "name": "Lost Thunderbrew Recipe"
+    },
+    {
+     "questID": 4082,
+     "level": 50,
+     "name": "KILL ON SIGHT: High Ranking Dark Iron Officials"
+    },
+    {
+     "questID": 4063,
+     "level": 52,
+     "name": "The Rise of the Machines"
+    },
+    {
+     "questID": 3906,
+     "level": 48,
+     "name": "Disharmony of Flame"
+    },
+    {
+     "questID": 3907,
+     "level": 48,
+     "name": "Disharmony of Fire"
+    },
+    {
+     "questID": 3981,
+     "level": 48,
+     "name": "Commander Gor'shak"
+    },
+    {
+     "questID": 7201,
+     "level": 48,
+     "name": "The Last Element"
+    },
+    {
+     "questID": 4132,
+     "level": 52,
+     "name": "Operation: Death to Angerforge"
+    },
+    {
+     "questID": 4003,
+     "level": 48,
+     "name": "The Royal Rescue"
+    },
+    {
+     "questID": 4324,
+     "level": null,
+     "name": "Yuka Screwspigot"
+    },
+    {
+     "questID": 3801,
+     "level": null,
+     "name": "Dark Iron Legacy"
+    },
+    {
+     "questID": 3441,
+     "level": null,
+     "name": "Divine Retribution"
+    },
+    {
+     "questID": 3702,
+     "level": null,
+     "name": "The Smoldering Ruins of Thaurissan"
+    },
+    {
+     "questID": 4182,
+     "level": null,
+     "name": "Dragonkin Menace"
+    },
+    {
+     "questID": 4282,
+     "level": null,
+     "name": "A Shred of Hope"
+    },
+    {
+     "questID": 4133,
+     "level": null,
+     "name": "Vivian Lagrave"
+    },
+    {
+     "questID": 4061,
+     "level": null,
+     "name": "The Rise of the Machines"
+    },
+    {
+     "questID": 4122,
+     "level": null,
+     "name": "Grark Lorkrub"
+    },
+    {
+     "questID": 3442,
+     "level": null,
+     "name": "The Flawless Flame"
+    },
+    {
+     "questID": 3443,
+     "level": null,
+     "name": "Forging the Shaft"
+    },
+    {
+     "questID": 3452,
+     "level": null,
+     "name": "The Flame's Casing"
+    },
+    {
+     "questID": 3453,
+     "level": null,
+     "name": "The Torch of Retribution"
+    },
+    {
+     "questID": 3454,
+     "level": null,
+     "name": "The Torch of Retribution"
+    },
+    {
+     "questID": 3462,
+     "level": null,
+     "name": "Squire Maltrake"
+    },
+    {
+     "questID": 3463,
+     "level": null,
+     "name": "Set Them Ablaze!"
+    },
+    {
+     "questID": 3481,
+     "level": null,
+     "name": "Trinkets..."
+    },
+    {
+     "questID": 4023,
+     "level": null,
+     "name": "A Taste of Flame"
+    },
+    {
+     "questID": 3701,
+     "level": null,
+     "name": "The Smoldering Ruins of Thaurissan"
+    },
+    {
+     "questID": 4342,
+     "level": null,
+     "name": "Kharan's Tale"
+    },
+    {
+     "questID": 4361,
+     "level": null,
+     "name": "The Bearer of Bad News"
+    },
+    {
+     "questID": 4128,
+     "level": null,
+     "name": "Ragnar Thunderbrew"
+    },
+    {
+     "questID": 4363,
+     "level": null,
+     "name": "The Princess's Surprise"
+    },
+    {
+     "questID": 3982,
+     "level": null,
+     "name": "What Is Going On?"
+    },
+    {
+     "questID": 4001,
+     "level": null,
+     "name": "What Is Going On?"
+    },
+    {
+     "questID": 4002,
+     "level": null,
+     "name": "The Eastern Kingdoms"
+    },
+    {
+     "questID": 4121,
+     "level": null,
+     "name": "Precarious Predicament"
+    },
+    {
+     "questID": 4062,
+     "level": null,
+     "name": "The Rise of the Machines"
+    },
+    {
+     "questID": 4004,
+     "level": null,
+     "name": "The Princess Saved?"
+    }
+   ],
+   "trash": {
+    "npcIDs": [],
+    "spells": [],
+    "names": []
+   },
+   "url": "https://www.wowhead.com/forever/guide/blackrock-depths-dungeon-overview-location-rewards"
+  },
+  "dalaran": {
+   "title": "City of Dalaran Dungeon Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/09",
+   "levels": [
+    28,
+    34
+   ],
+   "bosses": [
+    {
+     "name": "Atrexis the Grave Knight",
+     "npcIDs": [
+      247126
+     ],
+     "abilities": [
+      6713,
+      1303266,
+      1303264,
+      3391,
+      12057
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Disarm",
+      "Raise Dead",
+      "Unholy Frenzy",
+      "Thrash",
+      "Strike"
+     ]
+    },
+    {
+     "name": "Arcane Anomaly",
+     "npcIDs": [
+      245999
+     ],
+     "abilities": [
+      1241501,
+      15230
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Focal Blast",
+      "Arcane Bolt"
+     ]
+    },
+    {
+     "name": "Arcanic Enigma",
+     "npcIDs": [
+      246016,
+      269475,
+      246893
+     ],
+     "abilities": [
+      1240869,
+      1224125,
+      1304455
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Manamorph",
+      "Silence",
+      "Summon Manaling"
+     ]
+    },
+    {
+     "name": "Unstable Sentinel",
+     "npcIDs": [
+      246017,
+      254856
+     ],
+     "abilities": [
+      1241329
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Malfunction"
+     ]
+    },
+    {
+     "name": "Mana Devourer",
+     "npcIDs": [
+      246008
+     ],
+     "abilities": [
+      1240738,
+      1240750
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Drain Vitality",
+      "Debilitate"
+     ]
+    },
+    {
+     "name": "Fel Ancient",
+     "npcIDs": [
+      246003
+     ],
+     "abilities": [
+      22994,
+      1240706
+     ],
+     "mentioned": [
+      1044,
+      20589
+     ],
+     "abilityNames": [
+      "Entangle",
+      "Fel Timbers"
+     ]
+    },
+    {
+     "name": "Lyn the Ignored",
+     "npcIDs": [
+      247032,
+      247126
+     ],
+     "abilities": [
+      17228,
+      1304473,
+      1303266
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Shadow Bolt Volley",
+      "Curse of Thorns",
+      "Raise Dead"
+     ]
+    },
+    {
+     "name": "Shade of the Archmage",
+     "npcIDs": [
+      246020
+     ],
+     "abilities": [
+      1303598,
+      1303599,
+      15230,
+      28450,
+      1241515
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Mass Polymorph",
+      "Evocation",
+      "Arcane Bolt",
+      "Arcane Explosion",
+      "Bounding Mana"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 96986,
+     "level": 24,
+     "name": "The Grave Knight"
+    },
+    {
+     "questID": 96988,
+     "level": 24,
+     "name": "Source of Power"
+    },
+    {
+     "questID": 96987,
+     "level": 24,
+     "name": "Opportunistic Education"
+    },
+    {
+     "questID": 96984,
+     "level": 24,
+     "name": "Heart of Disruption"
+    },
+    {
+     "questID": 92489,
+     "level": 24,
+     "name": "Power Overwhelming"
+    },
+    {
+     "questID": 92458,
+     "level": 30,
+     "name": "Heart of Disruption"
+    },
+    {
+     "questID": 92456,
+     "level": 24,
+     "name": "A Green Sample"
+    },
+    {
+     "questID": 92457,
+     "level": 30,
+     "name": "Starving Arcane"
+    },
+    {
+     "questID": 1200,
+     "level": null,
+     "name": "Blackfathom Villainy"
+    },
+    {
+     "questID": 971,
+     "level": null,
+     "name": "Knowledge in the Deeps"
+    },
+    {
+     "questID": 6565,
+     "level": null,
+     "name": "Allegiance to the Old Gods"
+    },
+    {
+     "questID": 6922,
+     "level": null,
+     "name": "Baron Aquanis"
+    },
+    {
+     "questID": 544,
+     "level": null,
+     "name": "Prison Break In"
+    },
+    {
+     "questID": 92432,
+     "level": null,
+     "name": "An Alarming Request"
+    },
+    {
+     "questID": 6561,
+     "level": null,
+     "name": "Blackfathom Villainy"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     269475,
+     247001
+    ],
+    "spells": [
+     20817,
+     1449,
+     3044,
+     2139
+    ],
+    "names": [
+     "Mana Phantom",
+     "Saturated Remnant"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/city-of-dalaran-dungeon-overview-location-rewards"
+  },
+  "deadmines": {
+   "title": "The Deadmines Dungeon Strategy Guide - WoW: Forever",
+   "updated": "2026/11/04",
+   "levels": [
+    18,
+    23
+   ],
+   "bosses": [
+    {
+     "name": "Rhahk'Zor",
+     "npcIDs": [
+      644,
+      1725
+     ],
+     "abilities": [
+      6304
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Rhahk'Zor Slam"
+     ]
+    },
+    {
+     "name": "Miner Johnson (Rare)",
+     "npcIDs": [
+      3586,
+      598
+     ],
+     "abilities": [
+      12097
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Pierce Armor"
+     ]
+    },
+    {
+     "name": "Sneed's Shredder",
+     "npcIDs": [
+      642,
+      641,
+      643
+     ],
+     "abilities": [
+      3603,
+      7399,
+      6713
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Distracting Pain",
+      "Terrify",
+      "Disarm"
+     ]
+    },
+    {
+     "name": "Gilnid",
+     "npcIDs": [
+      1763,
+      622
+     ],
+     "abilities": [
+      5213
+     ],
+     "mentioned": [
+      3605
+     ],
+     "abilityNames": [
+      "Molten Metal"
+     ]
+    },
+    {
+     "name": "Mr. Smite",
+     "npcIDs": [
+      646,
+      636
+     ],
+     "abilities": [
+      674,
+      6264,
+      6435,
+      6432,
+      3391
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Dual Wield",
+      "Nimble Reflexes",
+      "Smite Slam",
+      "Smite Stomp",
+      "Thrash"
+     ]
+    },
+    {
+     "name": "Captain Greenskin",
+     "npcIDs": [
+      647,
+      1732,
+      3450,
+      657
+     ],
+     "abilities": [
+      15496,
+      5208
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Cleave",
+      "Poisoned Harpoon"
+     ]
+    },
+    {
+     "name": "Edwin VanCleef",
+     "npcIDs": [
+      639,
+      636
+     ],
+     "abilities": [
+      674,
+      3391
+     ],
+     "mentioned": [
+      853
+     ],
+     "abilityNames": [
+      "Dual Wield",
+      "Thrash"
+     ]
+    },
+    {
+     "name": "Cookie",
+     "npcIDs": [
+      645
+     ],
+     "abilities": [
+      6306,
+      5174
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Acid Splash",
+      "Cookie's Cooking"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 168,
+     "level": 14,
+     "name": "Collecting Memories"
+    },
+    {
+     "questID": 167,
+     "level": 15,
+     "name": "Oh Brother..."
+    },
+    {
+     "questID": 2040,
+     "level": 15,
+     "name": "Underground Assault"
+    },
+    {
+     "questID": 373,
+     "level": 16,
+     "name": "The Unsent Letter"
+    },
+    {
+     "questID": 214,
+     "level": 14,
+     "name": "Red Silk Bandanas"
+    },
+    {
+     "questID": 166,
+     "level": 14,
+     "name": "The Defias Brotherhood"
+    },
+    {
+     "questID": 92753,
+     "level": 14,
+     "name": "Destruction in Deadmines"
+    },
+    {
+     "questID": 1654,
+     "level": 20,
+     "name": "The Test of Righteousness"
+    },
+    {
+     "questID": 95036,
+     "level": 20,
+     "name": "A Moon-Kissed Blade"
+    },
+    {
+     "questID": 391,
+     "level": null,
+     "name": "The Stockade Riots"
+    },
+    {
+     "questID": 92742,
+     "level": null,
+     "name": "Testing the Wells"
+    },
+    {
+     "questID": 65,
+     "level": null,
+     "name": "The Defias Brotherhood"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     1731,
+     622,
+     1732
+    ],
+    "spells": [
+     3605,
+     853,
+     122
+    ],
+    "names": [
+     "Goblin Craftsman",
+     "Goblin Engineer",
+     "Defias Squallshaper"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/the-deadmines-dungeon-overview-location-rewards"
+  },
+  "drownedcity": {
+   "title": "The Drowned City Overview Guide:  Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/14",
+   "levels": [
+    35,
+    42
+   ],
+   "bosses": [
+    {
+     "name": "Zul'Alai",
+     "npcIDs": [
+      258905
+     ],
+     "abilities": [
+      1282504,
+      1282519,
+      1282511
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Monstrous Slam",
+      "Rotted Strike",
+      "Undying Oath"
+     ]
+    },
+    {
+     "name": "Var'Taka",
+     "npcIDs": [
+      258924,
+      270910
+     ],
+     "abilities": [
+      1282615,
+      15284
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Harpoon",
+      "Cleave"
+     ]
+    },
+    {
+     "name": "Primeval Elemental",
+     "npcIDs": [
+      263886,
+      263899
+     ],
+     "abilities": [
+      1290978,
+      1290983
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Waterbolt",
+      "Freeze Water"
+     ]
+    },
+    {
+     "name": "Captain Dreadrise",
+     "npcIDs": [
+      260042
+     ],
+     "abilities": [
+      1282842,
+      1282860
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Embrine",
+      "Waterbolt Volley"
+     ]
+    },
+    {
+     "name": "Deathless Marrow",
+     "npcIDs": [
+      269586
+     ],
+     "abilities": [
+      1283034
+     ],
+     "mentioned": [
+      1283081,
+      6213,
+      12825,
+      5246,
+      8124
+     ],
+     "abilityNames": [
+      "Bloodbolt"
+     ]
+    },
+    {
+     "name": "Min'loth The Serpent",
+     "npcIDs": [
+      260243
+     ],
+     "abilities": [
+      1283250,
+      1283233,
+      1313471,
+      1283313
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Drench",
+      "Deluge",
+      "Fear",
+      "Poison Bolt Volley"
+     ]
+    },
+    {
+     "name": "Umbra (Rare)",
+     "npcIDs": [
+      264172
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "Gill (Rare)",
+     "npcIDs": [
+      264177
+     ],
+     "abilities": [],
+     "mentioned": [
+      1291692
+     ],
+     "abilityNames": []
+    }
+   ],
+   "quests": [
+    {
+     "questID": 95788,
+     "level": 30,
+     "name": "Magics of the Drowned City"
+    },
+    {
+     "questID": 95787,
+     "level": 30,
+     "name": "Take Two With Water"
+    },
+    {
+     "questID": 97130,
+     "level": 34,
+     "name": "Ancient Gurubashi Secrets"
+    },
+    {
+     "questID": 95775,
+     "level": 30,
+     "name": "The Drowned City"
+    },
+    {
+     "questID": 95776,
+     "level": 30,
+     "name": "The Only Good Brinescale..."
+    },
+    {
+     "questID": 96774,
+     "level": 30,
+     "name": "Ancient Gurubashi Idol"
+    },
+    {
+     "questID": 95789,
+     "level": 34,
+     "name": "Shady Saltseers"
+    },
+    {
+     "questID": 95791,
+     "level": 34,
+     "name": "The Saltseer Captain"
+    },
+    {
+     "questID": 95799,
+     "level": null,
+     "name": "Findings for the Explorer's League"
+    },
+    {
+     "questID": 95798,
+     "level": null,
+     "name": "The Web of Magic"
+    },
+    {
+     "questID": 203,
+     "level": null,
+     "name": "The Second Rebellion"
+    },
+    {
+     "questID": 204,
+     "level": null,
+     "name": "Bad Medicine"
+    },
+    {
+     "questID": 205,
+     "level": null,
+     "name": "Troll Witchery"
+    },
+    {
+     "questID": 629,
+     "level": null,
+     "name": "The Vile Reef"
+    },
+    {
+     "questID": 95773,
+     "level": null,
+     "name": "Enemies in the Water"
+    },
+    {
+     "questID": 92422,
+     "level": null,
+     "name": "The Wrath of Rath'mael"
+    },
+    {
+     "questID": 92401,
+     "level": null,
+     "name": "A Frightened Request"
+    }
+   ],
+   "trash": {
+    "npcIDs": [],
+    "spells": [
+     8143
+    ],
+    "names": []
+   },
+   "url": "https://www.wowhead.com/forever/guide/the-drowned-city-dungeon-overview-location-rewards"
+  },
+  "excavation": {
+   "title": "Excavation Site Dungeon Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/17",
+   "levels": [
+    26,
+    32
+   ],
+   "bosses": [
+    {
+     "name": "Saltspine",
+     "npcIDs": [
+      260322
+     ],
+     "abilities": [
+      3604,
+      1316382
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Tendon Rip",
+      "Dust Storm"
+     ]
+    },
+    {
+     "name": "Shadetooth",
+     "npcIDs": [
+      260325,
+      260801
+     ],
+     "abilities": [
+      12054,
+      14100,
+      18501
+     ],
+     "mentioned": [
+      3427
+     ],
+     "abilityNames": [
+      "Rend",
+      "Terrifying Roar",
+      "Enrage"
+     ]
+    },
+    {
+     "name": "Relic Guardian",
+     "npcIDs": [
+      260326
+     ],
+     "abilities": [
+      15588
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Thunderclap"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 98815,
+     "level": 24,
+     "name": "Highland Hides"
+    },
+    {
+     "questID": 95772,
+     "level": 24,
+     "name": "Songblade Search"
+    },
+    {
+     "questID": 95646,
+     "level": 24,
+     "name": "Horrors in the Highland"
+    },
+    {
+     "questID": 95647,
+     "level": 24,
+     "name": "Lost in the Thicket Things"
+    },
+    {
+     "questID": 95809,
+     "level": 24,
+     "name": "Heartwoven"
+    },
+    {
+     "questID": 95810,
+     "level": 24,
+     "name": "Lost Relic Carry"
+    },
+    {
+     "questID": 98824,
+     "level": 24,
+     "name": "Prehistoric Prism"
+    },
+    {
+     "questID": 95697,
+     "level": 24,
+     "name": "Changing Tastes"
+    },
+    {
+     "questID": 95664,
+     "level": 24,
+     "name": "Elder Knowledge"
+    },
+    {
+     "questID": 98823,
+     "level": 24,
+     "name": "Earthen Echo"
+    },
+    {
+     "questID": 95682,
+     "level": 24,
+     "name": "Open the Maw"
+    },
+    {
+     "questID": 469,
+     "level": null,
+     "name": "Daily Delivery"
+    },
+    {
+     "questID": 95737,
+     "level": null,
+     "name": "Seeking Caitlin"
+    },
+    {
+     "questID": 95663,
+     "level": null,
+     "name": "Dragonmaw Rumors"
+    },
+    {
+     "questID": 484,
+     "level": null,
+     "name": "Young Crocolisk Skins"
+    },
+    {
+     "questID": 96393,
+     "level": null,
+     "name": "Old Ironforge Incursion"
+    },
+    {
+     "questID": 463,
+     "level": null,
+     "name": "The Greenwarden"
+    },
+    {
+     "questID": 276,
+     "level": null,
+     "name": "Tramping Paws"
+    },
+    {
+     "questID": 277,
+     "level": null,
+     "name": "Fire Taboo"
+    },
+    {
+     "questID": 275,
+     "level": null,
+     "name": "Blisters on the Land"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     260322,
+     260800,
+     260802
+    ],
+    "spells": [],
+    "names": [
+     "Saltspine",
+     "Thicket Lurker",
+     "Thicket Matriarch"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/excavation-site-wetlands-dungeon-overview-location-rewards"
+  },
+  "gnomeregan": {
+   "title": "Gnomeregan Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/16",
+   "levels": [
+    29,
+    38
+   ],
+   "bosses": [
+    {
+     "name": "Grubbis",
+     "npcIDs": [
+      7361,
+      7998
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "Viscous Fallout",
+     "npcIDs": [
+      7079
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "Electrocutioner 6000",
+     "npcIDs": [
+      6235
+     ],
+     "abilities": [
+      11085,
+      11082,
+      11084
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Chain Bolt",
+      "Megavolt",
+      "Shock"
+     ]
+    },
+    {
+     "name": "Crowd Pummeler 9-60",
+     "npcIDs": [
+      6229
+     ],
+     "abilities": [
+      8374,
+      10887,
+      5568
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Arcing Smash",
+      "Crowd Pummel",
+      "Trample"
+     ]
+    },
+    {
+     "name": "Dark Iron Ambassador (Rare)",
+     "npcIDs": [
+      6228,
+      7800
+     ],
+     "abilities": [
+      184,
+      9053,
+      10870
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Fire Shield II",
+      "Fireball",
+      "Summon Burning Servant"
+     ]
+    },
+    {
+     "name": "Mekgineer Thermaplugg",
+     "npcIDs": [
+      7800,
+      7915
+     ],
+     "abilities": [
+      11130
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Knock Away"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 2841,
+     "level": 25,
+     "name": "Rig Wars"
+    },
+    {
+     "questID": 2842,
+     "level": 20,
+     "name": "Chief Engineer Scooty"
+    },
+    {
+     "questID": 2843,
+     "level": 20,
+     "name": "Gnomer-gooooone!"
+    },
+    {
+     "questID": 2922,
+     "level": 20,
+     "name": "Save Techbot's Brain!"
+    },
+    {
+     "questID": 2928,
+     "level": 20,
+     "name": "Gyrodrillmatic Excavationators"
+    },
+    {
+     "questID": 2924,
+     "level": 24,
+     "name": "Essential Artificials"
+    },
+    {
+     "questID": 2930,
+     "level": 25,
+     "name": "Data Rescue"
+    },
+    {
+     "questID": 2929,
+     "level": 25,
+     "name": "The Grand Betrayal"
+    },
+    {
+     "questID": 2926,
+     "level": 20,
+     "name": "Gnogaine"
+    },
+    {
+     "questID": 2962,
+     "level": 20,
+     "name": "The Only Cure is More Green Glow"
+    },
+    {
+     "questID": 2951,
+     "level": 25,
+     "name": "The Sparklematic 5200!"
+    },
+    {
+     "questID": 2904,
+     "level": 20,
+     "name": "A Fine Mess"
+    },
+    {
+     "questID": 2945,
+     "level": 28,
+     "name": "Grime-Encrusted Ring"
+    },
+    {
+     "questID": 2947,
+     "level": null,
+     "name": "Return of the Ring"
+    },
+    {
+     "questID": 2949,
+     "level": null,
+     "name": "Return of the Ring"
+    },
+    {
+     "questID": 2948,
+     "level": null,
+     "name": "Gnome Improvement"
+    },
+    {
+     "questID": 2950,
+     "level": null,
+     "name": "Nogg's Ring Redo"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     6329,
+     6207,
+     6392,
+     7849,
+     6212,
+     6232
+    ],
+    "spells": [
+     9771,
+     7159,
+     11802,
+     10831
+    ],
+    "names": [
+     "Irradiated Pillager",
+     "Caverndeep Ambusher",
+     "Holdout Medic",
+     "Mobile Alert System",
+     "Dark Iron Agent",
+     "Arcane Nullifier X-21"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/gnomeregan-dungeon-overview-location-rewards"
+  },
+  "hallofthanes": {
+   "title": "The Hall of Thanes Dungeon Overview Guide:  Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/16",
+   "levels": [
+    13,
+    18
+   ],
+   "bosses": [
+    {
+     "name": "Faldrim Anvilmar",
+     "npcIDs": [
+      261306
+     ],
+     "abilities": [
+      26048,
+      1292602
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Mind Blast",
+      "Anvilmar's Curse"
+     ]
+    },
+    {
+     "name": "Magmatus",
+     "npcIDs": [
+      261316,
+      263438
+     ],
+     "abilities": [
+      1293228
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Combust"
+     ]
+    },
+    {
+     "name": "Plunder",
+     "npcIDs": [
+      261311
+     ],
+     "abilities": [
+      10101
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Knock Away"
+     ]
+    },
+    {
+     "name": "Dirgen Dirgehammer",
+     "npcIDs": [
+      261319,
+      263466,
+      263396
+     ],
+     "abilities": [
+      26070,
+      12054
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Fear",
+      "Rend"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 96403,
+     "level": 10,
+     "name": "Important Heirlooms"
+    },
+    {
+     "questID": 96394,
+     "level": 10,
+     "name": "The Restless Dead"
+    },
+    {
+     "questID": 96393,
+     "level": 9,
+     "name": "Old Ironforge Incursion"
+    },
+    {
+     "questID": 98423,
+     "level": 9,
+     "name": "The Treaty of Understanding"
+    },
+    {
+     "questID": 96395,
+     "level": 10,
+     "name": "An Ancient Grudge"
+    },
+    {
+     "questID": 96391,
+     "level": null,
+     "name": "Underground Map"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     263396,
+     263397,
+     263438,
+     263466
+    ],
+    "spells": [
+     1291218,
+     118,
+     853
+    ],
+    "names": [
+     "Dark Iron Looter",
+     "Dark Iron Engineer",
+     "Dark Iron Summoner",
+     "Lesser Stone Golem"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/hall-of-thanes-dungeon-overview-location-rewards"
+  },
+  "kroldok": {
+   "title": "Krol'dok Stronghold Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/14",
+   "levels": [
+    40,
+    45
+   ],
+   "bosses": [
+    {
+     "name": "Slavecrusher Grox",
+     "npcIDs": [
+      258966,
+      257900
+     ],
+     "abilities": [
+      21049,
+      11428,
+      1280085
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Bloodlust",
+      "Knockdown",
+      "Force Compliance"
+     ]
+    },
+    {
+     "name": "Twilight Commander Zarmok",
+     "npcIDs": [
+      258972
+     ],
+     "abilities": [
+      12057,
+      1280011,
+      8599
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Strike",
+      "Rending Whirl",
+      "Enrage"
+     ]
+    },
+    {
+     "name": "War Handler Ashka",
+     "npcIDs": [
+      259281,
+      259283,
+      259285
+     ],
+     "abilities": [
+      12057,
+      1282076
+     ],
+     "mentioned": [
+      5589,
+      14902,
+      408
+     ],
+     "abilityNames": [
+      "Strike",
+      "Command: Kill!"
+     ]
+    },
+    {
+     "name": "Nar'gurk",
+     "npcIDs": [
+      258964,
+      258040,
+      258100
+     ],
+     "abilities": [
+      1280356,
+      1280259
+     ],
+     "mentioned": [
+      12825,
+      2070,
+      6213
+     ],
+     "abilityNames": [
+      "Shadow Bolt Volley",
+      "Convert"
+     ]
+    },
+    {
+     "name": "Bossman Toof",
+     "npcIDs": [
+      264773,
+      257885,
+      258687,
+      257888
+     ],
+     "abilities": [
+      16856,
+      15548,
+      16244
+     ],
+     "mentioned": [
+      1725
+     ],
+     "abilityNames": [
+      "Mortal Strike",
+      "Thunderclap",
+      "Demoralizing Shout"
+     ]
+    },
+    {
+     "name": "Overlord Mugg",
+     "npcIDs": [
+      258968,
+      257885
+     ],
+     "abilities": [
+      1282397,
+      1282387,
+      1282393,
+      1282394
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Crushing Slam",
+      "Mugg's Fury",
+      "Set of Maces",
+      "Set of Mauls"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 96771,
+     "level": 37,
+     "name": "Vengeance of the Highborne"
+    },
+    {
+     "questID": 94983,
+     "level": 38,
+     "name": "Twilight Mementos"
+    },
+    {
+     "questID": 94982,
+     "level": 40,
+     "name": "Eye of Mugg"
+    },
+    {
+     "questID": 94984,
+     "level": 39,
+     "name": "Tome of Twilight"
+    },
+    {
+     "questID": 94980,
+     "level": 38,
+     "name": "Krol'dok Moulding"
+    },
+    {
+     "questID": 94975,
+     "level": 38,
+     "name": "A Token of Vengeance"
+    },
+    {
+     "questID": 94972,
+     "level": 38,
+     "name": "Tome of Twilight"
+    },
+    {
+     "questID": 94968,
+     "level": 38,
+     "name": "Eye of Mugg"
+    },
+    {
+     "questID": 94973,
+     "level": 38,
+     "name": "Krol'dok Moulding"
+    },
+    {
+     "questID": 94998,
+     "level": null,
+     "name": "Curios of Curiosity"
+    },
+    {
+     "questID": 94881,
+     "level": null,
+     "name": "Curious Trinkets"
+    },
+    {
+     "questID": 94879,
+     "level": null,
+     "name": "Scraps of Knowledge"
+    },
+    {
+     "questID": 94877,
+     "level": null,
+     "name": "Saving Sunnyglade"
+    },
+    {
+     "questID": 94981,
+     "level": null,
+     "name": "Key Ingredients"
+    },
+    {
+     "questID": 94744,
+     "level": null,
+     "name": "The Wayward Warrior"
+    },
+    {
+     "questID": 94974,
+     "level": null,
+     "name": "Key Ingredients"
+    },
+    {
+     "questID": 92422,
+     "level": null,
+     "name": "The Wrath of Rath'mael"
+    },
+    {
+     "questID": 92401,
+     "level": null,
+     "name": "A Frightened Request"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     258042,
+     258102,
+     277611,
+     257888,
+     257885
+    ],
+    "spells": [
+     1307066,
+     15572,
+     12825,
+     6660,
+     14443,
+     14030,
+     1044,
+     5589,
+     7372,
+     12167,
+     6742,
+     16856,
+     15548,
+     16244,
+     14902,
+     408
+    ],
+    "names": [
+     "Twilight Grunt",
+     "Twilight Outrider",
+     "Twilight Peon",
+     "Krol'dok Shaman",
+     "Krol'dok Centurion"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/kroldok-stronghold-dungeon-overview-location-rewards"
+  },
+  "lbrs": {
+   "title": "Lower Blackrock Spire Dungeon Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/06",
+   "levels": [
+    55,
+    60
+   ],
+   "bosses": [
+    {
+     "name": "Spirestone Butcher (Rare)",
+     "npcIDs": [
+      9219,
+      9196,
+      9218
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "Spirestone Battle Lord (Rare)",
+     "npcIDs": [
+      9218,
+      9196
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "Highlord Omokk",
+     "npcIDs": [
+      9196,
+      10584
+     ],
+     "abilities": [
+      5532,
+      8269,
+      18945
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Cleave",
+      "Enrage",
+      "Knock Away"
+     ]
+    },
+    {
+     "name": "Shadow Hunter Vosh’gajin",
+     "npcIDs": [
+      9236,
+      9240,
+      9196
+     ],
+     "abilities": [
+      8282,
+      22566
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Curse of Blood",
+      "Hex"
+     ]
+    },
+    {
+     "name": "War Master Voone",
+     "npcIDs": [
+      9237,
+      9236,
+      10257,
+      16080
+     ],
+     "abilities": [
+      5532
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Cleave"
+     ]
+    },
+    {
+     "name": "Bannok Grimaxe <Firebrand Legion Champion> (Rare)",
+     "npcIDs": [
+      9596,
+      10596
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "Mother Smolderweb",
+     "npcIDs": [
+      10596,
+      10375,
+      10374,
+      10376
+     ],
+     "abilities": [
+      18658,
+      16104,
+      16468
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Hibernate",
+      "Crystallize",
+      "Mother's Milk"
+     ]
+    },
+    {
+     "name": "Crystal Fang (Rare)",
+     "npcIDs": [
+      10376,
+      10586
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "Urok Doomhowl",
+     "npcIDs": [
+      10584
+     ],
+     "abilities": [
+      16508,
+      13443,
+      13446
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Intimidating Roar",
+      "Rend",
+      "Strike"
+     ]
+    },
+    {
+     "name": "Quartermaster Zigris",
+     "npcIDs": [
+      9736,
+      10584,
+      9701,
+      10177
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "Halycon",
+     "npcIDs": [
+      10220,
+      9736,
+      10259,
+      10268
+     ],
+     "abilities": [
+      13443,
+      3391
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Rend",
+      "Thrash"
+     ]
+    },
+    {
+     "name": "Gizrul the Slavener",
+     "npcIDs": [
+      10268,
+      9568
+     ],
+     "abilities": [
+      8269,
+      20539,
+      16128
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Enrage",
+      "Fatal Bite",
+      "Infected Bite"
+     ]
+    },
+    {
+     "name": "Overlord Wyrmthalak",
+     "npcIDs": [
+      9568
+     ],
+     "abilities": [
+      19983,
+      23511,
+      25322
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Cleave",
+      "Demoralizing Shout",
+      "Sweeping Slam"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 4724,
+     "level": 55,
+     "name": "The Pack Mistress"
+    },
+    {
+     "questID": 4981,
+     "level": 55,
+     "name": "Operative Bijou"
+    },
+    {
+     "questID": 4903,
+     "level": 55,
+     "name": "Warlord's Command"
+    },
+    {
+     "questID": 4701,
+     "level": 55,
+     "name": "Put Her Down"
+    },
+    {
+     "questID": 5089,
+     "level": 55,
+     "name": "General Drakkisath's Command"
+    },
+    {
+     "questID": 5001,
+     "level": 55,
+     "name": "Bijou's Belongings"
+    },
+    {
+     "questID": 4862,
+     "level": 55,
+     "name": "En-Ay-Es-Tee-Why"
+    },
+    {
+     "questID": 4729,
+     "level": 55,
+     "name": "Kibler's Exotic Pets"
+    },
+    {
+     "questID": 4866,
+     "level": 55,
+     "name": "Mother's Milk"
+    },
+    {
+     "questID": 4742,
+     "level": 57,
+     "name": "Seal of Ascension"
+    },
+    {
+     "questID": 4867,
+     "level": 55,
+     "name": "Urok Doomhowl"
+    },
+    {
+     "questID": 4788,
+     "level": 40,
+     "name": "The Final Tablets"
+    },
+    {
+     "questID": 4982,
+     "level": null,
+     "name": "Bijou's Belongings"
+    },
+    {
+     "questID": 3520,
+     "level": null,
+     "name": "Screecher Spirits"
+    },
+    {
+     "questID": 5065,
+     "level": null,
+     "name": "The Lost Tablets of Mosh'aru"
+    },
+    {
+     "questID": 3527,
+     "level": null,
+     "name": "The Prophecy of Mosh'aru"
+    },
+    {
+     "questID": 4787,
+     "level": null,
+     "name": "The Ancient Egg"
+    },
+    {
+     "questID": 3528,
+     "level": null,
+     "name": "The God Hakkar"
+    },
+    {
+     "questID": 5081,
+     "level": null,
+     "name": "Maxwell's Mission"
+    },
+    {
+     "questID": 5002,
+     "level": null,
+     "name": "Message to Maxwell"
+    },
+    {
+     "questID": 4983,
+     "level": null,
+     "name": "Bijou's Reconnaissance Report"
+    },
+    {
+     "questID": 4941,
+     "level": null,
+     "name": "Eitrigg's Wisdom"
+    },
+    {
+     "questID": 4974,
+     "level": null,
+     "name": "For The Horde!"
+    },
+    {
+     "questID": 4743,
+     "level": null,
+     "name": "Seal of Ascension"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     10296,
+     10584,
+     9196,
+     9236,
+     9237,
+     9262,
+     9596
+    ],
+    "spells": [
+     26027,
+     11921,
+     11829,
+     15128
+    ],
+    "names": [
+     "Vaelan",
+     "Urok Doomhowl",
+     "Highlord Omokk",
+     "Shadow Hunter Vosh'gajin",
+     "War Master Voone",
+     "Firebrand Invoker",
+     "Bannok Grimaxe"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/lower-blackrock-spire-dungeon-overview-location-rewards"
+  },
+  "maraudon": {
+   "title": "Maraudon Dungeon Strategy Guide - WoW: Forever",
+   "updated": "2026/11/16",
+   "levels": [
+    45,
+    52
+   ],
+   "bosses": [
+    {
+     "name": "Lord Vyletongue",
+     "npcIDs": [
+      12236,
+      11792
+     ],
+     "abilities": [
+      14443,
+      7964,
+      1953
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Multi-Shot",
+      "Smoke Bomb",
+      "Blink"
+     ]
+    },
+    {
+     "name": "Noxxion",
+     "npcIDs": [
+      13282
+     ],
+     "abilities": [
+      21687,
+      18072
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Toxic Volley",
+      "Uppercut"
+     ]
+    },
+    {
+     "name": "Razorlash",
+     "npcIDs": [
+      12258
+     ],
+     "abilities": [
+      15284,
+      15976
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Cleave",
+      "Puncture"
+     ]
+    },
+    {
+     "name": "Meshlok the Harvester (Rare)",
+     "npcIDs": [
+      12237,
+      12223,
+      12224
+     ],
+     "abilities": [
+      11876,
+      15501,
+      13446
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "War Stomp",
+      "Earth Shock",
+      "Strike"
+     ]
+    },
+    {
+     "name": "Celebras the Cursed",
+     "npcIDs": [
+      12225,
+      13743
+     ],
+     "abilities": [
+      9739,
+      6913,
+      12747,
+      21793
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Wrath",
+      "Force of Nature",
+      "Entangling Roots",
+      "Twisted Tranquility"
+     ]
+    },
+    {
+     "name": "Landslide",
+     "npcIDs": [
+      12203,
+      11783,
+      12206
+     ],
+     "abilities": [
+      5568,
+      10101
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Trample",
+      "Knock Away"
+     ]
+    },
+    {
+     "name": "Princess Theradras",
+     "npcIDs": [
+      12201,
+      12203,
+      13596,
+      13601,
+      12206
+     ],
+     "abilities": [
+      21868,
+      21869,
+      9483,
+      6346,
+      18499,
+      8143
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Dust Field",
+      "Repulsive Gaze",
+      "Boulder",
+      "Fear Ward",
+      "Berserker Rage",
+      "Tremor Totem"
+     ]
+    },
+    {
+     "name": "Rotgrip",
+     "npcIDs": [
+      13596,
+      12201,
+      13601
+     ],
+     "abilities": [
+      15976,
+      16495
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Puncture",
+      "Fatal Bite"
+     ]
+    },
+    {
+     "name": "Tinkerer Gizlock",
+     "npcIDs": [
+      13601
+     ],
+     "abilities": [
+      13183,
+      6660,
+      8858
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Goblin Dragon Gun",
+      "Shoot",
+      "Bomb"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 7068,
+     "level": 43,
+     "name": "Shadowshard Fragments"
+    },
+    {
+     "questID": 7029,
+     "level": 41,
+     "name": "Vyletongue Corruption"
+    },
+    {
+     "questID": 7064,
+     "level": 45,
+     "name": "Corruption of Earth and Seed"
+    },
+    {
+     "questID": 7070,
+     "level": 39,
+     "name": "Shadowshard Fragments"
+    },
+    {
+     "questID": 7041,
+     "level": 41,
+     "name": "Vyletongue Corruption"
+    },
+    {
+     "questID": 7065,
+     "level": 45,
+     "name": "Corruption of Earth and Seed"
+    },
+    {
+     "questID": 7028,
+     "level": 35,
+     "name": "Twisted Evils"
+    },
+    {
+     "questID": 7067,
+     "level": 39,
+     "name": "The Pariah's Instructions"
+    },
+    {
+     "questID": 7044,
+     "level": 41,
+     "name": "Legends of Maraudon"
+    },
+    {
+     "questID": 7046,
+     "level": 41,
+     "name": "The Scepter of Celebras"
+    },
+    {
+     "questID": 7066,
+     "level": 39,
+     "name": "Seed of Life"
+    },
+    {
+     "questID": 92914,
+     "level": null,
+     "name": "Strange Pylons"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     11790,
+     11791,
+     12216,
+     11792,
+     13141,
+     13142,
+     12236,
+     12219,
+     12220,
+     12218,
+     13282,
+     12207,
+     13323,
+     11784,
+     11783,
+     12206,
+     12203
+    ],
+    "spells": [
+     45,
+     12747,
+     14310
+    ],
+    "names": [
+     "Putridus Satyr",
+     "Putridus Trickster",
+     "Poison Sprite",
+     "Putridus Shadowstalker",
+     "Deeprot Stomper",
+     "Deeprot Tangler",
+     "Lord Vyletongue",
+     "Barbed Lasher",
+     "Constrictor Vine",
+     "Vile Larva",
+     "Noxxion",
+     "Thessala Hydra",
+     "Subterranean Diemetradon",
+     "Theradrim Guardian",
+     "Theradrim Shardling",
+     "Primordial Behemoth",
+     "Landslide"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/maraudon-dungeon-overview-location-rewards"
+  },
+  "ragefire": {
+   "title": "Ragefire Chasm Dungeon Overview Guide:  Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/10/26",
+   "levels": [
+    13,
+    18
+   ],
+   "bosses": [
+    {
+     "name": "Oggleflint",
+     "npcIDs": [
+      11517
+     ],
+     "abilities": [
+      15496
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Cleave"
+     ]
+    },
+    {
+     "name": "Taragaman the Hungerer",
+     "npcIDs": [
+      11520
+     ],
+     "abilities": [
+      11970,
+      18072
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Fire Nova",
+      "Uppercut"
+     ]
+    },
+    {
+     "name": "Jergosh the Invoker",
+     "npcIDs": [
+      11518
+     ],
+     "abilities": [
+      18267,
+      20800
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Curse of Weakness",
+      "Immolate"
+     ]
+    },
+    {
+     "name": "Bazzalan",
+     "npcIDs": [
+      11519
+     ],
+     "abilities": [
+      14873,
+      2818
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Sinister Strike",
+      "Deadly Poison"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 5761,
+     "level": 9,
+     "name": "Slaying the Beast"
+    },
+    {
+     "questID": 5725,
+     "level": 9,
+     "name": "The Power to Destroy..."
+    },
+    {
+     "questID": 5723,
+     "level": 9,
+     "name": "Testing an Enemy's Strength"
+    },
+    {
+     "questID": 5724,
+     "level": 9,
+     "name": "Returning the Lost Satchel"
+    },
+    {
+     "questID": 5722,
+     "level": 9,
+     "name": "Searching for the Lost Satchel"
+    },
+    {
+     "questID": 5728,
+     "level": 9,
+     "name": "Hidden Enemies"
+    },
+    {
+     "questID": 5726,
+     "level": null,
+     "name": "Hidden Enemies"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     11319,
+     11318,
+     11324,
+     8996,
+     11322,
+     11323
+    ],
+    "spells": [
+     11986,
+     9532,
+     20791
+    ],
+    "names": [
+     "Ragefire Shaman",
+     "Ragefire Trogg",
+     "Searing Blade Warlock",
+     "Voidwalker Minion",
+     "Searing Blade Cultist",
+     "Searing Blade Enforcer"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/ragefire-chasm-dungeon-overview-location-rewards"
+  },
+  "razorfendowns": {
+   "title": "Razorfen Downs Dungeon Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/14",
+   "levels": [
+    37,
+    43
+   ],
+   "bosses": [
+    {
+     "name": "Tuten'kash",
+     "npcIDs": [
+      7355
+     ],
+     "abilities": [
+      12255,
+      12254,
+      12252
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Curse of Tuten'kash",
+      "Virulent Poison Proc",
+      "Web Spray"
+     ]
+    },
+    {
+     "name": "Mordresh Fire Eye",
+     "npcIDs": [
+      7357
+     ],
+     "abilities": [
+      12470,
+      12466
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Fire Nova",
+      "Fireball"
+     ]
+    },
+    {
+     "name": "Glutton",
+     "npcIDs": [
+      8567
+     ],
+     "abilities": [
+      12627,
+      12795
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Disease Cloud",
+      "Enrage"
+     ]
+    },
+    {
+     "name": "Ragglesnout (Rare)",
+     "npcIDs": [
+      7354
+     ],
+     "abilities": [
+      10892,
+      11659,
+      12039,
+      7645
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Shadow Word: Pain",
+      "Shadow Bolt",
+      "Heal",
+      "Dominate Mind"
+     ]
+    },
+    {
+     "name": "Amnennar the Coldbringer",
+     "npcIDs": [
+      7358
+     ],
+     "abilities": [
+      13009,
+      15531,
+      15530,
+      12642
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Amnennar's Wrath",
+      "Frost Nova",
+      "Frostbolt",
+      "Summon Frost Spectres"
+     ]
+    },
+    {
+     "name": "Plaguemaw the Rotting Event",
+     "npcIDs": [
+      7356
+     ],
+     "abilities": [
+      12946,
+      12947
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Putrid Stench",
+      "Withered Touch"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 6521,
+     "level": 28,
+     "name": "An Unholy Alliance"
+    },
+    {
+     "questID": 3341,
+     "level": 37,
+     "name": "Bring the End"
+    },
+    {
+     "questID": 97196,
+     "level": 34,
+     "name": "The Coldbringer's Eye"
+    },
+    {
+     "questID": 3636,
+     "level": 39,
+     "name": "Bring the Light"
+    },
+    {
+     "questID": 96773,
+     "level": 34,
+     "name": "The Coldbringer's Eye"
+    },
+    {
+     "questID": 6626,
+     "level": 28,
+     "name": "A Host of Evil"
+    },
+    {
+     "questID": 3523,
+     "level": 32,
+     "name": "Scourge of the Downs"
+    },
+    {
+     "questID": 3525,
+     "level": 32,
+     "name": "Extinguishing the Idol"
+    },
+    {
+     "questID": 6522,
+     "level": null,
+     "name": "An Unholy Alliance"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     7332,
+     7335,
+     7351,
+     7353,
+     7341,
+     7342,
+     7346,
+     7345
+    ],
+    "spells": [
+     11397,
+     9613,
+     11443,
+     12420,
+     12251,
+     745,
+     15532,
+     15043,
+     12258,
+     9532,
+     11980,
+     8208
+    ],
+    "names": [
+     "Withered Spearhide",
+     "Death's Head Geomancer",
+     "Tomb Reaver",
+     "Freezing Spirit",
+     "Skeletal Frostweaver",
+     "Skeletal Summoner",
+     "Splinterbone Centurion",
+     "Splinterbone Captain"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/razorfen-downs-dungeon-overview-location-rewards"
+  },
+  "razorfenkraul": {
+   "title": "Razorfen Kraul Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/09",
+   "levels": [
+    30,
+    40
+   ],
+   "bosses": [
+    {
+     "name": "Roogug",
+     "npcIDs": [
+      6168
+     ],
+     "abilities": [
+      9532,
+      8270
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Lightning Bolt",
+      "Summon Earth Rumbler"
+     ]
+    },
+    {
+     "name": "Aggem Thorncurse",
+     "npcIDs": [
+      4424
+     ],
+     "abilities": [
+      8286
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Summon Boar Spirit"
+     ]
+    },
+    {
+     "name": "Death Speaker Jargba",
+     "npcIDs": [
+      4428
+     ],
+     "abilities": [
+      14515,
+      9613
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Dominate Mind",
+      "Shadow Bolt"
+     ]
+    },
+    {
+     "name": "Overlord Ramtusk",
+     "npcIDs": [
+      4420,
+      4438
+     ],
+     "abilities": [
+      15548
+     ],
+     "mentioned": [
+      8259
+     ],
+     "abilityNames": [
+      "Thunderclap"
+     ]
+    },
+    {
+     "name": "Agathelos the Raging",
+     "npcIDs": [
+      4422
+     ],
+     "abilities": [
+      8260,
+      8269
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Rushing Charge",
+      "Enrage"
+     ]
+    },
+    {
+     "name": "Blind Hunter (Rare)",
+     "npcIDs": [
+      4425
+     ],
+     "abilities": [
+      8281,
+      3242
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Sonic Burst",
+      "Ravage"
+     ]
+    },
+    {
+     "name": "Earthcaller Halmgar",
+     "npcIDs": [
+      4842
+     ],
+     "abilities": [
+      2484,
+      9532,
+      8270
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Earthbind Totem",
+      "Lightning Bolt",
+      "Summon Earth Rumbler"
+     ]
+    },
+    {
+     "name": "Charlga Razorflank",
+     "npcIDs": [
+      4421
+     ],
+     "abilities": [
+      8292,
+      8361,
+      6077
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Chain Bolt",
+      "Purity",
+      "Renew"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 1102,
+     "level": 29,
+     "name": "A Vengeful Fate"
+    },
+    {
+     "questID": 1109,
+     "level": 30,
+     "name": "Going, Going, Guano!"
+    },
+    {
+     "questID": 6522,
+     "level": 28,
+     "name": "An Unholy Alliance"
+    },
+    {
+     "questID": 1101,
+     "level": 29,
+     "name": "The Crone of the Kraul"
+    },
+    {
+     "questID": 1142,
+     "level": 25,
+     "name": "Mortality Wanes"
+    },
+    {
+     "questID": 1221,
+     "level": 20,
+     "name": "Blueleaf Tubers"
+    },
+    {
+     "questID": 1144,
+     "level": 22,
+     "name": "Willix the Importer"
+    },
+    {
+     "questID": 1113,
+     "level": null,
+     "name": "Hearts of Zeal"
+    },
+    {
+     "questID": 6521,
+     "level": null,
+     "name": "An Unholy Alliance"
+    },
+    {
+     "questID": 1100,
+     "level": null,
+     "name": "Lonebrow's Journal"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     4440,
+     4522,
+     4516
+    ],
+    "spells": [
+     8376,
+     6728,
+     113
+    ],
+    "names": [
+     "Razorfen Totemic",
+     "Razorfen Dustweaver",
+     "Death's Head Adept"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/razerfen-kraul-dungeon-overview-location-rewards"
+  },
+  "ruinslordaeron": {
+   "title": "Ruins of Lordaeron Overview Guide:  Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/15",
+   "levels": [
+    16,
+    22
+   ],
+   "bosses": [
+    {
+     "name": "Witherfang",
+     "npcIDs": [
+      250483
+     ],
+     "abilities": [
+      3358
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Leech Poison"
+     ]
+    },
+    {
+     "name": "The Baron",
+     "npcIDs": [
+      250660
+     ],
+     "abilities": [
+      17307
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Knockout"
+     ]
+    },
+    {
+     "name": "Viktor The Vile",
+     "npcIDs": [
+      256035
+     ],
+     "abilities": [
+      3358
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Leech Poison"
+     ]
+    },
+    {
+     "name": "The Abandoned",
+     "npcIDs": [
+      250631
+     ],
+     "abilities": [
+      1220855,
+      1266011
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Frost Nova",
+      "Life Drain"
+     ]
+    },
+    {
+     "name": "Bjork",
+     "npcIDs": [
+      256097
+     ],
+     "abilities": [
+      1301635
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Anti-Magic Shield"
+     ]
+    },
+    {
+     "name": "Rath'Mael",
+     "npcIDs": [
+      250657
+     ],
+     "abilities": [
+      1279983
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Flamestrike"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 92422,
+     "level": 15,
+     "name": "The Wrath of Rath'mael"
+    },
+    {
+     "questID": 92401,
+     "level": 15,
+     "name": "A Frightened Request"
+    },
+    {
+     "questID": 92421,
+     "level": 15,
+     "name": "Light's Justice"
+    },
+    {
+     "questID": 95216,
+     "level": 15,
+     "name": "The New Plague"
+    },
+    {
+     "questID": 97288,
+     "level": 16,
+     "name": "Unending Torment"
+    },
+    {
+     "questID": 95204,
+     "level": 14,
+     "name": "Crest of Lordaeron"
+    },
+    {
+     "questID": 95250,
+     "level": 16,
+     "name": "Abominable Creatures"
+    },
+    {
+     "questID": 95195,
+     "level": 16,
+     "name": "Bloodied Insignia"
+    },
+    {
+     "questID": 92415,
+     "level": 15,
+     "name": "Remember That I Love You"
+    },
+    {
+     "questID": 99156,
+     "level": null,
+     "name": "Rear Guard Patrol"
+    },
+    {
+     "questID": 451,
+     "level": null,
+     "name": "A Recipe For Death"
+    },
+    {
+     "questID": 95189,
+     "level": null,
+     "name": "Crest of Lordaeron"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     250735,
+     250484,
+     250488,
+     250626,
+     250617,
+     255109,
+     250627,
+     250622
+    ],
+    "spells": [
+     853
+    ],
+    "names": [
+     "Venom Lurker",
+     "Spider",
+     "Tarantula",
+     "Skeletal Soldier",
+     "Shrieking Banshee",
+     "Flesh Golem",
+     "Ghoul",
+     "Ragged Ghoul"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/ruins-of-lordaeron-dungeon-overview-location-rewards"
+  },
+  "scholomance": {
+   "title": "Scholomance Dungeon Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/06",
+   "levels": [
+    55,
+    60
+   ],
+   "bosses": [
+    {
+     "name": "Blood Steward of Kirtonos",
+     "npcIDs": [
+      14861
+     ],
+     "abilities": [
+      22371,
+      11708,
+      3609
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Curse of Impotence",
+      "Curse of Weakness",
+      "Paralyzing Poison"
+     ]
+    },
+    {
+     "name": "Kirtonos the Herald",
+     "npcIDs": [
+      10506
+     ],
+     "abilities": [
+      22371,
+      11708,
+      3609
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Curse of Impotence",
+      "Curse of Weakness",
+      "Paralyzing Poison"
+     ]
+    },
+    {
+     "name": "Jandice Barov",
+     "npcIDs": [
+      10503
+     ],
+     "abilities": [
+      8282,
+      18647
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Curse of Blood",
+      "Banish"
+     ]
+    },
+    {
+     "name": "Rattlegore",
+     "npcIDs": [
+      11622
+     ],
+     "abilities": [
+      18945,
+      15580,
+      11876,
+      11597,
+      11198
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Knock Away",
+      "Strike",
+      "War Stomp",
+      "Sunder Armor",
+      "Expose Armor"
+     ]
+    },
+    {
+     "name": "Marduk Blackpool",
+     "npcIDs": [
+      10433
+     ],
+     "abilities": [
+      11609,
+      17695,
+      12040
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Cleave",
+      "Defiling Aura",
+      "Shadow Shield"
+     ]
+    },
+    {
+     "name": "Vectus",
+     "npcIDs": [
+      10432
+     ],
+     "abilities": [
+      13021,
+      10216
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Blast Wave",
+      "Flamestrike"
+     ]
+    },
+    {
+     "name": "Ras Frostwhisper",
+     "npcIDs": [
+      10508,
+      16118
+     ],
+     "abilities": [
+      18099,
+      18100,
+      6215,
+      16350,
+      8398
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Chill Nova",
+      "Frost Armor",
+      "Fear",
+      "Freeze",
+      "Frostbolt Volley"
+     ]
+    },
+    {
+     "name": "Instructor Malicia",
+     "npcIDs": [
+      10505
+     ],
+     "abilities": [
+      5137,
+      25311,
+      6064,
+      25315,
+      6146
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Call of the Grave",
+      "Corruption",
+      "Heal",
+      "Renew",
+      "Slow"
+     ]
+    },
+    {
+     "name": "Doctor Theolen Krastinov",
+     "npcIDs": [
+      11261
+     ],
+     "abilities": [
+      11130,
+      11574
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Knock Away",
+      "Rend"
+     ]
+    },
+    {
+     "name": "Lorekeeper Polkelt",
+     "npcIDs": [
+      10901
+     ],
+     "abilities": [
+      8245,
+      5413,
+      3586
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Corrosive Acid",
+      "Noxious Catalyst",
+      "Volatile Infection"
+     ]
+    },
+    {
+     "name": "The Ravenian",
+     "npcIDs": [
+      10507
+     ],
+     "abilities": [
+      20569,
+      11130,
+      25174,
+      5568
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Cleave",
+      "Knock Away",
+      "Sundering Cleave",
+      "Trample"
+     ]
+    },
+    {
+     "name": "Lord Alexei Barov",
+     "npcIDs": [
+      10504
+     ],
+     "abilities": [
+      25309,
+      28340,
+      17820,
+      10955,
+      10326
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Immolate",
+      "Unholy Aura",
+      "Veil of Shadow",
+      "Shackle Undead",
+      "Turn Undead"
+     ]
+    },
+    {
+     "name": "Lady Illucia Barov",
+     "npcIDs": [
+      10502
+     ],
+     "abilities": [
+      11713,
+      14515,
+      6215,
+      12528,
+      17289
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Bane of Agony",
+      "Dominate Mind",
+      "Fear",
+      "Silence",
+      "Shadow Shock"
+     ]
+    },
+    {
+     "name": "Darkmaster Gandling",
+     "npcIDs": [
+      1853
+     ],
+     "abilities": [
+      25346,
+      18702,
+      12040,
+      17802
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Arcane Missiles",
+      "Curse of the Darkmaster",
+      "Shadow Shield",
+      ""
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 5341,
+     "level": 52,
+     "name": "Barov Family Fortune"
+    },
+    {
+     "questID": 7668,
+     "level": 58,
+     "name": "The Darkreaver Menace"
+    },
+    {
+     "questID": 5343,
+     "level": 52,
+     "name": "Barov Family Fortune"
+    },
+    {
+     "questID": 5529,
+     "level": 55,
+     "name": "Plagued Hatchlings"
+    },
+    {
+     "questID": 5582,
+     "level": 55,
+     "name": "Healthy Dragon Scale"
+    },
+    {
+     "questID": 5382,
+     "level": 55,
+     "name": "Doctor Theolen Krastinov, the Butcher"
+    },
+    {
+     "questID": 5515,
+     "level": 55,
+     "name": "Krastinov's Bag of Horrors"
+    },
+    {
+     "questID": 5384,
+     "level": 55,
+     "name": "Kirtonos the Herald"
+    },
+    {
+     "questID": 4771,
+     "level": 57,
+     "name": "Dawn's Gambit"
+    },
+    {
+     "questID": 5466,
+     "level": 57,
+     "name": "The Lich, Ras Frostwhisper"
+    },
+    {
+     "questID": 7667,
+     "level": null,
+     "name": "Material Assistance"
+    },
+    {
+     "questID": 4726,
+     "level": null,
+     "name": "Broodling Essence"
+    },
+    {
+     "questID": 8258,
+     "level": null,
+     "name": "The Darkreaver Menace"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     10481,
+     10485,
+     16447
+    ],
+    "spells": [
+     10912,
+     10955,
+     10326,
+     13323,
+     11297,
+     14311
+    ],
+    "names": [
+     "Reanimated Corpse",
+     "Risen Aberration",
+     "Plagued Ghoul"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/scholomance-dungeon-overview-location-rewards"
+  },
+  "shadowfang": {
+   "title": "Shadowfang Keep Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/10/11",
+   "levels": [
+    22,
+    30
+   ],
+   "bosses": [
+    {
+     "name": "Rethilgore",
+     "npcIDs": [
+      3914
+     ],
+     "abilities": [
+      7295
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Soul Drain"
+     ]
+    },
+    {
+     "name": "Fel Steeds / Shadow Charger",
+     "npcIDs": [
+      3864,
+      3865
+     ],
+     "abilities": [
+      7139
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Fel Stomp"
+     ]
+    },
+    {
+     "name": "Razorclaw the Butcher",
+     "npcIDs": [
+      3886
+     ],
+     "abilities": [
+      7485
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Butcher Drain"
+     ]
+    },
+    {
+     "name": "Baron Silverlaine",
+     "npcIDs": [
+      3887
+     ],
+     "abilities": [
+      7068
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Veil of Shadow"
+     ]
+    },
+    {
+     "name": "Commander Springvale",
+     "npcIDs": [
+      4278
+     ],
+     "abilities": [
+      5588,
+      1026
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Hammer of Justice",
+      "Holy Light"
+     ]
+    },
+    {
+     "name": "Odo the Blindwatcher",
+     "npcIDs": [
+      4279,
+      3866
+     ],
+     "abilities": [
+      7481
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Howling Rage"
+     ]
+    },
+    {
+     "name": "Deathsworn Captain (Rare)",
+     "npcIDs": [
+      3872
+     ],
+     "abilities": [
+      15496,
+      9080
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Cleave",
+      "Hamstring"
+     ]
+    },
+    {
+     "name": "Fenrus the Devourer",
+     "npcIDs": [
+      4274
+     ],
+     "abilities": [
+      7125
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Toxic Saliva"
+     ]
+    },
+    {
+     "name": "Wolf Master Nandos",
+     "npcIDs": [
+      3927
+     ],
+     "abilities": [
+      7487,
+      7489,
+      7488
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Call Bleak Worg",
+      "Call Lupine Horror",
+      "Call Slavering Worg"
+     ]
+    },
+    {
+     "name": "Archmage Arugal",
+     "npcIDs": [
+      4275
+     ],
+     "abilities": [
+      7621,
+      7587,
+      7803,
+      22709
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Arugal's Curse",
+      "Shadow Port",
+      "Thundershock",
+      "Void Bolt"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 1013,
+     "level": 16,
+     "name": "The Book of Ur"
+    },
+    {
+     "questID": 1098,
+     "level": 18,
+     "name": "Deathstalkers in Shadowfang"
+    },
+    {
+     "questID": 1014,
+     "level": 18,
+     "name": "Arugal Must Die"
+    },
+    {
+     "questID": 1740,
+     "level": 20,
+     "name": "The Orb of Soran'ruk"
+    },
+    {
+     "questID": 1654,
+     "level": 20,
+     "name": "The Test of Righteousness"
+    },
+    {
+     "questID": 95036,
+     "level": 20,
+     "name": "A Moon-Kissed Blade"
+    },
+    {
+     "questID": 91858,
+     "level": null,
+     "name": "Diplomatic Incident"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     3853,
+     3877
+    ],
+    "spells": [
+     24021,
+     7074
+    ],
+    "names": [
+     "Shadowfang Moonwalker",
+     "Wailing Guardsman"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/shadowfang-keep-dungeon-overview-location-rewards"
+  },
+  "smarmory": {
+   "title": "Scarlet Monastery: Armory Dungeon Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/06",
+   "levels": [
+    32,
+    42
+   ],
+   "bosses": [
+    {
+     "name": "Herod, The Scarlet Champion",
+     "npcIDs": [
+      3975,
+      6575
+     ],
+     "abilities": [
+      22540,
+      8269,
+      8260,
+      8989
+     ],
+     "mentioned": [
+      1680
+     ],
+     "abilityNames": [
+      "Cleave",
+      "Enrage",
+      "Rushing Charge",
+      "Whirlwind"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 1048,
+     "level": 33,
+     "name": "Into The Scarlet Monastery"
+    },
+    {
+     "questID": 1113,
+     "level": 30,
+     "name": "Hearts of Zeal"
+    },
+    {
+     "questID": 1053,
+     "level": 34,
+     "name": "In the Name of the Light"
+    },
+    {
+     "questID": 1109,
+     "level": null,
+     "name": "Going, Going, Guano!"
+    },
+    {
+     "questID": 6141,
+     "level": null,
+     "name": "Brother Anton"
+    },
+    {
+     "questID": 261,
+     "level": null,
+     "name": "Down the Scarlet Path"
+    },
+    {
+     "questID": 1052,
+     "level": null,
+     "name": "Down the Scarlet Path"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     4297,
+     4298,
+     4289,
+     4290,
+     4295,
+     4292,
+     4286
+    ],
+    "spells": [
+     133,
+     72,
+     2947,
+     676,
+     8599,
+     2054
+    ],
+    "names": [
+     "Scarlet Conjuror",
+     "Scarlet Defender",
+     "Scarlet Evoker",
+     "Scarlet Guardsman",
+     "Scarlet Myrmidon",
+     "Scarlet Protector",
+     "Scarlet Soldier"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/scarlet-monastery-armory-dungeon-overview-location-rewards"
+  },
+  "smcathedral": {
+   "title": "Scarlet Monastery: Cathedral Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/10",
+   "levels": [
+    35,
+    45
+   ],
+   "bosses": [
+    {
+     "name": "Scarlet Commander Mograine",
+     "npcIDs": [
+      3977
+     ],
+     "abilities": [
+      8990,
+      853,
+      14518,
+      9257,
+      642
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Retribution Aura",
+      "Hammer of Justice",
+      "Crusader Strike",
+      "Lay on Hands",
+      "Divine Shield"
+     ]
+    },
+    {
+     "name": "High Inquisitor Whitemane",
+     "npcIDs": [
+      3977,
+      3976
+     ],
+     "abilities": [
+      9481,
+      12039,
+      9256,
+      22187,
+      9232
+     ],
+     "mentioned": [
+      25054,
+      700,
+      2054
+     ],
+     "abilityNames": [
+      "Holy Smite",
+      "Heal",
+      "Deep Sleep",
+      "Power Word: Shield",
+      "Scarlet Resurrection"
+     ]
+    },
+    {
+     "name": "High Inquisitor Fairbanks",
+     "npcIDs": [],
+     "abilities": [
+      8282,
+      12039,
+      11647,
+      8399
+     ],
+     "mentioned": [
+      16098,
+      6213,
+      700,
+      17,
+      6064
+     ],
+     "abilityNames": [
+      "Curse of Blood",
+      "Heal",
+      "Power Word: Shield",
+      "Sleep"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 1048,
+     "level": 33,
+     "name": "Into The Scarlet Monastery"
+    },
+    {
+     "questID": 1053,
+     "level": 34,
+     "name": "In the Name of the Light"
+    },
+    {
+     "questID": 6141,
+     "level": null,
+     "name": "Brother Anton"
+    },
+    {
+     "questID": 261,
+     "level": null,
+     "name": "Down the Scarlet Path"
+    },
+    {
+     "questID": 1052,
+     "level": null,
+     "name": "Down the Scarlet Path"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     4303,
+     4301,
+     4302,
+     4300
+    ],
+    "spells": [
+     139,
+     2054,
+     6673,
+     17284,
+     1449,
+     2947
+    ],
+    "names": [
+     "Scarlet Abbot",
+     "Scarlet Centurion",
+     "Scarlet Champion",
+     "Scarlet Wizard"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/scarlet-monastery-cathedral-dungeon-overview-location-rewards"
+  },
+  "smgraveyard": {
+   "title": "Scarlet Monastery: Graveyard Dungeon Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/10",
+   "levels": [
+    26,
+    36
+   ],
+   "bosses": [
+    {
+     "name": "Interrogator Vishas",
+     "npcIDs": [
+      3983
+     ],
+     "abilities": [
+      9034
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Immolate"
+     ]
+    },
+    {
+     "name": "Bloodmage Thalnos",
+     "npcIDs": [
+      4543
+     ],
+     "abilities": [
+      9613,
+      8814,
+      12470
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Shadow Bolt",
+      "Flame Spike",
+      "Fire Nova"
+     ]
+    },
+    {
+     "name": "Azshir the Sleepless",
+     "npcIDs": [
+      6490
+     ],
+     "abilities": [
+      5137,
+      9373,
+      7399
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Call of the Grave",
+      "Soul Siphon",
+      "Terrify"
+     ]
+    },
+    {
+     "name": "Fallen Champion",
+     "npcIDs": [
+      6488
+     ],
+     "abilities": [
+      7366,
+      15496
+     ],
+     "mentioned": [
+      7369
+     ],
+     "abilityNames": [
+      "Berserker Stance",
+      "Cleave"
+     ]
+    },
+    {
+     "name": "Ironspine",
+     "npcIDs": [
+      6489
+     ],
+     "abilities": [
+      21007,
+      3815
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Curse of Weakness",
+      "Poison Cloud"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 1048,
+     "level": 33,
+     "name": "Into The Scarlet Monastery"
+    },
+    {
+     "questID": 1051,
+     "level": 25,
+     "name": "Vorrel's Revenge"
+    },
+    {
+     "questID": 1113,
+     "level": 30,
+     "name": "Hearts of Zeal"
+    },
+    {
+     "questID": 1053,
+     "level": 34,
+     "name": "In the Name of the Light"
+    },
+    {
+     "questID": 1109,
+     "level": null,
+     "name": "Going, Going, Guano!"
+    },
+    {
+     "questID": 6141,
+     "level": null,
+     "name": "Brother Anton"
+    },
+    {
+     "questID": 261,
+     "level": null,
+     "name": "Down the Scarlet Path"
+    },
+    {
+     "questID": 1052,
+     "level": null,
+     "name": "Down the Scarlet Path"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     4293,
+     6426,
+     6427,
+     6493
+    ],
+    "spells": [
+     9613,
+     7068
+    ],
+    "names": [
+     "Scarlet Scryer",
+     "Anguished Dead",
+     "Haunting Phantasm",
+     "Illusionary Phantasm"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/scarlet-monastery-graveyard-dungeon-overview-location-rewards"
+  },
+  "smlibrary": {
+   "title": "Scarlet Monastery: Library Dungeon Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/10",
+   "levels": [
+    29,
+    39
+   ],
+   "bosses": [
+    {
+     "name": "Houndmaster Loksey",
+     "npcIDs": [
+      3974,
+      4304
+     ],
+     "abilities": [
+      11549,
+      6742
+     ],
+     "mentioned": [
+      12824
+     ],
+     "abilityNames": [
+      "Battle Shout",
+      "Bloodlust"
+     ]
+    },
+    {
+     "name": "Arcanist Doan",
+     "npcIDs": [
+      6487
+     ],
+     "abilities": [
+      9438,
+      9433,
+      9435,
+      13323,
+      8988
+     ],
+     "mentioned": [
+      1449,
+      30225
+     ],
+     "abilityNames": [
+      "Arcane Bubble",
+      "Arcane Explosion",
+      "Detonation",
+      "Polymorph",
+      "Silence"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 1053,
+     "level": 34,
+     "name": "In the Name of the Light"
+    },
+    {
+     "questID": 1113,
+     "level": 30,
+     "name": "Hearts of Zeal"
+    },
+    {
+     "questID": 1049,
+     "level": 28,
+     "name": "Compendium of the Fallen"
+    },
+    {
+     "questID": 1160,
+     "level": 25,
+     "name": "Test of Lore"
+    },
+    {
+     "questID": 1048,
+     "level": 33,
+     "name": "Into The Scarlet Monastery"
+    },
+    {
+     "questID": 1050,
+     "level": 28,
+     "name": "Mythology of the Titans"
+    },
+    {
+     "questID": 96800,
+     "level": 30,
+     "name": "Past Due"
+    },
+    {
+     "questID": 1951,
+     "level": 30,
+     "name": "Rituals of Power"
+    },
+    {
+     "questID": 6141,
+     "level": null,
+     "name": "Brother Anton"
+    },
+    {
+     "questID": 1109,
+     "level": null,
+     "name": "Going, Going, Guano!"
+    },
+    {
+     "questID": 1149,
+     "level": null,
+     "name": "Test of Faith"
+    },
+    {
+     "questID": 1947,
+     "level": null,
+     "name": "Journey to the Marsh"
+    },
+    {
+     "questID": 261,
+     "level": null,
+     "name": "Down the Scarlet Path"
+    },
+    {
+     "questID": 1052,
+     "level": null,
+     "name": "Down the Scarlet Path"
+    },
+    {
+     "questID": 1150,
+     "level": null,
+     "name": "Test of Endurance"
+    },
+    {
+     "questID": 1151,
+     "level": null,
+     "name": "Test of Strength"
+    },
+    {
+     "questID": 1152,
+     "level": null,
+     "name": "Test of Lore"
+    },
+    {
+     "questID": 1154,
+     "level": null,
+     "name": "Test of Lore"
+    },
+    {
+     "questID": 6627,
+     "level": null,
+     "name": "Test of Lore"
+    },
+    {
+     "questID": 1159,
+     "level": null,
+     "name": "Test of Lore"
+    },
+    {
+     "questID": 6628,
+     "level": null,
+     "name": "Test of Lore"
+    },
+    {
+     "questID": 1394,
+     "level": null,
+     "name": "Final Passage"
+    },
+    {
+     "questID": 1949,
+     "level": null,
+     "name": "Hidden Secrets"
+    },
+    {
+     "questID": 1950,
+     "level": null,
+     "name": "Get the Scoop"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     4299,
+     4291,
+     4540
+    ],
+    "spells": [
+     6065,
+     9053,
+     11978
+    ],
+    "names": [
+     "Scarlet Chaplain",
+     "Scarlet Diviner",
+     "Scarlet Monk"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/scarlet-monastery-library-dungeon-overview-location-rewards"
+  },
+  "stockade": {
+   "title": "The Stockade Dungeon Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/09",
+   "levels": [
+    24,
+    30
+   ],
+   "bosses": [
+    {
+     "name": "Targorr the Dread",
+     "npcIDs": [
+      1696
+     ],
+     "abilities": [
+      674,
+      8599,
+      3391
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Dual Wield",
+      "Enrage",
+      "Thrash"
+     ]
+    },
+    {
+     "name": "Kam Deepfury",
+     "npcIDs": [
+      1666
+     ],
+     "abilities": [
+      7164,
+      3419,
+      8242
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Defensive Stance",
+      "Improved Blocking",
+      "Shield Slam"
+     ]
+    },
+    {
+     "name": "Hamhock",
+     "npcIDs": [
+      1717
+     ],
+     "abilities": [
+      6742,
+      421
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Bloodlust",
+      "Chain Lightning"
+     ]
+    },
+    {
+     "name": "Bazil Thredd",
+     "npcIDs": [
+      1716
+     ],
+     "abilities": [
+      9128,
+      674,
+      7964
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Battle Shout",
+      "Dual Wield",
+      "Smoke Bomb"
+     ]
+    },
+    {
+     "name": "Dextren Ward",
+     "npcIDs": [
+      1663
+     ],
+     "abilities": [
+      7165,
+      5246,
+      11976
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Battle Stance",
+      "Intimidating Shout",
+      "Strike"
+     ]
+    },
+    {
+     "name": "Bruegal Ironknuckle (Rare)",
+     "npcIDs": [
+      1720
+     ],
+     "abilities": [
+      13496
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Dazed"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 387,
+     "level": 22,
+     "name": "Quell the Uprising"
+    },
+    {
+     "questID": 388,
+     "level": 22,
+     "name": "The Color of Blood"
+    },
+    {
+     "questID": 377,
+     "level": 22,
+     "name": "Crime and Punishment"
+    },
+    {
+     "questID": 386,
+     "level": 22,
+     "name": "What Comes Around..."
+    },
+    {
+     "questID": 378,
+     "level": 25,
+     "name": "The Fury Runs Deep"
+    },
+    {
+     "questID": 391,
+     "level": 16,
+     "name": "The Stockade Riots"
+    },
+    {
+     "questID": 303,
+     "level": null,
+     "name": "The Dark Iron War"
+    },
+    {
+     "questID": 373,
+     "level": null,
+     "name": "The Unsent Letter"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     1706
+    ],
+    "spells": [
+     6713
+    ],
+    "names": [
+     "Defias Prisoner"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/the-stockade-dungeon-overview-location-rewards"
+  },
+  "sunkentemple": {
+   "title": "Sunken Temple Class Quests Guide:  Quests, Locations and Rewards - WoW: Forever",
+   "updated": "2026/11/16",
+   "levels": null,
+   "bosses": [],
+   "quests": [
+    {
+     "questID": 9063,
+     "level": null,
+     "name": "Torwa Pathfinder"
+    },
+    {
+     "questID": 9052,
+     "level": null,
+     "name": "Bloodpetal Poison"
+    },
+    {
+     "questID": 9051,
+     "level": null,
+     "name": "Toxic Test"
+    },
+    {
+     "questID": 9053,
+     "level": null,
+     "name": "A Better Ingredient"
+    },
+    {
+     "questID": 8151,
+     "level": null,
+     "name": "The Hunter's Charm"
+    },
+    {
+     "questID": 8153,
+     "level": null,
+     "name": "Courser Antlers"
+    },
+    {
+     "questID": 8231,
+     "level": null,
+     "name": "Wavethrashing"
+    },
+    {
+     "questID": 8232,
+     "level": null,
+     "name": "The Green Drake"
+    },
+    {
+     "questID": 8250,
+     "level": null,
+     "name": "Magecraft"
+    },
+    {
+     "questID": 8251,
+     "level": null,
+     "name": "Magic Dust"
+    },
+    {
+     "questID": 8252,
+     "level": null,
+     "name": "The Siren's Coral"
+    },
+    {
+     "questID": 8253,
+     "level": null,
+     "name": "Destroy Morphaz"
+    },
+    {
+     "questID": 8415,
+     "level": null,
+     "name": "Chillwind Point"
+    },
+    {
+     "questID": 8414,
+     "level": null,
+     "name": "Dispelling Evil"
+    },
+    {
+     "questID": 8416,
+     "level": null,
+     "name": "Inert Scourgestones"
+    },
+    {
+     "questID": 8418,
+     "level": null,
+     "name": "Forging the Mightstone"
+    },
+    {
+     "questID": 8254,
+     "level": null,
+     "name": "Cenarion Aid"
+    },
+    {
+     "questID": 8255,
+     "level": null,
+     "name": "Of Coursers We Know"
+    },
+    {
+     "questID": 8256,
+     "level": null,
+     "name": "The Ichor of Undeath"
+    },
+    {
+     "questID": 8257,
+     "level": null,
+     "name": "Blood of Morphaz"
+    },
+    {
+     "questID": 8233,
+     "level": null,
+     "name": "A Simple Request"
+    },
+    {
+     "questID": 8234,
+     "level": null,
+     "name": "Sealed Azure Bag"
+    },
+    {
+     "questID": 8235,
+     "level": null,
+     "name": "Encoded Fragments"
+    },
+    {
+     "questID": 8236,
+     "level": null,
+     "name": "The Azure Key"
+    },
+    {
+     "questID": 8410,
+     "level": null,
+     "name": "Elemental Mastery"
+    },
+    {
+     "questID": 8412,
+     "level": null,
+     "name": "Spirit Totem"
+    },
+    {
+     "questID": 8413,
+     "level": null,
+     "name": "Da Voodoo"
+    },
+    {
+     "questID": 8419,
+     "level": null,
+     "name": "An Imp's Request"
+    },
+    {
+     "questID": 8421,
+     "level": null,
+     "name": "The Wrong Stuff"
+    },
+    {
+     "questID": 8422,
+     "level": null,
+     "name": "Trolls of a Feather"
+    },
+    {
+     "questID": 8417,
+     "level": null,
+     "name": "A Troubled Spirit"
+    },
+    {
+     "questID": 8423,
+     "level": null,
+     "name": "Warrior Kinship"
+    },
+    {
+     "questID": 8424,
+     "level": null,
+     "name": "War on the Shadowsworn"
+    },
+    {
+     "questID": 8425,
+     "level": null,
+     "name": "Voodoo Feathers"
+    }
+   ],
+   "trash": {
+    "npcIDs": [],
+    "spells": [],
+    "names": []
+   },
+   "url": "https://www.wowhead.com/forever/guide/sunken-temple-level-50-class-quest-walkthrough"
+  },
+  "ubrs": {
+   "title": "Upper Blackrock Spire Dungeon Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/11/06",
+   "levels": [
+    55,
+    60
+   ],
+   "bosses": [
+    {
+     "name": "Pyroguard Emberseer - Hall of Binding",
+     "npcIDs": [
+      10316,
+      9816
+     ],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "The Rookery - Father Flame",
+     "npcIDs": [],
+     "abilities": [],
+     "mentioned": [],
+     "abilityNames": []
+    },
+    {
+     "name": "Goraluk Anvilcrack",
+     "npcIDs": [
+      10899,
+      10509
+     ],
+     "abilities": [
+      6253,
+      3148,
+      25710
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Backhand",
+      "Head Crack",
+      "Heroic Strike"
+     ]
+    },
+    {
+     "name": "Jed Runewatcher (Rare)",
+     "npcIDs": [],
+     "abilities": [
+      100,
+      11972,
+      25710
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Charge",
+      "Shield Bash",
+      "Heroic Strike"
+     ]
+    },
+    {
+     "name": "Warchief Rend Blackhand and Gyth",
+     "npcIDs": [],
+     "abilities": [
+      18798,
+      20667,
+      9573,
+      13736,
+      15588,
+      20569
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Freeze",
+      "Corrosive Acid Breath",
+      "Flame Breath",
+      "Whirlwind",
+      "Thunderclap",
+      "Cleave"
+     ]
+    },
+    {
+     "name": "The Beast",
+     "npcIDs": [
+      10430,
+      16042
+     ],
+     "abilities": [
+      19471,
+      1094,
+      16785,
+      5782
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Berserker Charge",
+      "Immolate",
+      "Flamebreak",
+      "Fear"
+     ]
+    },
+    {
+     "name": "General Drakkisath",
+     "npcIDs": [
+      10363
+     ],
+     "abilities": [
+      20569,
+      16805,
+      9573,
+      8078
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Cleave",
+      "Conflagration",
+      "Flame Breath",
+      "Thunderclap"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 4768,
+     "level": 57,
+     "name": "The Darkstone Tablet"
+    },
+    {
+     "questID": 4974,
+     "level": 55,
+     "name": "For The Horde!"
+    },
+    {
+     "questID": 6602,
+     "level": 55,
+     "name": "Blood of the Black Dragon Champion"
+    },
+    {
+     "questID": 4764,
+     "level": 57,
+     "name": "Doomrigger's Clasp"
+    },
+    {
+     "questID": 5102,
+     "level": 55,
+     "name": "General Drakkisath's Demise"
+    },
+    {
+     "questID": 6502,
+     "level": 50,
+     "name": "Drakefire Amulet"
+    },
+    {
+     "questID": 7761,
+     "level": 55,
+     "name": "Blackhand's Command"
+    },
+    {
+     "questID": 5160,
+     "level": 57,
+     "name": "The Matron Protectorate"
+    },
+    {
+     "questID": 5047,
+     "level": 57,
+     "name": "Pip Quickwit, At Your Service!"
+    },
+    {
+     "questID": 4735,
+     "level": 57,
+     "name": "Egg Collection"
+    },
+    {
+     "questID": 6821,
+     "level": 55,
+     "name": "Eye of the Emberseer"
+    },
+    {
+     "questID": 5127,
+     "level": 55,
+     "name": "The Demon Forge"
+    },
+    {
+     "questID": 4769,
+     "level": null,
+     "name": "Vivian Lagrave and the Darkstone Tablet"
+    },
+    {
+     "questID": 4903,
+     "level": null,
+     "name": "Warlord's Command"
+    },
+    {
+     "questID": 4766,
+     "level": null,
+     "name": "Mayara Brightwing"
+    },
+    {
+     "questID": 5089,
+     "level": null,
+     "name": "General Drakkisath's Command"
+    },
+    {
+     "questID": 4182,
+     "level": null,
+     "name": "Dragonkin Menace"
+    },
+    {
+     "questID": 4734,
+     "level": null,
+     "name": "Egg Freezing"
+    },
+    {
+     "questID": 4726,
+     "level": null,
+     "name": "Broodling Essence"
+    },
+    {
+     "questID": 6805,
+     "level": null,
+     "name": "Stormers and Rumblers"
+    },
+    {
+     "questID": 6804,
+     "level": null,
+     "name": "Poisoned Water"
+    },
+    {
+     "questID": 5126,
+     "level": null,
+     "name": "Lorax's Tale"
+    },
+    {
+     "questID": 5161,
+     "level": null,
+     "name": "Wrath of the Blue Flight"
+    },
+    {
+     "questID": 5162,
+     "level": null,
+     "name": "Wrath of the Blue Flight"
+    },
+    {
+     "questID": 5164,
+     "level": null,
+     "name": "Catalogue of the Wayward"
+    },
+    {
+     "questID": 5166,
+     "level": null,
+     "name": "Breastplate of the Chromatic Flight"
+    },
+    {
+     "questID": 5167,
+     "level": null,
+     "name": "Legplates of the Chromatic Defier"
+    },
+    {
+     "questID": 4765,
+     "level": null,
+     "name": "Delivery to Ridgewell"
+    },
+    {
+     "questID": 4133,
+     "level": null,
+     "name": "Vivian Lagrave"
+    },
+    {
+     "questID": 4941,
+     "level": null,
+     "name": "Eitrigg's Wisdom"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     9819,
+     9817,
+     9818,
+     10681,
+     9096,
+     10740
+    ],
+    "spells": [
+     6909,
+     7068,
+     25307,
+     25306,
+     122,
+     12021,
+     12317,
+     7406,
+     100,
+     8242,
+     6253,
+     3148,
+     25710,
+     15243,
+     12470,
+     11829,
+     1776,
+     25300,
+     5171,
+     22766,
+     16637,
+     871,
+     20569,
+     9658,
+     10199,
+     11313,
+     25304,
+     15207,
+     1543,
+     18945,
+     8374,
+     5164,
+     21553
+    ],
+    "names": [
+     "Blackhand Veteran",
+     "Blackhand Dreadweaver",
+     "Blackhand Summoner",
+     "Summoned Blackhand Veteran",
+     "Rage Talon Dragonspawn",
+     "Awbee"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/upper-blackrock-spire-dungeon-overview-location-rewards"
+  },
+  "uldaman": {
+   "title": "Uldaman Dungeon Strategy Guide - WoW: Forever",
+   "updated": "2026/11/06",
+   "levels": [
+    40,
+    45
+   ],
+   "bosses": [
+    {
+     "name": "The Lost Dwarves",
+     "npcIDs": [
+      6906,
+      6907,
+      6908
+     ],
+     "abilities": [
+      20252,
+      8242
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Intercept",
+      "Shield Slam"
+     ]
+    },
+    {
+     "name": "Revelosh",
+     "npcIDs": [
+      6910,
+      4851
+     ],
+     "abilities": [
+      16033,
+      9532
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Chain Lightning",
+      "Lightning Bolt"
+     ]
+    },
+    {
+     "name": "Ironaya",
+     "npcIDs": [
+      7228,
+      6910
+     ],
+     "abilities": [
+      8374,
+      45,
+      18670
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Arcing Smash",
+      "War Stomp",
+      "Knock Away"
+     ]
+    },
+    {
+     "name": "Obsidian Sentinel",
+     "npcIDs": [
+      7023,
+      4860,
+      7206,
+      7209
+     ],
+     "abilities": [
+      10072,
+      10061
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Splintered Obsidian",
+      "Summon Obsidian Shard"
+     ]
+    },
+    {
+     "name": "Ancient Stone Keeper",
+     "npcIDs": [
+      7206,
+      4860
+     ],
+     "abilities": [
+      10094
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Sand Storms"
+     ]
+    },
+    {
+     "name": "Galgann Firehammer",
+     "npcIDs": [
+      7291,
+      7030
+     ],
+     "abilities": [
+      15039,
+      9482,
+      3356,
+      11970
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Flame Shock",
+      "Amplify Flames",
+      "Flame Lash",
+      "Fire Nova"
+     ]
+    },
+    {
+     "name": "Grimlok",
+     "npcIDs": [
+      4854,
+      4853,
+      4855,
+      4863
+     ],
+     "abilities": [
+      7289,
+      9532,
+      8292,
+      6742
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Shrink",
+      "Lightning Bolt",
+      "Chain Bolt",
+      "Bloodlust"
+     ]
+    },
+    {
+     "name": "Archaedas",
+     "npcIDs": [
+      2748
+     ],
+     "abilities": [
+      6524,
+      10252,
+      10258
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Ground Tremor",
+      "Awaken Earthen Guardians",
+      "Awaken Vault Warder"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 2342,
+     "level": 33,
+     "name": "Reclaimed Treasures"
+    },
+    {
+     "questID": 2202,
+     "level": 36,
+     "name": "Uldaman Reagent Run"
+    },
+    {
+     "questID": 2283,
+     "level": 37,
+     "name": "Necklace Recovery"
+    },
+    {
+     "questID": 1360,
+     "level": 33,
+     "name": "Reclaimed Treasures"
+    },
+    {
+     "questID": 2398,
+     "level": 35,
+     "name": "The Lost Dwarves"
+    },
+    {
+     "questID": 2240,
+     "level": 35,
+     "name": "The Hidden Chamber"
+    },
+    {
+     "questID": 17,
+     "level": 38,
+     "name": "Uldaman Reagent Run"
+    },
+    {
+     "questID": 704,
+     "level": 33,
+     "name": "Agmond's Fate"
+    },
+    {
+     "questID": 1139,
+     "level": 30,
+     "name": "The Lost Tablets of Will"
+    },
+    {
+     "questID": 2198,
+     "level": 37,
+     "name": "The Shattered Necklace"
+    },
+    {
+     "questID": 2418,
+     "level": 30,
+     "name": "Power Stones"
+    },
+    {
+     "questID": 709,
+     "level": 30,
+     "name": "Solution to Doom"
+    },
+    {
+     "questID": 2278,
+     "level": 40,
+     "name": "The Platinum Discs"
+    },
+    {
+     "questID": 1956,
+     "level": 35,
+     "name": "Power in Uldaman"
+    },
+    {
+     "questID": 722,
+     "level": null,
+     "name": "Amulet of Secrets"
+    },
+    {
+     "questID": 723,
+     "level": null,
+     "name": "Prospect of Faith"
+    },
+    {
+     "questID": 2439,
+     "level": null,
+     "name": "The Platinum Discs"
+    },
+    {
+     "questID": 2258,
+     "level": null,
+     "name": "Badlands Reagent Run"
+    },
+    {
+     "questID": 2500,
+     "level": null,
+     "name": "Badlands Reagent Run"
+    },
+    {
+     "questID": 707,
+     "level": null,
+     "name": "Ironband Wants You!"
+    },
+    {
+     "questID": 720,
+     "level": null,
+     "name": "A Sign of Hope"
+    },
+    {
+     "questID": 1953,
+     "level": null,
+     "name": "Return to the Marsh"
+    },
+    {
+     "questID": 2440,
+     "level": null,
+     "name": "The Platinum Discs"
+    },
+    {
+     "questID": 1954,
+     "level": null,
+     "name": "The Infernal Orb"
+    },
+    {
+     "questID": 1955,
+     "level": null,
+     "name": "The Exorcism"
+    },
+    {
+     "questID": 724,
+     "level": null,
+     "name": "Prospect of Faith"
+    },
+    {
+     "questID": 2501,
+     "level": null,
+     "name": "Badlands Reagent Run II"
+    },
+    {
+     "questID": 738,
+     "level": null,
+     "name": "Find Agmond"
+    },
+    {
+     "questID": 739,
+     "level": null,
+     "name": "Murdaloc"
+    },
+    {
+     "questID": 725,
+     "level": null,
+     "name": "Passing Word of a Threat"
+    },
+    {
+     "questID": 726,
+     "level": null,
+     "name": "Passing Word of a Threat"
+    },
+    {
+     "questID": 762,
+     "level": null,
+     "name": "An Ambassador of Evil"
+    },
+    {
+     "questID": 2204,
+     "level": null,
+     "name": "Restoring the Necklace"
+    },
+    {
+     "questID": 2199,
+     "level": null,
+     "name": "Lore for a Price"
+    },
+    {
+     "questID": 2200,
+     "level": null,
+     "name": "Back to Uldaman"
+    },
+    {
+     "questID": 2201,
+     "level": null,
+     "name": "Find the Gems"
+    },
+    {
+     "questID": 2203,
+     "level": null,
+     "name": "Badlands Reagent Run II"
+    },
+    {
+     "questID": 2341,
+     "level": null,
+     "name": "Necklace Recovery, Take 3"
+    },
+    {
+     "questID": 2284,
+     "level": null,
+     "name": "Necklace Recovery, Take 2"
+    },
+    {
+     "questID": 2339,
+     "level": null,
+     "name": "Find the Gems and Power Source"
+    },
+    {
+     "questID": 2340,
+     "level": null,
+     "name": "Deliver the Gems"
+    },
+    {
+     "questID": 2431,
+     "level": null,
+     "name": ""
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     4848,
+     7057,
+     11073
+    ],
+    "spells": [
+     118,
+     6770,
+     26141,
+     11829,
+     71,
+     8380,
+     13948,
+     17181,
+     17180
+    ],
+    "names": [
+     "Shadowforge Darkcaster",
+     "Digmaster Shovelphlange",
+     "Annora"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/uldaman-dungeon-overview-location-rewards"
+  },
+  "wailing": {
+   "title": "Wailing Caverns Dungeon Overview Guide: Quests, Location, Strategy & Rewards - WoW Forever",
+   "updated": "2026/10/27",
+   "levels": [
+    15,
+    25
+   ],
+   "bosses": [
+    {
+     "name": "Kresh",
+     "npcIDs": [
+      3653
+     ],
+     "abilities": [
+      13496
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Dazed"
+     ]
+    },
+    {
+     "name": "Lady Andacondra",
+     "npcIDs": [
+      3671
+     ],
+     "abilities": [
+      5187,
+      9532,
+      700,
+      8148
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Healing Touch",
+      "Lightning Bolt",
+      "Sleep",
+      "Thorns Aura"
+     ]
+    },
+    {
+     "name": "Lord Cobrahn",
+     "npcIDs": [
+      3669,
+      8886
+     ],
+     "abilities": [
+      5187,
+      9532,
+      8040,
+      7965
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Healing Touch",
+      "Lightning Bolt",
+      "Druid's Slumber",
+      "Cobrahn Serpent Form"
+     ]
+    },
+    {
+     "name": "Deviate Faerie Dragon (Rare)",
+     "npcIDs": [
+      5912
+     ],
+     "abilities": [],
+     "mentioned": [
+      8040
+     ],
+     "abilityNames": []
+    },
+    {
+     "name": "Lord Pythas",
+     "npcIDs": [
+      3670,
+      5761
+     ],
+     "abilities": [
+      5187,
+      9532,
+      700,
+      8147
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Healing Touch",
+      "Lightning Bolt",
+      "Sleep",
+      "Thunderclap"
+     ]
+    },
+    {
+     "name": "Skum",
+     "npcIDs": [
+      3674
+     ],
+     "abilities": [
+      6254
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Chained Bolt"
+     ]
+    },
+    {
+     "name": "Lord Serpentis",
+     "npcIDs": [
+      3673
+     ],
+     "abilities": [
+      5187,
+      9532,
+      700
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Healing Touch",
+      "Lightning Bolt",
+      "Sleep"
+     ]
+    },
+    {
+     "name": "Verdan the Everliving",
+     "npcIDs": [
+      5775
+     ],
+     "abilities": [
+      8142
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Grasping Vines"
+     ]
+    },
+    {
+     "name": "Event: Mutanus the Devourer",
+     "npcIDs": [
+      3678,
+      3654
+     ],
+     "abilities": [
+      8150,
+      7399,
+      7967
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Thundercrack",
+      "Terrify",
+      "Naralex's Nightmare"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 962,
+     "level": 14,
+     "name": "Serpentbloom"
+    },
+    {
+     "questID": 1491,
+     "level": 13,
+     "name": "Smart Drinks"
+    },
+    {
+     "questID": 959,
+     "level": 14,
+     "name": "Trouble at the Docks"
+    },
+    {
+     "questID": 1486,
+     "level": 13,
+     "name": "Deviate Hides"
+    },
+    {
+     "questID": 1487,
+     "level": 15,
+     "name": "Deviate Eradication"
+    },
+    {
+     "questID": 6981,
+     "level": 10,
+     "name": "The Glowing Shard"
+    },
+    {
+     "questID": 914,
+     "level": 15,
+     "name": "Leaders of the Fang"
+    },
+    {
+     "questID": 865,
+     "level": null,
+     "name": "Raptor Horns"
+    },
+    {
+     "questID": 870,
+     "level": null,
+     "name": "The Forgotten Pools"
+    },
+    {
+     "questID": 3369,
+     "level": null,
+     "name": "In Nightmares"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     3840
+    ],
+    "spells": [
+     8040,
+     5187,
+     8041
+    ],
+    "names": [
+     "Druid of the Fang"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/wailing-caverns-dungeon-overview-location-rewards"
+  },
+  "zulfarrak": {
+   "title": "Zul'Farrak Dungeon Strategy Guide - WoW: Forever",
+   "updated": "2026/11/14",
+   "levels": [
+    44,
+    54
+   ],
+   "bosses": [
+    {
+     "name": "Antu'sul <Overseer of Sul>",
+     "npcIDs": [
+      8127,
+      8138,
+      8156
+     ],
+     "abilities": [
+      8376,
+      11899,
+      11894,
+      11895
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Earthgrab Totem",
+      "Healing Ward",
+      "Antu'sul's Minion",
+      "Healing Wave of Antu'sul"
+     ]
+    },
+    {
+     "name": "Theka the Martyr",
+     "npcIDs": [
+      7272
+     ],
+     "abilities": [
+      8600,
+      11089
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Fevered Plague",
+      "Theka Transform"
+     ]
+    },
+    {
+     "name": "Witch Doctor Zum'rah",
+     "npcIDs": [
+      7271
+     ],
+     "abilities": [
+      12491,
+      12739,
+      15245,
+      11086
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Healing Wave",
+      "Shadow Bolt",
+      "Shadow Bolt Volley",
+      "Ward of Zum'rah"
+     ]
+    },
+    {
+     "name": "Nekrum Gutchewer and Shadowpriest Sezz'ziz",
+     "npcIDs": [
+      7796,
+      7275
+     ],
+     "abilities": [
+      12039,
+      13704,
+      8362,
+      15537
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Heal",
+      "Psychic Scream",
+      "Renew",
+      "Shadow Bolt"
+     ]
+    },
+    {
+     "name": "Sergeant Bly",
+     "npcIDs": [
+      7604,
+      7606,
+      7608
+     ],
+     "abilities": [
+      12170,
+      11972
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Revenge",
+      "Shield Bash"
+     ]
+    },
+    {
+     "name": "Hydromancer Velratha",
+     "npcIDs": [
+      7795
+     ],
+     "abilities": [
+      12491,
+      12739,
+      15245,
+      11086
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Healing Wave",
+      "Shadow Bolt",
+      "Shadow Bolt Volley",
+      "Ward of Zum'rah"
+     ]
+    },
+    {
+     "name": "Chief Ukorz Sandscalp",
+     "npcIDs": [
+      7267,
+      7797
+     ],
+     "abilities": [
+      11837,
+      15496,
+      7366
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Wide Slash",
+      "Cleave",
+      "Berserker Stance"
+     ]
+    },
+    {
+     "name": "Zerillis",
+     "npcIDs": [
+      10082
+     ],
+     "abilities": [
+      12551,
+      6533,
+      15547
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Frost Shot",
+      "Net",
+      "Shoot"
+     ]
+    },
+    {
+     "name": "Gahz'rilla",
+     "npcIDs": [
+      7273
+     ],
+     "abilities": [
+      11836,
+      11902,
+      11131
+     ],
+     "mentioned": [],
+     "abilityNames": [
+      "Freeze Solid",
+      "Gahz'rilla Slam",
+      "Icicle"
+     ]
+    }
+   ],
+   "quests": [
+    {
+     "questID": 2936,
+     "level": 40,
+     "name": "The Spider God"
+    },
+    {
+     "questID": 96775,
+     "level": 42,
+     "name": "Zum'rah's Head"
+    },
+    {
+     "questID": 2991,
+     "level": 40,
+     "name": "Nekrum's Medallion"
+    },
+    {
+     "questID": 2768,
+     "level": 40,
+     "name": "Divino-matic Rod"
+    },
+    {
+     "questID": 2865,
+     "level": 40,
+     "name": "Scarab Shells"
+    },
+    {
+     "questID": 3042,
+     "level": 40,
+     "name": "Troll Temper"
+    },
+    {
+     "questID": 2846,
+     "level": 40,
+     "name": "Tiara of the Deep"
+    },
+    {
+     "questID": 2770,
+     "level": 40,
+     "name": "Gahz'rilla"
+    },
+    {
+     "questID": 3527,
+     "level": 40,
+     "name": "The Prophecy of Mosh'aru"
+    },
+    {
+     "questID": 2933,
+     "level": null,
+     "name": "Venom Bottles"
+    },
+    {
+     "questID": 2988,
+     "level": null,
+     "name": "Witherbark Cages"
+    },
+    {
+     "questID": 3520,
+     "level": null,
+     "name": "Screecher Spirits"
+    },
+    {
+     "questID": 2864,
+     "level": null,
+     "name": "Tran'rek"
+    }
+   ],
+   "trash": {
+    "npcIDs": [
+     7246
+    ],
+    "spells": [
+     11641
+    ],
+    "names": [
+     "Sandfury Shadowhunter"
+    ]
+   },
+   "url": "https://www.wowhead.com/forever/guide/zulfarrak-dungeon-overview-location-rewards"
+  }
+ }
+}

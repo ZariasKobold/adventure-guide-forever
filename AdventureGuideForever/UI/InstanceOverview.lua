@@ -24,6 +24,11 @@ local function levelLine(inst)
 	return string.format("%s  |  |cff%sLevels %d-%d|r  |  5 players", inst.zone, AG:LevelColor(inst), inst.minLevel, inst.maxLevel)
 end
 
+-- Shown at the foot of every instance page.
+AG.CREDITS = "Sources: levels, bosses, abilities, quests, and loot from Wowhead's WoW Forever "
+	.. "database and dungeon guides (wowhead.com/forever), plus what players' learning mode "
+	.. "found. Guide text is written for this addon."
+
 function AG:RenderInstanceOverview(instKey)
 	local doc = self.instanceOverview.doc
 	local inst = self:GetInstance(instKey)
@@ -73,5 +78,6 @@ function AG:RenderInstanceOverview(instKey)
 		doc:Paragraph("No write-up for this instance yet. Its bosses and loot are still listed on the left.",
 			{ color = { 0.6, 0.6, 0.6 } })
 	end
+	doc:Paragraph(AG.CREDITS, { font = "GameFontHighlightSmall", color = { 0.5, 0.5, 0.5 } })
 	doc:Finish()
 end

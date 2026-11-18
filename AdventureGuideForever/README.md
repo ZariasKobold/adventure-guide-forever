@@ -54,5 +54,12 @@ loot from boss kills, boss models when you target a boss, and spells bosses cast
   `tools\learned_intake.py`.
 - `Data\Registry.lua` merges them when the addon loads. Its header lists the rules.
 
+## Credits
+
+Thanks to [Wowhead](https://www.wowhead.com/forever): levels, bosses, abilities, quests, loot,
+NPC, spell, and model IDs come from its WoW Forever database and its dungeon and raid guides.
+The guide text in this addon is our own writing, checked against those guides; Wowhead's own
+text isn't copied into it. Learning mode and players' shared data fill in the rest from play.
+
 Developer tooling (build, tests, data refresh) is described in `tools\README.md` in the
 project folder. It isn't part of the addon you install.

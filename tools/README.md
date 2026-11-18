@@ -22,6 +22,8 @@ Data/Content/*.lua (hand-written text)  ----------------------------------------
 | `wowhead/extract.js` | Run in your browser's console on wowhead.com/forever. Reads each instance's zone page and outputs `snapshot.json`. It pauses between pages and stops if Wowhead asks for human verification. |
 | `wowhead/snapshot.json` | Raw data: every boss drop (item ID, name, quality, slot, source NPC) per zone, plus NPC names. Fetched 2026-11-16. |
 | `build_wowhead.py` | Turns the snapshot into `Data/Generated/Wowhead.lua`. The tables at the top decide which zone is which instance, which wing each boss belongs to, which NPCs are trash, and which NPCs form one encounter. |
+| `wowhead/extract_guides.js` | Run in your browser's console on wowhead.com/forever. Reads Wowhead's dungeon and raid overview guides into `wowhead/guides.json` (git-ignored: it holds Wowhead's own text). |
+| `compare_guides.py` | Reads `guides.json`, writes `wowhead/guide_facts.json` (IDs, names, levels, quests; committed) and `wowhead/guide_report.md` (where our guide disagrees; not committed). |
 | `apply_writing.py` | Merges drafted guide writing (a JSON file of instance and boss text) into `Data/Content/*.lua`, keeping the standard format. Drafts are input only; don't commit them. |
 | `migrate_content.py` | One-time conversion of the old `Data/Guides` files into `Data/Content`. Kept for the record. |
 | `learned_intake.py` | Reads players' `/ag share` exports, merges them into `learned/community.json`, and writes `Data/Generated/Community.lua`. See below. |
@@ -65,6 +67,26 @@ or wait 20 to 30 minutes for the limit to reset.
 `build_wowhead.py` keeps the NPC list inside `extract_npcs.js` in step with the snapshot.
 Multi-NPC encounters use the lead NPC's model and list every member's spells once.
 Generic spells (Dazed, Attack, Shoot) are left out (`NOISE_SPELLS`).
+
+## Wowhead's dungeon guides (extract_guides.js, compare_guides.py)
+
+Wowhead has an overview guide for each Forever dungeon and raid (location, levels, quests,
+notable trash, and each boss's strategy and abilities). We use them to check and improve
+our guide, not to copy from: `guides.json` holds their text, so it stays on your computer
+(git-ignored), and everything in `Data/Content` is written in our own words. The addon and
+the READMEs credit Wowhead as a source.
+
+1. Open https://www.wowhead.com/forever and its console (F12, then Console).
+2. Paste all of `wowhead/extract_guides.js`, press Enter, then run `await whGuides()`.
+   It finds the guides through each dungeon's zone page (falling back to guessing the
+   address from the dungeon's name) and reads one page every 12 seconds. Like the NPC
+   extractor, it saves progress and stops at Wowhead's human verification; reload,
+   complete the check, paste again, and rerun to continue.
+3. When it prints "Done", run `copy(whGuidesResult())` and save the clipboard as
+   `wowhead/guides.json`.
+4. Run `compare_guides.py`, then read `wowhead/guide_report.md`: missing bosses,
+   abilities we don't mention, level ranges that differ, and quests and trash to add.
+   Fix the content files (or draft with `apply_writing.py`), then run the tests.
 
 ## Learned data from players (learned_intake.py)
 

@@ -39,7 +39,7 @@ KEY_ORDER = ["intro", "name", "optional", "alsoNamed", "npcID", "displayID", "ov
              "route", "tips", "strategy", "summary", "tank", "healer", "dps", "abilities",
              "alerts", "text", "spellID", "loot", "itemID", "slot", "bosses"]
 INSTANCE_FIELDS = ("intro", "lore", "route", "tips")
-BOSS_FIELDS = ("overview", "lore", "strategy", "optional")
+BOSS_FIELDS = ("overview", "lore", "strategy", "optional", "abilities")
 
 
 def normalize(name: str) -> str:
