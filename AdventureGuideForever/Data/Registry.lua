@@ -78,6 +78,39 @@ function AG:RegisterQuests(instKey, data)
 	self.Quests[instKey] = data.quests or {}
 end
 
+-- Item schema (generated, Data\Generated\Items.lua, from Wowhead's Forever database):
+--   items = { { itemID, itemLevel, reqLevel, quality, class, subclass, slot (inventory
+--               type), classes (class bitmask, nil = any), armor, dps, speed,
+--               stats = { str, agi, sta, int, spi, ap, sp, crit, ... } } }
+AG.Items = AG.Items or {}                  -- [itemID] = record above
+
+AG.STAT_LABELS = {
+	str = "Strength", agi = "Agility", sta = "Stamina", int = "Intellect", spi = "Spirit",
+	ap = "Attack Power", rap = "Ranged Attack Power", feral = "Feral Attack Power",
+	sp = "Spell Power", heal = "Healing", crit = "Critical Strike", hit = "Hit", haste = "Haste",
+	def = "Defense", dodge = "Dodge", parry = "Parry", block = "Block", blockValue = "Block Value",
+	mp5 = "Mana per 5 sec", hp5 = "Health per 5 sec", spellPen = "Spell Penetration",
+	fireRes = "Fire Resistance", frostRes = "Frost Resistance", natureRes = "Nature Resistance",
+	shadowRes = "Shadow Resistance", arcaneRes = "Arcane Resistance", holyRes = "Holy Resistance",
+	bonusArmor = "Bonus Armor", expertise = "Expertise",
+	critPct = "Critical Strike %", rangedCritPct = "Ranged Critical Strike %",
+	spellCritPct = "Spell Critical Strike %", hitPct = "Hit %", rangedHitPct = "Ranged Hit %",
+	rangedHastePct = "Ranged Haste %",
+	fireSp = "Fire Spell Power", frostSp = "Frost Spell Power", natureSp = "Nature Spell Power",
+	shadowSp = "Shadow Spell Power", arcaneSp = "Arcane Spell Power", holySp = "Holy Spell Power",
+	daggerSkill = "Dagger Skill", unarmedSkill = "Unarmed Skill", feralSkill = "Feral Combat Skill",
+}
+
+function AG:RegisterItems(data)
+	assert(type(data) == "table", "RegisterItems(table)")
+	for _, item in ipairs(data.items or {}) do self.Items[item.itemID] = item end
+end
+
+-- An item's level, requirements, and stats, or nil if the guide doesn't know it.
+function AG:GetItem(itemID)
+	return self.Items[itemID]
+end
+
 -- An instance's quests for a faction ("Horde"/"Alliance"; nil = all), by level then name.
 -- Also returns how many were left out for the other faction.
 function AG:GetQuests(instKey, faction)

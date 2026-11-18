@@ -53,6 +53,7 @@ Data\Content\onyxia.lua
 Data\Generated\Wowhead.lua
 Data\Generated\Community.lua
 Data\Generated\Quests.lua
+Data\Generated\Items.lua
 Learn.lua
 Journey.lua
 Wishlist.lua

@@ -13,6 +13,7 @@ A World of Warcraft: Forever addon that rebuilds the retail **Adventure Guide** 
 | `AdventureGuideForever/Data/Instances.lua` | All 37 Forever instances (key, name, zone, levels). |
 | `AdventureGuideForever/Data/Art.lua` | Blizzard art file IDs per instance (journal button, lore, loading screen, finder), found with `/agprobe art`. |
 | `AdventureGuideForever/Art/` | Bundled 1024x512 TGA loading-screen art for the 9 Forever-new instances (sources in its README). |
+| `AdventureGuideForever/Data/Generated/Items.lua` | Item level, required level, armor, damage, and stats for every guide item (boss drops and quest rewards). **Never edit by hand**; built by `tools/build_items.py` from `tools/wowhead/items.json`. |
 | `AdventureGuideForever/Data/Generated/Quests.lua` | Each dungeon's quests (level, faction, where it starts, chain, rewards). **Never edit by hand**; built by `tools/compare_guides.py` from `tools/wowhead/guide_facts.json`. |
 | `AdventureGuideForever/Data/Generated/Community.lua` | Players' shared learned data. **Never edit by hand**; built by `tools/learned_intake.py` from `tools/learned/community.json`. |
 | `AdventureGuideForever/Learn.lua` | Learning mode: records loot, models, and boss spells from play. |

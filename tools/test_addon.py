@@ -597,6 +597,40 @@ class GuideCompareTests(unittest.TestCase):
         self.assertEqual(hub, {self.cg.normalize("The Hall of Thanes"): (13, 18)})
 
 
+class ItemDataTests(unittest.TestCase):
+    """Item levels and stats (tools/build_items.py -> Data/Generated/Items.lua)."""
+
+    def setUp(self):
+        import build_items
+        self.bi = build_items
+
+    def test_item_record_maps_wowhead_fields(self):
+        rec = self.bi.item_record(14147, {"level": 18, "reqlevel": 13, "classs": 4, "subclass": 3, "slot": 9,
+                                          "armor": 78, "quality": 3, "str": 2, "spi": 3, "name": "x",
+                                          "splpwr": 0, "dps": 12.1666})
+        self.assertEqual(rec, {"itemID": 14147, "itemLevel": 18, "reqLevel": 13, "class": 4, "subclass": 3,
+                               "slot": 9, "armor": 78, "quality": 3, "dps": 12.2, "stats": {"spi": 3, "str": 2}})
+
+    def test_id_ranges_stay_under_the_page_limit(self):
+        ranges = self.bi.id_ranges([1, 5, 900, 902, 5000, 5001])
+        self.assertEqual(ranges, [[1, 900], [902, 902], [5000, 5001]])
+        self.assertTrue(all(b - a <= self.bi.RANGE_SPAN for a, b in ranges))
+
+    def test_items_file_is_up_to_date(self):
+        if not self.bi.ITEMS_JSON.exists():
+            self.skipTest("no items.json yet")
+        data = json.loads(self.bi.ITEMS_JSON.read_text(encoding="utf-8"))
+        self.assertEqual(self.bi.OUTPUT.read_text(encoding="utf-8"),
+                         self.bi.render(data["items"], self.bi.guide_item_ids()),
+                         "Data/Generated/Items.lua is stale: run tools/build_items.py")
+
+    def test_registered_items_load(self):
+        lua, ag = load_built()
+        ag.RegisterItems(ag, lua.eval("{ items = { { itemID = 77, itemLevel = 20, stats = { sta = 4 } } } }"))
+        self.assertEqual(to_py(ag.GetItem(ag, 77))["stats"], {"sta": 4})
+        self.assertIsNone(ag.GetItem(ag, 78))
+
+
 class IntakeTests(unittest.TestCase):
     """tools/learned_intake.py: validating shares and merging them into Community.lua."""
 

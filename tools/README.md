@@ -23,6 +23,8 @@ Data/Content/*.lua (hand-written text)  ----------------------------------------
 | `wowhead/snapshot.json` | Raw data: every boss drop (item ID, name, quality, slot, source NPC) per zone, plus NPC names. Fetched 2026-11-16. |
 | `build_wowhead.py` | Turns the snapshot into `Data/Generated/Wowhead.lua`. The tables at the top decide which zone is which instance, which wing each boss belongs to, which NPCs are trash, and which NPCs form one encounter. |
 | `wowhead/extract_guides.js` | Run in your browser's console on wowhead.com/forever. Reads Wowhead's dungeon and raid overview guides into `wowhead/guides.json` (git-ignored: it holds Wowhead's own text). |
+| `wowhead/extract_items.js` | Run in your browser's console on wowhead.com/forever. Reads item stats from Wowhead's item lists, filtered to ID ranges that cover every guide item (31 pages), into `wowhead/items.json`. |
+| `build_items.py` | Keeps the ID ranges in `extract_items.js` current, and turns `items.json` into `Data/Generated/Items.lua` (item level, required level, armor, damage, stats). Run it after loot or quests change. |
 | `compare_guides.py` | Reads `guides.json`, writes `wowhead/guide_facts.json` (IDs, names, levels, quests; committed), `Data/Generated/Quests.lua` (each dungeon's quests; `--quests` rebuilds just this from the facts), and `wowhead/guide_report.md` (where our guide disagrees; not committed). |
 | `apply_writing.py` | Merges drafted guide writing (a JSON file of instance and boss text) into `Data/Content/*.lua`, keeping the standard format. Drafts are input only; don't commit them. |
 | `migrate_content.py` | One-time conversion of the old `Data/Guides` files into `Data/Content`. Kept for the record. |
@@ -87,6 +89,20 @@ the READMEs credit Wowhead as a source.
 4. Run `compare_guides.py`, then read `wowhead/guide_report.md`: missing bosses,
    abilities we don't mention, level ranges that differ, and quests and trash to add.
    Fix the content files (or draft with `apply_writing.py`), then run the tests.
+
+## Item stats (extract_items.js, build_items.py)
+
+For gear search and suggestions, every item the guide lists needs its item level,
+required level, and stats. Wowhead's item list pages include those, so the extractor
+reads them a range of item IDs at a time (each range under the 1,000-item page limit).
+
+1. Run `build_items.py` so `extract_items.js` lists the current item IDs.
+2. Open https://www.wowhead.com/forever and its console, paste all of
+   `wowhead/extract_items.js`, and run `await whItems()` (one page every 12 seconds,
+   about 6 minutes; it stops at human verification and resumes like the others).
+3. Run `copy(whItemsResult())` and save the clipboard as `wowhead/items.json`.
+4. Run `build_items.py` again to write `Data/Generated/Items.lua`, then the tests. It
+   lists any Wowhead field it doesn't know yet; add it to `STATS` or `IGNORE`.
 
 ## Learned data from players (learned_intake.py)
 
