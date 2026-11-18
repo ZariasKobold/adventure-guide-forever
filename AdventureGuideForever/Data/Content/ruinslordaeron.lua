@@ -4,56 +4,105 @@
 local _, AG = ...
 
 AG:RegisterContent("ruinslordaeron", {
-	intro = "The Scourge stirs again in the broken halls of Lordaeron, above the Undercity.",
-	lore = "The ruins of Lordaeron's capital sit above the Undercity, a reminder of the kingdom that fell to the Scourge. Now the dead are stirring again in its broken courtyards, and the Forsaken below want to know who is behind it.",
-	route = "The ruins are open-air above Undercity, near the entrance from Brill. Witherfang, The Baron, Viktor the Vile, The Abandoned and Bjork guard the way to Rath'mael, the skeletal mage at the end. The Lordaeron Captain is a rare ghost.",
+	intro = "Scourge remnants still haunt the ruins of Lordaeron, right above the Forsaken capital.",
+	lore = "The ruined capital above the Undercity never fully emptied of the Lich King's servants. Spiders, ghouls, abominations and a skeletal sorcerer still hold its streets, and the Forsaken want them gone from their doorstep for good.",
+	route = "Start in the spider-filled King's Alley with Witherfang, then The Baron among the skeletal soldiers. In Lordamere Overlook, light the chimney fire in the southwest building to call Viktor the Vile. Entering Market Street wakes The Abandoned at the statue. Then Bjork, and finally Rath'mael.",
 	tips = {
-		"Alliance players: entering Undercity's grounds flags you for PvP. Be careful.",
-		"Horde quests start in Undercity, Silverpine and Tirisfal; Alliance quests start inside.",
-		"Strategy here is early notes from each boss's abilities.",
+		"Spider packs patrol King's Alley; watch for patrols so you don't pull two packs at once.",
+		"Shrieking Banshees silence casters. Stuns make the skeletal soldier packs much easier.",
+		"Flesh Golems knock away and drop threat. Pull them carefully so you aren't thrown into another pack.",
+		"Ghouls come in packs of three or four, close to other packs. Pull slowly.",
+		"Alliance players: the grounds above Undercity flag you for PvP.",
 	},
 	bosses = {
 		{
 			name = "Witherfang",
-			overview = "A giant undead spider.",
-			lore = "A spider swollen with plague, nesting in the ruins.",
-			strategy = { summary = "Early notes: his Leech Poison drains health. Cure it if you can." },
+			overview = "A plague-swollen spider that patrols King's Alley with two smaller spiders.",
+			lore = "A spider grown huge on plague, nesting among the ruins.",
+			strategy = {
+				summary = "Kill the two spiders with it first, then tank and spank. Stuns help.",
+				tank = "Leech Poison drains you; ask for a cure.",
+				healer = "Cleanse Leech Poison off the tank.",
+				dps = "Spiders first.",
+			},
+			abilities = {
+				{ name = "Leech Poison", alerts = { "poison", "healer" }, text = "Drains the tank's health. Cure it.", spellID = 3358 },
+			},
 		},
 		{
 			name = "The Baron",
-			overview = "An abomination of the Scourge.",
+			overview = "A hard-hitting abomination with a knockout punch.",
 			lore = "A stitched-together abomination left to guard the ruins.",
-			strategy = { summary = "Early notes: he tramples, knocks out players and casts Mind Blast.", tank = "Keep him faced away from the group." },
+			strategy = {
+				summary = "Knockout is everything: big instant damage that also drops threat. Stuns stop him from casting it.",
+				tank = "Never fight him below full health; Knockout can kill you outright. Taunt back right after it.",
+				healer = "Keep the tank topped off at all times.",
+				dps = "Stun him when you can. Ease off right after a Knockout until the tank has him again.",
+			},
+			abilities = {
+				{ name = "Knockout", alerts = { "tank", "deadly" }, text = "Heavy instant damage that also drops threat.", spellID = 17307 },
+			},
 		},
 		{
 			name = "Viktor the Vile",
-			overview = "A cruel Scourge servant.",
+			overview = "A Scourge servant you call out by lighting a chimney fire.",
 			lore = "A servant of the Scourge who poisons his foes.",
-			strategy = { summary = "Early notes: his Leech Poison drains health." },
+			strategy = {
+				summary = "Light the chimney fire in the southwest building of Lordamere Overlook, by the graveyard, then clear five waves of adds before Viktor shows up. He swings hard and poisons the tank.",
+				tank = "Get firm threat before anyone attacks.",
+				healer = "Cleanse Leech Poison off the tank.",
+				dps = "Let the tank build threat first.",
+			},
+			abilities = {
+				{ name = "Leech Poison", alerts = { "poison", "healer" }, text = "Drains the tank's health. Cure it.", spellID = 3358 },
+			},
 		},
 		{
 			name = "The Abandoned",
-			overview = "A frost-wielding undead caster.",
-			lore = "A forsaken caster left behind in the ruins.",
-			strategy = { summary = "Early notes: he freezes players with Frost Nova and drains their life.", healer = "Watch for players stuck in his nova." },
+			overview = "A frost caster who appears at the Market Street statue.",
+			lore = "A Scourge sorcerer left behind when the army moved on, still waiting for orders.",
+			strategy = {
+				summary = "Entering Market Street at the statue starts three waves of adds, then The Abandoned. He freezes players in place and chills anyone who hits him in melee.",
+				tank = "He drains your life; keep him busy and away from casters.",
+				healer = "Watch players frozen by Frost Nova.",
+				dps = "Melee attacks get chilled; ranged have it easier.",
+			},
+			abilities = {
+				{ name = "Frost Nova", alerts = { "magic" }, text = "Freezes nearby players in place.", spellID = 1220855 },
+				{ name = "Life Drain", alerts = { "tank", "healer" }, text = "Drains the tank's health.", spellID = 1266011 },
+			},
 		},
 		{
 			name = "Bjork",
-			overview = "A hulking undead brute.",
-			lore = "A huge undead warrior.",
+			overview = "A hulking undead brute who briefly shields himself from magic.",
+			lore = "A huge undead warrior still guarding what's left of the city.",
 			strategy = {
-				summary = "Early notes: he hits hard with Mighty Blow and shields himself against magic.",
-				dps = "Physical damage works best while his Anti-Magic Shield is up.",
+				summary = "A quick tank-and-spank. His only trick is a very short Anti-Magic Shield.",
+				tank = "Nothing special; hold him still.",
+				healer = "An easy fight.",
+				dps = "Casters: pause for a moment while the shield is up.",
+			},
+			abilities = {
+				{ name = "Anti-Magic Shield", alerts = { "dps" }, text = "Blocks spells for a few seconds.", spellID = 1301635 },
 			},
 		},
 		{
 			name = "Rath'mael",
-			overview = "The last boss of the Ruins.",
+			overview = "The skeletal sorcerer at the end of the Ruins.",
 			lore = "A skeletal mage of the Scourge, in command of the ruins' restless dead.",
 			strategy = {
-				summary = "He shields himself with Fire Shield and casts Flamestrike: a pillar of fire on the ground that keeps burning for several seconds.",
-				healer = "Flamestrike burns everyone who stays in it.",
-				dps = "Move out of the Flamestrike zone at once.",
+				summary = "One ability: Flamestrike, always aimed where the tank stood when he started casting. Stuns stop the cast entirely.",
+				tank = "Step out of the fire as soon as he starts channeling; he'll follow you.",
+				healer = "Stand away from the tank so the fire doesn't catch you.",
+				dps = "Stun him to stop Flamestrike.",
+			},
+			abilities = {
+				{
+					name = "Flamestrike",
+					alerts = { "important", "interrupt" },
+					text = "Fire on the ground where the tank was standing. Move out.",
+					spellID = 1279983,
+				},
 			},
 		},
 		{

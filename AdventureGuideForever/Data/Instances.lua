@@ -1,6 +1,7 @@
 -- Every dungeon and raid in WoW Forever (patch 1.60.1), in level order.
 -- Source: the Forever dungeon and raid tables on warcraft.wiki.gg, November 2026. Where a
 -- dungeon's own wiki page gives a newer level range, that one is used.
+-- Forever-new dungeons use the range from their Wowhead guide (Nov 18, 2026).
 -- isNew = added in Forever. Raids unlock December 9, 2026.
 
 local _, AG = ...
@@ -24,7 +25,7 @@ end
 -- Dungeons, levels 10-39
 D("hallofthanes",   "The Hall of Thanes",          "HoT",     "Ironforge",          13, 18, true)
 D("ragefire",       "Ragefire Chasm",              "RFC",     "Orgrimmar",          13, 19, false)
-D("ruinslordaeron", "Ruins of Lordaeron",          "RoL",     "Undercity",          15, 22, true)
+D("ruinslordaeron", "Ruins of Lordaeron",          "RoL",     "Undercity",          16, 22, true)
 D("deadmines",      "Deadmines",                   "DM",      "Westfall",           18, 24, false, { "The Deadmines" })
 D("wailing",        "Wailing Caverns",             "WC",      "The Barrens",        19, 25, false)
 D("shadowfang",     "Shadowfang Keep",             "SFK",     "Silverpine Forest",  23, 29, false)
@@ -45,7 +46,7 @@ D("smcathedral",    "Scarlet Monastery Cathedral", "SM Cath", "Tirisfal Glades",
 D("kroldok",        "Krol'dok Stronghold",         "KS",      "Riverglades",        40, 45, true)
 D("uldaman",        "Uldaman",                     "Uld",     "Badlands",           44, 50, false)
 D("zulfarrak",      "Zul'Farrak",                  "ZF",      "Tanaris",            45, 51, false)
-D("alcaz",          "Alcaz Prison",                "AP",      "Dustwallow Marsh",   48, 53, true)
+D("alcaz",          "Alcaz Prison",                "AP",      "Dustwallow Marsh",   49, 54, true)
 D("maraudon",       "Maraudon",                    "Mara",    "Desolace",           48, 54, false)
 D("sunkentemple",   "Temple of Atal'Hakkar",       "ST",      "Swamp of Sorrows",   52, 58, false, { "Sunken Temple" })
 D("brd",            "Blackrock Depths",            "BRD",     "Blackrock Mountain", 52, 60, false)
