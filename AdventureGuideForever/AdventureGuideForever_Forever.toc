@@ -62,6 +62,7 @@ Share.lua
 Quests.lua
 Search.lua
 Gear.lua
+Suggest.lua
 UI\Widgets.lua
 UI\MicroButton.lua
 UI\Document.lua
@@ -72,6 +73,7 @@ UI\InstancePage.lua
 UI\BossPage.lua
 UI\JourneyPage.lua
 UI\GearPage.lua
+UI\SuggestPage.lua
 UI\StepCounter.lua
 UI\WishlistPage.lua
 UI\Options.lua

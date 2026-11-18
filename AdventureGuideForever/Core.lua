@@ -99,6 +99,7 @@ local defaults = {
 	unshared = 0,        -- things learned since the last /ag share
 	wishlist = {},       -- [itemID] = true
 	gear = { usable = true, minQuality = 2 }, -- Gear tab filters (nil = any; levels nil = follow yours)
+	plan = { quests = true }, -- Suggested Gear tab: classID, spec, level (nil = yours)
 	journey = {},        -- [character] = distance traveled and places visited (never shared)
 	options = {
 		zoneCard = true,     -- briefing card when you enter a dungeon or raid
@@ -219,7 +220,7 @@ end
 ------------------------------------------------------------------------
 
 local USAGE = "/ag opens the guide.  /ag options: settings.  /ag share: send what you learned "
-	.. "to the guide on GitHub.  /ag find <name>: search bosses, gear, and quests.  /ag journey, /ag wishlist: open those tabs.  /ag steps: step counter on or off.  /ag sync: share "
+	.. "to the guide on GitHub.  /ag find <name>: search bosses, gear, and quests.  /ag pedometer: what the pedometer sees.  /ag journey, /ag wishlist: open those tabs.  /ag steps: step counter on or off.  /ag sync: share "
 	.. "with your group now.  /ag learn: learning mode on or off.  /ag reset learned: forget "
 	.. "what learning mode recorded."
 
@@ -244,6 +245,12 @@ local commands = {
 	cards = function() toggleOption("zoneCard", "Dungeon briefing cards") end,
 	bosscards = function() toggleOption("bossCard", "Boss cards") end,
 	steps = function() toggleOption("stepCounter", "Step counter") end,
+	pedometer = function()
+		local st = AG:PedometerStatus()
+		AG:Print("Pedometer: measuring by %s, %s, counting as %s. Speed %s, on a flight path: %s, swimming: %s.",
+			st.mode, st.ticking and "running" or "idle", st.kind, st.speed and string.format("%.1f", st.speed) or "hidden",
+			st.onTaxi and "yes" or "no", st.swimming and "yes" or "no")
+	end,
 	micro = function()
 		AG:Print("Menu bar button art: %s.", tostring(AG.microStyle or "not created (no menu bar found)"))
 	end,

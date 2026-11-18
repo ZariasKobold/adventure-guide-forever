@@ -12,12 +12,13 @@ AG.TABS = {
 	{ key = "dungeons",  label = "Dungeons" },
 	{ key = "raids",     label = "Raids" },
 	{ key = "gear",      label = "Gear" },
+	{ key = "plan",      label = "Suggested Gear" },
 	{ key = "wishlist",  label = "Wishlist" },
 	{ key = "journey",   label = "Journey" },
 }
 
 -- Tabs drawn as a document instead of the card grid.
-local DOC_TABS = { gear = "RenderGear", wishlist = "RenderWishlist", journey = "RenderJourney" }
+local DOC_TABS = { gear = "RenderGear", plan = "RenderPlan", wishlist = "RenderWishlist", journey = "RenderJourney" }
 
 local function setPortrait(frame)
 	local icon = "Interface\\Icons\\INV_Misc_Book_09"
@@ -181,7 +182,7 @@ function AG:Refresh()
 	self.instanceList:SetShown(not search and not self.view.instKey and not docRender)
 	self.instancePage:SetShown(not search and self.view.instKey ~= nil)
 	self.docPage:SetShown(docRender and true or false)
-	self:ShowGearBar(docRender == "RenderGear")
+	self:ShowDocBar(docRender)
 	if search then
 		local doc = self.docPage.doc
 		doc:Begin("search:" .. search)

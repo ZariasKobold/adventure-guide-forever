@@ -119,18 +119,28 @@ function AG:CreateGearBar(docPage)
 	docPage.gearBar = bar
 end
 
--- Show or hide the filter bar, and move the document below it.
-function AG:ShowGearBar(shown)
+-- Document pages with a bar of controls above them: render function -> bar.
+local BARS = {
+	RenderGear = { field = "gearBar", create = "CreateGearBar" },
+	RenderPlan = { field = "planBar", create = "CreatePlanBar" },
+}
+
+-- Show the bar that belongs to this document page (if any), and move the page below it.
+function AG:ShowDocBar(render)
 	local page = self.docPage
-	if not page.gearBar then self:CreateGearBar(page) end
-	page.gearBar:SetShown(shown)
-	if not shown then UI.CloseMenu() end
+	local want = BARS[render]
+	if want and not page[want.field] then self[want.create](self, page) end
+	for _, bar in pairs(BARS) do
+		if page[bar.field] then page[bar.field]:SetShown(bar == want) end
+	end
+	UI.CloseMenu()
 	local scroll = page.doc.scroll
 	scroll:ClearAllPoints()
-	scroll:SetPoint("TOPLEFT", 14, shown and -(BAR_HEIGHT + 16) or -12)
+	scroll:SetPoint("TOPLEFT", 14, want and -(BAR_HEIGHT + 16) or -12)
 	scroll:SetPoint("BOTTOMRIGHT", -30, 10)
-	if shown then page.gearBar:Sync() end
+	if want then page[want.field]:Sync() end
 end
+AG.DOC_BAR_HEIGHT = BAR_HEIGHT
 
 local function sourceLine(itemID)
 	local s = AG:ItemSources(itemID)[1]

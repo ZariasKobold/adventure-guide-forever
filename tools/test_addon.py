@@ -355,6 +355,20 @@ class FeatureTests(unittest.TestCase):
         self.assertEqual(pace(25, combat=True, airborne=True, moving=False, lastPace=7), 0)
         self.assertEqual(pace(25, combat=True, airborne=True, moving=True, lastPace=7), 7)
 
+    def test_pedometer_measures_real_movement(self):
+        step = lambda a, b, dt: self.ag.JourneyStep(  # noqa: E731
+            a and self.lua.table_from(a), b and self.lua.table_from(b), dt)
+        here = {"x": 100, "y": 200, "z": 10, "map": 0}
+        # A flight path: 30 yards a second, counted as the distance actually covered.
+        self.assertAlmostEqual(step(here, {"x": 115, "y": 200, "z": 10, "map": 0}, 0.5), 15)
+        # Swimming or flying up and down counts too (3D).
+        self.assertAlmostEqual(step(here, {"x": 100, "y": 200, "z": 13, "map": 0}, 1.0), 3)
+        self.assertEqual(step(here, here, 0.5), 0)                                      # standing still
+        self.assertIsNone(step(here, {"x": 115, "y": 200, "z": 10, "map": 1}, 0.5))     # loading screen
+        self.assertIsNone(step(here, {"x": 900, "y": 200, "z": 10, "map": 0}, 0.5))     # hearthstone
+        self.assertIsNone(step(None, here, 0.5))                                        # first sample
+        self.assertIsNone(step(here, here, 8))                                          # long gap
+
     def test_travel_counts_this_session_and_all_time(self):
         rec = self.lua.eval("{ distance = { foot = 100 }, combat = 0 }")  # an old record, no session yet
         self.ag.AddTravel(self.ag, rec, "foot", 17, False)
@@ -686,6 +700,73 @@ class ItemDataTests(unittest.TestCase):
         self.assertTrue(rows)
         self.assertTrue(all("Wrist" in r["body"] for r in rows))
         self.assertTrue(all("Level" in r["note"] for r in rows))
+
+    def test_suggested_gear(self):
+        lua, ag = load_built()
+        plan, weights = ag.SuggestGear(ag, 1, "fury", 30, lua.eval("{ faction = 'Horde' }"))
+        plan, weights = to_py(plan), to_py(weights)
+        by_slot = {s["slot"]: s for s in plan}
+        self.assertEqual(len(by_slot["finger"]["picks"]), 2)        # two rings
+        for slot in plan:
+            for pick in slot["picks"]:
+                item = pick["item"]
+                self.assertLessEqual(item.get("reqLevel", 1), 30)
+                self.assertNotEqual(item.get("subclass"), 4 if item.get("class") == 4 else -1)  # no plate before 40
+                if slot["alternatives"]:
+                    self.assertGreaterEqual(pick["score"], slot["alternatives"][0]["score"])
+        # Leaving quest rewards out never picks one.
+        no_quests = to_py(ag.SuggestGear(ag, 1, "fury", 30, lua.eval("{ quests = false }"))[0])
+        self.assertFalse([p for s in no_quests for p in s["picks"] if p["source"].get("questID")])
+        # Scores follow the weights: Strength counts for Fury, not for a Holy priest.
+        item = lua.eval("{ stats = { str = 10 } }")
+        self.assertEqual(ag.ScoreItem(ag, item, lua.table_from(weights)), 10)
+        holy = ag.GetSpec(ag, 5, "holy").w
+        self.assertEqual(ag.ScoreItem(ag, item, holy), 0)
+
+    def test_compare_to_equipped(self):
+        lua, ag = load_built()
+        lua.execute("""
+            agf_worn = { [11] = 999001, [12] = 999002 }
+            GetInventoryItemID = function(unit, slot) return agf_worn[slot] end
+            GetInventoryItemLink = function(unit, slot) return agf_worn[slot] and ("item:" .. agf_worn[slot]) end
+            C_Item = { GetItemStats = function(link)
+                if link == "item:999001" then return { ITEM_MOD_STRENGTH_SHORT = 4 } end
+                return { ITEM_MOD_STRENGTH_SHORT = 9 } end,
+                GetItemInfoInstant = function() return nil, nil, nil, "INVTYPE_FINGER", nil, 4 end }""")
+        w = lua.eval("{ str = 1 }")
+        pick = lua.eval("{ itemID = 5, score = 7 }")
+        slots = lua.eval("{ 11, 12 }")
+        self.assertEqual(ag.CompareToEquipped(ag, pick, slots, w), 3)   # beats the weaker ring (4) by 3
+        self.assertEqual(ag.CompareToEquipped(ag, lua.eval("{ itemID = 999002, score = 9 }"), slots, w), "equipped")
+        self.assertIsNone(ag.CompareToEquipped(ag, pick, lua.eval("{ 1 }"), w))  # nothing worn there
+
+    def test_detect_spec(self):
+        lua, ag = load_built()
+        lua.execute("""GetSpecialization = function() return 2 end
+            GetSpecializationInfo = function(i) return 72, "Fury" end""")
+        self.assertEqual(ag.DetectSpec(ag, 1), "fury")
+        lua.execute("""GetSpecialization = nil
+            GetNumTalentTabs = function() return 3 end
+            GetTalentTabInfo = function(tab) return "x", nil, ({ 5, 0, 31 })[tab] end""")
+        self.assertEqual(ag.DetectSpec(ag, 8), "frost")
+
+    def test_plan_page_renders(self):
+        lua, ag = load_built()
+        lua.execute("""
+            UnitClass = function() return "Mage", "MAGE", 8 end
+            UnitLevel = function() return 40 end
+            UnitFactionGroup = function() return "Alliance" end
+            agf_rows = {}
+            agf_doc = {
+                Row = function(self, icon, title, body, note, opts) table.insert(agf_rows, { title = title, note = note }) end,
+                Paragraph = function() end,
+            }""")
+        ag.db = lua.eval("{ plan = { quests = true }, wishlist = {}, learned = {} }")
+        ag.frame = lua.eval("{ header = { SetText = function() end } }")
+        ag.RenderPlan(ag, lua.globals().agf_doc)
+        rows = to_py(lua.globals().agf_rows)
+        self.assertGreater(len(rows), 10)
+        self.assertTrue(any("New slot" in (r["note"] or "") for r in rows))
 
     def test_registered_items_load(self):
         lua, ag = load_built()
