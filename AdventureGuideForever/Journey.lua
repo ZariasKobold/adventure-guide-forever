@@ -1,8 +1,10 @@
 -- Journey: a pedometer and a visit log, per character.
 --
 --   * Distance: how far you've traveled on foot, mounted, flying, swimming, and by flight
---     path. A short ticker samples your speed only while you move (started and stopped by
---     the movement events), so standing still costs nothing.
+--     path. In the open world it measures how far you actually moved (UnitPosition, in
+--     yards), which works for flight paths and swimming, where the movement events and the
+--     reported speed can't be trusted. Inside dungeons the game hides your position, so it
+--     samples your speed instead, only while you move.
 --   * Visits: how many times you've entered each dungeon and raid, and each zone.
 --   * This session: the same distances since you logged in (a /reload keeps counting).
 --
@@ -16,7 +18,9 @@
 
 local _, AG = ...
 
-local TICK = 0.5               -- seconds between speed samples while moving
+local TICK = 0.5               -- seconds between samples
+local MAX_STEP_SPEED = 120     -- yards per second; anything faster is a teleport, not travel
+local MIN_STEP = 0.05          -- yards; less is standing still
 local YARDS_PER_STEP = 0.85    -- a walking stride
 local RUN_SPEED = 7            -- yards per second, the normal run speed
 local COMBAT_MAX_SPEED = 14    -- faster than this in a fight is a charge or leap, not steps
@@ -130,6 +134,29 @@ function AG.JourneyPace(speed, s)
 	return math.min(speed, COMBAT_MAX_SPEED)
 end
 
+-- Yards moved between two positions ({ x, y, z, map }) over dt seconds, or nil when the
+-- move doesn't count: a different map (loading screen, portal), a bad interval, or a jump
+-- too fast to be travel (hearthstone, summons).
+function AG.JourneyStep(prev, cur, dt)
+	if not prev or not cur or prev.map ~= cur.map or not dt or dt <= 0 or dt > 5 then return nil end
+	local dx, dy, dz = cur.x - prev.x, cur.y - prev.y, (cur.z or 0) - (prev.z or 0)
+	local d = math.sqrt(dx * dx + dy * dy + dz * dz)
+	if d < MIN_STEP then return 0 end
+	if d / dt > MAX_STEP_SPEED then return nil end
+	return d
+end
+
+-- Your position in yards, or nil where the game hides it (dungeons, raids).
+local function readPosition()
+	if not UnitPosition then return nil end
+	local y, x, z, map = UnitPosition("player")
+	y, x, z, map = AG:Readable(y), AG:Readable(x), AG:Readable(z), AG:Readable(map)
+	if type(x) ~= "number" or type(y) ~= "number" then return nil end
+	return { x = x, y = y, z = type(z) == "number" and z or 0, map = map }
+end
+
+local lastPos
+
 local function travelKind()
 	if AG:Readable(UnitOnTaxi("player")) then return "taxi" end
 	if IsSwimming and AG:Readable(IsSwimming()) then return "swim" end
@@ -147,11 +174,22 @@ local function sample()
 	local now = GetTime()
 	local dt = now - (lastTick or now)
 	lastTick = now
-	local speed = AG:Readable(GetUnitSpeed("player"))
-	if type(speed) ~= "number" then speed = nil end
 	local onTaxi = AG:Readable(UnitOnTaxi("player"))
 	local airborne = IsFalling and AG:Readable(IsFalling()) == true
-	if speed and speed > 0 and not airborne and (not inCombat or speed <= COMBAT_MAX_SPEED) then
+	local pos = readPosition()
+
+	-- Measured distance where we have a position; the reported speed elsewhere.
+	local speed
+	if pos then
+		local step = AG.JourneyStep(lastPos, pos, dt)
+		speed = step and dt > 0 and step / dt or 0
+	else
+		speed = AG:Readable(GetUnitSpeed("player"))
+		if type(speed) ~= "number" then speed = nil end
+	end
+	lastPos = pos
+
+	if speed and speed > 0 and not airborne and not onTaxi and (not inCombat or speed <= COMBAT_MAX_SPEED) then
 		lastPace = speed
 	end
 	local pace = AG.JourneyPace(speed, { combat = inCombat, airborne = airborne, moving = moving, lastPace = lastPace })
@@ -161,9 +199,24 @@ local function sample()
 			AG:AddTravel(rec, travelKind(), pace * dt, inCombat)
 			if AG.UpdateStepCounter then AG:UpdateStepCounter() end
 		end
-	elseif not moving and not onTaxi and not inCombat then
-		stopTicker() -- standing still: stop sampling until the next move
+	elseif not pos and not moving and not onTaxi and not inCombat then
+		stopTicker() -- in a dungeon and standing still: wait for the next move
 	end
+end
+
+-- What the pedometer sees right now (/ag pedometer), for checking it in game.
+function AG:PedometerStatus()
+	local pos = readPosition()
+	local speed = self:Readable(GetUnitSpeed("player"))
+	return {
+		mode = pos and "position" or "speed",
+		ticking = ticker ~= nil,
+		kind = travelKind(),
+		speed = type(speed) == "number" and speed or nil,
+		onTaxi = self:Readable(UnitOnTaxi("player")) and true or false,
+		swimming = IsSwimming and self:Readable(IsSwimming()) and true or false,
+		position = pos,
+	}
 end
 
 local function startTicker()
@@ -216,6 +269,10 @@ local handlers = {
 		local rec = AG:GetJourney()
 		if rec and isInitialLogin then rec.session = newSession() end
 		arrive()
+		-- A loading screen moves you without traveling. In the open world the ticker runs
+		-- all the time (one position check per tick), so swims and flights always count.
+		lastPos = nil
+		startTicker()
 	end,
 	ZONE_CHANGED_NEW_AREA = arrive,
 	PLAYER_STARTED_MOVING = function() moving = true; startTicker() end,
@@ -225,6 +282,7 @@ local handlers = {
 	PLAYER_REGEN_ENABLED = function() inCombat = false end,
 	-- Flight paths take control away instead of firing the movement events.
 	PLAYER_CONTROL_LOST = function() C_Timer.After(1, function() if AG:Readable(UnitOnTaxi("player")) then startTicker() end end) end,
+	PLAYER_CONTROL_GAINED = startTicker,
 }
 
 local events = CreateFrame("Frame")
