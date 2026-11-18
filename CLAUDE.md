@@ -13,8 +13,12 @@ A World of Warcraft: Forever addon that rebuilds the retail **Adventure Guide** 
 | `AdventureGuideForever/Data/Instances.lua` | All 37 Forever instances (key, name, zone, levels). |
 | `AdventureGuideForever/Data/Art.lua` | Blizzard art file IDs per instance (journal button, lore, loading screen, finder), found with `/agprobe art`. |
 | `AdventureGuideForever/Art/` | Bundled 1024x512 TGA loading-screen art for the 9 Forever-new instances (sources in its README). |
+| `AdventureGuideForever/Data/Generated/Community.lua` | Players' shared learned data. **Never edit by hand**; built by `tools/learned_intake.py` from `tools/learned/community.json`. |
 | `AdventureGuideForever/Learn.lua` | Learning mode: records loot, models, and boss spells from play. |
-| `AdventureGuideForever/UI/` | `MainFrame` (window, tabs), `InstanceList` (art card grid), `InstanceOverview` (instance page), `InstancePage` (overview + boss list), `BossPage` (bestiary layout), `Document` (shared scrolling layout), `Widgets`. |
+| `AdventureGuideForever/Sync.lua`, `Share.lua` | Party sync of learned data (addon messages), and the `/ag share` export for GitHub. |
+| `AdventureGuideForever/Journey.lua`, `Wishlist.lua` | Pedometer (all time and this session, with combat rules) and visit counts (local only), and the wishlist with drop alerts. |
+| `AdventureGuideForever/UI/` | `MainFrame` (window, tabs), `InstanceList` (art card grid), `InstanceOverview` (instance page), `InstancePage` (overview + boss list), `BossPage` (bestiary layout), `JourneyPage`, `StepCounter` (minimap badge), `WishlistPage`, `Options`, `ShareFrame`, `Briefing` (dungeon and boss cards), `Tooltips` ("Drops from"), `Document` (shared scrolling layout), `Widgets`. |
+| `.github/` | Issue form for shared learned data, and the Action that turns each share into a pull request. |
 | `AdventureGuideProbe/` | Diagnostic addon (`/agprobe`, `/agprobe art`, `/agprobe maps`, `/agprobe deep`). Not shipped. |
 | `tools/` | Python dev tooling: build, tests, Wowhead extractors. See `tools/README.md`. |
 
@@ -51,11 +55,13 @@ Rules from `https://wowforeverguides.com/addons/developers` (beta-era; its claim
 
 ## Data pipeline
 
+Addons can't reach the internet, so player data travels by paste: `/ag share` → GitHub issue form → `learned-data.yml` Action → `learned_intake.py` → pull request for review. See `tools/README.md`. Shares hold only boss/item/spell IDs, counts, and a random share ID; Journey stats and wishlists never leave the player's computer.
+
 `tools/wowhead/extract.js` (zone pages: loot and NPC IDs) and `extract_npcs.js` (boss pages: spells and models) run in a normal browser on wowhead.com, slowly. **Never automate past Wowhead's human verification.** Fast bursts trip it; the NPC extractor waits 8 seconds per page and saves its progress so it can resume. Outputs: `tools/wowhead/snapshot.json` and `npcs.json` (fetched Nov 16 to 17, 2026). Wing assignments, trash filters, and multi-NPC encounters are explicit tables in `build_wowhead.py`.
 
 ## Status (Nov 17, 2026)
 
-- **v0.4.2**: Adventure Guide button on the menu bar, MIT license. **v0.4.1**: drop chances on 1047 items, bundled art for all 9 Forever-new instances. **v0.4.0**: art card grid, instance overview pages, bestiary-style boss pages, lore and strategy for all 37 instances (252 of 286 bosses have strategy), drop chances supported. Tested in game Nov 17, 2026: card grid, overview and boss pages all work.
+- **v0.5.0** (not yet tested in game): drops-from tooltips, wishlist with drop alerts, optional dungeon and boss briefing cards, Journey tab (pedometer with combat rules, this session vs all time, visit counts), step counter by the minimap calendar, party sync, and `/ag share` → GitHub issue → pull request for community learned data. **v0.4.2**: Adventure Guide button on the menu bar, MIT license. **v0.4.1**: drop chances on 1047 items, bundled art for all 9 Forever-new instances. **v0.4.0**: art card grid, instance overview pages, bestiary-style boss pages, lore and strategy for all 37 instances (252 of 286 bosses have strategy), drop chances supported. Tested in game Nov 17, 2026: card grid, overview and boss pages all work.
 - Forever has **no dungeon maps** (`/agprobe maps`: only 60 world and zone maps), so the overview uses a written route instead of a map.
 - Forever-new dungeons have no Blizzard art file IDs, so their loading-screen art is bundled in `Art/`. Verified Nov 17, 2026: `/agprobe newart` and `/agprobe lfg` found no client art for them (their Dungeon Finder entries, IDs 3267-3275, carry no texture, and none of 624 path guesses exist). Dalaran, Krol'dok, Shaper's Terrace, and the Hyjal raids (open Dec 9) have no boss mechanics published; learning mode fills them in.
 - Drop chances are filled from `npcs.json` (extract_npcs.js v2, Nov 17, 2026).

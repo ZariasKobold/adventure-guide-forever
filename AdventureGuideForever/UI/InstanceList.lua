@@ -45,6 +45,13 @@ local function showTooltip(card)
 		GameTooltip:AddLine(string.format("|cff%sLevels %d-%d|r", AG:LevelColor(inst), inst.minLevel, inst.maxLevel))
 	end
 	GameTooltip:AddLine(AG:GuideStatus(inst.key))
+	local wishes = AG:WishesIn(inst.key)
+	if #wishes > 0 then
+		GameTooltip:AddLine(string.format("%s %d wishlist item%s here", AG.UI.STAR, #wishes, #wishes == 1 and "" or "s"), 1, 0.82, 0)
+	end
+	local journey = AG:GetJourney()
+	local visits = journey and journey.instances[inst.key]
+	if visits then GameTooltip:AddLine(string.format("Visited %d time%s", visits.visits, visits.visits == 1 and "" or "s"), 0.7, 0.7, 0.7) end
 	local guide = AG.Guides[inst.key]
 	if guide and guide.intro then GameTooltip:AddLine(guide.intro, 0.85, 0.8, 0.7, true) end
 	GameTooltip:Show()
@@ -197,6 +204,8 @@ function AG:RenderInstanceList(tabKey)
 		local badges = {}
 		if inst.key == here then table.insert(badges, "|cff20ff20You are here|r") end
 		if inst.isNew then table.insert(badges, "|cffffd100NEW|r") end
+		local wishes = #self:WishesIn(inst.key)
+		if wishes > 0 then table.insert(badges, UI.STAR .. " " .. wishes) end
 		card.badge:SetText(table.concat(badges, "  "))
 	end
 	UI.HideFrom(list.child, "cards", #items + 1)

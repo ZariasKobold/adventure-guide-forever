@@ -24,7 +24,8 @@ Data/Content/*.lua (hand-written text)  ----------------------------------------
 | `build_wowhead.py` | Turns the snapshot into `Data/Generated/Wowhead.lua`. The tables at the top decide which zone is which instance, which wing each boss belongs to, which NPCs are trash, and which NPCs form one encounter. |
 | `apply_writing.py` | Merges drafted guide writing (a JSON file of instance and boss text) into `Data/Content/*.lua`, keeping the standard format. Drafts are input only; don't commit them. |
 | `migrate_content.py` | One-time conversion of the old `Data/Guides` files into `Data/Content`. Kept for the record. |
-| `test_addon.py` | Test suite: TOC integrity, data shape, and the registry's merge rules. |
+| `learned_intake.py` | Reads players' `/ag share` exports, merges them into `learned/community.json`, and writes `Data/Generated/Community.lua`. See below. |
+| `test_addon.py` | Test suite: TOC integrity, data shape, the registry's merge rules, sync messages, and the share intake. |
 | `addon_env.py`, `lua_writer.py` | Shared helpers: load the addon in Lua, and write tidy Lua tables. |
 
 ## Everyday commands
@@ -64,3 +65,24 @@ or wait 20 to 30 minutes for the limit to reset.
 `build_wowhead.py` keeps the NPC list inside `extract_npcs.js` in step with the snapshot.
 Multi-NPC encounters use the lead NPC's model and list every member's spells once.
 Generic spells (Dazed, Attack, Shoot) are left out (`NOISE_SPELLS`).
+
+## Learned data from players (learned_intake.py)
+
+```
+/ag share (in game)  --paste-->  GitHub issue form  --Action-->  learned_intake.py
+    --> tools/learned/community.json  --> Data/Generated/Community.lua  --> pull request
+```
+
+- `.github/ISSUE_TEMPLATE/learned-data.yml` is the form players paste into.
+- `.github/workflows/learned-data.yml` runs on each new issue that holds an export. It
+  passes the issue text through an environment variable (never into a shell command),
+  runs `learned_intake.py --from-env`, runs the tests, and opens a pull request that closes
+  the issue. A rejected paste gets a comment explaining why. The repo setting "Allow GitHub
+  Actions to create and approve pull requests" must be on.
+- `learned_intake.py` validates every line (known instances, lowercase boss keys, numeric
+  IDs and counts within limits, cleaned names). Each share has a random ID, so a player's
+  newer share replaces their older one; different players' shares add up. Run
+  `learned_intake.py --file export.txt` to try an export locally, or `--build` to rebuild
+  `Community.lua` after editing `community.json` by hand (for example, to remove a bad share).
+- Community data joins learning mode's data in the guide (`AG:GetLearnedBosses`), so new
+  bosses, drops, spells, and models appear the same way your own learned data does.

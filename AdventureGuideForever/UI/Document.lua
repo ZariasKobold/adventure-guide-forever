@@ -60,6 +60,22 @@ local function createRow(owner)
 	row.body:SetPoint("TOPLEFT", row.title, "BOTTOMLEFT", 0, -3)
 	row.body:SetPoint("RIGHT", -6, 0)
 	row.body:SetTextColor(0.85, 0.82, 0.75)
+
+	-- Wishlist star, shown on item rows.
+	row.star = CreateFrame("Button", nil, row)
+	row.star:SetSize(18, 18)
+	row.star:SetPoint("TOPRIGHT", -4, -3)
+	row.star.tex = row.star:CreateTexture(nil, "ARTWORK")
+	row.star.tex:SetAllPoints()
+	row.star:SetScript("OnClick", function(self) AG:ToggleWish(self:GetParent().itemID) end)
+	row.star:SetScript("OnEnter", function(self)
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+		GameTooltip:SetText(AG:IsWished(self:GetParent().itemID) and "On your wishlist" or "Add to wishlist")
+		GameTooltip:AddLine("You'll get an alert when it drops.", 1, 1, 1, true)
+		GameTooltip:Show()
+	end)
+	row.star:SetScript("OnLeave", GameTooltip_Hide)
+
 	row:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
 
 	row:SetScript("OnEnter", function(self)
@@ -197,7 +213,8 @@ function Document:Image(fileID, kind, height, caption)
 	self.y = self.y + height + GAP + 4
 end
 
--- A row: icon, title, body, and a right-hand note. opts: itemID, spellID, link, alpha, onClick.
+-- A row: icon, title, body, and a right-hand note.
+-- opts: itemID, spellID, link, alpha, onClick, star (show the wishlist star for itemID).
 function Document:Row(icon, title, body, note, opts)
 	opts = opts or {}
 	local row = self:Take("rows", createRow)
@@ -211,6 +228,11 @@ function Document:Row(icon, title, body, note, opts)
 	row.title:SetText(title or "")
 	row.body:SetText(body or "")
 	row.note:SetText(note or "")
+	local star = opts.star and opts.itemID ~= nil
+	row.star:SetShown(star)
+	if star then UI.SetStar(row.star.tex, AG:IsWished(opts.itemID)) end
+	row.note:ClearAllPoints()
+	row.note:SetPoint("TOPRIGHT", star and -26 or -6, -2)
 	local h = row.title:GetStringHeight() + 3 + (body and body ~= "" and row.body:GetStringHeight() or 0) + 10
 	if icon then h = math.max(h, ICON + 10) end
 	row:SetHeight(h)

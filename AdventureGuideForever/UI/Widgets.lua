@@ -188,3 +188,59 @@ function UI.SpellInfo(spellID, onLoad)
 	end
 	return info.name, info.iconID, C_Spell.GetSpellDescription(spellID) or ""
 end
+
+------------------------------------------------------------------------
+-- Wishlist star and checkboxes
+------------------------------------------------------------------------
+
+-- The raid marker star: in every client, and instantly recognisable.
+UI.STAR_TEXTURE = "Interface\TargetingFrame\UI-RaidTargetingIcon_1"
+UI.STAR = "|T" .. UI.STAR_TEXTURE .. ":0|t"
+
+-- Shows a star texture lit (on the wishlist) or dimmed grey (not on it).
+function UI.SetStar(texture, on)
+	texture:SetTexture(UI.STAR_TEXTURE)
+	texture:SetDesaturated(not on)
+	texture:SetAlpha(on and 1 or 0.45)
+end
+
+-- A labelled checkbox. get() returns the current value; set(value) stores a new one.
+-- 12345 -> "12,345".
+function UI.Commas(n)
+	local s = tostring(math.floor(n or 0))
+	while true do
+		local out, k = s:gsub("^(-?%d+)(%d%d%d)", "%1,%2")
+		s = out
+		if k == 0 then return s end
+	end
+end
+
+UI.YARDS_PER_MILE = 1760
+
+-- A distance for people: "84 yards", "2.35 miles", "31.0 miles".
+function UI.Distance(yards)
+	local m = (yards or 0) / UI.YARDS_PER_MILE
+	if m < 0.1 then return string.format("%d yards", math.floor(yards or 0)) end
+	return string.format(m < 10 and "%.2f miles" or "%.1f miles", m)
+end
+
+function UI.CheckBox(parent, label, get, set)
+	local box = UI.CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate", "OptionsBaseCheckButtonTemplate")
+	box:SetSize(24, 24)
+	if not box:GetNormalTexture() then
+		box:SetNormalTexture("Interface\Buttons\UI-CheckBox-Up")
+		box:SetPushedTexture("Interface\Buttons\UI-CheckBox-Down")
+		box:SetHighlightTexture("Interface\Buttons\UI-CheckBox-Highlight", "ADD")
+		box:SetCheckedTexture("Interface\Buttons\UI-CheckBox-Check")
+	end
+	box.label = UI.Text(box, "GameFontHighlight")
+	box.label:SetPoint("LEFT", box, "RIGHT", 4, 0)
+	box.label:SetWordWrap(false)
+	box.label:SetText(label)
+	box:SetScript("OnClick", function(self)
+		PlaySound(self:GetChecked() and SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON or SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF)
+		set(self:GetChecked() and true or false)
+	end)
+	box.Sync = function(self) self:SetChecked(get() and true or false) end
+	return box
+end

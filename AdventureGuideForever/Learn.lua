@@ -4,6 +4,9 @@
 --   * Models:  the boss's NPC ID and display ID, captured when you target it.
 --   * Spells:  spell IDs bosses cast (cast events on target, focus, and boss frames).
 --
+-- What it learns can travel two ways: to your group in game (Sync.lua) and, when you
+-- choose, to the guide on GitHub (/ag share, Share.lua).
+--
 -- It never reads the combat log, which Forever blocks for addons, and it skips any
 -- value the client marks as secret. Data is saved per account in AdventureGuideForeverDB.
 
@@ -58,6 +61,29 @@ local function isBossUnit(unit, instKey, bossKey, display)
 	return AG:Readable(UnitLevel(unit)) == -1 or AG:Readable(UnitClassification(unit)) == "worldboss"
 end
 
+-- Counts something new, so /ag share can say how much is waiting to be shared.
+function AG:NoteDiscovery()
+	self.db.unshared = (self.db.unshared or 0) + 1
+end
+
+-- Merges a record learned elsewhere (a group member, via Sync.lua). Group members mostly
+-- see the same kills, so counts take the larger of the two instead of adding up.
+function AG:MergeLearned(instKey, bossKey, data)
+	local rec = self:GetLearned(instKey, bossKey, true)
+	local changed = false
+	local function keep(field)
+		if rec[field] == nil and data[field] ~= nil then rec[field] = data[field]; changed = true end
+	end
+	keep("name"); keep("npcID"); keep("displayID")
+	if (data.kills or 0) > (rec.kills or 0) then rec.kills = data.kills; changed = true end
+	for _, list in ipairs({ "loot", "spells" }) do
+		for id, n in pairs(data[list] or {}) do
+			if n > (rec[list][id] or 0) then rec[list][id] = n; changed = true end
+		end
+	end
+	return changed
+end
+
 local function refreshUI()
 	if AG.frame and AG.frame:IsShown() and AG.Refresh then AG:Refresh() end
 end
@@ -67,13 +93,7 @@ end
 ------------------------------------------------------------------------
 
 local function updateInstance()
-	local name, instanceType = GetInstanceInfo()
-	if instanceType == "party" or instanceType == "raid" then
-		local inst = AG:FindInstanceByName(name)
-		current.instKey = inst and inst.key or nil
-	else
-		current.instKey = nil
-	end
+	current.instKey = AG:DetectInstance()
 end
 
 ------------------------------------------------------------------------
@@ -88,6 +108,8 @@ local function markKill(name)
 	local rec = AG:GetLearned(instKey, bossKey, true)
 	rec.name = display
 	rec.kills = (rec.kills or 0) + 1
+	AG:NoteDiscovery()
+	if AG.QueueSync then AG:QueueSync(instKey, bossKey) end
 end
 
 local function recordLoot(itemID, quality)
@@ -103,6 +125,7 @@ local function recordLoot(itemID, quality)
 	local isNew = not rec.loot[itemID]
 	rec.loot[itemID] = (rec.loot[itemID] or 0) + 1
 	if isNew then
+		AG:NoteDiscovery()
 		local link = select(2, C_Item.GetItemInfo(itemID)) or ("item " .. itemID)
 		AG:Print("Learned: %s drops %s.", boss.name, link)
 	end
@@ -180,7 +203,11 @@ local function captureTarget()
 	local rec = AG:GetLearned(instKey, bossKey, true)
 	rec.name = display
 
-	rec.npcID = npcIDFromGUID(UnitGUID("target")) or rec.npcID
+	local npcID = npcIDFromGUID(UnitGUID("target"))
+	if npcID and npcID ~= rec.npcID then
+		rec.npcID = npcID
+		AG:NoteDiscovery()
+	end
 
 	if not rec.displayID then
 		probeModel = probeModel or CreateFrame("PlayerModel")
@@ -189,6 +216,7 @@ local function captureTarget()
 			local ok, displayID = pcall(probeModel.GetDisplayInfo, probeModel)
 			if ok and AG:IsUsable(displayID) and displayID and displayID > 0 then
 				rec.displayID = displayID
+				AG:NoteDiscovery()
 				refreshUI()
 			end
 		end)
@@ -209,6 +237,7 @@ local function onSpellcast(unit, spellID)
 	if not instKey or not isBossUnit(unit, instKey, bossKey, display) then return end
 	local rec = AG:GetLearned(instKey, bossKey, true)
 	rec.name = display
+	if not rec.spells[spellID] then AG:NoteDiscovery() end
 	rec.spells[spellID] = (rec.spells[spellID] or 0) + 1
 end
 

@@ -40,6 +40,7 @@ SlashCmdList = {}
 UISpecialFrames = {}
 C_Timer = { After = function() end }
 GetTime = function() return 0 end
+time = function() return 0 end
 UIParent = inert
 """
 

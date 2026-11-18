@@ -6,7 +6,8 @@
 --   SLASH_ADVENTUREGUIDEFOREVER1/2, SlashCmdList  the /ag command
 --   AdventureGuideForever_OnCompartmentClick      addon compartment entry (TOC)
 --   ToggleEncounterJournal                        only if Blizzard's is missing
---   AdventureGuideForeverFrame, ...ToggleButton   named frames (Escape-to-close, bindings)
+--   AdventureGuideForeverFrame, ...ToggleButton,  named frames (Escape-to-close, bindings)
+--   ...ShareFrame
 
 local ADDON, AG = ...
 
@@ -37,6 +38,15 @@ end
 function AG:Readable(value)
 	if isSecret(value) then return nil end
 	return value
+end
+
+-- Our key for the dungeon or raid you're in, or nil outside instances.
+function AG:DetectInstance()
+	local name, instanceType = GetInstanceInfo()
+	if instanceType == "party" or instanceType == "raid" then
+		local inst = self:FindInstanceByName(name)
+		return inst and inst.key or nil
+	end
 end
 
 -- Lowercase, strip punctuation and a leading "The " so "The Deadmines" matches "Deadmines".
@@ -86,14 +96,38 @@ end
 local defaults = {
 	learn = true,        -- record loot, models, and boss spells while playing
 	learned = {},        -- [instKey] = { bosses = { [bossKey] = {...} } }
+	unshared = 0,        -- things learned since the last /ag share
+	wishlist = {},       -- [itemID] = true
+	journey = {},        -- [character] = distance traveled and places visited (never shared)
+	options = {
+		zoneCard = true,     -- briefing card when you enter a dungeon or raid
+		bossCard = true,     -- boss card when you target a boss
+		tooltips = true,     -- "Drops from" lines on item tooltips
+		wishAlerts = true,   -- alert when a wishlist item drops
+		sync = true,         -- share learned data with your group in game
+		stepCounter = true,  -- step counter beside the minimap's calendar button
+		-- stepPosition = { point, relPoint, x, y } once you drag the step counter
+	},
 }
 
+-- Fills in missing settings, including new options added to an existing table.
 local function applyDefaults(db, defs)
 	for k, v in pairs(defs) do
 		if db[k] == nil then
 			db[k] = type(v) == "table" and CopyTable(v) or v
+		elseif type(v) == "table" and type(db[k]) == "table" then
+			applyDefaults(db[k], v)
 		end
 	end
+end
+
+function AG:Option(name)
+	return self.db and self.db.options[name] == true
+end
+
+function AG:SetOption(name, value)
+	self.db.options[name] = value and true or false
+	if name == "stepCounter" and self.UpdateStepCounter then self:UpdateStepCounter() end
 end
 
 ------------------------------------------------------------------------
@@ -103,6 +137,15 @@ end
 function AG:Toggle()
 	if not self.frame then self:CreateMainFrame() end
 	self.frame:SetShown(not self.frame:IsShown())
+end
+
+-- Opens the guide on a tab by key ("journey", "wishlist", ...).
+function AG:OpenTab(key)
+	if not self.frame then self:CreateMainFrame() end
+	self.frame:Show()
+	for i, tab in ipairs(self.TABS) do
+		if tab.key == key then self:SelectTab(i) end
+	end
 end
 
 function AG:Open(instKey, bossKey)
@@ -174,8 +217,15 @@ end
 -- Slash command
 ------------------------------------------------------------------------
 
-local USAGE = "/ag opens the guide.  /ag learn turns learning mode on or off.  "
-	.. "/ag reset learned forgets what learning mode recorded."
+local USAGE = "/ag opens the guide.  /ag options: settings.  /ag share: send what you learned "
+	.. "to the guide on GitHub.  /ag journey, /ag wishlist: open those tabs.  /ag steps: step counter on or off.  /ag sync: share "
+	.. "with your group now.  /ag learn: learning mode on or off.  /ag reset learned: forget "
+	.. "what learning mode recorded."
+
+local function toggleOption(name, label)
+	AG:SetOption(name, not AG:Option(name))
+	AG:Print("%s: %s.", label, AG:Option(name) and "|cff20ff20on|r" or "|cffff2020off|r")
+end
 
 local commands = {
 	[""] = function() AG:Toggle() end,
@@ -184,6 +234,15 @@ local commands = {
 		AG.db.learn = not AG.db.learn
 		AG:Print("Learning mode is now %s.", AG.db.learn and "|cff20ff20on|r" or "|cffff2020off|r")
 	end,
+	options = function() AG:ToggleOptions() end,
+	settings = function() AG:ToggleOptions() end,
+	share = function() AG:ShowShare() end,
+	sync = function() AG:SyncNow() end,
+	journey = function() AG:OpenTab("journey") end,
+	wishlist = function() AG:OpenTab("wishlist") end,
+	cards = function() toggleOption("zoneCard", "Dungeon briefing cards") end,
+	bosscards = function() toggleOption("bossCard", "Boss cards") end,
+	steps = function() toggleOption("stepCounter", "Step counter") end,
 	micro = function()
 		AG:Print("Menu bar button art: %s.", tostring(AG.microStyle or "not created (no menu bar found)"))
 	end,

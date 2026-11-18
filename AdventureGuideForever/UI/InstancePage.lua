@@ -6,12 +6,12 @@ local UI = AG.UI
 
 local LIST_W = 230
 
--- Guide bosses in order, then any bosses learned from play that the guide lacks.
+-- Guide bosses in order, then any bosses learned from play (yours or shared by other
+-- players) that the guide lacks.
 function AG:GetBossList(instKey)
 	local out, seen = {}, {}
 	local guide = self.Guides[instKey]
-	local learned = self.db.learned[instKey]
-	local learnedBosses = learned and learned.bosses or {}
+	local learnedBosses = self:GetLearnedBosses(instKey) -- yours plus the community's
 	for _, boss in ipairs(guide and guide.bosses or {}) do
 		table.insert(out, { key = boss.key, name = boss.name, guide = boss, learned = learnedBosses[boss.key] })
 		seen[boss.key] = true

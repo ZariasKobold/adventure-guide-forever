@@ -222,7 +222,7 @@ local function lootRow(doc, item, note, dim)
 	local title = dim and ("|cff808080" .. name .. "|r")
 		or string.format("|cff%s%s|r", QUALITY_COLOR[quality] or "ffffff", name)
 	doc:Row(icon or UI.UNKNOWN_ICON, title, item.slot, note,
-		{ itemID = item.itemID, link = link, alpha = dim and 0.6 or 1 })
+		{ itemID = item.itemID, link = link, alpha = dim and 0.6 or 1, star = true })
 end
 
 local function renderOverview(doc, entry)
@@ -270,12 +270,16 @@ local function renderOverview(doc, entry)
 	end
 
 	if rec then
-		doc:Heading("Your group's history")
+		doc:Heading(rec.community and "Seen in play" or "Your group's history")
 		local items, spells = 0, 0
 		for _ in pairs(rec.loot or {}) do items = items + 1 end
 		for _ in pairs(rec.spells or {}) do spells = spells + 1 end
 		doc:Paragraph(string.format("Kills recorded: %d    Different drops seen: %d    Spells seen: %d",
 			rec.kills or 0, items, spells), { font = "GameFontHighlightSmall" })
+		if rec.community then
+			doc:Paragraph("Includes what other players' learning mode shared with the guide.",
+				{ font = "GameFontHighlightSmall", color = { 0.55, 0.55, 0.55 } })
+		end
 	end
 end
 

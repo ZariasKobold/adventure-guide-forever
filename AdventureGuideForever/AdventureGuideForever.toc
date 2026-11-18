@@ -2,7 +2,7 @@
 ## Title: Adventure Guide |cff66ccffForever|r
 ## Notes: Fallback TOC. The game prefers AdventureGuideForever_Forever.toc.
 ## Author: Draconic Designs
-## Version: 0.4.2
+## Version: 0.5.0
 ## X-License: MIT
 ## SavedVariables: AdventureGuideForeverDB
 ## IconTexture: Interface\Icons\INV_Misc_Book_09
@@ -51,7 +51,12 @@ Data\Content\barrowdeeps.lua
 Data\Content\hyjalsummit.lua
 Data\Content\onyxia.lua
 Data\Generated\Wowhead.lua
+Data\Generated\Community.lua
 Learn.lua
+Journey.lua
+Wishlist.lua
+Sync.lua
+Share.lua
 UI\Widgets.lua
 UI\MicroButton.lua
 UI\Document.lua
@@ -60,3 +65,10 @@ UI\InstanceList.lua
 UI\InstanceOverview.lua
 UI\InstancePage.lua
 UI\BossPage.lua
+UI\JourneyPage.lua
+UI\StepCounter.lua
+UI\WishlistPage.lua
+UI\Options.lua
+UI\ShareFrame.lua
+UI\Briefing.lua
+UI\Tooltips.lua

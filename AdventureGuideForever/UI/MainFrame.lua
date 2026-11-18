@@ -1,5 +1,6 @@
 -- The main window: a Blizzard-style portrait frame with bottom tabs, like the retail
--- Adventure Guide. Holds two views: the instance list and an instance's page.
+-- Adventure Guide. Holds three views: the instance list, an instance's page, and a document
+-- page for the Wishlist and Journey tabs.
 
 local _, AG = ...
 local UI = AG.UI
@@ -10,7 +11,12 @@ AG.TABS = {
 	{ key = "suggested", label = "Suggested Content" },
 	{ key = "dungeons",  label = "Dungeons" },
 	{ key = "raids",     label = "Raids" },
+	{ key = "wishlist",  label = "Wishlist" },
+	{ key = "journey",   label = "Journey" },
 }
+
+-- Tabs drawn as a document instead of the card grid.
+local DOC_TABS = { wishlist = "RenderWishlist", journey = "RenderJourney" }
 
 local function setPortrait(frame)
 	local icon = "Interface\\Icons\\INV_Misc_Book_09"
@@ -83,7 +89,12 @@ function AG:CreateMainFrame()
 	frame.header = UI.Text(frame, "GameFontNormalLarge")
 	frame.header:SetPoint("TOPLEFT", 64, -34)
 	frame.learnStatus = UI.Text(frame, "GameFontDisableSmall", "RIGHT")
-	frame.learnStatus:SetPoint("TOPRIGHT", -14, -38)
+	frame.learnStatus:SetPoint("TOPRIGHT", -100, -38)
+	frame.optionsButton = UI.CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+	frame.optionsButton:SetSize(80, 22)
+	frame.optionsButton:SetPoint("TOPRIGHT", -12, -33)
+	frame.optionsButton:SetText("Options")
+	frame.optionsButton:SetScript("OnClick", function() AG:ToggleOptions() end)
 
 	frame:SetScript("OnShow", function()
 		PlaySound(SOUNDKIT.IG_CHARACTER_INFO_OPEN)
@@ -102,6 +113,15 @@ function AG:CreateMainFrame()
 	self.frame = frame
 	self:CreateInstanceList(content)
 	self:CreateInstancePage(content)
+
+	-- Document page for the Wishlist and Journey tabs.
+	local docPage = CreateFrame("Frame", nil, content)
+	docPage:SetAllPoints()
+	docPage:Hide()
+	docPage.doc = UI.CreateDocument(docPage)
+	docPage.doc.scroll:SetPoint("TOPLEFT", 14, -12)
+	docPage.doc.scroll:SetPoint("BOTTOMRIGHT", -30, 10)
+	self.docPage = docPage
 
 	-- Open on the tab that fits: your current instance, else Suggested Content.
 	self.view = { tab = 1 }
@@ -139,13 +159,19 @@ function AG:Refresh()
 	if PanelTemplates_SetTab then PanelTemplates_SetTab(frame, self.view.tab) end
 	frame.learnStatus:SetText(self.db.learn and "Learning mode: on" or "Learning mode: off")
 
+	local tabKey = AG.TABS[self.view.tab].key
+	local docRender = not self.view.instKey and DOC_TABS[tabKey]
+	self.instanceList:SetShown(not self.view.instKey and not docRender)
+	self.instancePage:SetShown(self.view.instKey ~= nil)
+	self.docPage:SetShown(docRender and true or false)
 	if self.view.instKey then
-		self.instanceList:Hide()
-		self.instancePage:Show()
 		self:RenderInstancePage(self.view.instKey, self.view.bossKey)
+	elseif docRender then
+		local doc = self.docPage.doc
+		doc:Begin(tabKey)
+		self[docRender](self, doc)
+		doc:Finish()
 	else
-		self.instancePage:Hide()
-		self.instanceList:Show()
-		self:RenderInstanceList(AG.TABS[self.view.tab].key)
+		self:RenderInstanceList(tabKey)
 	end
 end
