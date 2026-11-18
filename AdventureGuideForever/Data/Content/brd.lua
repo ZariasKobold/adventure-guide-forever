@@ -11,6 +11,7 @@ AG:RegisterContent("brd", {
 		"BRD is huge. Split it into several runs, or pick the wing you need.",
 		"The Grim Guzzler is a tavern. Don't start a fight there unless you mean to.",
 		"Many quests need you to reach the throne room.",
+		"The Lyceum is a gauntlet: two Shadowforge Flame Keepers patrol it and drop the torches that light its braziers. Pull as few packs as you can, grab both Keepers fast (a hunter is great for this), and let your mages and warlocks burn the packs that come.",
 	},
 	bosses = {
 		{
@@ -161,6 +162,9 @@ AG:RegisterContent("brd", {
 			overview = "A rare golem in the detention block.",
 			lore = "A rare golem guard.",
 			strategy = { summary = "An easy rare. Kill it for its loot." },
+			abilities = {
+				{ name = "Spell Reflection", alerts = { "important" }, text = "Reflects spells back at the caster. Casters, pause.", spellID = 9941 },
+			},
 		},
 		{
 			name = "Verek",

@@ -67,6 +67,7 @@ AG:RegisterContent("ragefire", {
 			abilities = {
 				{ name = "Poison", alerts = { "poison", "healer" }, text = "Poisons the tank for nature damage over time." },
 				{ name = "Sinister Strike", alerts = { "tank" }, text = "A quick, hard strike." },
+				{ name = "Deadly Poison", alerts = { "poison", "tank" }, text = "Poisons his target. Cure it.", spellID = 2818 },
 			},
 		},
 	},

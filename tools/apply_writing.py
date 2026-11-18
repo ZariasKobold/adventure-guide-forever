@@ -17,7 +17,9 @@ Each JSON file maps instance keys to text:
     }
 
 Fields given replace the existing ones; fields left out are kept. Bosses match by name
-(or alsoNamed) ignoring case and punctuation; unknown bosses are added. The JSON is input
+(or alsoNamed) ignoring case and punctuation; unknown bosses are added at the end, or
+right after the boss named in "after". A boss's "abilities" replaces its list, while
+"addAbilities" appends to it (skipping names it already has). "npcID" can be set too. The JSON is input
 only. The content files remain the single source of truth, so don't commit the drafts.
 """
 
@@ -39,7 +41,7 @@ KEY_ORDER = ["intro", "name", "optional", "alsoNamed", "npcID", "displayID", "ov
              "route", "tips", "strategy", "summary", "tank", "healer", "dps", "abilities",
              "alerts", "text", "spellID", "loot", "itemID", "slot", "bosses"]
 INSTANCE_FIELDS = ("intro", "lore", "route", "tips")
-BOSS_FIELDS = ("overview", "lore", "strategy", "optional", "abilities")
+BOSS_FIELDS = ("overview", "lore", "strategy", "optional", "abilities", "npcID")
 
 
 def normalize(name: str) -> str:
@@ -84,11 +86,20 @@ def main(paths: list[str]) -> int:
                 boss = find_boss(entry["bosses"], boss_name)
                 if boss is None:
                     boss = {"name": boss_name}
-                    entry["bosses"].append(boss)
+                    anchor = find_boss(entry["bosses"], boss_text["after"]) if boss_text.get("after") else None
+                    if boss_text.get("after") and anchor is None:
+                        raise SystemExit(f"{path}: {key}: no boss {boss_text['after']!r} to add {boss_name!r} after")
+                    pos = entry["bosses"].index(anchor) + 1 if anchor else len(entry["bosses"])
+                    entry["bosses"].insert(pos, boss)
                     added += 1
                 for field in BOSS_FIELDS:
                     if field in boss_text:
                         boss[field] = boss_text[field]
+                have = {normalize(a["name"]) for a in boss.get("abilities") or []}
+                for ability in boss_text.get("addAbilities", []):
+                    if normalize(ability["name"]) not in have:
+                        boss.setdefault("abilities", []).append(ability)
+                        have.add(normalize(ability["name"]))
             write_content(instances[key], entry)
             print(f"{key:16} {len(text.get('bosses', {})):2} bosses written ({added} new)")
     return 0

@@ -74,6 +74,10 @@ AG:RegisterContent("razorfenkraul", {
 			overview = "A rare bat deep in the warrens.",
 			lore = "A rare bat that hunts the deep tunnels.",
 			strategy = { summary = "An easy rare. Kill it for its loot." },
+			abilities = {
+				{ name = "Sonic Burst", alerts = { "important" }, text = "Silences and damages players around it.", spellID = 8281 },
+				{ name = "Ravage", alerts = { "tank" }, text = "A heavy, stunning hit.", spellID = 3242 },
+			},
 		},
 		{
 			name = "Earthcaller Halmgar",

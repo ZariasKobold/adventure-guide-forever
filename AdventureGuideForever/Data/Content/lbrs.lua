@@ -20,6 +20,7 @@ AG:RegisterContent("lbrs", {
 			strategy = { summary = "He knocks the tank back." },
 			abilities = {
 				{ name = "Knock Away", alerts = { "tank" }, text = "Knocks the tank back." },
+				{ name = "Cleave", alerts = { "tank", "dps" }, text = "Hits everyone in front of him.", spellID = 5532 },
 			},
 		},
 		{

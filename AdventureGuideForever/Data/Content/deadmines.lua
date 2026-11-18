@@ -120,6 +120,9 @@ AG:RegisterContent("deadmines", {
 			overview = "A rare Defias miner who sometimes works the tunnels.",
 			lore = "A Defias miner with a nose for gold. He only appears on some visits.",
 			strategy = { summary = "Easy if you spot him. Kill him for his rare drops." },
+			abilities = {
+				{ name = "Pierce Armor", alerts = { "tank" }, text = "Lowers the tank's armor.", spellID = 12097 },
+			},
 		},
 	},
 })

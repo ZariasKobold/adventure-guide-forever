@@ -60,6 +60,9 @@ AG:RegisterContent("zulfarrak", {
 			strategy = { summary = "He heals and fears.", dps = "Interrupt his heals." },
 			abilities = {
 				{ name = "Heal", alerts = { "interrupt" }, text = "Heals allies. Interrupt it." },
+				{ name = "Renew", alerts = { "magic" }, text = "A heal over time. Dispel it.", spellID = 8362 },
+				{ name = "Psychic Scream", alerts = { "important" }, text = "Fears nearby players.", spellID = 13704 },
+				{ name = "Shadow Bolt", alerts = { "interrupt" }, text = "Shadow damage on a target.", spellID = 15537 },
 			},
 		},
 		{

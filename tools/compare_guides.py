@@ -194,6 +194,30 @@ def match_instance(title: str, instances: list[dict]) -> str | None:
     return best[0] if best else None
 
 
+# Wowhead boxes named for the event or room rather than the boss.
+BOSS_ALIASES = {"dirgendirgehammer": "durgendirgehammer",
+                "chestofseven": "seven", "fatherflame": "solakarflamewreath",
+                "fireofakumaievent": "firesofakumai"}
+
+
+def boss_name_keys(name: str) -> list[str]:
+    """Ways to match a Wowhead box title: whole, without "(Rare)", and each side of
+    "X and Y", "X / Y", or "Room - Boss"."""
+    name = re.sub(r"\(rare\)|<[^>]*>", "", html.unescape(name), flags=re.I)
+    parts = [name] + re.split(r"\s+and\s+|\s*/\s*|\s+-\s+", name)
+    keys = [normalize(p) for p in parts if normalize(p)]
+    return [BOSS_ALIASES.get(k, k) for k in keys]
+
+
+def match_boss(gb: dict, by_name: dict, by_npc: dict) -> dict | None:
+    """Our boss for a Wowhead box: by name first (a box can mention other bosses' NPCs),
+    then by the NPCs it tags."""
+    for k in boss_name_keys(gb["name"]):
+        if k in by_name:
+            return by_name[k]
+    return next((by_npc[n] for n in gb["npcIDs"] if n in by_npc), None)
+
+
 def compare(key: str, inst: dict, guide: dict, facts: dict, hub: dict) -> list[str]:
     names = guide.get("names", {})
     spell_name = lambda s: names.get("spell", {}).get(str(s), {}).get("name") or f"spell {s}"  # noqa: E731
@@ -216,7 +240,7 @@ def compare(key: str, inst: dict, guide: dict, facts: dict, hub: dict) -> list[s
             by_name.setdefault(normalize(alias), b)
     matched = set()
     for gb in facts["bosses"]:
-        ob = next((by_npc[n] for n in gb["npcIDs"] if n in by_npc), None) or by_name.get(normalize(gb["name"]))
+        ob = match_boss(gb, by_name, by_npc)
         if not ob:
             out.append(f"- **Boss missing from our guide:** {gb['name']} (NPC {', '.join(map(str, gb['npcIDs'])) or '?'}).")
             continue

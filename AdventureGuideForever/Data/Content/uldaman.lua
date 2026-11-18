@@ -34,6 +34,7 @@ AG:RegisterContent("uldaman", {
 					alerts = { "important" },
 					text = "Three dwarves: a warrior, a hunter, and a rogue. Kill them one at a time.",
 				},
+				{ name = "Intercept", alerts = { "important" }, text = "Charges a player and stuns them.", spellID = 20252 },
 			},
 		},
 		{

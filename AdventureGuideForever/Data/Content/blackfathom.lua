@@ -80,6 +80,17 @@ AG:RegisterContent("blackfathom", {
 			},
 		},
 		{
+			name = "The Fires of Aku'mai",
+			overview = "Light the four braziers by the Azshara statue to open the way to Aku'mai.",
+			lore = "Kelris's cult guards the fires that seal Aku'mai's lair, and each one calls up more of the old god's servants.",
+			strategy = {
+				summary = "After Kelris, clear the room and have the tank light one brazier at a time. Each brazier calls one wave: snapjaws, servants, crustaceans, or a swarm of Murkshallow Softshells. Kill each wave before lighting the next. All four open the door to Aku'mai.",
+				tank = "Light each brazier yourself so the wave comes to you. The turtle wave hits hardest; an off-tank, a kiter or a pet should take one.",
+				healer = "Rest between waves; the turtles are the hard part.",
+				dps = "Area attacks shine on the softshells.",
+			},
+		},
+		{
 			name = "Old Serra'kis",
 			overview = "A giant shark in the underwater tunnel.",
 			lore = "An enormous shark that circles the flooded tunnel.",

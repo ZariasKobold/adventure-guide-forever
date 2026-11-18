@@ -40,6 +40,7 @@ AG:RegisterContent("ubrs", {
 			abilities = {
 				{ name = "Waves", alerts = { "important" }, text = "Waves of orcs and dragonkin first, then Gyth and Rend." },
 				{ name = "Whirlwind", alerts = { "dps" }, text = "Rend spins and hits everyone nearby." },
+				{ name = "Thunderclap", alerts = { "dps" }, text = "Damages and slows everyone nearby.", spellID = 15588 },
 			},
 		},
 		{
@@ -50,6 +51,7 @@ AG:RegisterContent("ubrs", {
 			abilities = {
 				{ name = "Fire Blast", alerts = { "healer" }, text = "Fire damage." },
 				{ name = "Terrifying Roar", alerts = { "important" }, text = "Fears everyone nearby." },
+				{ name = "Fear", alerts = { "important" }, text = "A roar that fears everyone nearby.", spellID = 5782 },
 			},
 		},
 		{
@@ -60,6 +62,12 @@ AG:RegisterContent("ubrs", {
 			abilities = {
 				{ name = "Flamestrike", alerts = { "dps" }, text = "Fire on the ground. Step out." },
 				{ name = "Cleave", alerts = { "tank" }, text = "Hits everyone in front of him." },
+				{
+					name = "Conflagration",
+					alerts = { "important" },
+					text = "Sets a player ablaze and sends them running; stay away from them.",
+					spellID = 16805,
+				},
 			},
 		},
 		{
@@ -68,6 +76,10 @@ AG:RegisterContent("ubrs", {
 			overview = "A rare orc.",
 			lore = "A rare orc.",
 			strategy = { summary = "An easy rare fight." },
+			abilities = {
+				{ name = "Charge", alerts = { "important" }, text = "Charges a player.", spellID = 100 },
+				{ name = "Heroic Strike", alerts = { "tank" }, text = "A heavy hit on the tank.", spellID = 25710 },
+			},
 		},
 		{
 			name = "Goraluk Anvilcrack",
@@ -75,6 +87,9 @@ AG:RegisterContent("ubrs", {
 			overview = "The Spire's blacksmith.",
 			lore = "The Spire's blacksmith.",
 			strategy = { summary = "A melee fight." },
+			abilities = {
+				{ name = "Heroic Strike", alerts = { "tank" }, text = "A heavy hit on the tank.", spellID = 25710 },
+			},
 		},
 		{
 			name = "Mor Grayhoof",

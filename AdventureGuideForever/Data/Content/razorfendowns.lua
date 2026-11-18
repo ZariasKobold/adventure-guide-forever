@@ -19,6 +19,7 @@ AG:RegisterContent("razorfendowns", {
 			strategy = { summary = "He curses players and webs them in place." },
 			abilities = {
 				{ name = "Web Spray", alerts = { "healer" }, text = "Webs players in place." },
+				{ name = "Virulent Poison", alerts = { "poison", "tank" }, text = "Its attacks can poison the tank. Cure it.", spellID = 12254 },
 			},
 		},
 		{

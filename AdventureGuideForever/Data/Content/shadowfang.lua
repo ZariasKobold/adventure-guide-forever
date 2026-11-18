@@ -20,6 +20,22 @@ AG:RegisterContent("shadowfang", {
 			strategy = { summary = "A simple melee fight. Free the prisoners afterward." },
 		},
 		{
+			name = "Fel Steeds",
+			optional = true,
+			npcID = 3864,
+			overview = "Three demonic horses in the stables: pull one and you pull them all.",
+			lore = "Arugal's servants keep fel-touched horses in the keep's stables, and they're as vicious as their masters.",
+			strategy = {
+				summary = "Two Fel Steeds and a Shadow Charger come together however carefully you pull, and all three hit very hard. Polymorph one, let a hunter or warlock pet hold another, and kill the third, then move to the next.",
+				tank = "Hold one horse at a time and keep the others controlled.",
+				healer = "Expect heavy damage while more than one horse is loose.",
+				dps = "Focus the same horse as the tank, and refresh crowd control.",
+			},
+			abilities = {
+				{ name = "Fel Stomp", alerts = { "tank", "healer" }, text = "A heavy stomp." },
+			},
+		},
+		{
 			name = "Razorclaw the Butcher",
 			overview = "The keep's butcher, in the kitchen.",
 			lore = "The worgen butcher who runs the keep's kitchen.",
@@ -57,6 +73,22 @@ AG:RegisterContent("shadowfang", {
 			},
 		},
 		{
+			name = "Deathsworn Captain",
+			optional = true,
+			npcID = 3872,
+			overview = "A rare elite with a punishing cleave.",
+			lore = "A captain of Gilneas who died at his post and kept standing guard.",
+			strategy = {
+				summary = "Tank him away from the group: his cleave hurts. If Wailing Guardsmen come with him, keep him at least 10 yards from them, out of their silence.",
+				tank = "Face him away from everyone.",
+				dps = "Stay behind him.",
+			},
+			abilities = {
+				{ name = "Cleave", alerts = { "tank", "dps" }, text = "Hits everyone in front of him." },
+				{ name = "Hamstring", alerts = { "tank" }, text = "Slows the tank." },
+			},
+		},
+		{
 			name = "Fenrus the Devourer",
 			overview = "A giant wolf, bound by Arugal.",
 			lore = "A giant wolf bound to Arugal's will.",
@@ -86,6 +118,7 @@ AG:RegisterContent("shadowfang", {
 				{ name = "Void Bolt", alerts = { "deadly" }, text = "A massive shadow bolt." },
 				{ name = "Arugal's Curse", alerts = { "curse" }, text = "Turns a player into a worgen and makes them attack allies." },
 				{ name = "Teleport", alerts = { "important" }, text = "Blinks around the room. Chase him." },
+				{ name = "Shadow Port", alerts = { "important" }, text = "He teleports to another ledge in the room; follow him.", spellID = 7587 },
 			},
 		},
 	},
