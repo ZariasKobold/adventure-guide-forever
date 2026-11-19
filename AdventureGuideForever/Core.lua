@@ -221,7 +221,7 @@ end
 ------------------------------------------------------------------------
 
 local USAGE = "/ag opens the guide.  /ag options: settings.  /ag share: send what you learned "
-	.. "to the guide on GitHub.  /ag find <name>: search bosses, gear, and quests.  /ag pedometer: what the pedometer sees.  /ag spec: what the game says your spec is.  /ag journey, /ag wishlist: open those tabs.  /ag steps: step counter on or off.  /ag sync: share "
+	.. "to the guide on GitHub.  /ag find <name>: search bosses, gear, and quests.  /ag pedometer: what the pedometer sees.  /ag spec: what the game says your spec is.  /ag learn status: what learning mode sees.  /ag journey, /ag wishlist: open those tabs.  /ag steps: step counter on or off.  /ag sync: share "
 	.. "with your group now.  /ag learn: learning mode on or off.  /ag reset learned: forget "
 	.. "what learning mode recorded."
 
@@ -236,6 +236,9 @@ local commands = {
 	learn = function()
 		AG.db.learn = not AG.db.learn
 		AG:Print("Learning mode is now %s.", AG.db.learn and "|cff20ff20on|r" or "|cffff2020off|r")
+	end,
+	["learn status"] = function()
+		for _, line in ipairs(AG:LearnStatus()) do AG:Print("%s", line) end
 	end,
 	options = function() AG:ToggleOptions() end,
 	settings = function() AG:ToggleOptions() end,

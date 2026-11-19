@@ -2,7 +2,8 @@
 --
 --   * Loot:    what drops from each boss (boss loot events plus the loot window).
 --   * Models:  the boss's NPC ID and display ID, captured when you target it.
---   * Spells:  spell IDs bosses cast (cast events on target, focus, and boss frames).
+--   * Spells:  spell IDs bosses cast (cast events on target, focus, boss frames, and
+--              nameplates). /ag learn status shows what it saw and skipped.
 --
 -- What it learns can travel two ways: to your group in game (Sync.lua) and, when you
 -- choose, to the guide on GitHub (/ag share, Share.lua).
@@ -227,18 +228,71 @@ end
 -- Spells bosses cast
 ------------------------------------------------------------------------
 
-local WATCHED = { target = true, focus = true, boss1 = true, boss2 = true, boss3 = true, boss4 = true, boss5 = true }
+-- What happened to casts this session, for /ag learn status. Forever hides some combat
+-- values (secret values), so this shows whether casts are seen at all and why any were
+-- skipped.
+AG.spellStats = { seen = 0, recorded = 0, hiddenSpell = 0, hiddenCaster = 0, notBoss = 0, errors = 0 }
 
-local function onSpellcast(unit, spellID)
-	if not WATCHED[unit] or not AG:IsUsable(spellID) or not spellID then return end
+-- Units whose casts we read: target, focus, boss frames, and nameplates (so a boss's casts
+-- count even while you're healing or targeting an add).
+local function watched(unit)
+	return type(unit) == "string" and (unit == "target" or unit == "focus"
+		or unit:match("^boss%d$") ~= nil or unit:match("^nameplate%d+$") ~= nil)
+end
+
+-- Who cast it: the unit's name, else its NPC ID, else (for boss frames) the encounter in
+-- progress. Names can be hidden in combat; the other two often aren't.
+local function casterName(unit)
 	local name = UnitName(unit)
-	if not AG:IsUsable(name) then return end
+	if AG:IsUsable(name) and name then return name end
+	local byNPC = bossByNPC(npcIDFromGUID(UnitGUID(unit)))
+	if byNPC then return byNPC end
+	if unit:match("^boss%d$") then return current.encounter end
+end
+
+-- One cast fires for every unit token that shows the caster (target, nameplate, boss1),
+-- and both START and SUCCEEDED fire for cast-time spells, so each cast counts once.
+local seenCasts, seenCount = {}, 0
+local function firstTime(castGUID, bossKey, spellID)
+	local key = AG:IsUsable(castGUID) and castGUID
+		or (bossKey .. ":" .. spellID .. ":" .. math.floor(GetTime() * 2))
+	if seenCasts[key] then return false end
+	if seenCount > 500 then wipe(seenCasts); seenCount = 0 end
+	seenCasts[key] = true
+	seenCount = seenCount + 1
+	return true
+end
+
+local function onSpellcast(unit, castGUID, spellID)
+	if not watched(unit) or not current.instKey then return end
+	if AG:Readable(UnitPlayerControlled(unit)) then return end -- players and pets
+	local s = AG.spellStats
+	s.seen = s.seen + 1
+	if not AG:IsUsable(spellID) or type(spellID) ~= "number" then s.hiddenSpell = s.hiddenSpell + 1; return end
+	local name = casterName(unit)
+	if not name then s.hiddenCaster = s.hiddenCaster + 1; return end
 	local instKey, bossKey, display = resolveBoss(name)
-	if not instKey or not isBossUnit(unit, instKey, bossKey, display) then return end
+	if not instKey or not isBossUnit(unit, instKey, bossKey, display) then s.notBoss = s.notBoss + 1; return end
+	if not firstTime(castGUID, bossKey, spellID) then return end
+	s.recorded = s.recorded + 1
 	local rec = AG:GetLearned(instKey, bossKey, true)
 	rec.name = display
 	if not rec.spells[spellID] then AG:NoteDiscovery() end
 	rec.spells[spellID] = (rec.spells[spellID] or 0) + 1
+end
+
+-- /ag learn status: what learning mode can see right now.
+function AG:LearnStatus()
+	local s = self.spellStats
+	local inst = current.instKey and self:GetInstance(current.instKey)
+	return {
+		string.format("Learning mode is %s%s.", self.db.learn and "on" or "off",
+			inst and (", in " .. inst.name) or ", not in a dungeon or raid it knows"),
+		string.format("Boss casts this session: %d seen, %d recorded.", s.seen, s.recorded),
+		string.format("Skipped: %d with the spell hidden, %d with the caster hidden, %d not from a boss.",
+			s.hiddenSpell, s.hiddenCaster, s.notBoss),
+		s.errors > 0 and string.format("Errors: %d (last: %s)", s.errors, tostring(s.lastError)) or nil,
+	}
 end
 
 ------------------------------------------------------------------------
@@ -251,10 +305,12 @@ local handlers = {
 	PLAYER_ENTERING_WORLD = updateInstance,
 	ZONE_CHANGED_NEW_AREA = updateInstance,
 	ENCOUNTER_START = function(encounterID, name)
+		if AG:IsUsable(name) then current.encounter = name end
 		if AG:IsUsable(encounterID) and AG:IsUsable(name) then current.encounters[encounterID] = name end
 	end,
 	ENCOUNTER_END = function(encounterID, name, _, _, success)
-		if success == 1 and AG:IsUsable(name) then markKill(name) end
+		current.encounter = nil
+		if AG:Readable(success) == 1 and AG:IsUsable(name) then markKill(name) end
 	end,
 	ENCOUNTER_LOOT_RECEIVED = function(encounterID, itemID)
 		if not AG:IsUsable(itemID) then return end
@@ -265,16 +321,25 @@ local handlers = {
 	end,
 	LOOT_OPENED = onLootOpened,
 	PLAYER_TARGET_CHANGED = captureTarget,
-	UNIT_SPELLCAST_START = function(unit, _, spellID) onSpellcast(unit, spellID) end,
-	UNIT_SPELLCAST_SUCCEEDED = function(unit, _, spellID) onSpellcast(unit, spellID) end,
+	UNIT_SPELLCAST_START = onSpellcast,
+	UNIT_SPELLCAST_CHANNEL_START = onSpellcast,
+	UNIT_SPELLCAST_SUCCEEDED = onSpellcast,
 }
+
+-- For the tests, which can't fire real events.
+AG.LearnHandlers = handlers
+AG.LearnState = current
 
 events:SetScript("OnEvent", function(_, event, ...)
 	if not AG.db or (not AG.db.learn and event ~= "PLAYER_ENTERING_WORLD" and event ~= "ZONE_CHANGED_NEW_AREA") then
 		return
 	end
 	local ok, err = pcall(handlers[event], ...)
-	if not ok and AG.debug then AG:Print("Learning error in %s: %s", event, tostring(err)) end
+	if not ok then
+		AG.spellStats.errors = AG.spellStats.errors + 1
+		AG.spellStats.lastError = event .. ": " .. tostring(err)
+		if AG.debug then AG:Print("Learning error in %s: %s", event, tostring(err)) end
+	end
 end)
 
 function AG:InitLearning()

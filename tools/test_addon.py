@@ -488,6 +488,41 @@ class FeatureTests(unittest.TestCase):
         self.assertEqual(rec["loot"], {"7": 1, "500": 2})
         self.assertEqual(rec["spells"], {"9": 4})
 
+    def test_learning_records_boss_casts(self):
+        self.set_db("{ learn = true, learned = {}, unshared = 0 }")
+        self.lua.execute("""
+            AGF_SECRET = setmetatable({}, { __tostring = function() return "secret" end })
+            issecretvalue = function(v) return v == AGF_SECRET end
+            agf_names = { target = "Edwin VanCleef", nameplate3 = "Edwin VanCleef", boss1 = AGF_SECRET,
+                party1 = "Partymember", nameplate9 = "Defias Pirate" }
+            UnitName = function(u) return agf_names[u] end
+            UnitGUID = function(u) return AGF_SECRET end
+            UnitPlayerControlled = function(u) return u == "party1" end
+            UnitLevel = function() return 20 end
+            UnitClassification = function() return "normal" end
+        """)
+        ag, h = self.ag, self.ag.LearnHandlers
+        ag.LearnState.instKey = "deadmines"
+        cast = lambda unit, guid, spell: h.UNIT_SPELLCAST_SUCCEEDED(unit, guid, spell)
+        cast("target", "Cast-1", 6713)
+        cast("nameplate3", "Cast-1", 6713)          # the same cast seen on a nameplate: once
+        h.UNIT_SPELLCAST_START("nameplate3", "Cast-2", 5200)
+        cast("party1", "Cast-3", 774)               # a player: ignored
+        cast("nameplate9", "Cast-4", 1234)          # trash
+        cast("target", "Cast-5", self.lua.eval("AGF_SECRET"))   # spell hidden
+        cast("boss1", "Cast-6", 9999)               # caster hidden, no encounter running
+        h.ENCOUNTER_START(1, "Edwin VanCleef")
+        cast("boss1", "Cast-7", 9999)               # caster hidden, but the encounter names it
+        bosses = to_py(ag.db.learned)["deadmines"]["bosses"]
+        key = next(k for k in bosses if "vancleef" in k)
+        self.assertEqual(bosses[key]["spells"], {6713: 1, 5200: 1, 9999: 1})
+        s = to_py(ag.spellStats)
+        self.assertEqual((s["recorded"], s["hiddenSpell"], s["hiddenCaster"], s["notBoss"]), (3, 1, 1, 1))
+        self.assertEqual(ag.db.unshared, 3)
+        lines = list(ag.LearnStatus(ag).values())
+        self.assertIn("3 recorded", lines[1])
+        h.ENCOUNTER_END(1, "Edwin VanCleef", 0, 5, self.lua.eval("AGF_SECRET"))  # hidden result: no error
+
     def test_share_reminder_is_gentle(self):
         day = 24 * 60 * 60
         self.set_db("{ unshared = 3, options = { shareReminder = true } }")
