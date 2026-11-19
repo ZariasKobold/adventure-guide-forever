@@ -2,7 +2,7 @@
 ## Title: Adventure Guide |cff66ccffForever|r
 ## Notes: Brings the Adventure Guide back to WoW Forever. Open with Shift+J, the menu bar button, or /ag. Drops-from tooltips, wishlist, briefing cards, and a journey log.
 ## Author: Draconic Designs
-## Version: 0.7.1
+## Version: 0.8.0
 ## X-License: MIT
 ## SavedVariables: AdventureGuideForeverDB
 ## IconTexture: Interface\Icons\INV_Misc_Book_09
@@ -74,7 +74,6 @@ UI\BossPage.lua
 UI\JourneyPage.lua
 UI\GearPage.lua
 UI\SuggestPage.lua
-UI\StepCounter.lua
 UI\WishlistPage.lua
 UI\Options.lua
 UI\ShareFrame.lua
