@@ -763,6 +763,32 @@ class ItemDataTests(unittest.TestCase):
         self.assertEqual(ag.DetectSpec(ag, 4), "combat")
         self.assertEqual(ag.MatchSpec(ag, 3, "Beast Mastery"), "beastmastery")
         self.assertIsNone(ag.MatchSpec(ag, 3, "Frost"))
+        # Forever: placeholder spec "Druid" (1484), no talent tabs, a modern loadout whose
+        # one tree holds the three classic trees side by side.
+        lua.execute("""GetNumTalentTabs = nil; GetTalentTabInfo = nil
+            GetSpecialization = function() return 1 end
+            GetSpecializationInfo = function() return 1484, "Druid" end
+            local nodes = {}
+            for col, xs in ipairs({ { 100, 160, 220 }, { 500, 560, 620 }, { 900, 960, 1020 } }) do
+                for _, x in ipairs(xs) do
+                    nodes[#nodes + 1] = { ID = #nodes + 1, posX = x, ranksPurchased = col == 2 and 3 or (x == 100 and 1 or 0) }
+                end
+            end
+            C_ClassTalents = { GetActiveConfigID = function() return 5727048 end }
+            C_Traits = {
+                GetConfigInfo = function() return { treeIDs = { 77 } } end,
+                GetTreeNodes = function() local ids = {} for i = 1, #nodes do ids[i] = i end return ids end,
+                GetNodeInfo = function(_, id) return nodes[id] end,
+            }""")
+        self.assertEqual(ag.DetectSpec(ag, 11), "feral")
+        # Named sub-trees win when the game has them.
+        lua.execute("""local named = { { ID = 1, posX = 0, ranksPurchased = 5, subTreeID = 9 },
+                { ID = 2, posX = 0, ranksPurchased = 2, subTreeID = 8 } }
+            C_Traits.GetTreeNodes = function() return { 1, 2 } end
+            C_Traits.GetNodeInfo = function(_, id) return named[id] end
+            C_Traits.GetSubTreeInfo = function(_, id) return { name = id == 9 and "Restoration" or "Balance" } end""")
+        self.assertEqual(ag.DetectSpec(ag, 11), "restoration")
+        lua.execute("""C_Traits = nil; C_ClassTalents = nil""")
         lua.execute("""UnitLevel = function() return 21 end
             UnitClass = function() return "Rogue", "ROGUE", 4 end""")
         lines = ag.SpecReport(ag)

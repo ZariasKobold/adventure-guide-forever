@@ -111,6 +111,103 @@ function AG:TalentTrees()
 	return out
 end
 
+-- Classic's talent trees in the game's order, where they differ from AG.SPECS (Druids have
+-- no Guardian tree).
+local CLASSIC_TREES = { [11] = { "balance", "feral", "restoration" } }
+
+local function treeKey(self, classID, index)
+	local order = CLASSIC_TREES[classID]
+	if order then return order[index] end
+	local spec = (self.SPECS[classID] or {})[index]
+	return spec and spec.key
+end
+
+-- Splits talent positions into three columns at the two widest gaps, or nil when there's no
+-- clear three-column layout.
+local function columns(nodes)
+	local xs, seen = {}, {}
+	for _, n in ipairs(nodes) do
+		if not seen[n.x] then seen[n.x] = true; xs[#xs + 1] = n.x end
+	end
+	table.sort(xs)
+	if #xs < 6 then return nil end
+	local gaps = {}
+	for i = 2, #xs do gaps[#gaps + 1] = { size = xs[i] - xs[i - 1], at = xs[i] } end
+	table.sort(gaps, function(a, b) return a.size > b.size end)
+	local typical = gaps[math.floor(#gaps / 2) + 1].size
+	if gaps[2].size < typical * 2 then return nil end
+	local cut1, cut2 = math.min(gaps[1].at, gaps[2].at), math.max(gaps[1].at, gaps[2].at)
+	return function(x) return x < cut1 and 1 or (x < cut2 and 2 or 3) end
+end
+
+-- Talent points from the modern talent loadout (Forever's talents), grouped into trees:
+-- by named sub-tree when the game has them, by separate talent tree, or by column.
+-- Returns { { name, key, points } }, how it grouped them, and the totals for /ag spec.
+function AG:LoadoutTrees(classID)
+	local stats = { nodes = 0, points = 0, trees = 0 }
+	if not (C_ClassTalents and C_ClassTalents.GetActiveConfigID and C_Traits and C_Traits.GetConfigInfo) then
+		return {}, nil, stats
+	end
+	local nodes = {}
+	local ok = pcall(function()
+		local configID = self:Readable(C_ClassTalents.GetActiveConfigID())
+		if type(configID) ~= "number" then return end
+		local config = C_Traits.GetConfigInfo(configID)
+		local treeIDs = config and self:Readable(config.treeIDs) or {}
+		for t, treeID in ipairs(treeIDs) do
+			stats.trees = stats.trees + 1
+			for _, nodeID in ipairs(C_Traits.GetTreeNodes(treeID) or {}) do
+				local info = C_Traits.GetNodeInfo(configID, nodeID)
+				local ranks = info and self:Readable(info.ranksPurchased)
+				local x = info and self:Readable(info.posX)
+				if type(ranks) == "number" then
+					stats.nodes = stats.nodes + 1
+					stats.points = stats.points + ranks
+					local sub = self:Readable(info.subTreeID)
+					local subName
+					if type(sub) == "number" and sub > 0 and C_Traits.GetSubTreeInfo then
+						local s = C_Traits.GetSubTreeInfo(configID, sub)
+						subName = s and self:Readable(s.name)
+					end
+					nodes[#nodes + 1] = { tree = t, x = type(x) == "number" and x or 0, ranks = ranks,
+						sub = type(sub) == "number" and sub > 0 and sub or nil, subName = subName }
+				end
+			end
+		end
+	end)
+	if not ok or stats.points == 0 then return {}, nil, stats end
+
+	local groups, order, how = {}, {}, nil
+	local function add(id, name, index, ranks)
+		if not groups[id] then
+			groups[id] = { name = name, index = index, points = 0,
+				key = (name and self:MatchSpec(classID, name)) or (index and treeKey(self, classID, index)) }
+			order[#order + 1] = id
+		end
+		groups[id].points = groups[id].points + ranks
+	end
+	local hasSub = false
+	for _, n in ipairs(nodes) do if n.sub then hasSub = true end end
+	local column = not hasSub and stats.trees < 2 and columns(nodes)
+	for _, n in ipairs(nodes) do
+		if hasSub then
+			how = "sub-tree"
+			if n.sub then add("s" .. n.sub, n.subName, nil, n.ranks) end
+		elseif stats.trees >= 2 then
+			how = "talent tree"
+			add("t" .. n.tree, nil, n.tree, n.ranks)
+		elseif column then
+			how = "column"
+			local c = column(n.x)
+			add("c" .. c, nil, c, n.ranks)
+		end
+	end
+	local out = {}
+	for _, id in ipairs(order) do out[#out + 1] = groups[id] end
+	table.sort(out, function(a, b) return (a.index or 0) < (b.index or 0) end)
+	return out, how, stats
+end
+
 -- The game's chosen specialization as (specID, name), or nil.
 function AG:GameSpecialization()
 	local getSpec = GetSpecialization or (C_SpecializationInfo and C_SpecializationInfo.GetSpecialization)
@@ -144,6 +241,15 @@ function AG:DetectSpec(classID)
 			if key then return key end
 		end
 	end
+	-- Forever: a modern talent loadout. The tree with the most points bought.
+	local groups = self:LoadoutTrees(classID)
+	local top
+	for _, g in ipairs(groups) do
+		if g.key and g.points > 0 and (not top or g.points > top.points) then top = g end
+	end
+	if top then return top.key end
+	-- Forever reports a placeholder specialization named after the class ("Druid", id
+	-- 1484); MatchSpec finds nothing in it, so this only helps on clients with real specs.
 	local id, name = self:GameSpecialization()
 	return self:MatchSpec(classID, id) or self:MatchSpec(classID, name)
 end
@@ -166,6 +272,14 @@ function AG:SpecReport()
 	for i, tree in ipairs(trees) do add("Tree %d: %s, %d points", i, tostring(tree.name), tree.points) end
 	if C_ClassTalents and C_ClassTalents.GetActiveConfigID then
 		add("Talent loadout: %s", tostring(self:Readable(C_ClassTalents.GetActiveConfigID())))
+		local groups, how, stats = self:LoadoutTrees(classID)
+		add("Loadout: %d trees, %d talents, %d points bought%s", stats.trees, stats.nodes, stats.points,
+			how and (", grouped by " .. how) or ", no grouping found")
+		for i, g in ipairs(groups) do
+			local spec = g.key and self:GetSpec(classID, g.key)
+			add("  %s: %d points (%s)", g.name or ((how or "group") .. " " .. (g.index or i)), g.points,
+				spec and spec.name or "unknown")
+		end
 	end
 	return lines
 end
