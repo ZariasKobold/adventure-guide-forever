@@ -220,7 +220,7 @@ end
 ------------------------------------------------------------------------
 
 local USAGE = "/ag opens the guide.  /ag options: settings.  /ag share: send what you learned "
-	.. "to the guide on GitHub.  /ag find <name>: search bosses, gear, and quests.  /ag pedometer: what the pedometer sees.  /ag journey, /ag wishlist: open those tabs.  /ag steps: step counter on or off.  /ag sync: share "
+	.. "to the guide on GitHub.  /ag find <name>: search bosses, gear, and quests.  /ag pedometer: what the pedometer sees.  /ag spec: what the game says your spec is.  /ag journey, /ag wishlist: open those tabs.  /ag steps: step counter on or off.  /ag sync: share "
 	.. "with your group now.  /ag learn: learning mode on or off.  /ag reset learned: forget "
 	.. "what learning mode recorded."
 
@@ -250,6 +250,9 @@ local commands = {
 		AG:Print("Pedometer: measuring by %s, %s, counting as %s. Speed %s, on a flight path: %s, swimming: %s.",
 			st.mode, st.ticking and "running" or "idle", st.kind, st.speed and string.format("%.1f", st.speed) or "hidden",
 			st.onTaxi and "yes" or "no", st.swimming and "yes" or "no")
+	end,
+	spec = function()
+		for _, line in ipairs(AG:SpecReport()) do AG:Print("%s", line) end
 	end,
 	micro = function()
 		AG:Print("Menu bar button art: %s.", tostring(AG.microStyle or "not created (no menu bar found)"))

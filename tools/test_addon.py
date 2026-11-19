@@ -749,6 +749,24 @@ class ItemDataTests(unittest.TestCase):
             GetNumTalentTabs = function() return 3 end
             GetTalentTabInfo = function(tab) return "x", nil, ({ 5, 0, 31 })[tab] end""")
         self.assertEqual(ag.DetectSpec(ag, 8), "frost")
+        # Classic druids have three trees (no Guardian), matched by name, not position.
+        lua.execute("""GetTalentTabInfo = function(tab)
+                return ({ "Balance", "Feral Combat", "Restoration" })[tab], nil, ({ 0, 14, 0 })[tab] end""")
+        self.assertEqual(ag.DetectSpec(ag, 11), "feral")
+        lua.execute("""GetTalentTabInfo = function(tab)
+                return tab, ({ "Balance", "Feral Combat", "Restoration" })[tab], "", nil, ({ 0, 0, 12 })[tab] end""")
+        self.assertEqual(ag.DetectSpec(ag, 11), "restoration")
+        # No talent points spent: the game's specialization, by ID when the name differs.
+        lua.execute("""GetTalentTabInfo = function(tab) return "x", nil, 0 end
+            GetSpecialization = function() return 2 end
+            GetSpecializationInfo = function(i) return 260, "Outlaw" end""")
+        self.assertEqual(ag.DetectSpec(ag, 4), "combat")
+        self.assertEqual(ag.MatchSpec(ag, 3, "Beast Mastery"), "beastmastery")
+        self.assertIsNone(ag.MatchSpec(ag, 3, "Frost"))
+        lua.execute("""UnitLevel = function() return 21 end
+            UnitClass = function() return "Rogue", "ROGUE", 4 end""")
+        lines = ag.SpecReport(ag)
+        self.assertTrue(len(list(lines.values())) >= 3)
 
     def test_plan_page_renders(self):
         lua, ag = load_built()

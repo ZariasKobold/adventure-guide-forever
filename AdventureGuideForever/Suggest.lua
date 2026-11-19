@@ -60,31 +60,114 @@ function AG:GetSpec(classID, specKey)
 	return (self.SPECS[classID] or {})[1]
 end
 
--- Your current spec key: the game's specialization if it has one, else the talent tree
--- with the most points, else nil.
+-- The game's specialization IDs, for matching when the names differ ("Outlaw").
+local SPEC_IDS = {
+	[71] = "arms", [72] = "fury", [73] = "protection", [65] = "holy", [66] = "protection", [70] = "retribution",
+	[253] = "beastmastery", [254] = "marksmanship", [255] = "survival",
+	[259] = "assassination", [260] = "combat", [261] = "subtlety",
+	[256] = "discipline", [257] = "holy", [258] = "shadow",
+	[262] = "elemental", [263] = "enhancement", [264] = "restoration",
+	[62] = "arcane", [63] = "fire", [64] = "frost",
+	[265] = "affliction", [266] = "demonology", [267] = "destruction",
+	[102] = "balance", [103] = "feral", [104] = "guardian", [105] = "restoration",
+}
+local SPEC_ALIASES = { outlaw = "combat", feralcombat = "feral", bear = "guardian", beastmaster = "beastmastery" }
+
+local function fold(s) return (string.gsub(string.lower(s), "[^%a]", "")) end
+
+-- A spec key from a game spec ID or name ("Feral Combat", "Beast Mastery"), or nil.
+function AG:MatchSpec(classID, value)
+	local specs = self.SPECS[classID] or {}
+	local function has(key)
+		for _, spec in ipairs(specs) do if spec.key == key then return key end end
+	end
+	value = self:Readable(value)
+	if type(value) == "number" then return SPEC_IDS[value] and has(SPEC_IDS[value]) end
+	if type(value) ~= "string" or value == "" then return nil end
+	local f = fold(value)
+	if SPEC_ALIASES[f] and has(SPEC_ALIASES[f]) then return SPEC_ALIASES[f] end
+	for _, spec in ipairs(specs) do
+		if f == spec.key or f == fold(spec.name) then return spec.key end
+	end
+	for _, spec in ipairs(specs) do
+		if string.find(f, spec.key, 1, true) then return spec.key end
+	end
+	return nil
+end
+
+-- Talent trees as { name, points }. Classic returns name, icon, points; later clients
+-- return id, name, description, icon, points.
+function AG:TalentTrees()
+	local out = {}
+	if not (GetNumTalentTabs and GetTalentTabInfo) then return out end
+	local count = self:Readable(GetNumTalentTabs())
+	for tab = 1, type(count) == "number" and count or 0 do
+		local r = { GetTalentTabInfo(tab) }
+		for i = 1, 8 do r[i] = self:Readable(r[i]) end
+		local name, points
+		if type(r[1]) == "string" then name, points = r[1], r[3] else name, points = r[2], r[5] end
+		out[#out + 1] = { name = name, points = type(points) == "number" and points or 0 }
+	end
+	return out
+end
+
+-- The game's chosen specialization as (specID, name), or nil.
+function AG:GameSpecialization()
+	local getSpec = GetSpecialization or (C_SpecializationInfo and C_SpecializationInfo.GetSpecialization)
+	local getInfo = GetSpecializationInfo or (C_SpecializationInfo and C_SpecializationInfo.GetSpecializationInfo)
+	if not (getSpec and getInfo) then return nil end
+	local index = self:Readable(getSpec())
+	if type(index) ~= "number" or index <= 0 then return nil end
+	local id, name = getInfo(index)
+	return self:Readable(id), self:Readable(name), index
+end
+
+-- Your current spec key, or nil. Talent points come first: they're what you actually
+-- invested in, while a client with talent trees may still report a default specialization.
 function AG:DetectSpec(classID)
 	local specs = self.SPECS[classID]
 	if not specs then return nil end
-	if GetSpecialization and GetSpecializationInfo then
-		local index = self:Readable(GetSpecialization())
-		if type(index) == "number" and index > 0 then
-			local _, name = GetSpecializationInfo(index)
-			name = self:Readable(name)
-			for _, spec in ipairs(specs) do
-				if spec.name == name then return spec.key end
-			end
+	local trees = self:TalentTrees()
+	local best, bestPoints = nil, 0
+	for i, tree in ipairs(trees) do
+		if tree.points > bestPoints then best, bestPoints = i, tree.points end
+	end
+	if best then
+		local key = self:MatchSpec(classID, trees[best].name)
+		if key then return key end
+		if #trees == #specs then return specs[best].key end
+	end
+	if GetPrimaryTalentTree then -- Cataclysm-style clients: the tree you committed to
+		local tab = self:Readable(GetPrimaryTalentTree())
+		if type(tab) == "number" and trees[tab] then
+			local key = self:MatchSpec(classID, trees[tab].name)
+			if key then return key end
 		end
 	end
-	if GetNumTalentTabs and GetTalentTabInfo then
-		local best, bestPoints = nil, 0
-		for tab = 1, math.min(GetNumTalentTabs() or 0, #specs) do
-			local _, _, points = GetTalentTabInfo(tab)
-			points = self:Readable(points)
-			if type(points) == "number" and points > bestPoints then best, bestPoints = tab, points end
-		end
-		if best then return specs[best].key end
+	local id, name = self:GameSpecialization()
+	return self:MatchSpec(classID, id) or self:MatchSpec(classID, name)
+end
+
+-- What the game reports about your spec and talents (/ag spec), for checking in game.
+function AG:SpecReport()
+	local lines = {}
+	local function add(fmt, ...) lines[#lines + 1] = string.format(fmt, ...) end
+	local classID = self:PlayerClassAndLevel()
+	local key = classID and self:DetectSpec(classID)
+	add("Detected: %s", key and self:GetSpec(classID, key).name or "nothing")
+	local id, name, index = self:GameSpecialization()
+	add("Specialization: %s", index and string.format("#%s, id %s, %s", tostring(index), tostring(id), tostring(name))
+		or (GetSpecialization and "none chosen" or "no API"))
+	if GetPrimaryTalentTree then add("Primary tree: %s", tostring(self:Readable(GetPrimaryTalentTree()))) end
+	local trees = self:TalentTrees()
+	if #trees == 0 then
+		add("Talent trees: %s", GetNumTalentTabs and "none" or "no API")
 	end
-	return nil
+	for i, tree in ipairs(trees) do add("Tree %d: %s, %d points", i, tostring(tree.name), tree.points) end
+	if C_ClassTalents and C_ClassTalents.GetActiveConfigID then
+		add("Talent loadout: %s", tostring(self:Readable(C_ClassTalents.GetActiveConfigID())))
+	end
+	return lines
 end
 
 local function isWeapon(item) return item.class == 2 end
