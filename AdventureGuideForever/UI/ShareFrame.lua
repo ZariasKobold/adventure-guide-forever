@@ -38,7 +38,7 @@ local function create()
 	local steps = UI.Text(f, "GameFontHighlight")
 	steps:SetPoint("TOPLEFT", 16, -40)
 	steps:SetPoint("RIGHT", -16, 0)
-	steps:SetText("1. Copy this link (Ctrl+C) and open it in your web browser:")
+	f.steps = steps
 
 	local url = CreateFrame("EditBox", nil, f, "InputBoxTemplate")
 	url:SetPoint("TOPLEFT", steps, "BOTTOMLEFT", 6, -6)
@@ -51,7 +51,7 @@ local function create()
 	local step2 = UI.Text(f, "GameFontHighlight")
 	step2:SetPoint("TOPLEFT", url, "BOTTOMLEFT", -6, -10)
 	step2:SetPoint("RIGHT", -16, 0)
-	step2:SetText("2. Click in the box below, press Ctrl+C, and paste it into the form. Then submit.")
+	f.step2 = step2
 
 	local box = CreateFrame("Frame", nil, f, "BackdropTemplate")
 	box:SetBackdrop({ bgFile = "Interface\\Buttons\\WHITE8x8", edgeFile = "Interface\\Buttons\\WHITE8x8", edgeSize = 1 })
@@ -80,9 +80,7 @@ local function create()
 	privacy:SetPoint("BOTTOMLEFT", 16, 16)
 	privacy:SetPoint("RIGHT", -16, 0)
 	privacy:SetTextColor(0.7, 0.7, 0.7)
-	privacy:SetText("This posts publicly on GitHub (you'll need a free account). It holds only boss, item, "
-		.. "and spell IDs, kill counts, and a random ID. No character names. A maintainer reviews it "
-		.. "before it joins the addon.")
+	f.privacy = privacy
 	f.summary = UI.Text(f, "GameFontNormalSmall")
 	f.summary:SetPoint("BOTTOMLEFT", privacy, "TOPLEFT", 0, 6)
 
@@ -99,6 +97,15 @@ function AG:ShowShare()
 	self.shareFrame = self.shareFrame or create()
 	local f = self.shareFrame
 	f.text = text
+	local page = self.SHARE_PAGE_URL
+	f.steps:SetText(page and "1. Copy this link (Ctrl+C) and open it in your web browser. No account needed:"
+		or "1. Copy this link (Ctrl+C) and open it in your web browser:")
+	f.step2:SetText(page and "2. Click in the box below, press Ctrl+C, paste it on the page, and click Send."
+		or "2. Click in the box below, press Ctrl+C, and paste it into the form. Then submit.")
+	f.privacy:SetText((page and "It's posted publicly on the addon's GitHub page. "
+		or "This posts publicly on GitHub (you'll need a free account). ")
+		.. "It holds only boss, item, and spell IDs, kill counts, and a random ID. No character names. "
+		.. "A maintainer reviews it before it joins the addon.")
 	f.url:SetText(self.SHARE_URL)
 	f.edit:SetText(text)
 	f.summary:SetText(string.format("Ready to share: %d boss%s.", bosses, bosses == 1 and "" or "es"))

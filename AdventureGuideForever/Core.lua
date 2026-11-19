@@ -108,6 +108,7 @@ local defaults = {
 		wishAlerts = true,   -- alert when a wishlist item drops
 		sync = true,         -- share learned data with your group in game
 		stepCounter = true,  -- step counter beside the minimap's calendar button
+		shareReminder = true, -- now and then, remind you to share what learning mode found
 		-- stepPosition = { point, relPoint, x, y } once you drag the step counter
 	},
 }

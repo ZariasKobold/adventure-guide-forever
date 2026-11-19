@@ -16,3 +16,8 @@ desktop.ini
 # Wowhead's own guide text (tools/wowhead/extract_guides.js): a local reference, never committed
 tools/wowhead/guides.json
 tools/wowhead/guide_report.md
+
+# The share page (worker/): Wrangler's local state and secrets
+worker/node_modules/
+worker/.wrangler/
+worker/.dev.vars

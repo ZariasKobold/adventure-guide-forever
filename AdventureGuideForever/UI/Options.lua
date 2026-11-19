@@ -13,6 +13,7 @@ local SETTINGS = {
 	{ label = "Add \"Drops from\" to item tooltips", option = "tooltips" },
 	{ label = "Alert me when a wishlist item drops", option = "wishAlerts" },
 	{ label = "Share what learning mode finds with my group", option = "sync" },
+	{ label = "Remind me now and then to share my finds with the guide", option = "shareReminder" },
 }
 
 local function create()

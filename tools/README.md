@@ -107,11 +107,15 @@ reads them a range of item IDs at a time (each range under the 1,000-item page l
 ## Learned data from players (learned_intake.py)
 
 ```
-/ag share (in game)  --paste-->  GitHub issue form  --Action-->  learned_intake.py
+/ag share (in game)  --paste-->  share page (worker/)  --issue-->  Action  --> learned_intake.py
     --> tools/learned/community.json  --> Data/Generated/Community.lua  --> pull request
 ```
 
-- `.github/ISSUE_TEMPLATE/learned-data.yml` is the form players paste into.
+- `worker/` is the share page players paste into, with no GitHub account needed: a
+  Cloudflare Worker that checks the paste and files it as an issue. Setup and deploys are
+  in `worker/README.md`; its tests run with `node --test worker/test/`.
+- `.github/ISSUE_TEMPLATE/learned-data.yml` is the same thing as a GitHub issue form, for
+  people with a GitHub account (and the fallback until the share page is set up).
 - `.github/workflows/learned-data.yml` runs on each new issue that holds an export. It
   passes the issue text through an environment variable (never into a shell command),
   runs `learned_intake.py --from-env`, runs the tests, and opens a pull request that closes

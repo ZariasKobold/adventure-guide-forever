@@ -57,10 +57,11 @@ loot from boss kills, boss models when you target a boss, and spells bosses cast
   shared with the others in game (after each kill, and when someone joins). `/ag sync`
   shares now.
 - **Share it with everyone.** `/ag share` opens a box with what you've learned and a link to
-  a form on GitHub. Paste it there and submit. A bot checks it and opens a pull request, and
-  once it's merged the next release includes it for all players. It holds only boss, item,
-  and spell IDs, kill counts, and a random ID; no character names. The addon reminds you
-  once in a while when there's something new to share.
+  the share page. Paste it there and click Send: no account needed. It's checked, posted
+  on the addon's GitHub page, and once it's reviewed the next release includes it for all
+  players. It holds only boss, item, and spell IDs, kill counts, and a random ID; no
+  character names. Once you've found 10 or more new things, the addon reminds you at most
+  every few days (turn that off in Options).
 
 ## Where the data comes from
 - `Data\Content\<instance>.lua`: hand-written text (intros, boss overviews, abilities

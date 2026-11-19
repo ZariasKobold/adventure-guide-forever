@@ -488,6 +488,41 @@ class FeatureTests(unittest.TestCase):
         self.assertEqual(rec["loot"], {"7": 1, "500": 2})
         self.assertEqual(rec["spells"], {"9": 4})
 
+    def test_share_reminder_is_gentle(self):
+        day = 24 * 60 * 60
+        self.set_db("{ unshared = 3, options = { shareReminder = true } }")
+        self.assertFalse(self.ag.ShouldNudgeShare(self.ag, 10 * day))      # only a few finds
+        self.ag.db.unshared = 16
+        self.assertTrue(self.ag.ShouldNudgeShare(self.ag, 10 * day))
+        self.ag.db.lastShareNudge = 9 * day
+        self.assertFalse(self.ag.ShouldNudgeShare(self.ag, 10 * day))      # reminded yesterday
+        self.assertTrue(self.ag.ShouldNudgeShare(self.ag, 13 * day))       # three days later
+        self.ag.db.options.shareReminder = False
+        self.assertFalse(self.ag.ShouldNudgeShare(self.ag, 13 * day))      # turned off in Options
+
+    def test_share_page_accepts_export(self):
+        # The share page (worker/) checks a real export and files an issue the intake reads.
+        import shutil
+        import subprocess
+        import learned_intake as li
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("Node isn't installed")
+        self.set_db("{ learned = { kroldok = { bosses = { overlordmugg = { name = 'Overlord Mugg', kills = 3, "
+                    "npcID = 12, loot = { [500] = 2 }, spells = { [9] = 4 } } } } } }")
+        self.ag.version = "0.7.0"
+        text, _ = self.ag.BuildExport(self.ag)
+        share = (Path(__file__).resolve().parent.parent / "worker" / "src" / "share.js").as_uri()
+        script = (f"import {{ checkShare, buildIssue }} from {json.dumps(share)};"
+                  "let s = ''; process.stdin.on('data', d => s += d).on('end', () => {"
+                  " const c = checkShare(s); process.stdout.write(JSON.stringify(c.ok ? buildIssue(c, '') : c)); });")
+        out = subprocess.run([node, "--input-type=module", "-e", script], input=text, capture_output=True,
+                             text=True, check=True).stdout
+        issue = json.loads(out)
+        self.assertIn("body", issue, issue)
+        sub = li.parse_export(issue["body"], {"kroldok"})
+        self.assertEqual(sub["bosses"]["kroldok/overlordmugg"]["loot"], {"500": 2})
+
 
 class GuideCompareTests(unittest.TestCase):
     """Reading Wowhead's guide markup (tools/compare_guides.py)."""

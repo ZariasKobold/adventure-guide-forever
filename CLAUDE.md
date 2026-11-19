@@ -17,7 +17,7 @@ A World of Warcraft: Forever addon that rebuilds the retail **Adventure Guide** 
 | `AdventureGuideForever/Data/Generated/Quests.lua` | Each dungeon's quests (level, faction, where it starts, chain, rewards). **Never edit by hand**; built by `tools/compare_guides.py` from `tools/wowhead/guide_facts.json`. |
 | `AdventureGuideForever/Data/Generated/Community.lua` | Players' shared learned data. **Never edit by hand**; built by `tools/learned_intake.py` from `tools/learned/community.json`. |
 | `AdventureGuideForever/Learn.lua` | Learning mode: records loot, models, and boss spells from play. |
-| `AdventureGuideForever/Sync.lua`, `Share.lua` | Party sync of learned data (addon messages), and the `/ag share` export for GitHub. |
+| `AdventureGuideForever/Sync.lua`, `Share.lua` | Party sync of learned data (addon messages), and the `/ag share` export (pasted on the share page, `AG.SHARE_PAGE_URL`), with a gentle reminder. |
 | `AdventureGuideForever/Gear.lua` | Gear filtering for the Gear tab: slot and type groups, what each class can wear and wield (mail/plate at 40), class-restricted items, stat sorting. |
 | `AdventureGuideForever/Suggest.lua` | Suggested gear: stat weights per spec (`AG.SPECS`), spec detection, item scoring, best pick per slot, and comparison with what you're wearing. |
 | `AdventureGuideForever/Search.lua` | Search index over dungeons, bosses, items (drops and quest rewards), quests, and abilities. `UI/SearchPage` shows results. |
@@ -25,6 +25,7 @@ A World of Warcraft: Forever addon that rebuilds the retail **Adventure Guide** 
 | `AdventureGuideForever/Journey.lua`, `Wishlist.lua` | Pedometer (measured by position in the open world, by speed in dungeons; all time and this session, with combat rules; `/ag pedometer` shows what it sees) and visit counts (local only), and the wishlist with drop alerts. |
 | `AdventureGuideForever/UI/` | `MainFrame` (window, tabs), `InstanceList` (art card grid), `InstanceOverview` (instance page), `InstancePage` (overview + boss list), `BossPage` (bestiary layout), `JourneyPage`, `GearPage` (Gear tab filters and results), `SuggestPage` (Suggested Gear tab), `StepCounter` (minimap badge), `WishlistPage`, `Options`, `ShareFrame`, `Briefing` (dungeon and boss cards), `Tooltips` ("Drops from"), `SearchPage` (search box and results), `Document` (shared scrolling layout), `Widgets`. |
 | `.github/` | Issue form for shared learned data, and the Action that turns each share into a pull request. |
+| `worker/` | The share page: a Cloudflare Worker where players paste `/ag share` with no GitHub account; it checks the paste and files the issue. Setup in `worker/README.md`; tests: `node --test worker/test/`. |
 | `AdventureGuideProbe/` | Diagnostic addon (`/agprobe`, `/agprobe art`, `/agprobe maps`, `/agprobe deep`). Not shipped. |
 | `tools/` | Python dev tooling: build, tests, Wowhead extractors. See `tools/README.md`. |
 
@@ -62,7 +63,7 @@ Rules from `https://wowforeverguides.com/addons/developers` (beta-era; its claim
 
 ## Data pipeline
 
-Addons can't reach the internet, so player data travels by paste: `/ag share` → GitHub issue form → `learned-data.yml` Action → `learned_intake.py` → pull request for review. See `tools/README.md`. Shares hold only boss/item/spell IDs, counts, and a random share ID; Journey stats and wishlists never leave the player's computer.
+Addons can't reach the internet, so player data travels by paste: `/ag share` → share page (`worker/`, no account needed) or the GitHub issue form → issue → `learned-data.yml` Action → `learned_intake.py` → pull request for review. See `tools/README.md`. Shares hold only boss/item/spell IDs, counts, and a random share ID; Journey stats and wishlists never leave the player's computer.
 
 `tools/wowhead/extract.js` (zone pages: loot and NPC IDs) and `extract_npcs.js` (boss pages: spells and models) run in a normal browser on wowhead.com, slowly. **Never automate past Wowhead's human verification.** Fast bursts trip it; the NPC extractor waits 8 seconds per page and saves its progress so it can resume. Outputs: `tools/wowhead/snapshot.json` and `npcs.json` (fetched Nov 16 to 17, 2026). Wing assignments, trash filters, and multi-NPC encounters are explicit tables in `build_wowhead.py`.
 

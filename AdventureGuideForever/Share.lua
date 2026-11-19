@@ -1,7 +1,8 @@
 -- Sharing with the guide: /ag share turns what learning mode recorded into a block of
--- text that players paste into a GitHub issue form. A GitHub Action reads it, merges it into
--- tools/learned/community.json, rebuilds Data/Generated/Community.lua, and opens a pull
--- request. (Addons can't go online, so the paste is the bridge.)
+-- text that players paste into the share page (worker/, no account needed), which files it
+-- as a GitHub issue. A GitHub Action reads it, merges it into tools/learned/community.json,
+-- rebuilds Data/Generated/Community.lua, and opens a pull request. (Addons can't go online,
+-- so the paste is the bridge.) Without the share page, it falls back to the GitHub issue form.
 --
 -- Export format (one record per line; read by tools/learned_intake.py):
 --   AGF1 version=<addon version> id=<random share ID>
@@ -15,7 +16,11 @@
 
 local _, AG = ...
 
-AG.SHARE_URL = "https://github.com/ZariasKobold/adventure-guide-forever/issues/new?template=learned-data.yml"
+-- The share page (worker/README.md), where players paste with no account. If it's ever set
+-- to nil, the Share window points to the GitHub issue form instead (which needs an account).
+AG.SHARE_PAGE_URL = "https://agf-share.draconicdesigns.workers.dev"
+AG.SHARE_ISSUE_URL = "https://github.com/ZariasKobold/adventure-guide-forever/issues/new?template=learned-data.yml"
+AG.SHARE_URL = AG.SHARE_PAGE_URL or AG.SHARE_ISSUE_URL
 
 local function sortedKeys(map)
 	local keys = {}
@@ -71,16 +76,30 @@ function AG:BuildExport()
 end
 
 ------------------------------------------------------------------------
--- A gentle nudge: once per session, back in the open world, if there's something new
+-- A gentle nudge, back in the open world: only once a few things have piled up, at most
+-- every few days, and never if you turned it off in Options.
 ------------------------------------------------------------------------
+
+AG.SHARE_NUDGE_MIN = 10                 -- new finds before we mention it
+AG.SHARE_NUDGE_GAP = 3 * 24 * 60 * 60   -- seconds between reminders (3 days)
 
 local nudged = false
 
+-- Whether to remind you now (now = time()).
+function AG:ShouldNudgeShare(now)
+	if not self.db or not self:Option("shareReminder") then return false end
+	if (self.db.unshared or 0) < self.SHARE_NUDGE_MIN then return false end
+	local last = self.db.lastShareNudge
+	return not (type(last) == "number" and now - last < self.SHARE_NUDGE_GAP)
+end
+
 local function nudge()
-	if nudged or not AG.db or (AG.db.unshared or 0) < 1 or AG:DetectInstance() then return end
+	if nudged or AG:DetectInstance() or not AG:ShouldNudgeShare(time()) then return end
 	nudged = true
-	AG:Print("Learning mode found %d new thing%s since you last shared. Type |cffffd100/ag share|r "
-		.. "to add them to the guide for everyone.", AG.db.unshared, AG.db.unshared == 1 and "" or "s")
+	AG.db.lastShareNudge = time()
+	AG:Print("Learning mode found %d new things since you last shared. If you'd like to add them to "
+		.. "the guide for everyone, type |cffffd100/ag share|r%s. (You can turn this reminder off in Options.)",
+		AG.db.unshared, AG.SHARE_PAGE_URL and ": it takes a few seconds, no account needed" or "")
 end
 
 local events = CreateFrame("Frame")
