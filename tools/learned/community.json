@@ -1,3 +1,83 @@
 {
-  "submitters": {}
+  "submitters": {
+    "27ca1cb4260a028d": {
+      "bosses": {
+        "deadmines/captaingreenskin": {
+          "displayID": null,
+          "kills": 1,
+          "loot": {
+            "5201": 1
+          },
+          "name": "Captain Greenskin",
+          "npcID": null,
+          "spells": {}
+        },
+        "deadmines/cookie": {
+          "displayID": null,
+          "kills": 1,
+          "loot": {
+            "12053": 1,
+            "5198": 1
+          },
+          "name": "Cookie",
+          "npcID": null,
+          "spells": {}
+        },
+        "deadmines/edwinvancleef": {
+          "displayID": null,
+          "kills": 1,
+          "loot": {
+            "5191": 1
+          },
+          "name": "Edwin VanCleef",
+          "npcID": null,
+          "spells": {}
+        },
+        "deadmines/gilnid": {
+          "displayID": null,
+          "kills": 1,
+          "loot": {
+            "273297": 1
+          },
+          "name": "Gilnid",
+          "npcID": null,
+          "spells": {}
+        },
+        "deadmines/mrsmite": {
+          "displayID": null,
+          "kills": 1,
+          "loot": {
+            "7230": 1
+          },
+          "name": "Mr. Smite",
+          "npcID": null,
+          "spells": {}
+        },
+        "deadmines/rhahkzor": {
+          "displayID": null,
+          "kills": 1,
+          "loot": {
+            "4575": 1,
+            "5187": 1
+          },
+          "name": "Rhahk'Zor",
+          "npcID": null,
+          "spells": {}
+        },
+        "deadmines/sneedsshredder": {
+          "displayID": null,
+          "kills": 1,
+          "loot": {
+            "285292": 1
+          },
+          "name": "Sneed's Shredder",
+          "npcID": null,
+          "spells": {}
+        }
+      },
+      "date": "2026-11-19",
+      "issue": 1,
+      "version": "0.7.0"
+    }
+  }
 }
