@@ -2,7 +2,7 @@
 ## Title: Adventure Guide |cff66ccffForever|r
 ## Notes: Fallback TOC. The game prefers AdventureGuideForever_Forever.toc.
 ## Author: Draconic Designs
-## Version: 0.7.0
+## Version: 0.7.1
 ## X-License: MIT
 ## SavedVariables: AdventureGuideForeverDB
 ## IconTexture: Interface\Icons\INV_Misc_Book_09
