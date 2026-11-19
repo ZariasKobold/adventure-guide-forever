@@ -1,5 +1,5 @@
 -- The step counter: a small badge beside the minimap's calendar button showing your steps
--- on foot (this character, all time). Hover for this session vs all time; click to open the
+-- on foot this session (since you logged in). Hover for this session vs all time; click to open the
 -- Journey page. Drag it anywhere; right-click puts it back by the calendar. Turn it off in
 -- Options or with /ag steps.
 
@@ -102,7 +102,8 @@ function AG:UpdateStepCounter()
 	local rec = self:GetJourney()
 	if not rec then return end
 	counter = counter or create()
-	local text = UI.Commas(self:StepsFrom(rec.distance.foot))
+	local session = rec.session and rec.session.distance or {}
+	local text = UI.Commas(self:StepsFrom(session.foot))
 	if counter.text:GetText() ~= text then
 		counter.text:SetText(text)
 		counter:SetWidth(math.max(50, counter.text:GetStringWidth() + 30))

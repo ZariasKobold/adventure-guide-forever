@@ -44,7 +44,7 @@ Copy the `AdventureGuideForever` folder into `World of Warcraft\_forever_\Interf
   times you've visited each dungeon, raid, and zone, per character or all together, with
   this session next to all time. Fights are counted fairly: charges and leaps count only as
   far as you could have run, and knockbacks don't count. Journey stats stay on your computer.
-- **Step counter:** a small badge beside the minimap's calendar shows your steps. Hover for
+- **Step counter:** a small badge beside the minimap's calendar shows your steps this session (since you logged in). Hover for
   this session vs all time, click to open Journey, drag to move it (right-click puts it
   back). `/ag steps` or Options hides it.
 
