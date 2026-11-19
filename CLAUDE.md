@@ -46,6 +46,7 @@ Tests load the real addon files in Lua 5.1. When you add a Lua file, add it to *
 - `Blizzard_EncounterJournal` ships but refuses to load (`WRONG_GAME_TYPE`), and all EJ_* data is empty. So the addon supplies its own data.
 - Shift+J is still bound to `TOGGLEENCOUNTERJOURNAL` but opens Guild & Communities, so we claim it with `SetOverrideBindingClick`. `EJMicroButton` exists but is not on the menu bar, so `UI/MicroButton.lua` adds our own after Collections: the Dragonflight `UI-HUD-MicroMenu-AdventureGuide-*` icon atlas exists, and the frame is copied from the neighbour's `Background`/`PushedBackground` (verified Nov 17, 2026).
 - `PlayerModel:SetDisplayInfo` works.
+- Specs: `GetSpecialization` returns a placeholder named after the class (Druid, id 1484), and there's no `GetTalentTabInfo`. Talents live in a modern loadout (`C_ClassTalents.GetActiveConfigID`, `C_Traits`): one tree holding the three classic trees as columns. `AG:LoadoutTrees` counts points per column; `/ag spec` shows it (verified Nov 18, 2026).
 - Install path: `World of Warcraft\_forever_\Interface\AddOns\`.
 
 ## Coding rules
