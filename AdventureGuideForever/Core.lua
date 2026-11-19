@@ -100,16 +100,14 @@ local defaults = {
 	wishlist = {},       -- [itemID] = true
 	gear = { usable = true, minQuality = 2 }, -- Gear tab filters (nil = any; levels nil = follow yours)
 	plan = { quests = true }, -- Suggested Gear tab: classID, spec, level (nil = yours)
-	journey = {},        -- [character] = distance traveled and places visited (never shared)
+	journey = {},        -- [character] = dungeons and zones visited (never shared)
 	options = {
 		zoneCard = true,     -- briefing card when you enter a dungeon or raid
 		bossCard = true,     -- boss card when you target a boss
 		tooltips = true,     -- "Drops from" lines on item tooltips
 		wishAlerts = true,   -- alert when a wishlist item drops
 		sync = true,         -- share learned data with your group in game
-		stepCounter = true,  -- step counter beside the minimap's calendar button
 		shareReminder = true, -- now and then, remind you to share what learning mode found
-		-- stepPosition = { point, relPoint, x, y } once you drag the step counter
 	},
 }
 
@@ -130,7 +128,6 @@ end
 
 function AG:SetOption(name, value)
 	self.db.options[name] = value and true or false
-	if name == "stepCounter" and self.UpdateStepCounter then self:UpdateStepCounter() end
 end
 
 ------------------------------------------------------------------------
@@ -221,7 +218,7 @@ end
 ------------------------------------------------------------------------
 
 local USAGE = "/ag opens the guide.  /ag options: settings.  /ag share: send what you learned "
-	.. "to the guide on GitHub.  /ag find <name>: search bosses, gear, and quests.  /ag pedometer: what the pedometer sees.  /ag spec: what the game says your spec is.  /ag learn status: what learning mode sees.  /ag journey, /ag wishlist: open those tabs.  /ag steps: step counter on or off.  /ag sync: share "
+	.. "to the guide on GitHub.  /ag find <name>: search bosses, gear, and quests.  /ag spec: what the game says your spec is.  /ag learn status: what learning mode sees.  /ag journey, /ag wishlist: open those tabs.  /ag sync: share "
 	.. "with your group now.  /ag learn: learning mode on or off.  /ag reset learned: forget "
 	.. "what learning mode recorded."
 
@@ -248,13 +245,6 @@ local commands = {
 	wishlist = function() AG:OpenTab("wishlist") end,
 	cards = function() toggleOption("zoneCard", "Dungeon briefing cards") end,
 	bosscards = function() toggleOption("bossCard", "Boss cards") end,
-	steps = function() toggleOption("stepCounter", "Step counter") end,
-	pedometer = function()
-		local st = AG:PedometerStatus()
-		AG:Print("Pedometer: measuring by %s, %s, counting as %s. Speed %s, on a flight path: %s, swimming: %s.",
-			st.mode, st.ticking and "running" or "idle", st.kind, st.speed and string.format("%.1f", st.speed) or "hidden",
-			st.onTaxi and "yes" or "no", st.swimming and "yes" or "no")
-	end,
 	spec = function()
 		for _, line in ipairs(AG:SpecReport()) do AG:Print("%s", line) end
 	end,

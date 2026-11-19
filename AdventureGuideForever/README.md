@@ -40,13 +40,12 @@ Copy the `AdventureGuideForever` folder into `World of Warcraft\_forever_\Interf
   how many you haven't done yet.
 - **Wishlist:** click the star next to any loot. Dungeon cards show how many wishlist items
   are inside, the Wishlist tab lists them, and you get an alert when one drops.
-- **Journey:** a pedometer (on foot, mounted, flying, swimming, flight paths) and how many
-  times you've visited each dungeon, raid, and zone, per character or all together, with
-  this session next to all time. Fights are counted fairly: charges and leaps count only as
-  far as you could have run, and knockbacks don't count. Journey stats stay on your computer.
-- **Step counter:** a small badge beside the minimap's calendar shows your steps this session (since you logged in). Hover for
-  this session vs all time, click to open Journey, drag to move it (right-click puts it
-  back). `/ag steps` or Options hides it.
+- **Journey:** how many times you've visited each dungeon, raid, and zone, per character or
+  all together. Journey stats stay on your computer.
+- **Want a pedometer?** Distance traveled and the step counter by the minimap are their own
+  addon now, **[Adventure Forever Pedometer](https://github.com/ZariasKobold/adventure-forever-pedometer)**.
+  Install it next to this one and it brings over
+  everything counted so far.
 
 ## Learning mode
 Blizzard removed all Adventure Guide data from Forever, so the guide learns as you play:

@@ -1,21 +1,13 @@
--- The Journey tab: your pedometer and visit log (Journey.lua), for this character or all of
--- them together.
+-- The Journey tab: your visit log (Journey.lua), for this character or all of them together.
+-- Distance traveled is in its own addon now, Adventure Forever Pedometer; this page points
+-- to it.
 
 local _, AG = ...
-local UI = AG.UI
 
-local MARATHON_MILES = 26.2
 local TOP_ZONES = 15
 local DEFAULT_ICON = "Interface\\Icons\\INV_Misc_Map_01"
 
 local showAll = false
-
-local function miles(yards)
-	return (yards or 0) / UI.YARDS_PER_MILE
-end
-
-local milesText = UI.Distance
-local withCommas = UI.Commas
 
 local function ago(stamp)
 	if not stamp or stamp == 0 then return "never" end
@@ -24,16 +16,6 @@ local function ago(stamp)
 	if secs < 86400 then return string.format("%d hours ago", math.floor(secs / 3600)) end
 	local days = math.floor(secs / 86400)
 	return days == 1 and "yesterday" or string.format("%d days ago", days)
-end
-
--- "under a minute", "25 minutes", "2 hours 5 minutes".
-local function playedFor(secs)
-	local mins = math.floor(secs / 60)
-	if mins < 1 then return "under a minute" end
-	local hours, rest = math.floor(mins / 60), mins % 60
-	local function unit(n, word) return string.format("%d %s%s", n, word, n == 1 and "" or "s") end
-	if hours == 0 then return unit(mins, "minute") end
-	return rest == 0 and unit(hours, "hour") or (unit(hours, "hour") .. " " .. unit(rest, "minute"))
 end
 
 local function bossKills(instKey)
@@ -80,34 +62,14 @@ function AG:RenderJourney(doc)
 		})
 	end
 
-	-- Pedometer: all time, and this session (always the character you're playing).
-	local mine = self:GetJourney()
-	local session = mine and mine.session or { distance = {}, combat = 0 }
-	doc:Heading("Distance traveled")
-	doc:Paragraph(string.format("You've traveled |cffffd100%s|r%s.", milesText(self:TotalYards(rec.distance)),
-		showAll and " across all characters" or ""), { font = "GameFontNormalLarge", color = { 1, 1, 1 } })
-	doc:Paragraph(string.format("This session: |cffffd100%s|r and |cffffd100%s|r steps%s.",
-		milesText(self:TotalYards(session.distance)), withCommas(self:StepsFrom(session.distance.foot)),
-		session.started and (" in " .. playedFor(time() - session.started)) or ""),
-		{ color = { 0.85, 0.85, 0.85 } })
-	for _, kind in ipairs(self.DISTANCE_KINDS) do
-		local yards = rec.distance[kind.key] or 0
-		local now = session.distance[kind.key] or 0
-		local body = "This session: " .. milesText(now)
-		if kind.key == "foot" and yards > 0 then
-			body = string.format("%s steps this session    About %s steps in all",
-				withCommas(self:StepsFrom(now)), withCommas(self:StepsFrom(yards)))
-		end
-		doc:Row(kind.icon, kind.label, body, milesText(yards))
-	end
-	local footMiles = miles(rec.distance.foot)
-	if footMiles >= 1 then
-		doc:Paragraph(string.format("That's %.1f marathon%s on foot.", footMiles / MARATHON_MILES,
-			footMiles / MARATHON_MILES == 1 and "" or "s"), { font = "GameFontHighlightSmall", color = { 0.6, 0.6, 0.6 } })
-	end
-	if (rec.combat or 0) > 0 then
-		doc:Paragraph(string.format("%s of that was in combat: dodging, kiting, and chasing. Charges, leaps, and knockbacks count only as far as you could have run.",
-			milesText(rec.combat)), { font = "GameFontHighlightSmall", color = { 0.6, 0.6, 0.6 } })
+	-- Distance traveled lives in Adventure Forever Pedometer.
+	if self:HasPedometer() then
+		doc:Paragraph("Your distance traveled and steps are in |cffffd100Adventure Forever Pedometer|r: type "
+			.. "|cffffd100/pedometer|r or click the step counter by the minimap.", { color = { 0.75, 0.75, 0.75 } })
+	else
+		doc:Paragraph("Looking for distance traveled and steps? The pedometer is its own addon now, "
+			.. "|cffffd100Adventure Forever Pedometer|r. Install it and it brings over everything counted so far.",
+			{ color = { 0.75, 0.75, 0.75 } })
 	end
 
 	-- Dungeons and raids
@@ -153,10 +115,14 @@ function AG:RenderJourney(doc)
 		doc:Heading("Characters")
 		local chars = {}
 		for key, r in pairs(self.db.journey) do
-			chars[#chars + 1] = { name = r.name or key, yards = self:TotalYards(r.distance) }
+			local visits = 0
+			for _, v in pairs(r.instances or {}) do visits = visits + (v.visits or 0) end
+			chars[#chars + 1] = { name = r.name or key, visits = visits }
 		end
-		table.sort(chars, function(a, b) return a.yards > b.yards end)
-		for _, c in ipairs(chars) do doc:Row(nil, c.name, nil, milesText(c.yards)) end
+		table.sort(chars, function(a, b) return a.visits > b.visits end)
+		for _, c in ipairs(chars) do
+			doc:Row(nil, c.name, nil, string.format("|cffffd100%d|r dungeon visit%s", c.visits, c.visits == 1 and "" or "s"))
+		end
 	end
 
 	doc:Paragraph(" ")

@@ -340,53 +340,10 @@ class FeatureTests(unittest.TestCase):
     def set_db(self, lua_src):
         self.ag.db = self.lua.eval(f"(function() return {lua_src} end)()")
 
-    def test_pedometer_combat_rules(self):
-        pace = lambda speed, **s: self.ag.JourneyPace(speed, self.lua.table_from(s))
-        # Out of combat the speed counts as is, even fast mounts.
-        self.assertEqual(pace(30, combat=False), 30)
-        self.assertEqual(pace(None, combat=False, moving=True), 0)
-        # A charge counts like running, not a 40-yard stride.
-        self.assertEqual(pace(40, combat=True, moving=True, lastPace=7), 14)
-        self.assertEqual(pace(7, combat=True, moving=True, lastPace=7), 7)
-        # A hidden speed counts as your last pace while you move, nothing while you stand.
-        self.assertEqual(pace(None, combat=True, moving=True, lastPace=8), 8)
-        self.assertEqual(pace(None, combat=True, moving=False, lastPace=8), 0)
-        # Knockbacks: flung through the air without pressing a key counts nothing.
-        self.assertEqual(pace(25, combat=True, airborne=True, moving=False, lastPace=7), 0)
-        self.assertEqual(pace(25, combat=True, airborne=True, moving=True, lastPace=7), 7)
-
-    def test_pedometer_measures_real_movement(self):
-        step = lambda a, b, dt: self.ag.JourneyStep(  # noqa: E731
-            a and self.lua.table_from(a), b and self.lua.table_from(b), dt)
-        here = {"x": 100, "y": 200, "z": 10, "map": 0}
-        # A flight path: 30 yards a second, counted as the distance actually covered.
-        self.assertAlmostEqual(step(here, {"x": 115, "y": 200, "z": 10, "map": 0}, 0.5), 15)
-        # Swimming or flying up and down counts too (3D).
-        self.assertAlmostEqual(step(here, {"x": 100, "y": 200, "z": 13, "map": 0}, 1.0), 3)
-        self.assertEqual(step(here, here, 0.5), 0)                                      # standing still
-        self.assertIsNone(step(here, {"x": 115, "y": 200, "z": 10, "map": 1}, 0.5))     # loading screen
-        self.assertIsNone(step(here, {"x": 900, "y": 200, "z": 10, "map": 0}, 0.5))     # hearthstone
-        self.assertIsNone(step(None, here, 0.5))                                        # first sample
-        self.assertIsNone(step(here, here, 8))                                          # long gap
-
-    def test_travel_counts_this_session_and_all_time(self):
-        rec = self.lua.eval("{ distance = { foot = 100 }, combat = 0 }")  # an old record, no session yet
-        self.ag.AddTravel(self.ag, rec, "foot", 17, False)
-        self.ag.AddTravel(self.ag, rec, "mounted", 50, True)
-        rec = to_py(rec)
-        self.assertEqual(rec["distance"]["foot"], 117)
-        self.assertEqual(rec["session"]["distance"]["foot"], 17)
-        self.assertEqual(rec["session"]["distance"]["mounted"], 50)
-        self.assertEqual((rec["combat"], rec["session"]["combat"]), (50, 50))
-        self.assertEqual(self.ag.TotalYards(self.ag, self.lua.table_from(rec["session"]["distance"])), 67)
-
     def test_number_formatting(self):
         ui = self.ag.UI
         self.assertEqual(ui.Commas(1234567.8), "1,234,567")
         self.assertEqual(ui.Commas(999), "999")
-        self.assertEqual(ui.Distance(50), "50 yards")
-        self.assertEqual(ui.Distance(1760 * 2.5), "2.50 miles")
-        self.assertEqual(ui.Distance(1760 * 31), "31.0 miles")
 
     def test_search_groups_and_ranks(self):
         groups = {g["key"]: g for g in to_py(self.ag.Search(self.ag, "mugg"))}

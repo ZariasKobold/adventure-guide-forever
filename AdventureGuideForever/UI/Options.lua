@@ -9,7 +9,6 @@ local SETTINGS = {
 		get = function() return AG.db.learn end, set = function(v) AG.db.learn = v; if AG.frame then AG:Refresh() end end },
 	{ label = "Show a briefing card when I enter a dungeon or raid", option = "zoneCard" },
 	{ label = "Show a boss card when I target a boss", option = "bossCard" },
-	{ label = "Show my step counter by the minimap's calendar", option = "stepCounter" },
 	{ label = "Add \"Drops from\" to item tooltips", option = "tooltips" },
 	{ label = "Alert me when a wishlist item drops", option = "wishAlerts" },
 	{ label = "Share what learning mode finds with my group", option = "sync" },

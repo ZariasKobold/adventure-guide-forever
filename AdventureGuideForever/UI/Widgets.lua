@@ -299,14 +299,6 @@ function UI.Commas(n)
 	end
 end
 
-UI.YARDS_PER_MILE = 1760
-
--- A distance for people: "84 yards", "2.35 miles", "31.0 miles".
-function UI.Distance(yards)
-	local m = (yards or 0) / UI.YARDS_PER_MILE
-	if m < 0.1 then return string.format("%d yards", math.floor(yards or 0)) end
-	return string.format(m < 10 and "%.2f miles" or "%.1f miles", m)
-end
 
 function UI.CheckBox(parent, label, get, set)
 	local box = UI.CreateFrame("CheckButton", nil, parent, "UICheckButtonTemplate", "OptionsBaseCheckButtonTemplate")

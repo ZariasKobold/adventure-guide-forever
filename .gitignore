@@ -21,3 +21,6 @@ tools/wowhead/guide_report.md
 worker/node_modules/
 worker/.wrangler/
 worker/.dev.vars
+
+# Adventure Forever Pedometer: its own git repo (github.com/ZariasKobold/adventure-forever-pedometer)
+AdventureForeverPedometer/
