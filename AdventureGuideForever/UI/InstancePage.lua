@@ -6,24 +6,13 @@ local UI = AG.UI
 
 local LIST_W = 230
 
--- Guide bosses in order, then any bosses learned from play (yours or shared by other
--- players) that the guide lacks.
+-- The guide's bosses, in order.
 function AG:GetBossList(instKey)
-	local out, seen = {}, {}
+	local out = {}
 	local guide = self.Guides[instKey]
-	local learnedBosses = self:GetLearnedBosses(instKey) -- yours plus the community's
 	for _, boss in ipairs(guide and guide.bosses or {}) do
-		table.insert(out, { key = boss.key, name = boss.name, guide = boss, learned = learnedBosses[boss.key] })
-		seen[boss.key] = true
+		table.insert(out, { key = boss.key, name = boss.name, guide = boss })
 	end
-	local extras = {}
-	for key, rec in pairs(learnedBosses) do
-		if not seen[key] then
-			table.insert(extras, { key = key, name = rec.name or key, learned = rec, isLearnedOnly = true })
-		end
-	end
-	table.sort(extras, function(a, b) return a.name < b.name end)
-	for _, e in ipairs(extras) do table.insert(out, e) end
 	return out
 end
 
@@ -106,7 +95,6 @@ function AG:RenderInstancePage(instKey, bossKey)
 	for i, entry in ipairs(bosses) do
 		local label = string.format("|cffffd100%d.|r %s", i, entry.name)
 		if entry.guide and entry.guide.optional then label = label .. " |cff888888(optional)|r" end
-		if entry.isLearnedOnly then label = label .. " |cff66ccff(learned)|r" end
 		table.insert(entries, { key = entry.key, label = label, boss = entry })
 	end
 

@@ -1,6 +1,8 @@
 -- The Gear tab: every boss drop and quest reward the guide knows, filtered by slot, armor or
--- weapon type, stat, quality, and required level, and (by default) only what your class can
--- use. Filters live in AdventureGuideForeverDB.gear; levels left blank follow your level.
+-- weapon type, stat, quality, required level, and dungeon, and (by default) only what your
+-- class can use. Filters live in AdventureGuideForeverDB.gear; levels left blank follow your
+-- level. With a dungeon picked ("Where I am now" follows you in), the list is ranked for your
+-- spec and compared with what you're wearing.
 
 local _, AG = ...
 local UI = AG.UI
@@ -12,12 +14,36 @@ local function filters()
 	return AG.db.gear
 end
 
--- Levels to show: what you typed, or your level and the ten below it.
+-- The dungeon picked, if any: an instance key, resolving "here" to where you are (nil when
+-- you're not in one).
+local function chosenInstance()
+	local v = filters().instance
+	if v == "here" then return AG:DetectInstance() end
+	return v
+end
+
+-- Levels to show: what you typed, or your level and the ten below it. With a dungeon picked,
+-- blank means every level, so drops a little above you still show (in red).
 local function levelRange()
 	local _, level = AG:PlayerClassAndLevel()
 	level = level or 60
 	local f = filters()
+	if chosenInstance() then return f.minLevel, f.maxLevel end
 	return f.minLevel or math.max(1, level - 10), f.maxLevel or level
+end
+
+local function instanceOptions()
+	local here = AG:DetectInstance()
+	local inst = here and AG:GetInstance(here)
+	local out = {
+		{ value = nil, text = "Any" },
+		{ value = "here", text = "Where I am now" .. (inst and (" (" .. inst.name .. ")") or "") },
+	}
+	for _, i in ipairs(AG.Instances) do
+		local levels = i.isRaid and "raid" or string.format("%d-%d", i.minLevel, i.maxLevel)
+		out[#out + 1] = { value = i.key, text = string.format("%s (%s)", i.name, levels) }
+	end
+	return out
 end
 
 local function optionList(list, labelOf)
@@ -105,16 +131,20 @@ function AG:CreateGearBar(docPage)
 	bar.reset:SetScript("OnClick", function()
 		PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
 		local g = filters()
-		g.slot, g.type, g.stat, g.minLevel, g.maxLevel = nil, nil, nil, nil, nil
+		g.slot, g.type, g.stat, g.minLevel, g.maxLevel, g.instance = nil, nil, nil, nil, nil, nil
 		g.minQuality, g.usable = 2, true
 		refreshResults()
 	end)
 
+	bar.instance = UI.Dropdown(bar, 240, "Dungeon", instanceOptions,
+		function() return filters().instance end, setFilter("instance"))
+	bar.instance:SetPoint("RIGHT", bar.reset, "LEFT", -8, 0)
+
 	bar.Sync = function(self)
-		for _, key in ipairs({ "slot", "type", "stat", "quality", "usable" }) do self[key]:Sync() end
+		for _, key in ipairs({ "slot", "type", "stat", "quality", "usable", "instance" }) do self[key]:Sync() end
 		local lo, hi = levelRange()
-		if not self.minLevel:HasFocus() then self.minLevel:SetText(tostring(lo)) end
-		if not self.maxLevel:HasFocus() then self.maxLevel:SetText(tostring(hi)) end
+		if not self.minLevel:HasFocus() then self.minLevel:SetText(lo and tostring(lo) or "") end
+		if not self.maxLevel:HasFocus() then self.maxLevel:SetText(hi and tostring(hi) or "") end
 	end
 	docPage.gearBar = bar
 end
@@ -142,8 +172,8 @@ function AG:ShowDocBar(render)
 end
 AG.DOC_BAR_HEIGHT = BAR_HEIGHT
 
-local function sourceLine(itemID)
-	local s = AG:ItemSources(itemID)[1]
+local function sourceLine(itemID, s)
+	s = s or AG:ItemSources(itemID)[1]
 	if not s then return nil, nil end
 	local inst = AG:GetInstance(s.instKey)
 	local where = string.format("%s, %s", s.bossName, inst and inst.name or s.instKey)
@@ -156,12 +186,28 @@ function AG:RenderGear(doc)
 	local classID, level = self:PlayerClassAndLevel()
 	local f = filters()
 	local lo, hi = levelRange()
+	local instKey = chosenInstance()
+	if f.instance == "here" and not instKey then
+		doc:Paragraph("You're not in a dungeon or raid right now. Once you're inside, this shows what drops "
+			.. "there that's good for you. Or pick a dungeon from the Dungeon menu.", { color = { 0.6, 0.6, 0.6 } })
+		return
+	end
+	local weights, spec
+	if instKey then weights, spec = self:MyWeights() end
 	local results = self:FilterGear({
 		slot = f.slot, type = f.type, stat = f.stat, minQuality = f.minQuality,
 		minLevel = lo, maxLevel = hi, usable = f.usable, classID = classID, level = level,
+		instance = instKey, faction = self:PlayerFaction(), weights = weights,
 	})
 
-	local summary = string.format("%d item%s from dungeon bosses and quests", #results, #results == 1 and "" or "s")
+	local summary
+	if instKey then
+		local inst = self:GetInstance(instKey)
+		summary = string.format("%d item%s from %s", #results, #results == 1 and "" or "s", inst and inst.name or instKey)
+		if not f.stat and spec then summary = summary .. ", best for your " .. spec.name .. " first" end
+	else
+		summary = string.format("%d item%s from dungeon bosses and quests", #results, #results == 1 and "" or "s")
+	end
 	if f.stat then summary = summary .. ", most " .. (self.STAT_LABELS[f.stat] or f.stat) .. " first" end
 	doc:Paragraph(summary .. ".", { font = "GameFontHighlightSmall", color = { 0.7, 0.7, 0.7 } })
 	if #results == 0 then
@@ -176,12 +222,16 @@ function AG:RenderGear(doc)
 		local what = (kind and (kind.label .. " ") or "") .. (self:GearSlotLabel(item) or "")
 		local levels = string.format("item level %d", item.itemLevel or 0)
 		local stats = self:StatLine(item)
-		local from, source = sourceLine(g.itemID)
+		local from, source = sourceLine(g.itemID, g.source)
 		local body = what .. "  |cff888888" .. levels .. "|r"
 		if stats ~= "" then body = body .. "\n|cff20ff20" .. stats .. "|r" end
 		if from then body = body .. "\n" .. from end
 		local req = item.reqLevel or 1
 		local note = string.format("|cff%sLevel %d|r", (level and req > level) and "ff4040" or "ffd100", req)
+		local slots = weights and self:EquipSlotsFor(item)
+		if slots and (g.score or 0) > 0 then
+			note = self.UpgradeNote(self:CompareToEquipped(g, slots, weights)) .. "\n" .. note
+		end
 		doc:Row(C_Item and C_Item.GetItemIconByID and C_Item.GetItemIconByID(g.itemID) or UI.UNKNOWN_ICON,
 			UI.QualityText(g.name, g.quality), body, note, {
 				itemID = g.itemID, star = true,

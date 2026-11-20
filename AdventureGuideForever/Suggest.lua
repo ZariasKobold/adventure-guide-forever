@@ -428,3 +428,30 @@ function AG:CompareToEquipped(pick, equipSlots, weights)
 	if empty or weakest == nil then return nil end -- an empty slot: anything is an upgrade
 	return pick.score - weakest
 end
+
+-- The equipment slots an item would go in (both rings, both trinkets), for comparing.
+function AG:EquipSlotsFor(item)
+	for _, s in ipairs(self.GEAR_SLOTS) do
+		for _, inv in ipairs(s.inv) do
+			if inv == item.slot then
+				for _, plan in ipairs(self.PLAN_SLOTS) do
+					if plan.key == s.key then return plan.equip end
+				end
+			end
+		end
+	end
+end
+
+-- Your spec's stat weights: the spec picked on the Suggested Gear tab if it's planning for
+-- your class, otherwise the one your talents show. Returns weights, spec.
+function AG:MyWeights()
+	local classID = self:PlayerClassAndLevel()
+	if not classID then return nil end
+	local plan = self.db and self.db.plan or {}
+	local key = (not plan.classID or plan.classID == classID) and plan.spec or nil
+	local spec = key and self:GetSpec(classID, key)
+	if not (spec and spec.key == key) then
+		spec = self:GetSpec(classID, self:DetectSpec(classID)) or self:GetSpec(classID)
+	end
+	return spec and spec.w or nil, spec
+end

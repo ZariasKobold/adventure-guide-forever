@@ -1,7 +1,6 @@
 -- Briefing cards: the guide comes to you.
 --
---   * Dungeon card: when you enter a dungeon or raid (counted by Journey.lua), a small card
---     with the route's first step, the boss count, a tip, and your wishlist items there.
+--   * Dungeon card: when you enter a dungeon or raid, a small card with the route's first step, the boss count, a tip, and your wishlist items there.
 --     It fades after a while unless your mouse is on it.
 --   * Boss card: when you target a boss, its overview, the tip for your role, the abilities
 --     to watch for, and its wishlist items. Shown once per boss per visit, and hidden when
@@ -192,10 +191,10 @@ local function show(kind, opts)
 end
 
 ------------------------------------------------------------------------
--- Dungeon card (called by Journey.lua when you enter an instance)
+-- Dungeon card (when you enter an instance)
 ------------------------------------------------------------------------
 
-function AG:ShowZoneCard(instKey, visits)
+function AG:ShowZoneCard(instKey)
 	wipe(shownBosses) -- a new visit: boss cards may show again
 	if not self:Option("zoneCard") then return end
 	local inst = self:GetInstance(instKey)
@@ -205,7 +204,6 @@ function AG:ShowZoneCard(instKey, visits)
 
 	local subtitle = inst.isRaid and string.format("Raid, %d players", inst.players)
 		or string.format("|cff%sLevels %d-%d|r", self:LevelColor(inst), inst.minLevel, inst.maxLevel)
-	subtitle = subtitle .. (visits == 1 and "  |  First visit!" or string.format("  |  Visit #%d", visits))
 
 	local tip = guide.tips and #guide.tips > 0 and guide.tips[math.random(#guide.tips)]
 	local _, _, openQuests = self:QuestsFor(instKey)
@@ -256,10 +254,40 @@ local function onTargetChanged()
 	})
 end
 
+------------------------------------------------------------------------
+-- Arriving: the dungeon card shows once per trip in. The instance you were last briefed
+-- in is saved per character, so a reload or relog inside doesn't show it again.
+------------------------------------------------------------------------
+
+local function characterKey()
+	local name = AG:Readable(UnitName("player"))
+	if type(name) ~= "string" then return nil end
+	local realm = GetRealmName and AG:Readable(GetRealmName())
+	return type(realm) == "string" and (name .. "-" .. realm) or name
+end
+
+local function onArrive()
+	local who = characterKey()
+	if not who then return end
+	AG.db.briefedIn = AG.db.briefedIn or {}
+	local instKey = AG:DetectInstance()
+	if instKey == AG.db.briefedIn[who] then return end
+	AG.db.briefedIn[who] = instKey
+	if instKey then AG:ShowZoneCard(instKey) end
+end
+
+AG.BriefingArrive = onArrive -- for tests
+
+local handlers = {
+	PLAYER_TARGET_CHANGED = onTargetChanged,
+	PLAYER_ENTERING_WORLD = onArrive,
+	ZONE_CHANGED_NEW_AREA = onArrive,
+}
+
 local events = CreateFrame("Frame")
-events:RegisterEvent("PLAYER_TARGET_CHANGED")
-events:SetScript("OnEvent", function()
+for event in pairs(handlers) do events:RegisterEvent(event) end
+events:SetScript("OnEvent", function(_, event)
 	if not AG.db then return end
-	local ok, err = pcall(onTargetChanged)
-	if not ok and AG.debug then AG:Print("Boss card error: %s", tostring(err)) end
+	local ok, err = pcall(handlers[event])
+	if not ok and AG.debug then AG:Print("Briefing error in %s: %s", event, tostring(err)) end
 end)

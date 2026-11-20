@@ -94,20 +94,14 @@ end
 ------------------------------------------------------------------------
 
 local defaults = {
-	learn = true,        -- record loot, models, and boss spells while playing
-	learned = {},        -- [instKey] = { bosses = { [bossKey] = {...} } }
-	unshared = 0,        -- things learned since the last /ag share
 	wishlist = {},       -- [itemID] = true
 	gear = { usable = true, minQuality = 2 }, -- Gear tab filters (nil = any; levels nil = follow yours)
 	plan = { quests = true }, -- Suggested Gear tab: classID, spec, level (nil = yours)
-	journey = {},        -- [character] = dungeons and zones visited (never shared)
 	options = {
 		zoneCard = true,     -- briefing card when you enter a dungeon or raid
 		bossCard = true,     -- boss card when you target a boss
 		tooltips = true,     -- "Drops from" lines on item tooltips
 		wishAlerts = true,   -- alert when a wishlist item drops
-		sync = true,         -- share learned data with your group in game
-		shareReminder = true, -- now and then, remind you to share what learning mode found
 	},
 }
 
@@ -118,6 +112,24 @@ local function applyDefaults(db, defs)
 			db[k] = type(v) == "table" and CopyTable(v) or v
 		elseif type(v) == "table" and type(db[k]) == "table" then
 			applyDefaults(db[k], v)
+		end
+	end
+end
+
+-- Clears out what older versions saved for features that are gone (learning mode, sharing,
+-- party sync). Visit counts (db.journey) stay for Adventure Forever Pedometer, which now
+-- keeps them and brings them over once; each record gets the instances' names, since the
+-- pedometer doesn't know the guide's instance keys.
+function AG:RetireOldData(db)
+	db.learn, db.learned, db.unshared, db.shareID, db.lastShareNudge = nil, nil, nil, nil, nil
+	if db.options then db.options.sync, db.options.shareReminder = nil, nil end
+	for _, rec in pairs(type(db.journey) == "table" and db.journey or {}) do
+		if type(rec) == "table" and type(rec.instances) == "table" and not rec.instanceNames then
+			rec.instanceNames = {}
+			for key in pairs(rec.instances) do
+				local inst = self:GetInstance(key)
+				rec.instanceNames[key] = inst and inst.name or key
+			end
 		end
 	end
 end
@@ -217,10 +229,10 @@ end
 -- Slash command
 ------------------------------------------------------------------------
 
-local USAGE = "/ag opens the guide.  /ag options: settings.  /ag share: send what you learned "
-	.. "to the guide on GitHub.  /ag find <name>: search bosses, gear, and quests.  /ag spec: what the game says your spec is.  /ag learn status: what learning mode sees.  /ag journey, /ag wishlist: open those tabs.  /ag sync: share "
-	.. "with your group now.  /ag learn: learning mode on or off.  /ag reset learned: forget "
-	.. "what learning mode recorded."
+local USAGE = "/ag opens the guide.  /ag options: settings (also in Esc > Options > AddOns).  "
+	.. "/ag find <name>: search bosses, gear, and quests.  /ag wishlist: open your wishlist.  "
+	.. "/ag spec: what the game says your spec is.  /ag cards, /ag bosscards: dungeon and boss "
+	.. "cards on or off."
 
 local function toggleOption(name, label)
 	AG:SetOption(name, not AG:Option(name))
@@ -230,18 +242,8 @@ end
 local commands = {
 	[""] = function() AG:Toggle() end,
 	help = function() AG:Print(USAGE) end,
-	learn = function()
-		AG.db.learn = not AG.db.learn
-		AG:Print("Learning mode is now %s.", AG.db.learn and "|cff20ff20on|r" or "|cffff2020off|r")
-	end,
-	["learn status"] = function()
-		for _, line in ipairs(AG:LearnStatus()) do AG:Print("%s", line) end
-	end,
 	options = function() AG:ToggleOptions() end,
 	settings = function() AG:ToggleOptions() end,
-	share = function() AG:ShowShare() end,
-	sync = function() AG:SyncNow() end,
-	journey = function() AG:OpenTab("journey") end,
 	wishlist = function() AG:OpenTab("wishlist") end,
 	cards = function() toggleOption("zoneCard", "Dungeon briefing cards") end,
 	bosscards = function() toggleOption("bossCard", "Boss cards") end,
@@ -250,10 +252,6 @@ local commands = {
 	end,
 	micro = function()
 		AG:Print("Menu bar button art: %s.", tostring(AG.microStyle or "not created (no menu bar found)"))
-	end,
-	["reset learned"] = function()
-		wipe(AG.db.learned)
-		AG:Print("Forgot everything learned so far.")
 	end,
 }
 
@@ -288,10 +286,10 @@ local handlers = {
 		applyDefaults(AdventureGuideForeverDB, defaults)
 		AG.db = AdventureGuideForeverDB
 		AG:BuildGuides() -- every data file has loaded by now
+		AG:RetireOldData(AG.db)
 	end,
 	PLAYER_LOGIN = function()
 		installOpeners()
-		AG:InitLearning()
 	end,
 	UPDATE_BINDINGS = function()
 		-- The player changed key bindings: follow the guide's key to its new place.

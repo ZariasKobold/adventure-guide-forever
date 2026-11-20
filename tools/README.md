@@ -28,8 +28,7 @@ Data/Content/*.lua (hand-written text)  ----------------------------------------
 | `compare_guides.py` | Reads `guides.json`, writes `wowhead/guide_facts.json` (IDs, names, levels, quests; committed), `Data/Generated/Quests.lua` (each dungeon's quests; `--quests` rebuilds just this from the facts), and `wowhead/guide_report.md` (where our guide disagrees; not committed). |
 | `apply_writing.py` | Merges drafted guide writing (a JSON file of instance and boss text) into `Data/Content/*.lua`, keeping the standard format. Drafts are input only; don't commit them. |
 | `migrate_content.py` | One-time conversion of the old `Data/Guides` files into `Data/Content`. Kept for the record. |
-| `learned_intake.py` | Reads players' `/ag share` exports, merges them into `learned/community.json`, and writes `Data/Generated/Community.lua`. See below. |
-| `test_addon.py` | Test suite: TOC integrity, data shape, the registry's merge rules, sync messages, and the share intake. |
+| `test_addon.py` | Test suite: TOC integrity, data shape, the registry's merge rules, gear filters and suggestions, briefing cards, and options. |
 | `addon_env.py`, `lua_writer.py` | Shared helpers: load the addon in Lua, and write tidy Lua tables. |
 
 ## Everyday commands
@@ -103,28 +102,3 @@ reads them a range of item IDs at a time (each range under the 1,000-item page l
 3. Run `copy(whItemsResult())` and save the clipboard as `wowhead/items.json`.
 4. Run `build_items.py` again to write `Data/Generated/Items.lua`, then the tests. It
    lists any Wowhead field it doesn't know yet; add it to `STATS` or `IGNORE`.
-
-## Learned data from players (learned_intake.py)
-
-```
-/ag share (in game)  --paste-->  share page (worker/)  --issue-->  Action  --> learned_intake.py
-    --> tools/learned/community.json  --> Data/Generated/Community.lua  --> pull request
-```
-
-- `worker/` is the share page players paste into, with no GitHub account needed: a
-  Cloudflare Worker that checks the paste and files it as an issue. Setup and deploys are
-  in `worker/README.md`; its tests run with `node --test worker/test/`.
-- `.github/ISSUE_TEMPLATE/learned-data.yml` is the same thing as a GitHub issue form, for
-  people with a GitHub account (and the fallback until the share page is set up).
-- `.github/workflows/learned-data.yml` runs on each new issue that holds an export. It
-  passes the issue text through an environment variable (never into a shell command),
-  runs `learned_intake.py --from-env`, runs the tests, and opens a pull request that closes
-  the issue. A rejected paste gets a comment explaining why. The repo setting "Allow GitHub
-  Actions to create and approve pull requests" must be on.
-- `learned_intake.py` validates every line (known instances, lowercase boss keys, numeric
-  IDs and counts within limits, cleaned names). Each share has a random ID, so a player's
-  newer share replaces their older one; different players' shares add up. Run
-  `learned_intake.py --file export.txt` to try an export locally, or `--build` to rebuild
-  `Community.lua` after editing `community.json` by hand (for example, to remove a bad share).
-- Community data joins learning mode's data in the guide (`AG:GetLearnedBosses`), so new
-  bosses, drops, spells, and models appear the same way your own learned data does.

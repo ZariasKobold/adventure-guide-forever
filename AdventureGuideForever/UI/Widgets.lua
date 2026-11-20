@@ -225,6 +225,8 @@ function UI.CloseMenu()
 	if menu then menu:Hide() end
 end
 
+local MENU_ROWS = 20
+
 local function openMenu(owner, options, current, onPick)
 	local m = menuFrame()
 	if m:IsShown() and m.owner == owner then m:Hide(); return end
@@ -241,9 +243,6 @@ local function openMenu(owner, options, current, onPick)
 			b.text:SetPoint("RIGHT", -6, 0)
 			m.buttons[i] = b
 		end
-		b:ClearAllPoints()
-		b:SetPoint("TOPLEFT", 4, -4 - (i - 1) * 18)
-		b:SetPoint("RIGHT", -4, 0)
 		b.text:SetText((opt.value == current and "|cffffd100> |r" or "   ") .. opt.text)
 		b:SetScript("OnClick", function()
 			PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON)
@@ -254,9 +253,24 @@ local function openMenu(owner, options, current, onPick)
 		width = math.max(width, b.text:GetStringWidth() + 24)
 	end
 	for i = #options + 1, #m.buttons do m.buttons[i]:Hide() end
-	m:SetSize(width, 8 + #options * 18)
+	-- Long lists (every dungeon) wrap into columns so the menu stays on screen.
+	local rows = math.min(#options, MENU_ROWS)
+	local columns = math.ceil(#options / MENU_ROWS)
+	for i = 1, #options do
+		local b = m.buttons[i]
+		local col, row = math.floor((i - 1) / MENU_ROWS), (i - 1) % MENU_ROWS
+		b:ClearAllPoints()
+		b:SetPoint("TOPLEFT", 4 + col * width, -4 - row * 18)
+		b:SetWidth(width)
+	end
+	m:SetSize(width * columns + 8, 8 + rows * 18)
 	m:ClearAllPoints()
-	m:SetPoint("TOPLEFT", owner, "BOTTOMLEFT", 0, -2)
+	-- A wide menu opens leftward from the button's right edge, so it stays inside the window.
+	if columns > 1 then
+		m:SetPoint("TOPRIGHT", owner, "BOTTOMRIGHT", 0, -2)
+	else
+		m:SetPoint("TOPLEFT", owner, "BOTTOMLEFT", 0, -2)
+	end
 	m:Show()
 end
 

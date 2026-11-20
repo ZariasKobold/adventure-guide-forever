@@ -331,7 +331,7 @@ class BuildToolTests(unittest.TestCase):
 
 
 class FeatureTests(unittest.TestCase):
-    """Drops-from index, community data, party sync messages, and /ag share exports."""
+    """Drops-from index, search, and the options page."""
 
     def setUp(self):
         self.lua, self.ag = load_built()
@@ -374,147 +374,44 @@ class FeatureTests(unittest.TestCase):
         sources = to_py(self.ag.ItemSources(self.ag, item["itemID"]))
         self.assertIn(("deadmines", boss["key"]), [(s["instKey"], s["bossKey"]) for s in sources])
 
-    def test_item_sources_include_own_learned_drops(self):
-        self.set_db("{ learned = { kroldok = { bosses = { mugg = { name = 'Mugg', kills = 10, "
-                    "loot = { [999001] = 4 }, spells = {} } } } } }")
-        sources = to_py(self.ag.ItemSources(self.ag, 999001))
-        self.assertEqual(len(sources), 1)
-        self.assertEqual(sources[0]["bossName"], "Mugg")
-        self.assertAlmostEqual(sources[0]["dropChance"], 40.0)
+    def test_old_data_is_retired(self):
+        # Learning mode, sharing, and party sync are gone; visits stay for the pedometer,
+        # with the instances' names added (it doesn't know the guide's keys).
+        self.set_db("{ learn = true, learned = { deadmines = {} }, unshared = 4, shareID = 'abc', "
+                    "lastShareNudge = 1, options = { sync = true, shareReminder = true, tooltips = true }, "
+                    "journey = { ['Me-Realm'] = { instances = { deadmines = { visits = 3 } }, zones = {} } } }")
+        self.ag.RetireOldData(self.ag, self.ag.db)
+        db = to_py(self.ag.db)
+        for gone in ("learn", "learned", "unshared", "shareID", "lastShareNudge"):
+            self.assertNotIn(gone, db)
+        self.assertEqual(db["options"], {"tooltips": True})
+        rec = db["journey"]["Me-Realm"]
+        self.assertEqual(rec["instances"]["deadmines"]["visits"], 3)
+        self.assertEqual(rec["instanceNames"], {"deadmines": "Deadmines"})
 
-    def test_community_joins_learned_data(self):
-        self.ag.Community = self.lua.table()
-        self.lua.eval("""function(ag) ag:RegisterCommunity("kroldok", { bosses = {
-            { key = "mugg", name = "Mugg", npcID = 5, kills = 8, reports = 2,
-              loot = { { itemID = 77, count = 3 } }, spells = { { spellID = 88, count = 20 } } } } }) end""")(self.ag)
-        self.ag.BuildGuides(self.ag)
-        self.set_db("{ learned = { kroldok = { bosses = { mugg = { kills = 2, loot = { [77] = 5 }, spells = {} } } } } }")
-        rec = to_py(self.ag.GetLearnedBosses(self.ag, "kroldok"))["mugg"]
-        self.assertEqual(rec["kills"], 8)              # larger of yours and the community's
-        self.assertEqual(rec["loot"], {77: 5})
-        self.assertEqual(rec["spells"], {88: 20})
-        self.assertEqual(rec["npcID"], 5)
-        self.assertTrue(rec["community"])
-        sources = to_py(self.ag.ItemSources(self.ag, 77))
-        self.assertEqual(sources[0]["bossKey"], "mugg")
+    def test_binding_names(self):
+        name = self.ag.BindingName
+        self.assertEqual(name("J", False, False, True), "SHIFT-J")
+        self.assertEqual(name("F5", True, True, True), "ALT-CTRL-SHIFT-F5")
+        self.assertEqual(name("G", False, True, False), "CTRL-G")
 
-    def test_sync_messages_round_trip(self):
-        self.set_db("{ learned = {} }")
-        loot = ", ".join(f"[{100000 + i}] = {i + 1}" for i in range(60))   # forces several chunks
-        rec = self.lua.eval(f"{{ name = 'Overlord^Mugg', kills = 3, npcID = 12, displayID = 34, "
-                            f"loot = {{ {loot} }}, spells = {{ [555] = 9 }} }}")
-        msgs = to_py(self.ag.Sync.Encode("kroldok", "overlordmugg", rec))
-        self.assertGreater(len(msgs), 3)
-        self.assertTrue(all(len(m) <= 255 for m in msgs))
-        for m in msgs:
-            inst, boss, data = self.ag.Sync.Decode(m)
-            self.assertEqual((inst, boss), ("kroldok", "overlordmugg"))
-            self.ag.MergeLearned(self.ag, inst, boss, data)
-        got = to_py(self.ag.db.learned)["kroldok"]["bosses"]["overlordmugg"]
-        self.assertEqual(got["name"], "OverlordMugg")    # separator stripped
-        self.assertEqual(got["kills"], 3)
-        self.assertEqual(len(got["loot"]), 60)
-        self.assertEqual(got["spells"], {555: 9})
-
-    def test_sync_rejects_bad_messages(self):
-        bad = ["2^B^kroldok^mugg^1^0^0^x", "1^B^nowhere^mugg^1^0^0^x", "1^B^kroldok^bad key^1^0^0^x",
-               "1^L^kroldok^mugg^1:999999999999", "1^L^kroldok^mugg^", "1^X^kroldok^mugg^1", "x" * 300]
-        for m in bad:
-            self.assertIsNone(self.ag.Sync.Decode(m), m)
-
-    def test_sync_merge_keeps_larger_counts(self):
-        self.set_db("{ learned = { kroldok = { bosses = { mugg = { kills = 5, loot = { [1] = 4 }, spells = {} } } } } }")
-        changed = self.ag.MergeLearned(self.ag, "kroldok", "mugg", self.lua.eval("{ kills = 3, loot = { [1] = 2, [2] = 1 } }"))
-        self.assertTrue(changed)
-        got = to_py(self.ag.db.learned)["kroldok"]["bosses"]["mugg"]
-        self.assertEqual(got["kills"], 5)
-        self.assertEqual(got["loot"], [4, 1])   # to_py turns item IDs 1 and 2 into a list
-
-    def test_export_is_read_by_intake(self):
-        import learned_intake as li
-        self.set_db("{ learned = { kroldok = { bosses = { overlordmugg = { name = 'Overlord Mugg', kills = 3, "
-                    "npcID = 12, loot = { [500] = 2, [7] = 1 }, spells = { [9] = 4 } } } }, "
-                    "nowhere = { bosses = { x = { kills = 1, loot = {}, spells = {} } } } }, unshared = 2 }")
-        self.ag.version = "0.5.0"
-        text, bosses = self.ag.BuildExport(self.ag)
-        self.assertEqual(bosses, 1)                       # unknown instances are left out
-        sub = li.parse_export("Some notes\n```text\n" + text + "\n```\n", {"kroldok"})
-        rec = sub["bosses"]["kroldok/overlordmugg"]
-        self.assertEqual(sub["version"], "0.5.0")
-        self.assertEqual((rec["kills"], rec["npcID"], rec["displayID"], rec["name"]), (3, 12, None, "Overlord Mugg"))
-        self.assertEqual(rec["loot"], {"7": 1, "500": 2})
-        self.assertEqual(rec["spells"], {"9": 4})
-
-    def test_learning_records_boss_casts(self):
-        self.set_db("{ learn = true, learned = {}, unshared = 0 }")
+    def test_dungeon_card_once_per_trip(self):
         self.lua.execute("""
-            AGF_SECRET = setmetatable({}, { __tostring = function() return "secret" end })
-            issecretvalue = function(v) return v == AGF_SECRET end
-            agf_names = { target = "Edwin VanCleef", nameplate3 = "Edwin VanCleef", boss1 = AGF_SECRET,
-                party1 = "Partymember", nameplate9 = "Defias Pirate" }
-            UnitName = function(u) return agf_names[u] end
-            UnitGUID = function(u) return AGF_SECRET end
-            UnitPlayerControlled = function(u) return u == "party1" end
-            UnitLevel = function() return 20 end
-            UnitClassification = function() return "normal" end
-        """)
-        ag, h = self.ag, self.ag.LearnHandlers
-        ag.LearnState.instKey = "deadmines"
-        cast = lambda unit, guid, spell: h.UNIT_SPELLCAST_SUCCEEDED(unit, guid, spell)
-        cast("target", "Cast-1", 6713)
-        cast("nameplate3", "Cast-1", 6713)          # the same cast seen on a nameplate: once
-        h.UNIT_SPELLCAST_START("nameplate3", "Cast-2", 5200)
-        cast("party1", "Cast-3", 774)               # a player: ignored
-        cast("nameplate9", "Cast-4", 1234)          # trash
-        cast("target", "Cast-5", self.lua.eval("AGF_SECRET"))   # spell hidden
-        cast("boss1", "Cast-6", 9999)               # caster hidden, no encounter running
-        h.ENCOUNTER_START(1, "Edwin VanCleef")
-        cast("boss1", "Cast-7", 9999)               # caster hidden, but the encounter names it
-        bosses = to_py(ag.db.learned)["deadmines"]["bosses"]
-        key = next(k for k in bosses if "vancleef" in k)
-        self.assertEqual(bosses[key]["spells"], {6713: 1, 5200: 1, 9999: 1})
-        s = to_py(ag.spellStats)
-        self.assertEqual((s["recorded"], s["hiddenSpell"], s["hiddenCaster"], s["notBoss"]), (3, 1, 1, 1))
-        self.assertEqual(ag.db.unshared, 3)
-        lines = list(ag.LearnStatus(ag).values())
-        self.assertIn("3 recorded", lines[1])
-        h.ENCOUNTER_END(1, "Edwin VanCleef", 0, 5, self.lua.eval("AGF_SECRET"))  # hidden result: no error
-
-    def test_share_reminder_is_gentle(self):
-        day = 24 * 60 * 60
-        self.set_db("{ unshared = 3, options = { shareReminder = true } }")
-        self.assertFalse(self.ag.ShouldNudgeShare(self.ag, 10 * day))      # only a few finds
-        self.ag.db.unshared = 16
-        self.assertTrue(self.ag.ShouldNudgeShare(self.ag, 10 * day))
-        self.ag.db.lastShareNudge = 9 * day
-        self.assertFalse(self.ag.ShouldNudgeShare(self.ag, 10 * day))      # reminded yesterday
-        self.assertTrue(self.ag.ShouldNudgeShare(self.ag, 13 * day))       # three days later
-        self.ag.db.options.shareReminder = False
-        self.assertFalse(self.ag.ShouldNudgeShare(self.ag, 13 * day))      # turned off in Options
-
-    def test_share_page_accepts_export(self):
-        # The share page (worker/) checks a real export and files an issue the intake reads.
-        import shutil
-        import subprocess
-        import learned_intake as li
-        node = shutil.which("node")
-        if not node:
-            self.skipTest("Node isn't installed")
-        self.set_db("{ learned = { kroldok = { bosses = { overlordmugg = { name = 'Overlord Mugg', kills = 3, "
-                    "npcID = 12, loot = { [500] = 2 }, spells = { [9] = 4 } } } } } }")
-        self.ag.version = "0.7.0"
-        text, _ = self.ag.BuildExport(self.ag)
-        share = (Path(__file__).resolve().parent.parent / "worker" / "src" / "share.js").as_uri()
-        script = (f"import {{ checkShare, buildIssue }} from {json.dumps(share)};"
-                  "let s = ''; process.stdin.on('data', d => s += d).on('end', () => {"
-                  " const c = checkShare(s); process.stdout.write(JSON.stringify(c.ok ? buildIssue(c, '') : c)); });")
-        out = subprocess.run([node, "--input-type=module", "-e", script], input=text, capture_output=True,
-                             text=True, check=True).stdout
-        issue = json.loads(out)
-        self.assertIn("body", issue, issue)
-        sub = li.parse_export(issue["body"], {"kroldok"})
-        self.assertEqual(sub["bosses"]["kroldok/overlordmugg"]["loot"], {"500": 2})
-
+            agf_where = { "The Deadmines", "party" }
+            GetInstanceInfo = function() return agf_where[1], agf_where[2] end
+            UnitName = function() return "Me" end
+            GetRealmName = function() return "Realm" end""")
+        self.set_db("{ options = { zoneCard = true } }")
+        shown = []
+        self.ag.ShowZoneCard = lambda ag, key: shown.append(key)
+        arrive = self.ag.BriefingArrive
+        arrive()
+        arrive()                                         # a reload inside: no second card
+        self.lua.execute("agf_where = { 'Westfall', 'none' }")
+        arrive()
+        self.lua.execute("agf_where = { 'The Deadmines', 'party' }")
+        arrive()                                         # back in: a new trip
+        self.assertEqual(shown, ["deadmines", "deadmines"])
 
 class GuideCompareTests(unittest.TestCase):
     """Reading Wowhead's guide markup (tools/compare_guides.py)."""
@@ -720,7 +617,7 @@ class ItemDataTests(unittest.TestCase):
                 Row = function(self, icon, title, body, note, opts) table.insert(agf_rows, { body = body, note = note, id = opts.itemID }) end,
                 Paragraph = function() end,
             }""")
-        ag.db = lua.eval("{ gear = { usable = true, minQuality = 2, slot = 'wrist' }, learned = {} }")
+        ag.db = lua.eval("{ gear = { usable = true, minQuality = 2, slot = 'wrist' } }")
         ag.frame = lua.eval("{ header = { SetText = function() end } }")
         ag.RenderGear(ag, lua.globals().agf_doc)
         rows = to_py(lua.globals().agf_rows)
@@ -832,95 +729,58 @@ class ItemDataTests(unittest.TestCase):
                 Row = function(self, icon, title, body, note, opts) table.insert(agf_rows, { title = title, note = note }) end,
                 Paragraph = function() end,
             }""")
-        ag.db = lua.eval("{ plan = { quests = true }, wishlist = {}, learned = {} }")
+        ag.db = lua.eval("{ plan = { quests = true }, wishlist = {} }")
         ag.frame = lua.eval("{ header = { SetText = function() end } }")
         ag.RenderPlan(ag, lua.globals().agf_doc)
         rows = to_py(lua.globals().agf_rows)
         self.assertGreater(len(rows), 10)
         self.assertTrue(any("New slot" in (r["note"] or "") for r in rows))
 
+    def test_filter_gear_by_dungeon(self):
+        lua, ag = load_built()
+        f = lambda **kw: to_py(ag.FilterGear(ag, lua.table_from(kw)))  # noqa: E731
+        weights = ag.GetSpec(ag, 1, "fury").w
+        here = f(instance="deadmines", faction="Horde", weights=weights, usable=True, classID=1, level=20)
+        self.assertTrue(here)
+        self.assertTrue(all(g["source"]["instKey"] == "deadmines" for g in here))
+        self.assertTrue(all(g["source"].get("side") in (None, "Horde") for g in here))   # no Alliance quests
+        scores = [g["score"] for g in here]
+        self.assertEqual(scores, sorted(scores, reverse=True))                              # best for Fury first
+        everywhere = f(usable=True, classID=1, level=20)
+        self.assertLess(len(here), len(everywhere))
+
+    def test_gear_page_where_i_am(self):
+        lua, ag = load_built()
+        lua.execute("""
+            UnitClass = function() return "Warrior", "WARRIOR", 1 end
+            UnitLevel = function() return 20 end
+            UnitFactionGroup = function() return "Alliance" end
+            agf_where = { "The Deadmines", "party" }
+            GetInstanceInfo = function() return agf_where[1], agf_where[2] end
+            agf_rows, agf_text = {}, {}
+            agf_doc = {
+                Row = function(self, icon, title, body, note, opts) table.insert(agf_rows, { body = body, note = note }) end,
+                Paragraph = function(self, text) table.insert(agf_text, text) end,
+            }""")
+        ag.db = lua.eval("{ gear = { usable = true, minQuality = 2, instance = 'here' }, plan = {} }")
+        ag.frame = lua.eval("{ header = { SetText = function() end } }")
+        ag.RenderGear(ag, lua.globals().agf_doc)
+        rows = to_py(lua.globals().agf_rows)
+        self.assertTrue(rows)
+        self.assertTrue(all("Deadmines" in r["body"] for r in rows))
+        self.assertIn("best for your", to_py(lua.globals().agf_text)[0])
+        self.assertTrue(any("New slot" in r["note"] for r in rows))      # compared with what you wear
+        # Outside a dungeon, "Where I am now" says so instead of listing everything.
+        lua.execute("agf_where = { 'Elwynn Forest', 'none' }; agf_rows, agf_text = {}, {}")
+        ag.RenderGear(ag, lua.globals().agf_doc)
+        self.assertFalse(to_py(lua.globals().agf_rows))
+        self.assertIn("not in a dungeon", to_py(lua.globals().agf_text)[0])
+
     def test_registered_items_load(self):
         lua, ag = load_built()
         ag.RegisterItems(ag, lua.eval("{ items = { { itemID = 77, itemLevel = 20, stats = { sta = 4 } } } }"))
         self.assertEqual(to_py(ag.GetItem(ag, 77))["stats"], {"sta": 4})
         self.assertIsNone(ag.GetItem(ag, 78))
-
-
-class IntakeTests(unittest.TestCase):
-    """tools/learned_intake.py: validating shares and merging them into Community.lua."""
-
-    HEADER = "AGF1 version=0.5.0 id=abcdef0123456789"
-
-    def setUp(self):
-        import learned_intake
-        self.li = learned_intake
-        self.instances = {"kroldok", "deadmines"}
-
-    def export(self, *lines):
-        return "\n".join([self.HEADER, *lines, f"END {len(lines)}"])
-
-    def test_rejects_bad_exports(self):
-        bad = [
-            "hello",
-            self.export("B nowhere x kills=1 npc=0 display=0 name=X"),
-            self.export("B kroldok bad-key kills=1 npc=0 display=0 name=X"),
-            self.export("L kroldok mugg 0:1"),
-            self.export("L kroldok mugg 1:9999999999"),
-            self.export("rm -rf /"),
-            self.HEADER + "\nB kroldok mugg kills=1 npc=0 display=0 name=X\nEND 5",   # cut off
-            self.HEADER + "\nB kroldok mugg kills=1 npc=0 display=0 name=X",          # no END
-            "AGF1 version=0.5.0 id=NOT-HEX\nEND 0",
-        ]
-        for text in bad:
-            with self.assertRaises(self.li.SubmissionError, msg=text):
-                self.li.parse_export(text, self.instances)
-
-    def test_names_are_cleaned(self):
-        sub = self.li.parse_export(self.export('B kroldok mugg kills=1 npc=0 display=0 name=Mu|cffgg"\x07 ' + "x" * 80),
-                                   self.instances)
-        name = sub["bosses"]["kroldok/mugg"]["name"]
-        self.assertNotIn("|", name)
-        self.assertNotIn("\x07", name)
-        self.assertLessEqual(len(name), self.li.MAX_NAME)
-
-    def test_newer_share_replaces_older_and_players_add_up(self):
-        db = {"submitters": {}}
-        a1 = self.li.parse_export(self.export("B kroldok mugg kills=2 npc=5 display=0 name=Mugg",
-                                              "L kroldok mugg 77:1"), self.instances)
-        a2 = self.li.parse_export(self.export("B kroldok mugg kills=4 npc=5 display=0 name=Mugg",
-                                              "L kroldok mugg 77:2"), self.instances)
-        b = self.li.parse_export(self.export("B kroldok mugg kills=3 npc=5 display=9 name=Mugg",
-                                             "L kroldok mugg 77:1 78:1").replace("abcdef0123456789", "0000aaaa"),
-                                 self.instances)
-        self.assertTrue(self.li.merge_submission(db, a1, 1, "2026-11-17"))
-        self.assertTrue(self.li.merge_submission(db, a2, 2, "2026-11-18"))
-        self.assertFalse(self.li.merge_submission(db, a2, 3, "2026-11-18"))   # same data again
-        self.li.merge_submission(db, b, 4, "2026-11-18")
-        boss = self.li.aggregate(db)["kroldok"][0]
-        self.assertEqual(boss["kills"], 7)                   # 4 (latest of player A) + 3 (player B)
-        self.assertEqual(boss["reports"], 2)
-        self.assertEqual(boss["displayID"], 9)
-        self.assertEqual(boss["loot"], [{"itemID": 77, "count": 3}, {"itemID": 78, "count": 1}])
-
-    def test_rendered_lua_loads(self):
-        db = {"submitters": {}}
-        sub = self.li.parse_export(self.export("B kroldok mugg kills=6 npc=5 display=0 name=Overlord \"Mugg\"",
-                                               "L kroldok mugg 77:3", "S kroldok mugg 88:10"), self.instances)
-        self.li.merge_submission(db, sub, None, "2026-11-17")
-        src = self.li.render(self.li.aggregate(db), 1)
-        lua, ag = load_addon(re.compile(r"^Data/(Instances|Registry)\.lua$"))
-        lua.eval("function(src, ns) assert(loadstring(src))('AdventureGuideForever', ns) end")(src, ag)
-        ag.BuildGuides(ag)
-        rec = to_py(ag.CommunityLearned)["kroldok"]["mugg"]
-        self.assertEqual(rec["name"], 'Overlord "Mugg"')
-        self.assertEqual(rec["loot"], {77: 3})
-        self.assertEqual(rec["spells"], {88: 10})
-
-    def test_community_lua_is_up_to_date(self):
-        db = self.li.load_db()
-        self.assertEqual(self.li.OUTPUT.read_text(encoding="utf-8"),
-                         self.li.render(self.li.aggregate(db), len(db["submitters"])),
-                         "run tools/learned_intake.py --build")
 
 
 def report() -> None:

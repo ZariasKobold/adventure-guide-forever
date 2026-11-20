@@ -2,9 +2,8 @@
 --   Overview   the 3D model beside who the boss is, its lore, how to beat it (by role),
 --              key abilities, and notable loot
 --   Abilities  every ability, with role alerts and the spell's own tooltip text
---   Loot       the loot table with drop chances, updated by learning mode
+--   Loot       the loot table with drop chances
 --   Model      the model, full size
--- Guide data and learned data are merged here.
 
 local _, AG = ...
 local UI = AG.UI
@@ -13,84 +12,20 @@ local SECTIONS = { "Overview", "Abilities", "Loot", "Model" }
 local MODEL_COLUMN = 220          -- width of the model panel beside the Overview text
 local KEY_ABILITIES = 4           -- abilities shown on the Overview
 local NOTABLE_LOOT = 3            -- items shown on the Overview
-local LIKELY_REMOVED_AFTER = 5    -- kills without a drop before an item is marked missing
 
 local QUALITY_COLOR = { [0] = "9d9d9d", "ffffff", "1eff00", "0070dd", "a335ee", "ff8000" }
 local IMPORTANT_ALERTS = { deadly = true, important = true }
 
 ------------------------------------------------------------------------
--- Merging guide data with learned data
+-- Abilities
 ------------------------------------------------------------------------
 
--- Merges the documented loot table (Wowhead's Forever data, or hand-written content where
--- Wowhead has none) with what learning saw drop. Returns two lists:
---   confirmed:  items seen dropping, documented or not (isNew = not in the loot table)
---   documented: documented items not seen yet (likelyRemoved after enough kills)
-local function buildLoot(entry)
-	local learned = entry.learned and entry.learned.loot or {}
-	local kills = entry.learned and entry.learned.kills or 0
-	local hasDocs = entry.guide and entry.guide.loot and #entry.guide.loot > 0
-	local learnedByName, used = {}, {}
-	for itemID in pairs(learned) do
-		local name = UI.ItemInfo(itemID, UI.QueueRefresh)
-		if name then learnedByName[AG:Normalize(name)] = itemID end
-	end
-
-	local confirmed, documented = {}, {}
-	for _, item in ipairs(entry.guide and entry.guide.loot or {}) do
-		local id = item.itemID
-		if id then
-			local realName = UI.ItemInfo(id, UI.QueueRefresh)
-			if realName and AG:Normalize(realName) ~= AG:Normalize(item.name) then id = nil end
-		end
-		-- Seen in play? Match by ID first, then by name.
-		local seenID = (id and learned[id] and id) or learnedByName[AG:Normalize(item.name)]
-		if seenID then
-			used[seenID] = true
-			table.insert(confirmed, {
-				itemID = seenID, slot = item.slot, quality = item.quality,
-				dropChance = item.dropChance, count = learned[seenID],
-			})
-		else
-			table.insert(documented, {
-				name = item.name, itemID = id, slot = item.slot, quality = item.quality,
-				dropChance = item.dropChance, likelyRemoved = kills >= LIKELY_REMOVED_AFTER,
-			})
-		end
-	end
-
-	for itemID, count in pairs(learned) do
-		if not used[itemID] then
-			table.insert(confirmed, { itemID = itemID, count = count, isNew = hasDocs })
-		end
-	end
-	table.sort(confirmed, function(a, b) return (a.count or 0) > (b.count or 0) end)
-	return confirmed, documented, kills
-end
-
--- Ability rows: guide abilities (matched to learned spell IDs by name), then spells
--- learning saw the boss cast that the guide doesn't cover.
 local function buildAbilities(entry)
-	local guideAbilities = entry.guide and entry.guide.abilities or {}
-	local learned = entry.learned and entry.learned.spells or {}
-	local byName, used = {}, {}
-	for spellID in pairs(learned) do
-		local name = UI.SpellInfo(spellID, UI.QueueRefresh)
-		if name then byName[AG:Normalize(name)] = spellID end
-	end
-
 	local rows = {}
-	for _, ab in ipairs(guideAbilities) do
-		local spellID = ab.spellID or byName[AG:Normalize(ab.name)]
-		if spellID then used[spellID] = true end
-		table.insert(rows, { name = ab.name, text = ab.text, alerts = ab.alerts, spellID = spellID })
+	for _, ab in ipairs(entry.guide and entry.guide.abilities or {}) do
+		table.insert(rows, { name = ab.name, text = ab.text, alerts = ab.alerts, spellID = ab.spellID })
 	end
-	local seen = {}
-	for spellID, count in pairs(learned) do
-		if not used[spellID] then table.insert(seen, { spellID = spellID, count = count }) end
-	end
-	table.sort(seen, function(a, b) return a.count > b.count end)
-	return rows, seen
+	return rows
 end
 
 -- The abilities worth calling out first: written-up ones, deadly/important ones first.
@@ -226,7 +161,7 @@ local function lootRow(doc, item, note, dim)
 end
 
 local function renderOverview(doc, entry)
-	local g, rec = entry.guide or {}, entry.learned
+	local g = entry.guide or {}
 	doc:Paragraph(g.overview, { font = "GameFontNormal", color = { 1, 0.82, 0 } })
 
 	if g.lore then
@@ -265,83 +200,39 @@ local function renderOverview(doc, entry)
 	end
 
 	if not (g.overview or g.lore or s) then
-		doc:Paragraph("No write-up for this boss yet. Its abilities and loot are on the other tabs, "
-			.. "and learning mode keeps recording what your group sees.", { color = { 0.6, 0.6, 0.6 } })
-	end
-
-	if rec then
-		doc:Heading(rec.community and "Seen in play" or "Your group's history")
-		local items, spells = 0, 0
-		for _ in pairs(rec.loot or {}) do items = items + 1 end
-		for _ in pairs(rec.spells or {}) do spells = spells + 1 end
-		doc:Paragraph(string.format("Kills recorded: %d    Different drops seen: %d    Spells seen: %d",
-			rec.kills or 0, items, spells), { font = "GameFontHighlightSmall" })
-		if rec.community then
-			doc:Paragraph("Includes what other players' learning mode shared with the guide.",
-				{ font = "GameFontHighlightSmall", color = { 0.55, 0.55, 0.55 } })
-		end
+		doc:Paragraph("No write-up for this boss yet. Its abilities and loot are on the other tabs.",
+			{ color = { 0.6, 0.6, 0.6 } })
 	end
 end
 
 local function renderAbilities(doc, entry)
-	local rows, seen = buildAbilities(entry)
+	local rows = buildAbilities(entry)
 	if #rows > 0 then doc:Heading("Abilities") end
 	for _, ab in ipairs(rows) do
 		local _, icon, desc = UI.SpellInfo(ab.spellID, UI.QueueRefresh)
 		-- Hand-written notes first; otherwise the spell's own description from the game.
 		doc:Row(icon or UI.UNKNOWN_ICON, ab.name, ab.text or desc, UI.FormatAlerts(ab.alerts), { spellID = ab.spellID })
 	end
-	if #seen > 0 then
-		doc:Heading("Seen in your fights")
-		for _, sp in ipairs(seen) do
-			local name, icon, desc = UI.SpellInfo(sp.spellID, UI.QueueRefresh)
-			doc:Row(icon, name or ("Spell " .. sp.spellID), desc,
-				string.format("|cff888888cast %dx|r", sp.count), { spellID = sp.spellID })
-		end
-	end
-	if #rows == 0 and #seen == 0 then
-		doc:Paragraph("No abilities known yet. With learning mode on, target the boss during the fight "
-			.. "and its spells will show up here.", { color = { 0.6, 0.6, 0.6 } })
+	if #rows == 0 then
+		doc:Paragraph("No abilities written up for this boss yet. They'll be added once they're "
+			.. "documented.", { color = { 0.6, 0.6, 0.6 } })
 	end
 end
 
 local function renderLoot(doc, entry)
-	local confirmed, documented, kills = buildLoot(entry)
-
-	if #confirmed > 0 then
-		doc:Heading("Loot  |cff66ccff(seen in your runs)|r")
-		for _, item in ipairs(confirmed) do
-			local notes = { string.format("|cff66ccffdropped %dx|r", item.count or 1) }
-			if item.isNew then table.insert(notes, "|cff20ff20not in the loot table|r") end
-			table.insert(notes, dropText(item.dropChance))
-			lootRow(doc, item, table.concat(notes, "  "))
-		end
+	local loot = entry.guide and entry.guide.loot or {}
+	if #loot == 0 then
+		doc:Paragraph("No loot known for this boss yet.", { color = { 0.6, 0.6, 0.6 } })
+		return
 	end
-
-	if #documented > 0 then
-		doc:Heading(#confirmed > 0 and "Also in the loot table  |cff888888(not seen yet)|r" or "Loot")
-		for _, item in ipairs(documented) do
-			local note = item.likelyRemoved and string.format("|cffff8040not seen in %d kills|r", kills)
-				or dropText(item.dropChance)
-			lootRow(doc, item, note, item.likelyRemoved)
-		end
-	end
-
-	if #confirmed == 0 and #documented == 0 then
-		doc:Paragraph("No loot known yet. Loot your group finds on this boss will be recorded here.",
-			{ color = { 0.6, 0.6, 0.6 } })
-	elseif kills > 0 then
-		doc:Paragraph(string.format("Updated from %d recorded kill%s. Items that drop move to the top; "
-			.. "listed items that never show up fade out.", kills, kills == 1 and "" or "s"),
-			{ font = "GameFontHighlightSmall", color = { 0.55, 0.55, 0.55 } })
-	end
+	doc:Heading("Loot")
+	for _, item in ipairs(loot) do lootRow(doc, item, dropText(item.dropChance)) end
 end
 
 local function showModel(bp, entry)
 	local model = bp.model
-	local g, rec = entry.guide or {}, entry.learned or {}
-	local displayID = rec.displayID or g.displayID
-	local npcID = rec.npcID or g.npcID
+	local g = entry.guide or {}
+	local displayID, npcID = g.displayID, g.npcID
 	local key = tostring(displayID) .. ":" .. tostring(npcID)
 	if model.shownKey == key then return end -- already showing; keep the user's rotation
 	model.shownKey = key
@@ -355,12 +246,12 @@ local function showModel(bp, entry)
 	end
 	model:SetFacing(0)
 	pcall(model.SetCamDistanceScale, model, 1)
-	-- If nothing loaded, explain how to capture it.
+	-- If nothing loaded, say so.
 	C_Timer.After(1, function()
 		if model.shownKey ~= key then return end -- switched bosses meanwhile
 		local ok, fileID = pcall(model.GetModelFileID, model)
 		if not (ok and fileID) then
-			model.hint:SetText("No model yet.\n\nTarget this boss once with learning mode on and its model will be captured.")
+			model.hint:SetText("No model for this boss yet.")
 		end
 	end)
 end

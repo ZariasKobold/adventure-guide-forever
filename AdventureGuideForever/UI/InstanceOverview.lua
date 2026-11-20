@@ -84,8 +84,7 @@ end
 
 -- Shown at the foot of every instance page.
 AG.CREDITS = "Sources: levels, bosses, abilities, quests, and loot from Wowhead's WoW Forever "
-	.. "database and dungeon guides (wowhead.com/forever), plus what players' learning mode "
-	.. "found. Guide text is written for this addon."
+	.. "database and dungeon guides (wowhead.com/forever). Guide text is written for this addon."
 
 function AG:RenderInstanceOverview(instKey)
 	local doc = self.instanceOverview.doc
@@ -114,8 +113,8 @@ function AG:RenderInstanceOverview(instKey)
 	local bosses = self:GetBossList(instKey)
 	if #bosses == 0 then
 		doc:Heading("Bosses")
-		doc:Paragraph("No bosses known yet. Run this instance with learning mode on, and bosses "
-			.. "will appear here as you kill them.", { color = { 0.6, 0.6, 0.6 } })
+		doc:Paragraph("No bosses known yet. They'll be added once they're documented.",
+			{ color = { 0.6, 0.6, 0.6 } })
 	else
 		doc:Heading("Bosses")
 		for i, entry in ipairs(bosses) do

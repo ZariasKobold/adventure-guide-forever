@@ -167,8 +167,18 @@ local function slotDef(key)
 	for _, s in ipairs(AG.GEAR_SLOTS) do if s.key == key then return s end end
 end
 
--- Filter: { slot, type, stat, minLevel, maxLevel, minQuality, usable, classID, level }.
--- Results are sorted by the chosen stat (highest first), then item level.
+-- Where this item comes from in one instance (a boss, or a quest your faction can take),
+-- best drop chance first, or nil if it isn't found there.
+function AG:SourceIn(itemID, instKey, faction)
+	for _, s in ipairs(self:ItemSources(itemID)) do
+		if s.instKey == instKey and not (s.side and faction and s.side ~= faction) then return s end
+	end
+end
+
+-- Filter: { slot, type, stat, minLevel, maxLevel, minQuality, usable, classID, level,
+-- instance, faction, weights }. instance keeps only what drops (or is a quest reward) there,
+-- and sets each result's source to that place. weights scores each result for a spec.
+-- Results are sorted by the chosen stat (highest first), then score, then item level.
 function AG:FilterGear(f)
 	f = f or {}
 	local slot = f.slot and slotDef(f.slot)
@@ -184,13 +194,21 @@ function AG:FilterGear(f)
 			and (not f.minQuality or (g.quality or 1) >= f.minQuality)
 			and (not f.stat or (item.stats and (item.stats[f.stat] or 0) > 0))
 			and (not f.usable or self:CanUse(item, f.classID, f.level))
+		local source
+		if ok and f.instance then
+			source = self:SourceIn(g.itemID, f.instance, f.faction)
+			ok = source ~= nil
+		end
 		if ok then
 			g.statValue = f.stat and item.stats and item.stats[f.stat] or nil
+			g.score = f.weights and self:ScoreItem(item, f.weights) or nil
+			g.source = source
 			out[#out + 1] = g
 		end
 	end
 	table.sort(out, function(a, b)
 		if (a.statValue or 0) ~= (b.statValue or 0) then return (a.statValue or 0) > (b.statValue or 0) end
+		if (a.score or 0) ~= (b.score or 0) then return (a.score or 0) > (b.score or 0) end
 		if (a.item.itemLevel or 0) ~= (b.item.itemLevel or 0) then return (a.item.itemLevel or 0) > (b.item.itemLevel or 0) end
 		return (a.name or "") < (b.name or "")
 	end)

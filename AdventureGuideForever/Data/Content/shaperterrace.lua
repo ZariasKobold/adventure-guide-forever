@@ -6,5 +6,5 @@ local _, AG = ...
 AG:RegisterContent("shaperterrace", {
 	intro = "A titan site in Un'Goro Crater, new in Forever. Its guide will grow as it's explored.",
 	lore = "Un'Goro Crater was shaped by the titans, and the Shaper's Terrace is one of their places. Little is known yet about what waits inside.",
-	tips = { "No guide has been published for this dungeon yet.", "Run it with learning mode on: bosses, loot and abilities will fill in as you play." },
+	tips = { "No guide has been published for this dungeon yet.", "Bosses, loot and abilities will be added once it is documented." },
 })

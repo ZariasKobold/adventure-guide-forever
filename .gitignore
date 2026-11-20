@@ -17,10 +17,5 @@ desktop.ini
 tools/wowhead/guides.json
 tools/wowhead/guide_report.md
 
-# The share page (worker/): Wrangler's local state and secrets
-worker/node_modules/
-worker/.wrangler/
-worker/.dev.vars
-
 # Adventure Forever Pedometer: its own git repo (github.com/ZariasKobold/adventure-forever-pedometer)
 AdventureForeverPedometer/

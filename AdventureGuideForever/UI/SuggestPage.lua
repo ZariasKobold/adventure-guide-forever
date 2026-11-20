@@ -109,12 +109,14 @@ function AG:CreatePlanBar(docPage)
 	docPage.planBar = bar
 end
 
-local function upgradeNote(diff)
+-- The note for a CompareToEquipped result (the Gear tab uses it too).
+function AG.UpgradeNote(diff)
 	if diff == "equipped" then return "|cff20ff20Equipped|r" end
 	if type(diff) ~= "number" then return "|cff20ff20New slot!|r" end
 	if diff > 0.5 then return string.format("|cff20ff20+%.0f upgrade|r", diff) end
 	return "|cff888888Yours is as good|r"
 end
+local upgradeNote = AG.UpgradeNote
 
 local function sourceText(s)
 	local inst = AG:GetInstance(s.instKey)

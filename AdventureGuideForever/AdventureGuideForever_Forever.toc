@@ -1,8 +1,8 @@
 ## Interface: 16001
 ## Title: Adventure Guide |cff66ccffForever|r
-## Notes: Brings the Adventure Guide back to WoW Forever. Open with Shift+J, the menu bar button, or /ag. Drops-from tooltips, wishlist, briefing cards, and a journey log.
+## Notes: Brings the Adventure Guide back to WoW Forever. Open with Shift+J, the menu bar button, or /ag. Gear finder, drops-from tooltips, wishlist, and briefing cards.
 ## Author: Draconic Designs
-## Version: 0.8.0
+## Version: 0.9.0
 ## X-License: MIT
 ## SavedVariables: AdventureGuideForeverDB
 ## IconTexture: Interface\Icons\INV_Misc_Book_09
@@ -51,14 +51,9 @@ Data\Content\barrowdeeps.lua
 Data\Content\hyjalsummit.lua
 Data\Content\onyxia.lua
 Data\Generated\Wowhead.lua
-Data\Generated\Community.lua
 Data\Generated\Quests.lua
 Data\Generated\Items.lua
-Learn.lua
-Journey.lua
 Wishlist.lua
-Sync.lua
-Share.lua
 Quests.lua
 Search.lua
 Gear.lua
@@ -71,12 +66,10 @@ UI\InstanceList.lua
 UI\InstanceOverview.lua
 UI\InstancePage.lua
 UI\BossPage.lua
-UI\JourneyPage.lua
 UI\GearPage.lua
 UI\SuggestPage.lua
 UI\WishlistPage.lua
 UI\Options.lua
-UI\ShareFrame.lua
 UI\Briefing.lua
 UI\Tooltips.lua
 UI\SearchPage.lua

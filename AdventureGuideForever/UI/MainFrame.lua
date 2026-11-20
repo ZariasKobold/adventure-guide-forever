@@ -1,6 +1,6 @@
 -- The main window: a Blizzard-style portrait frame with bottom tabs, like the retail
 -- Adventure Guide. Holds three views: the instance list, an instance's page, and a document
--- page for the Gear, Wishlist, and Journey tabs.
+-- page for the Gear, Suggested Gear, and Wishlist tabs.
 
 local _, AG = ...
 local UI = AG.UI
@@ -14,11 +14,10 @@ AG.TABS = {
 	{ key = "gear",      label = "Gear" },
 	{ key = "plan",      label = "Suggested Gear" },
 	{ key = "wishlist",  label = "Wishlist" },
-	{ key = "journey",   label = "Journey" },
 }
 
 -- Tabs drawn as a document instead of the card grid.
-local DOC_TABS = { gear = "RenderGear", plan = "RenderPlan", wishlist = "RenderWishlist", journey = "RenderJourney" }
+local DOC_TABS = { gear = "RenderGear", plan = "RenderPlan", wishlist = "RenderWishlist" }
 
 local function setPortrait(frame)
 	local icon = "Interface\\Icons\\INV_Misc_Book_09"
@@ -81,6 +80,17 @@ function AG:CreateMainFrame()
 	-- Close on Escape, like Blizzard panels.
 	table.insert(UISpecialFrames, frame:GetName())
 
+	-- The template's X calls HideUIPanel, which goes through the game's secure panel manager
+	-- and does nothing in combat. Our window isn't a managed panel, so just hide it.
+	frame.onCloseCallback = function() frame:Hide() end
+	local close = frame.CloseButton or _G[frame:GetName() .. "CloseButton"]
+	if close then
+		close:SetScript("OnClick", function()
+			PlaySound(SOUNDKIT.IG_MAINMENU_CLOSE)
+			frame:Hide()
+		end)
+	end
+
 	-- Content area below the title bar.
 	local content = UI.CreateFrame("Frame", nil, frame, "InsetFrameTemplate")
 	content:SetPoint("TOPLEFT", 10, -60)
@@ -90,8 +100,6 @@ function AG:CreateMainFrame()
 	-- Header line: current view title on the left, learning status on the right.
 	frame.header = UI.Text(frame, "GameFontNormalLarge")
 	frame.header:SetPoint("TOPLEFT", 64, -34)
-	frame.learnStatus = UI.Text(frame, "GameFontDisableSmall", "RIGHT")
-	frame.learnStatus:SetPoint("TOPRIGHT", -310, -38)
 	frame.optionsButton = UI.CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
 	frame.optionsButton:SetSize(80, 22)
 	frame.optionsButton:SetPoint("TOPRIGHT", -12, -33)
@@ -174,7 +182,6 @@ function AG:Refresh()
 	local frame = self.frame
 	if not frame then return end
 	if PanelTemplates_SetTab then PanelTemplates_SetTab(frame, self.view.tab) end
-	frame.learnStatus:SetText(self.db.learn and "Learning mode: on" or "Learning mode: off")
 
 	local tabKey = AG.TABS[self.view.tab].key
 	local search = self.view.search

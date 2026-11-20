@@ -19,8 +19,6 @@ function AG:GuideStatus(instKey)
 		end
 		return hasLoot and "|cffffd100Bosses and loot|r" or "|cffffd100Boss list|r"
 	end
-	local learned = self.db.learned[instKey]
-	if learned and next(learned.bosses) then return "|cff66ccffLearned from play|r" end
 	return "|cff888888No guide yet|r"
 end
 
@@ -49,9 +47,6 @@ local function showTooltip(card)
 	if #wishes > 0 then
 		GameTooltip:AddLine(string.format("%s %d wishlist item%s here", AG.UI.STAR, #wishes, #wishes == 1 and "" or "s"), 1, 0.82, 0)
 	end
-	local journey = AG:GetJourney()
-	local visits = journey and journey.instances[inst.key]
-	if visits then GameTooltip:AddLine(string.format("Visited %d time%s", visits.visits, visits.visits == 1 and "" or "s"), 0.7, 0.7, 0.7) end
 	local guide = AG.Guides[inst.key]
 	if guide and guide.intro then GameTooltip:AddLine(guide.intro, 0.85, 0.8, 0.7, true) end
 	GameTooltip:Show()
