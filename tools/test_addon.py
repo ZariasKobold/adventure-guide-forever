@@ -265,6 +265,28 @@ class ForeverRulesTests(unittest.TestCase):
             self.assertRegex(path.read_text(encoding="utf-8"), r"(?m)^local \w+, AG = \.\.\.$",
                              path.name)
 
+    def test_every_addon_method_called_exists(self):
+        # Calls like AG:Foo() (or self:Foo() inside an AG method) only fail in game, when the
+        # code runs. Catch a call to a function that was renamed or deleted (v0.9.0 shipped one).
+        _, ag = load_addon()
+        defined = {k for k in ag.keys() if isinstance(k, str)}
+        call = re.compile(r"\bAG:(\w+)\s*\(")
+        self_call = re.compile(r"\bself:(\w+)\s*\(")
+        for path in toc_files():
+            in_method = False
+            for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+                if re.match(r"function AG:", line):
+                    in_method = True
+                elif line.startswith("end"):
+                    in_method = False
+                code = line.split("--", 1)[0]
+                names = call.findall(code)
+                # A nested function(self) rebinds self to a frame; skip those lines.
+                if in_method and "function(self" not in code and not code.startswith("\t\t"):
+                    names += self_call.findall(code)
+                for name in names:
+                    self.assertIn(name, defined, f"{path.name}:{n}: AG:{name} isn't defined")
+
     def test_compartment_function_exists(self):
         name = re.search(r"## AddonCompartmentFunc: (\w+)", TOC.read_text(encoding="utf-8")).group(1)
         lua, _ = load_addon()

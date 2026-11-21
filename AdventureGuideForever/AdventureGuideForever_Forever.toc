@@ -2,7 +2,7 @@
 ## Title: Adventure Guide |cff66ccffForever|r
 ## Notes: Brings the Adventure Guide back to WoW Forever. Open with Shift+J, the menu bar button, or /ag. Gear finder, drops-from tooltips, wishlist, and briefing cards.
 ## Author: Draconic Designs
-## Version: 0.9.0
+## Version: 0.9.1
 ## X-License: MIT
 ## SavedVariables: AdventureGuideForeverDB
 ## IconTexture: Interface\Icons\INV_Misc_Book_09

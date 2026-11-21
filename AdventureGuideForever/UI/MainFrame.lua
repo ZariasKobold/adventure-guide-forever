@@ -136,7 +136,7 @@ function AG:CreateMainFrame()
 
 	-- Open on the tab that fits: your current instance, else Suggested Content.
 	self.view = { tab = 1 }
-	local here = self:GetCurrentInstanceKey()
+	local here = self:DetectInstance()
 	if here then
 		local inst = self:GetInstance(here)
 		self.view.tab = inst.isRaid and 3 or 2

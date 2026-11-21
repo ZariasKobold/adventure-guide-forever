@@ -178,7 +178,7 @@ local HEADERS = {
 
 function AG:RenderInstanceList(tabKey)
 	local list = self.instanceList
-	local here = self:GetCurrentInstanceKey()
+	local here = self:DetectInstance()
 	self.frame.header:SetText(HEADERS[tabKey]())
 
 	local items = instancesFor(tabKey)
